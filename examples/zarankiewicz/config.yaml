@@ -1,0 +1,100 @@
+max_iterations: 2000
+checkpoint_interval: 100
+log_level: "INFO"
+
+llm:
+  primary_model: "google/gemini-2.0-flash-001"
+  primary_model_weight: 0.8
+  secondary_model: "anthropic/claude-3.7-sonnet"
+  secondary_model_weight: 0.2
+  api_base: "https://openrouter.ai/api/v1"
+  temperature: 0.8
+  max_tokens: 8192
+  timeout: 120
+
+prompt:
+  system_message: |
+    You are an expert in combinatorics and extremal graph theory working on an open
+    research problem. Your task is to construct a 17×17 binary matrix with NO 3×3
+    all-ones submatrix (a K_{3,3}-free bipartite graph), maximizing the number of 1s.
+
+    OPEN PROBLEM: z(17;3) = z(17,17;3,3) is unknown. The best known upper bound is 141
+    (Collins, Riasanovsky, Wallace, Radziszowski 2016, via the Star-Counting Lemma).
+    If you construct a valid matrix with 141 ones, you prove z(17;3) = 141 exactly.
+    The paper explicitly notes their computational attempts to improve the bound failed.
+
+    KEY CONSTRAINT: No 3 rows may share 3 or more common 1-columns.
+    Equivalently: for every choice of 3 rows and 3 columns, at least one of the 9
+    entries must be 0. NOTE: two rows CAN share 3 or more common 1-columns — that
+    is fine. The violation only occurs when a THIRD row also has 1s in all those
+    same columns. So pairwise column overlap is unrestricted; only triple overlaps
+    of size ≥ 3 are forbidden.
+
+    KNOWN VALUES FROM THE PAPER (Table 4, Collins et al. 2016):
+    - z(16;3) = 128 (exact, unique graph) — just one size smaller
+    - z(15;3) = 120 (exact)
+    - z(14;3) = 105 (exact, unique graph)
+    - z(13;3) = 92 (exact, unique graph)
+    - z(16,17;3) ≤ 133, z(15,17;3) ≤ 126 (bounds, not exact)
+    These suggest the 17×17 optimal matrix likely has ~8-9 ones per row.
+
+    STAR-COUNTING BOUND: For a K_{3,3}-free graph on 17+17 vertices with e edges,
+    the degree sequence (d_1,...,d_17) must satisfy:
+      sum_i C(d_i, 3) ≤ 2 * C(17, 3) = 2 * 680 = 1360
+    This limits how many rows can have high degree. With e=141 (avg 8.3/row),
+    most rows have degree 8 or 9. The constraint becomes tight at 141.
+
+    STRATEGIES TO TRY:
+    1. Local search from the best known matrix (shown in the artifact above):
+       Start from that matrix and try flipping individual 0s to 1s. For each
+       candidate flip (i,j), check if any existing pair of rows (besides row i)
+       that both have a 1 in column j now share 2 other columns with row i —
+       that would create a K_{3,3}. If no violation, accept the flip. This is
+       the most direct path to beating the current best.
+    2. Targeted row modification: identify which rows in the best known matrix
+       have the most "safe" columns available (0-entries where adding a 1 would
+       not create a triple overlap). Extend those rows first.
+    3. Swap-based search: take a valid matrix and do (remove edge, add two edges)
+       swaps to increase edge count while staying K_{3,3}-free.
+    4. Non-circulant constructions: the current best is likely a circulant graph.
+       Try breaking the cyclic symmetry — use different offset sets per row, or
+       a quasi-random structure. Algebraic constructions over GF(17) (17 is prime)
+       may yield non-obvious valid graphs.
+    5. Degree sequence targeting: any valid solution with 141 edges must satisfy
+       sum_i C(d_i,3) ≤ 1360. Rows with degree ≥ 10 cost C(10,3)=120 each;
+       rows with degree 9 cost 84; degree 8 costs 56. Budget your degrees accordingly.
+
+    IMPORTANT: Circulant constructions (same offset set for every row) are well-explored
+    and appear to max out below 141. Consider asymmetric or non-uniform structures
+    where different rows use different column patterns.
+
+    The function run_graph() must return a TUPLE (G1, G2) where both G1 and G2 are
+    numpy arrays of shape (17, 17) with integer values 0 or 1.
+    G1 is your primary K_{3,3}-free candidate (maximizing valid edges).
+    G2 is a dense prospect graph — push it toward 141+ edges even if it has some
+    K_{3,3} violations. G2 earns bonus score when it has fewer violations than
+    a random graph of the same density, providing gradient signal.
+  num_top_programs: 3
+  num_diverse_programs: 2
+
+database:
+  population_size: 60
+  archive_size: 30
+  num_islands: 4
+  migration_interval: 25
+  elite_selection_ratio: 0.3
+  exploitation_ratio: 0.65
+  feature_dimensions:
+    - "edge_density"
+    - "row_degree_variance"
+
+evaluator:
+  timeout: 30
+  cascade_evaluation: true
+  cascade_thresholds:
+    - 0.0
+    - 0.1
+  parallel_evaluations: 4
+  use_llm_feedback: false
+
+diff_based_evolution: false
