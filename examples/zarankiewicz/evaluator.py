@@ -26,7 +26,7 @@ def _make_result(metrics, artifacts=None):
         return EvaluationResult(metrics=metrics, artifacts=artifacts or {})
     except ImportError:
         return metrics
-
+#JAY COMMENT: _make_result is not in other evaluators. Is it necessary?
 # Problem parameters (must match initial_program.py)
 N = 17
 S = 3
@@ -75,7 +75,7 @@ def _format_matrix_for_llm(A, label="Best known valid matrix"):
     col_degrees = A.sum(axis=0).astype(int).tolist()
     lines.append("col  " + " ".join(f"{d:2d}" for d in col_degrees))
     return "\n".join(lines)
-
+#JAY COMMENT: Looks right, could be good to run test suite/consider alternate representations
 
 class TimeoutError(Exception):
     pass
@@ -114,7 +114,7 @@ def has_kst(A, s, t):
         if common.sum() >= t:
             return True
     return False
-
+#JAY COMMENT: above 2 functions make logical sense, should consider writing test suites
 
 def run_with_timeout(program_path, timeout_seconds=20):
     """
@@ -229,7 +229,7 @@ def score_graphs(G1, G2=None):
             raw_score = float(num_edges)
     else:
         raw_score = -1.0
-
+        #JAY COMMENT: Is raw_score=-1 as the else best? I bet we could feed model some better info
     # --- G2 prospect bonus (Algorithm 1 lines 9-11) ---
     g2_bonus = 0.0
     if G2 is not None:

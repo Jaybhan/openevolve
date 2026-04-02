@@ -27,6 +27,8 @@ def construct_graphs():
     """
     # G1: circulant baseline — 4 ones per row, known K_{3,3}-free (68 edges)
     # Offsets chosen so no 3 rows share 3+ columns.
+    #JAY COMMENT. What exactly are these graphs doing? What if we switch to a better starting
+    #point, could that be useful? If we are altering algos, why do we have a base graph?
     offsets_g1 = [0, 1, 4, 9]
     G1 = np.zeros((N, N), dtype=int)
     for i in range(N):

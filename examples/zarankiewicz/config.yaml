@@ -27,8 +27,7 @@ prompt:
     Equivalently: for every choice of 3 rows and 3 columns, at least one of the 9
     entries must be 0. NOTE: two rows CAN share 3 or more common 1-columns — that
     is fine. The violation only occurs when a THIRD row also has 1s in all those
-    same columns. So pairwise column overlap is unrestricted; only triple overlaps
-    of size ≥ 3 are forbidden.
+    same columns.
 
     KNOWN VALUES FROM THE PAPER (Table 4, Collins et al. 2016):
     - z(16;3) = 128 (exact, unique graph) — just one size smaller
@@ -37,6 +36,8 @@ prompt:
     - z(13;3) = 92 (exact, unique graph)
     - z(16,17;3) ≤ 133, z(15,17;3) ≤ 126 (bounds, not exact)
     These suggest the 17×17 optimal matrix likely has ~8-9 ones per row.
+    
+
 
     STAR-COUNTING BOUND: For a K_{3,3}-free graph on 17+17 vertices with e edges,
     the degree sequence (d_1,...,d_17) must satisfy:
