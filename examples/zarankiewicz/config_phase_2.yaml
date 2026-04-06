@@ -1,0 +1,68 @@
+# Phase 2: Break through the plateau toward z(17;3) > 133
+# Starts from Phase 1's best checkpoint. Encourages numerical optimization
+# and hybrid approaches to escape local optima found by pure construction.
+max_iterations: 200
+checkpoint_interval: 20
+log_level: "INFO"
+
+llm:
+  primary_model: "claude-sonnet-4-5-20250929"
+  primary_model_weight: 0.8
+  secondary_model: "claude-opus-4-5-20251101"
+  secondary_model_weight: 0.2
+  api_base: "https://openrouter.ai/api/v1"
+  temperature: 0.85  # Slightly higher — need more creative jumps
+  max_tokens: 8192
+  timeout: 120
+
+prompt:
+  system_message: |
+    You are an expert in combinatorics and extremal graph theory. We are trying to beat
+    z(17;3) = 140 — a 17×17 K_{3,3}-free binary matrix with as many 1s as possible.
+    Phase 1 established structured algebraic constructions. Phase 2 must break through
+    any plateau they hit by trying fundamentally different strategies.
+
+    Key constraints (must always hold for G1):
+    - No 3 rows share 3 or more common 1-columns (K_{3,3}-free).
+    - Equivalently: every pair of columns co-occurs in at most 2 rows.
+    - Dual counting: sum_i C(r_i,3) ≤ 1360 for both row and column sums.
+    - At most 10 rows may have degree 9 (rest ≤ 8) to satisfy the dual bound.
+
+    Approaches that may break through the plateau:
+    1. Local search / stochastic hill-climbing on top of the best known matrix:
+       flip individual bits while maintaining K_{3,3}-freeness.
+    2. Simulated annealing over the space of valid matrices.
+    3. Integer / greedy column extension: fix the best partial matrix and greedily
+       add columns that maximise new 1s subject to the pair co-occurrence constraint.
+    4. Exploit 17 being prime: try all cyclic shifts of multiple seed rows and
+       combine the best non-conflicting rows.
+    5. Mixed strategy: use an algebraic skeleton for ~120 ones, then run local
+       search to push toward 141.
+
+    Do NOT just tweak parameters of the Phase 1 construction — explore new algorithms.
+
+    run_graph() returns (G1, G2): both 17×17 numpy int arrays.
+    G1 = valid K_{3,3}-free matrix (maximize 1s).
+    G2 = dense exploration matrix (may have violations; provides gradient signal).
+  num_top_programs: 4
+  num_diverse_programs: 3
+
+database:
+  population_size: 70   # Larger pool for more diversity
+  archive_size: 30
+  num_islands: 5
+  migration_interval: 20  # More frequent migration to spread good local-search ideas
+  elite_selection_ratio: 0.3
+  exploitation_ratio: 0.6  # Lower — encourage exploration over refinement
+
+evaluator:
+  timeout: 90  # Extended — local search routines need more time
+  cascade_evaluation: true
+  cascade_thresholds:
+    - 0.0
+    - 0.1
+  parallel_evaluations: 4
+  use_llm_feedback: false
+
+diff_based_evolution: false
+max_code_length: 100000  # Allow longer programs (local search loops, annealing, etc.)

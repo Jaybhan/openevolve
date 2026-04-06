@@ -1,5 +1,5 @@
-# Configuration for breaking through the circle packing plateau
-max_iterations: 100
+# Configuration for breaking through the circle packing plateau (Phase 3 - extended run)
+max_iterations: 250
 checkpoint_interval: 10
 log_level: "INFO"
 
@@ -16,7 +16,7 @@ llm:
   temperature: 0.7
   top_p: 0.95
   max_tokens: 8192
-  timeout: 600 
+  timeout: 600
 
 # Prompt configuration
 prompt:
@@ -46,7 +46,7 @@ database:
 
 # Evaluator configuration
 evaluator:
-  timeout: 90  # Extended timeout to allow for more complex optimization
+  timeout: 200  # Extended timeout for more complex optimization
   cascade_evaluation: true
   cascade_thresholds: [0.5, 0.8]
   parallel_evaluations: 4
