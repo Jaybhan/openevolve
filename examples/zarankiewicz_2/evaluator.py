@@ -27,7 +27,7 @@ def _make_result(metrics, artifacts=None):
         return metrics
 #JAY COMMENT: _make_result is not in other evaluators. Is it necessary?
 # Problem parameters (must match initial_program.py)
-M = 12
+M = 11
 N = 17
 S = 3
 T = 3
@@ -88,7 +88,7 @@ def count_kst_violations(A, s, t):
     For each s-subset of rows sharing k >= t common 1-columns,
     it contributes C(k, t) violations.
 
-    For M=12, s=t=3: C(12,3) = 220 row-triples to check — fast.
+    For M=11, s=t=3: C(11,3) = 165 row-triples to check — fast.
     """
     m, n = A.shape
     count = 0

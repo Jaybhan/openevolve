@@ -1,4 +1,4 @@
-M = 12  # number of rows
+M = 11  # number of rows
 N = 17  # number of columns
 S = 3   # no K_{S,T} subgraph allowed
 T = 3
@@ -13,7 +13,7 @@ def construct_graphs():
 
     G1 — the primary K_{3,3}-free candidate (maximizing valid 1s).
          No 3 rows may share 3 or more common 1-columns.
-         This is the graph that counts toward z(12,17;3,3).
+         This is the graph that counts toward z(11,17;3,3).
 
     G2 — a dense "prospect" graph (may contain K_{3,3} violations).
          Used to provide gradient signal: even invalid dense graphs
@@ -21,7 +21,7 @@ def construct_graphs():
          G2 should push toward or beyond the upper bound; the evaluator
          rewards G2 for being dense relative to its violation count.
 
-    For z(12,17;3,3): upper bound 108 (target).
+    For z(11,17;3,3): upper bound 96 (target).
 
     Returns:
         (G1, G2): tuple of np.ndarray, each shape (M, N), dtype int, values in {0, 1}
