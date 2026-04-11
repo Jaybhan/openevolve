@@ -1,0 +1,58 @@
+# Phase 2: Break through the plateau toward z(12,17;3,3)
+# Starts from Phase 1's best checkpoint. Encourages numerical optimization
+# and hybrid approaches to escape local optima found by pure construction.
+max_iterations: 200
+checkpoint_interval: 10
+log_level: "INFO"
+
+llm:
+  primary_model: "google/gemini-2.0-flash-001"
+  primary_model_weight: 0.4
+  secondary_model: "anthropic/claude-opus-4.6"
+
+  #Used flash .8, opus .2 in second to last round
+  secondary_model_weight: 0.6
+  api_base: "https://openrouter.ai/api/v1"
+  temperature: 0.7
+  top_p: 0.95
+  max_tokens: 8192
+  timeout: 600
+
+prompt:
+  system_message: |
+    You are an expert mathematician specializing in combinatorics and extremal graph theory. Your task is to improve a constructor function that directly produces a specific 14×20 binary matrix, maximizing the number of 1s while keeping the matrix clear of 3×3 all-ones submatrices (for any combination of 3 rows and 3 columns, at least one of the 9 entries must be 0. You don’t only need to look at the main matrix and see if there are any all 1 3x3 squares, you also need to look at any combination of 3 rows and 3 columns to see if it forms a matrix with all 1 3x3 squares)
+
+    Here are some techniques to get started. Feel free to use them, but do not feel bounded to them in any way, shape, or form.
+    Strong symmetry is likely helpful: search for matrices with cyclic, dihedral, transpose, or other automorphism structure.
+    Near-regular row/column sums are promising; parameterize by degree sequences or partitions rather than arbitrary bit matrices.
+    STRONGLY RECOMMENDED: seed search from algebraic constructions — projective-plane incidences, design/incidence matrices, cyclic difference-set constructions, and structured deletions of these.
+    For parameters near known exact constructions, mutate by deleting or extending rows/columns/edges while preserving low codegree/common-neighborhood counts.
+    Track counts of near-forbidden subconfigurations as a guide for local search moves, while maintaining the no-forbidden-minor constraint as a hard requirement."
+    Search circulant/block-circulant families and small perturbations of them before exploring fully unstructured matrices.
+    For square cases, quotient out row/column permutations and transpose early; many extremal objects are unique only up to these symmetries.
+    Extend smaller good matrices incrementally; literature suggests explicit lower bounds often come from structured extensions rather than exhaustive raw search.
+
+    Randomized search approaches are discouraged; structured and algebraic methods are strongly preferred.
+    Focus on breaking through the plateau by trying fundamentally different approaches - don't just tweak parameters. The record is 140. You must match that. It is of the upmost importance that you make significant improvements to the number of edges, while maintaining validity.
+  num_top_programs: 4
+  num_diverse_programs: 3
+
+database:
+  population_size: 70
+  archive_size: 30
+  num_islands: 5
+  elite_selection_ratio: 0.3
+  exploitation_ratio: 0.6
+
+evaluator:
+  timeout: 90
+  cascade_evaluation: false
+  cascade_thresholds:
+    - 0.0
+    - 0.1
+  parallel_evaluations: 4
+  use_llm_feedback: false
+
+diff_based_evolution: false
+allow_full_rewrites: true  # Definitely allow full rewrites
+max_code_length: 100000
