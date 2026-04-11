@@ -33,7 +33,7 @@ def _make_result(metrics, artifacts=None):
 #JAY COMMENT: _make_result is not in other evaluators. Is it necessary?
 # Problem parameters (must match initial_program.py)
 M = 11
-N = 17
+N = 22
 S = 3
 T = 3
 KST_UPPER_BOUND = 108
@@ -370,5 +370,11 @@ def _zero_metrics():
 
 
 matrix=np.load(os.path.join(os.path.dirname(__file__), ".best_matrix.npy"))
-print(len(matrix[0]))
+print(matrix)
 print(count_kst_violations(matrix, S, T))
+count=0
+for i in matrix:
+    for j in i:
+        if j==1:
+            count+=1
+print(count)
