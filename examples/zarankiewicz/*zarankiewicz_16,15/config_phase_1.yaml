@@ -1,4 +1,4 @@
-# Phase 1: Algebraic and constructive exploration of z(12,17;3,3)
+# Phase 1: Algebraic and constructive exploration of z(16,15;3,3)
 # Goal: establish a strong baseline above 133 using structured constructions.
 # Run for 1000 iterations, then hand the best program to Phase 2.
 max_iterations: 100
@@ -18,7 +18,7 @@ llm:
 
 prompt:
   system_message: |
-    You are an expert mathematician specializing in combinatorics and extremal graph theory. Your task is to improve a constructor function that directly produces a specific 10×21 binary matrix, maximizing the number of 1s while keeping the matrix clear of 3×3 all-ones submatrices (for any combination of 3 rows and 3 columns, at least one of the 9 entries must be 0. You don’t only need to look at the main matrix and see if there are any all 1 3x3 squares, you also need to look at any combination of 3 rows and 3 columns to see if it forms a matrix with all 1 3x3 squares)
+    You are an expert mathematician specializing in combinatorics and extremal graph theory. Your task is to improve a constructor function that directly produces a specific 16×15 binary matrix, maximizing the number of 1s while keeping the matrix clear of 3×3 all-ones submatrices (for any combination of 3 rows and 3 columns, at least one of the 9 entries must be 0. You don’t only need to look at the main matrix and see if there are any all 1 3x3 squares, you also need to look at any combination of 3 rows and 3 columns to see if it forms a matrix with all 1 3x3 squares)
 
     Here are some techniques to get started. Feel free to use them, but do not feel bounded to them in any way, shape, or form.
     Strong symmetry is likely helpful: search for matrices with cyclic, dihedral, transpose, or other automorphism structure.

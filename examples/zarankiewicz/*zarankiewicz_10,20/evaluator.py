@@ -28,10 +28,10 @@ def _make_result(metrics, artifacts=None):
 #JAY COMMENT: _make_result is not in other evaluators. Is it necessary?
 # Problem parameters (must match initial_program.py)
 M = 10
-N = 21
+N = 20
 S = 3
 T = 3
-KST_UPPER_BOUND = 108
+KST_UPPER_BOUND = 102
 
 # Shared state: track current best valid edge count across evaluations (n_SOTA).
 # Stored in a file so worker processes can read it.

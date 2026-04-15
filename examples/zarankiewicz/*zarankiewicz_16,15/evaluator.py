@@ -27,11 +27,11 @@ def _make_result(metrics, artifacts=None):
         return metrics
 #JAY COMMENT: _make_result is not in other evaluators. Is it necessary?
 # Problem parameters (must match initial_program.py)
-M = 10
-N = 21
+M = 16
+N = 15
 S = 3
 T = 3
-KST_UPPER_BOUND = 108
+KST_UPPER_BOUND = 123
 
 # Shared state: track current best valid edge count across evaluations (n_SOTA).
 # Stored in a file so worker processes can read it.
@@ -88,7 +88,7 @@ def count_kst_violations(A, s, t):
     For each s-subset of rows sharing k >= t common 1-columns,
     it contributes C(k, t) violations.
 
-    For M=10, s=t=3: C(10,3) = 120 row-triples to check — fast.
+    For M=16, s=t=3: C(16,3) = 560 row-triples to check — fast.
     """
     m, n = A.shape
     count = 0

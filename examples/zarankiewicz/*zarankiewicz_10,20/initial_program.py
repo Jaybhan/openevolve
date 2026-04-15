@@ -1,5 +1,5 @@
 M = 10  # number of rows
-N = 21  # number of columns
+N = 20  # number of columns
 S = 3   # no K_{S,T} subgraph allowed
 T = 3
 
@@ -13,7 +13,7 @@ def construct_graphs():
 
     G1 — the primary K_{3,3}-free candidate (maximizing valid 1s).
          No 3 rows may share 3 or more common 1-columns.
-         This is the graph that counts toward z(10,21;3,3).
+         This is the graph that counts toward z(10,20;3,3).
 
     G2 — a dense "prospect" graph (may contain K_{3,3} violations).
          Used to provide gradient signal: even invalid dense graphs
@@ -21,14 +21,14 @@ def construct_graphs():
          G2 should push toward or beyond the upper bound; the evaluator
          rewards G2 for being dense relative to its violation count.
 
-    For z(10,21;3,3): upper bound 108 (target).
+    For z(10,20;3,3): upper bound 102 (target).
 
     Returns:
         (G1, G2): tuple of np.ndarray, each shape (M, N), dtype int, values in {0, 1}
     """
-    # G1: circulant-style baseline — 10 ones per row (row offsets mod N=21)
-    # Offsets chosen for N=21; spread to reduce triple-column overlaps.
-    offsets_g1 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 20]
+    # G1: circulant-style baseline — 10 ones per row (row offsets mod N=20)
+    # Offsets chosen for N=20; spread to reduce triple-column overlaps.
+    offsets_g1 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 19]
     G1 = np.zeros((M, N), dtype=int)
     for i in range(M):
         for d in offsets_g1:
@@ -36,7 +36,7 @@ def construct_graphs():
 
     # G2: same structure as G1 to start; the LLM should evolve G2 to be
     # denser while keeping violations below expected-random count.
-    offsets_g2 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 20]
+    offsets_g2 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 19]
     G2 = np.zeros((M, N), dtype=int)
     for i in range(M):
         for d in offsets_g2:
@@ -46,7 +46,7 @@ def construct_graphs():
 
 
 def run_graph():
-    """Fixed interface called by the evaluator. Returns (G1, G2)."""
+    """Fixed interface called by the evaluator. Returns (G1, G2)."""""
     return construct_graphs()
 # EVOLVE-BLOCK-END
 

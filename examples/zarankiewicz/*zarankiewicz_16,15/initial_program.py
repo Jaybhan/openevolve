@@ -1,5 +1,5 @@
-M = 10  # number of rows
-N = 21  # number of columns
+M = 16  # number of rows
+N = 15  # number of columns
 S = 3   # no K_{S,T} subgraph allowed
 T = 3
 
@@ -13,7 +13,7 @@ def construct_graphs():
 
     G1 — the primary K_{3,3}-free candidate (maximizing valid 1s).
          No 3 rows may share 3 or more common 1-columns.
-         This is the graph that counts toward z(10,21;3,3).
+         This is the graph that counts toward z(16,15;3,3).
 
     G2 — a dense "prospect" graph (may contain K_{3,3} violations).
          Used to provide gradient signal: even invalid dense graphs
@@ -21,32 +21,35 @@ def construct_graphs():
          G2 should push toward or beyond the upper bound; the evaluator
          rewards G2 for being dense relative to its violation count.
 
-    For z(10,21;3,3): upper bound 108 (target).
+    For z(16,15;3,3): upper bound 123 (target).
 
     Returns:
         (G1, G2): tuple of np.ndarray, each shape (M, N), dtype int, values in {0, 1}
     """
-    # G1: circulant-style baseline — 10 ones per row (row offsets mod N=21)
-    # Offsets chosen for N=21; spread to reduce triple-column overlaps.
-    offsets_g1 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 20]
+    # G1: circulant-style baseline — 7 ones per row (row offsets mod N=15)
+    # Offsets chosen for N=15; spread to reduce triple-column overlaps.
+    offsets_g1 = [0, 2, 5, 8, 11, 13, 14]
     G1 = np.zeros((M, N), dtype=int)
-    for i in range(M):
+    for i in range(M - 1):  # rows 0-14: circulant shift mod N
         for d in offsets_g1:
             G1[i, (i + d) % N] = 1
+    # Row 15: different offsets to avoid being identical to row 0 (M > N wrap)
+    for d in [1, 3, 6, 9, 11, 13, 14]:
+        G1[M - 1, d] = 1
 
-    # G2: same structure as G1 to start; the LLM should evolve G2 to be
-    # denser while keeping violations below expected-random count.
-    offsets_g2 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 20]
+    offsets_g2 = [0, 2, 5, 8, 11, 13, 14]
     G2 = np.zeros((M, N), dtype=int)
-    for i in range(M):
+    for i in range(M - 1):
         for d in offsets_g2:
             G2[i, (i + d) % N] = 1
+    for d in [1, 3, 6, 9, 11, 13, 14]:
+        G2[M - 1, d] = 1
 
     return G1, G2
 
 
 def run_graph():
-    """Fixed interface called by the evaluator. Returns (G1, G2)."""
+    """Fixed interface called by the evaluator. Returns (G1, G2)."""""
     return construct_graphs()
 # EVOLVE-BLOCK-END
 
