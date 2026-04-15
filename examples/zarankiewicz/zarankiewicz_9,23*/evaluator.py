@@ -31,7 +31,7 @@ M = 9
 N = 23
 S = 3
 T = 3
-KST_UPPER_BOUND = 108
+KST_UPPER_BOUND = 104
 
 # Shared state: track current best valid edge count across evaluations (n_SOTA).
 # Stored in a file so worker processes can read it.

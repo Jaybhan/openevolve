@@ -33,7 +33,7 @@ prompt:
     Extend smaller good matrices incrementally; literature suggests explicit lower bounds often come from structured extensions rather than exhaustive raw search.
 
     Randomized search approaches are discouraged; structured and algebraic methods are strongly preferred.
-    Focus on breaking through the plateau by trying fundamentally different approaches - don't just tweak parameters. The record is 108. You must match that. It is of the upmost importance that you make significant improvements to the number of edges, while maintaining validity.
+    Focus on breaking through the plateau by trying fundamentally different approaches - don't just tweak parameters. The record is 104. You must match that. It is of the upmost importance that you make significant improvements to the number of edges, while maintaining validity.
   num_top_programs: 4
   num_diverse_programs: 3
 
