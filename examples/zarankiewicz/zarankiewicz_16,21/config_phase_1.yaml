@@ -6,7 +6,7 @@ checkpoint_interval: 10
 log_level: "INFO"
 
 llm:
-  primary_model: "google/gemini-2.0-flash-001"
+  primary_model: "google/4"
   primary_model_weight: 0.6
   secondary_model: "anthropic/claude-3.7-sonnet"
   secondary_model_weight: 0.4
