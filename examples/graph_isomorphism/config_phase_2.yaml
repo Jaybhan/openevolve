@@ -6,7 +6,7 @@ checkpoint_interval: 10
 log_level: "INFO"
 
 llm:
-  primary_model: "google/gemini-2.0-flash-001"
+  primary_model: "meta-llama/llama-3.3-70b-instruct"
   primary_model_weight: 0.6
   secondary_model: "anthropic/claude-opus-4.6"
   secondary_model_weight: 0.4
@@ -24,8 +24,7 @@ prompt:
     HARD CONSTRAINTS — your solution MUST satisfy both:
     1. POLYNOMIAL TIME: The algorithm must run in O(n^k) for some fixed constant k, where
        n is the number of vertices. Exponential-time algorithms (e.g., brute-force over all
-       n! permutations) will have their score multiplied by 0.35 — a ~3x penalty that strongly
-       discourages non-polynomial approaches. This is enforced by an LLM judge.
+       n! permutations) will receive a score of -1, disqualifying them entirely.
     2. GENERALIZATION: The algorithm must work on ANY pair of graphs, not just specific
        families or sizes. The test suite is freshly randomly generated each round, making
        memorization impossible and counterproductive.
@@ -114,7 +113,17 @@ prompt:
 
     Focus on breaking through plateaus by trying fundamentally different approaches —
     don't just tweak parameters. Target hard graph families: regular graphs, strongly
-    regular graphs, and graphs with large automorphism groups.
+    regular graphs, and graphs with large automorphism groups. Recall the importance of staying in polytime.
+
+    SCORING:
+    - Scores range from 0 to 1 (fraction of cases correct).
+    - Non-polynomial algorithms receive -1 and are disqualified.
+    - Evaluation is staged: programs scoring >0.8 are tested on 60 harder cases (larger
+      graphs, Paley graphs up to n=97); programs scoring 1.0 on the base suite face 100
+      additional stress cases (n up to 200, Paley up to n=197).
+    - A program that scores 1.0 across ALL stages and convinces a second Sonnet judge that
+      it is provably correct and polynomial for every possible input receives a score of 100
+      — the jackpot reserved for proving GI ∈ P.
   num_top_programs: 4
   num_diverse_programs: 3
 

@@ -6,7 +6,7 @@ checkpoint_interval: 10
 log_level: "INFO"
 
 llm:
-  primary_model: "google/gemini-2.0-flash-001"
+  primary_model: "meta-llama/llama-3.3-70b-instruct"
   primary_model_weight: 0.4
   secondary_model: "anthropic/claude-opus-4.6"
   secondary_model_weight: 0.6
@@ -24,8 +24,7 @@ prompt:
     HARD CONSTRAINTS — your solution MUST satisfy both:
     1. POLYNOMIAL TIME: The algorithm must run in O(n^k) for some fixed constant k, where
        n is the number of vertices. Exponential-time algorithms (e.g., brute-force over all
-       n! permutations) will have their score multiplied by 0.35 — a ~3x penalty that strongly
-       discourages non-polynomial approaches. This is enforced by an LLM judge.
+       n! permutations) will receive a score of -1, disqualifying them entirely.
     2. GENERALIZATION: The algorithm must work on ANY pair of graphs, not just specific
        families or sizes. The test suite is freshly randomly generated each round, making
        memorization impossible and counterproductive.
@@ -116,7 +115,18 @@ prompt:
     Focus on making significant improvements to correctness on ALL graph families —
     particularly k-regular graphs and strongly regular graphs which are hardest for
     simple heuristics. It is of the utmost importance that you achieve near-perfect
-    accuracy. Push beyond the n^O(log n) quasi-polynomial regime to polynomial time.
+    accuracy. Push beyond the best known n^O(log n) quasi-polynomial regime to polynomial time.
+
+    SCORING:
+    - Scores range from 0 to 1 (fraction of cases correct).
+    - Non-polynomial algorithms receive -1 and are disqualified.
+    - Evaluation is staged: programs scoring >0.8 face 60 harder cases; programs scoring
+      1.0 on the base suite face 100 additional stress cases (Paley graphs up to n=197,
+      regular graphs up to n=40, Erdős–Rényi up to n=60).
+    - A program that scores 1.0 across ALL three stages and convinces a Sonnet judge — acting
+      as a rigorous theoretical CS skeptic — that the algorithm is provably correct and
+      polynomial for every possible graph input receives a score of 100. This is the jackpot:
+      a genuine proof that Graph Isomorphism is in P.
   num_top_programs: 4
   num_diverse_programs: 3
 

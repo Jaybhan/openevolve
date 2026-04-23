@@ -6,7 +6,7 @@ checkpoint_interval: 10
 log_level: "INFO"
 
 llm:
-  primary_model: "google/gemini-2.0-flash-001"
+  primary_model: "meta-llama/llama-3.3-70b-instruct"
   primary_model_weight: 0.6
   secondary_model: "anthropic/claude-3.7-sonnet"
   secondary_model_weight: 0.4
@@ -24,8 +24,7 @@ prompt:
     HARD CONSTRAINTS — your solution MUST satisfy both:
     1. POLYNOMIAL TIME: The algorithm must run in O(n^k) for some fixed constant k, where
        n is the number of vertices. Exponential-time algorithms (e.g., brute-force over all
-       n! permutations) will have their score multiplied by 0.35 — a ~3x penalty that strongly
-       discourages non-polynomial approaches. This is enforced by an LLM judge.
+       n! permutations) will receive a score of -1, disqualifying them entirely. 
     2. GENERALIZATION: The algorithm must work on ANY pair of graphs, not just specific
        families or sizes. The test suite is freshly randomly generated each round, making
        memorization impossible and counterproductive.
@@ -124,7 +123,7 @@ database:
   exploitation_ratio: 0.7
 
 evaluator:
-  timeout: 60
+  timeout: 90
   cascade_evaluation: false
   cascade_thresholds:
     - 0.0
