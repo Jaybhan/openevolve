@@ -1,0 +1,136 @@
+# Phase 1: Broad exploration of graph isomorphism algorithms
+# Goal: establish strong polynomial-time baselines using WL refinement and canonical forms.
+# Run for 100 iterations, then hand the best program to Phase 2.
+max_iterations: 100
+checkpoint_interval: 10
+log_level: "INFO"
+
+llm:
+  primary_model: "google/gemini-2.0-flash-001"
+  primary_model_weight: 0.6
+  secondary_model: "anthropic/claude-3.7-sonnet"
+  secondary_model_weight: 0.4
+  api_base: "https://openrouter.ai/api/v1"
+  temperature: 0.7
+  top_p: 0.95
+  max_tokens: 8192
+  timeout: 600
+
+prompt:
+  system_message: |
+    You are an expert in graph theory and algorithm design. Your task is to improve a
+    graph isomorphism solver.
+
+    HARD CONSTRAINTS — your solution MUST satisfy both:
+    1. POLYNOMIAL TIME: The algorithm must run in O(n^k) for some fixed constant k, where
+       n is the number of vertices. Exponential-time algorithms (e.g., brute-force over all
+       n! permutations) will have their score multiplied by 0.35 — a ~3x penalty that strongly
+       discourages non-polynomial approaches. This is enforced by an LLM judge.
+    2. GENERALIZATION: The algorithm must work on ANY pair of graphs, not just specific
+       families or sizes. The test suite is freshly randomly generated each round, making
+       memorization impossible and counterproductive.
+
+    PROBLEM DEFINITION:
+    - Input: G1, G2 — undirected graphs as n×n adjacency matrices (0/1 values)
+    - Output: a permutation list perm of length n such that G1[perm[i]][perm[j]] == G2[i][j]
+              for all i, j. Return None if no such permutation exists (graphs not isomorphic).
+
+    STRATEGIES AND TECHNIQUES (ordered from simple to advanced):
+
+    1. DEGREE SEQUENCE CHECK (O(n log n)):
+       - If sorted degree sequences differ → immediately return None.
+       - Use as a fast pre-filter.
+
+    2. VERTEX INVARIANTS (O(n²)):
+       - Assign each vertex a tuple-invariant: (degree, sorted neighbor degrees, triangle count, ...)
+       - Vertices in G1 and G2 must have matching invariants to be mapped to each other.
+       - Group vertices by invariant; only try mappings within same-invariant groups.
+
+    3. COLOR REFINEMENT / 1-WL (O(n² log n)):
+       - Initialize color[v] = degree(v).
+       - Iterate: new_color[v] = hash(color[v], sorted(color[u] for u in neighbors(v)))
+       - Repeat until stable. If color histograms of G1 and G2 diverge → not isomorphic.
+       - Use stable colors to constrain the search (only map same-color vertices together).
+
+    4. k-DIMENSIONAL WEISFEILER-LEMAN (k-WL):
+       - Generalization to k-tuples. 2-WL and 3-WL identify more graph pairs.
+       - O(n^k * k) per iteration, O(n^k) space — trade-off between power and cost.
+
+    5. INDIVIDUALIZATION + REFINEMENT (backbone of NAUTY/Traces — practical polynomial):
+       - Pick an unresolved vertex v in G1, assign it to a candidate vertex w in G2.
+       - Run color refinement to propagate constraints.
+       - If conflict → backtrack (prune). If all matched → verify and return.
+       - Key insight: WL refinement makes the branching factor very small on most graphs.
+       - Complexity: polynomial in practice, quasi-polynomial in worst case.
+
+    6. CANONICAL LABELING (NAUTY approach):
+       - Compute a canonical adjacency matrix for G1 and G2 independently.
+       - If canonical forms differ → not isomorphic.
+       - The bijection between G1 and its canonical form, composed with G2's bijection,
+         gives the isomorphism.
+       - Compute canonical label: sort vertex orderings lexicographically by their
+         WL-stable colors, with tie-breaking via deeper invariants.
+
+    7. VF2 ALGORITHM (practical for n < 50):
+       - State-space search with feasibility pruning rules:
+         * Degree constraint: perm[i] must have same degree in G2 as i in G1
+         * Neighbor constraint: mapped neighbors must be adjacent in G2
+         * Look-ahead: count unmapped neighbors consistently
+       - Works well in practice; worst case exponential but rare.
+
+    8. BABAI'S QUASI-POLYNOMIAL ALGORITHM (n^O(log n)):
+       - Reduction: Graph Isomorphism → String Isomorphism over Johnson scheme.
+       - Key insight: split into two cases:
+         (a) Graph has a "giant" automorphism group (Johnson-like structure) →
+             use group-theoretic techniques to resolve efficiently.
+         (b) Graph has bounded structure locally →
+             individualize one vertex, recurse on smaller subproblem.
+       - Local Certificates lemma: if no giant symmetric substructure exists,
+         certificate generation takes quasi-polynomial time.
+       - In practice: implement individualization + refinement with automorphism
+         group pruning to approach this complexity.
+
+    9. TREE ISOMORPHISM (O(n log n)) — for near-tree instances:
+       - AHU canonical labeling: assign canonical labels bottom-up in rooted tree.
+       - Extend to bounded-treewidth graphs via tree decomposition.
+
+    EVOLUTIONARY HISTORY — approaches that previously succeeded:
+    - Combining WL color refinement (pass 1) with individualization + backtracking (pass 2)
+      reliably solved >85% of test cases within polynomial time.
+    - Using multi-hop neighborhood hash as vertex invariant (include 2-hop and 3-hop neighbor
+      degree sequences) significantly reduced search space vs degree-only hashing.
+    - Early empirical finding: sorting candidates by invariant match score before trying them
+      dramatically pruned VF2-style backtracking.
+    - Quasi-polynomial performance was approached by combining canonical labeling with
+      automorphism group orbit pruning: if two candidate mappings are in the same orbit of
+      Aut(G1), only try one of them.
+
+    IMPLEMENTATION TIPS:
+    - Use Python dicts/tuples for color hashing; frozenset for unordered neighbor sets.
+    - Pre-compute all vertex invariants once before any search.
+    - Implement WL as an iterative fixed-point loop (stop when colors stop changing).
+    - For backtracking, use a stack-based or recursive DFS with early pruning.
+    - numpy is available for matrix operations if needed.
+
+    Focus on establishing a solid, correct baseline — correctness and generalization first,
+    then optimize for harder graph families.
+  num_top_programs: 3
+
+database:
+  population_size: 60
+  archive_size: 25
+  num_islands: 4
+  elite_selection_ratio: 0.3
+  exploitation_ratio: 0.7
+
+evaluator:
+  timeout: 60
+  cascade_evaluation: false
+  cascade_thresholds:
+    - 0.0
+    - 0.1
+  parallel_evaluations: 4
+  use_llm_feedback: false
+
+diff_based_evolution: false
+allow_full_rewrites: true
