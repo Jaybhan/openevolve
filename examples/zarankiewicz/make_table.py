@@ -15,6 +15,7 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import matplotlib.colors as mcolors
+import matplotlib.ticker
 import numpy as np
 
 # ── Data collection ───────────────────────────────────────────────────────────
@@ -68,16 +69,33 @@ for name in sorted(os.listdir(BASE)):
 # Previously established upper bounds for cells without an OpenEvolve run.
 # Keys are (m, n); values are the KST / literature upper bounds.
 STATIC_BOUNDS = {
-    (9, 17): 81,  (9, 18): 85,  (9, 19): 89,  (9, 20): 93,  (9, 21): 96,  (9, 22): 100,
-    (10, 17): 90, (10, 18): 94, (10, 19): 98,  (10, 20): 102,
-    (11, 17): 96, (11, 18): 101,
+    (8, 16): 70, (9, 16): 77, (10, 16): 85, (11, 16): 92, (12, 16): 99, (13, 16): 107, (14, 16): 115,
+    (8, 17): 74,  (8, 18): 77,  (8, 19): 81,  (8, 20): 84,  (8, 21): 87,  (8, 22): 90,
+    (9, 17): 81,  (9, 18): 85,  (9, 19): 89,  (9, 20): 93,  (9, 21): 96,
+    (10, 17): 90, (10, 18): 94, (10, 19): 98,
+    (11, 17): 96,
+}
+
+# Gray cells displayed with both lower and upper bound (both = same value, gap = 0),
+# but background kept gray (not teal).
+GRAY_COMPUTED = {
+    (8, 23): 94,
+    (9, 22): 100,
+    (15, 16): 123,
+    (16, 16): 128,
+}
+
+# Gray cells with distinct lower/upper bounds (lower bold on top, upper below, gray background).
+GRAY_MANUAL = {
+    (10, 20): (99, 102),
+    (11, 18): (97, 101),
 }
 
 rows.sort(key=lambda r: (r[0], r[1]))
 
-# Expand all_x / all_y to cover static-bound cells too
-all_x = sorted({r[0] for r in rows} | {k[0] for k in STATIC_BOUNDS})
-all_y = sorted({r[1] for r in rows} | {k[1] for k in STATIC_BOUNDS})
+# Expand all_x / all_y to cover static-bound and gray-computed cells too
+all_x = sorted({r[0] for r in rows} | {k[0] for k in STATIC_BOUNDS} | {k[0] for k in GRAY_COMPUTED} | {k[0] for k in GRAY_MANUAL})
+all_y = sorted({r[1] for r in rows} | {k[1] for k in STATIC_BOUNDS} | {k[1] for k in GRAY_COMPUTED} | {k[1] for k in GRAY_MANUAL})
 xi = {v: i for i, v in enumerate(all_x)}
 yi = {v: i for i, v in enumerate(all_y)}
 
@@ -113,24 +131,25 @@ fig_h = cell_h * nx + 0.9
 fig, ax = plt.subplots(figsize=(fig_w, fig_h))
 
 # ── Colour map ────────────────────────────────────────────────────────────────
-# Optimal (gap=0) → deep teal; larger gap → pale yellow → orange-red
-OPTIMAL_COLOR = "#2a7d6e"
-GAP_CMAP_NAME = "YlOrRd"
+# pale yellow = small gap (close to optimal), deep red = large gap (far from optimal)
+GAP_CMAP_NAME = "YlOrRd_r"
 
 max_gap = int(np.nanmax(gap_mat)) if not np.all(np.isnan(gap_mat)) else 1
 gap_cmap  = plt.get_cmap(GAP_CMAP_NAME)
-gap_norm  = mcolors.Normalize(vmin=1, vmax=max_gap)
+gap_norm  = mcolors.Normalize(vmin=0, vmax=max_gap)
 
-MISSING_COLOR = "#e8e8e8"
+MISSING_COLOR = "#f0cdb8"   # warm pink/tan for previously established bounds
 
 # Draw cells manually so we can mix optimal colour with gradient
 for i, x in enumerate(all_x):
     for j, y in enumerate(all_y):
         g = gap_mat[i, j]
         static_ub = STATIC_BOUNDS.get((x, y))
+        gray_val = GRAY_COMPUTED.get((x, y))
+        gray_manual = GRAY_MANUAL.get((x, y))
 
         if not np.isnan(g):
-            fc = OPTIMAL_COLOR if g == 0 else gap_cmap(gap_norm(g))
+            fc = gap_cmap(gap_norm(g))
         else:
             fc = MISSING_COLOR
 
@@ -148,13 +167,20 @@ for i, x in enumerate(all_x):
             # Computed cell: show lower (bold) over upper
             lo = int(lower_mat[i, j])
             up = int(upper_mat[i, j])
-            text_color = "white" if (g == 0 or g >= max_gap * 0.55) else "#222222"
+            text_color = "white" if g <= max_gap * 0.45 else "#222222"
             ax.text(
                 j, i + 0.13, str(lo),
                 ha="center", va="center",
                 fontsize=6, fontweight="bold",
                 color=text_color, zorder=3,
             )
+            if g == 0:
+                ax.text(
+                    j + 0.28, i + 0.26, "*",
+                    ha="center", va="center",
+                    fontsize=8, fontweight="bold",
+                    color=text_color, zorder=3,
+                )
             ax.text(
                 j, i - 0.16, str(up),
                 ha="center", va="center",
@@ -164,6 +190,49 @@ for i, x in enumerate(all_x):
             ax.plot(
                 [j - 0.22, j + 0.22], [i - 0.01, i - 0.01],
                 color=text_color, lw=0.4, alpha=0.5, zorder=3,
+            )
+        elif gray_manual is not None:
+            # Gray manual: distinct lower/upper, gray background
+            lo, up = gray_manual
+            ax.text(
+                j, i + 0.13, str(lo),
+                ha="center", va="center",
+                fontsize=6, fontweight="bold",
+                color="#222222", zorder=3,
+            )
+            ax.text(
+                j, i - 0.16, str(up),
+                ha="center", va="center",
+                fontsize=5.5,
+                color="#222222", alpha=0.85, zorder=3,
+            )
+            ax.plot(
+                [j - 0.22, j + 0.22], [i - 0.01, i - 0.01],
+                color="#222222", lw=0.4, alpha=0.5, zorder=3,
+            )
+        elif gray_val is not None:
+            # Gray computed: both lower and upper = gray_val, gray background
+            ax.text(
+                j, i + 0.13, str(gray_val),
+                ha="center", va="center",
+                fontsize=6, fontweight="bold",
+                color="#222222", zorder=3,
+            )
+            ax.text(
+                j + 0.28, i + 0.26, "*",
+                ha="center", va="center",
+                fontsize=8, fontweight="bold",
+                color="#222222", zorder=3,
+            )
+            ax.text(
+                j, i - 0.16, str(gray_val),
+                ha="center", va="center",
+                fontsize=5.5,
+                color="#222222", alpha=0.85, zorder=3,
+            )
+            ax.plot(
+                [j - 0.22, j + 0.22], [i - 0.01, i - 0.01],
+                color="#222222", lw=0.4, alpha=0.5, zorder=3,
             )
         elif static_ub is not None:
             # Previously established: show upper bound centred, in muted italic
@@ -202,11 +271,10 @@ cbar = fig.colorbar(sm, ax=ax, pad=0.02, fraction=0.025, aspect=30)
 cbar.set_label("Gap  (upper − lower)", labelpad=6, fontsize=8)
 cbar.outline.set_linewidth(0.4)
 cbar.ax.tick_params(labelsize=7)
+cbar.ax.yaxis.set_major_locator(matplotlib.ticker.MaxNLocator(integer=True, nbins=6))
 
 # ── Legend ────────────────────────────────────────────────────────────────────
 legend_handles = [
-    mpatches.Patch(facecolor=OPTIMAL_COLOR, edgecolor="#999", linewidth=0.4,
-                   label="Optimal  (gap = 0)"),
     mpatches.Patch(facecolor=MISSING_COLOR, edgecolor="#999", linewidth=0.4,
                    label="Previously established"),
 ]
