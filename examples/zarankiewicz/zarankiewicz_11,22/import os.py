@@ -378,3 +378,13 @@ for i in matrix:
         if j==1:
             count+=1
 print(count)
+
+matrix=np.load(os.path.join(os.path.dirname(__file__), ".best_matrix.npy"))
+print(len(matrix), len(matrix[0]))
+count=0
+for i in matrix:
+    for j in i:
+        if j==1:
+            count+=1
+print(matrix)
+print(count_kst_violations(matrix, S, T))
