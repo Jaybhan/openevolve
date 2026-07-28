@@ -56,3 +56,7 @@ htmlcov/
 # For SR
 secrets.yaml
 problems
+
+# Zarankiewicz archives
+examples/zarankiewicz/zarankiewicz_generalized/run*
+examples/zarankiewicz/zarankiewicz_generalized/prompt_dumps

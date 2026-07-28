@@ -1,58 +1,110 @@
-M = 10  # number of rows
-N = 21  # number of columns
-S = 3   # no K_{S,T} subgraph allowed
-T = 3
-
 # EVOLVE-BLOCK-START
+"""z(M,N;3,3) from ONE principle: a cyclic difference family on Z_M.
+
+Rows are the residues Z_M.  Column j carries the block
+
+        B_j = { j + d  (mod M) :  d in D_{c(j)} },      c(j) = j // M
+
+so the matrix is a stack of circulant strips: within a strip every column
+is a translate of one base block and the row group Z_M acts on it, and each
+successive strip rotates the base block to a fresh offset set.
+
+Why this is K_{3,3}-free.  Two rows a, b lie in a common column j exactly
+when b - a is a difference of the base block D_{c(j)}.  So the number of
+columns containing both a and b is the multiplicity of b - a in the pooled
+difference multiset of the base blocks.  If every nonzero residue occurs at
+most twice there, then every PAIR of rows shares at most 2 columns, and
+since a triple's common columns sit inside any of its pairs', every TRIPLE
+shares at most 2 as well.  That is exactly the K_{3,3} condition, obtained
+from a statement about differences alone -- no triple ever has to be
+inspected.
+
+Choosing D.  The base blocks are prefixes of the triangular offsets
+T = ( 0, 1, 3, 6, 10, 15, ... ),  t_i = i(i+1)/2 mod M, a closed-form
+Sidon-like sequence: the difference t_i - t_j = (i-j)(i+j+1)/2 is
+determined by the pair (i-j, i+j), so collisions are rare and the
+difference multiset is about as flat as a formula can make it.  The block
+size k comes from the counting bound sum_j C(c_j, 3) <= 2 C(M, 3), which
+says how large the blocks may be before triples must repeat.
+
+Repair.  Flatness is not exactness: for some M a difference does land three
+times.  The last step is a canonical deletion -- scan triples in lex order
+and drop the highest-indexed offending entry -- which is a deterministic
+function of the matrix, not a search.
+"""
+
 import numpy as np
+from math import comb
+
+S = 3          # rows in the forbidden K_{s,t}
+T = 3          # columns in the forbidden K_{s,t}
+LAMBDA = T - 1  # a pair of rows may share at most this many columns
 
 
-def construct_graphs():
+def _block_size(M, N):
+    """Largest uniform block size the counting bound still allows.
+
+    Every column of degree c uses up C(c, S) of the row-triple budget, and
+    the budget is (T-1) * C(M, S).  Solve N * C(k, S) <= budget for k.
     """
-    Construct two M×N 0-1 adjacency matrices:
-
-    G1 — the primary K_{3,3}-free candidate (maximizing valid 1s).
-         No 3 rows may share 3 or more common 1-columns.
-         This is the graph that counts toward z(10,21;3,3).
-
-    G2 — a dense "prospect" graph (may contain K_{3,3} violations).
-         Used to provide gradient signal: even invalid dense graphs
-         that are close to K_{3,3}-free earn a partial score bonus.
-         G2 should push toward or beyond the upper bound; the evaluator
-         rewards G2 for being dense relative to its violation count.
-
-    For z(10,21;3,3): upper bound 108 (target).
-
-    Returns:
-        (G1, G2): tuple of np.ndarray, each shape (M, N), dtype int, values in {0, 1}
-    """
-    # G1: circulant-style baseline — 10 ones per row (row offsets mod N=21)
-    # Offsets chosen for N=21; spread to reduce triple-column overlaps.
-    offsets_g1 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 20]
-    G1 = np.zeros((M, N), dtype=int)
-    for i in range(M):
-        for d in offsets_g1:
-            G1[i, (i + d) % N] = 1
-
-    # G2: same structure as G1 to start; the LLM should evolve G2 to be
-    # denser while keeping violations below expected-random count.
-    offsets_g2 = [0, 1, 2, 4, 7, 10, 13, 16, 18, 20]
-    G2 = np.zeros((M, N), dtype=int)
-    for i in range(M):
-        for d in offsets_g2:
-            G2[i, (i + d) % N] = 1
-
-    return G1, G2
+    if M < S:
+        return M
+    budget = (T - 1) * comb(M, S)
+    k = min(S - 1, M)
+    while k < M and N * comb(k + 1, S) <= budget:
+        k += 1
+    return max(k, 1)
 
 
-def run_graph():
-    """Fixed interface called by the evaluator. Returns (G1, G2)."""
-    return construct_graphs()
+def _offsets(M, k, shift):
+    """The triangular offset set, rotated by `shift`: closed form, no search."""
+    return {(shift + (i * (i + 1)) // 2) % M for i in range(k)}
+
+
+def _repair(A):
+    """Canonical deletion: enforce the K_{S,T} condition by dropping the
+    highest-indexed entry of each offending configuration.  Deterministic --
+    the same matrix always yields the same result."""
+    M, N = A.shape
+    rows = [sum(int(A[i, j]) << j for j in range(N)) for i in range(M)]
+    for a in range(M):
+        for b in range(a + 1, M):
+            ab = rows[a] & rows[b]
+            if ab.bit_count() <= LAMBDA:
+                continue
+            for c in range(b + 1, M):
+                common = ab & rows[c]
+                while common.bit_count() > LAMBDA:
+                    bit = common & -common          # lowest offending column
+                    j = bit.bit_length() - 1
+                    A[c, j] = 0                     # highest row index loses
+                    rows[c] &= ~bit
+                    common &= ~bit
+    return A
+
+
+def construct_graph(M, N):
+    if M < S or N < T:
+        return np.ones((M, N), dtype=int)
+
+    k = _block_size(M, N)
+
+    # One base block per residue class of the column index.  Rotating the
+    # offset set by the class index keeps the pooled difference multiset flat
+    # when N forces more columns than Z_M has translates.
+    A = np.zeros((M, N), dtype=int)
+    for j in range(N):
+        base = _offsets(M, k, (j // M) * (j // M + 1) // 2)
+        for d in base:
+            A[(j + d) % M, j] = 1
+
+    return _repair(A)
+
+
+def construct_graphs(M, N):
+    return construct_graph(M, N)
+
+
+def run_graph(M, N):
+    return construct_graph(M, N)
 # EVOLVE-BLOCK-END
-
-
-if __name__ == "__main__":
-    G1, G2 = run_graph()
-    print(f"G1 shape: {G1.shape}, ones: {G1.sum()}, ones/row: {G1.sum(axis=1).tolist()}")
-    print(f"G2 shape: {G2.shape}, ones: {G2.sum()}, ones/row: {G2.sum(axis=1).tolist()}")
-    print("G1:\n", G1)

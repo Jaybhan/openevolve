@@ -8,6 +8,7 @@ import multiprocessing as mp
 import pickle
 import signal
 import time
+import traceback
 from concurrent.futures import Future, ProcessPoolExecutor
 from concurrent.futures import TimeoutError as FutureTimeoutError
 from dataclasses import asdict, dataclass
@@ -664,18 +665,9 @@ class ProcessParallelController:
                             f"{child_program.id}"
                         )
 
-                    # Checkpoint callback
-                    # Don't checkpoint at iteration 0 (that's just the initial program)
-                    if (
-                        completed_iteration > 0
-                        and completed_iteration % self.config.checkpoint_interval == 0
-                    ):
-                        logger.info(
-                            f"Checkpoint interval reached at iteration {completed_iteration}"
-                        )
-                        self.database.log_island_status()
-                        if checkpoint_callback:
-                            checkpoint_callback(completed_iteration)
+                    # (Checkpointing moved below, outside this try/except — see
+                    # the comment there. It must not depend on this iteration
+                    # having succeeded.)
 
                     # Check target score
                     if target_score is not None and child_program.metrics:
@@ -754,6 +746,38 @@ class ProcessParallelController:
                 future.cancel()
             except Exception as e:
                 logger.error(f"Error processing result from iteration {completed_iteration}: {e}")
+                # Diagnostic only: this handler swallows any failure in the
+                # ~150-line result-processing block (island management, migration,
+                # MAP-Elites updates, best-program tracking), and logging just
+                # str(e) makes it impossible to tell which one broke. The
+                # traceback names the file and line.
+                logger.error(traceback.format_exc())
+
+            # Checkpoint callback. OUTSIDE the try/except on purpose: this used
+            # to live in the success path, so an iteration that landed exactly on
+            # the interval and then failed — an LLM timeout, a worker crash —
+            # silently skipped its checkpoint entirely. A run could then go the
+            # full interval with a new best program held only in memory, and lose
+            # it on any kill. Whether iteration N produced a usable program has
+            # nothing to do with whether the database should be persisted at N.
+            # Don't checkpoint at iteration 0 (that's just the initial program).
+            if (
+                completed_iteration > 0
+                and completed_iteration % self.config.checkpoint_interval == 0
+            ):
+                try:
+                    logger.info(f"Checkpoint interval reached at iteration {completed_iteration}")
+                    self.database.log_island_status()
+                    if checkpoint_callback:
+                        checkpoint_callback(completed_iteration)
+                except Exception:
+                    # A failed checkpoint must not kill the run, but it must be
+                    # loud: silently losing persistence is how hours disappear.
+                    logger.error(
+                        f"Checkpoint at iteration {completed_iteration} FAILED — "
+                        f"state not persisted"
+                    )
+                    logger.error(traceback.format_exc())
 
             completed_iterations += 1
 

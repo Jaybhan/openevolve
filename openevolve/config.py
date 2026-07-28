@@ -79,6 +79,20 @@ class LLMModelConfig:
     # Reasoning parameters
     reasoning_effort: Optional[str] = None
 
+    # Absolute cap on REASONING tokens, in tokens. Distinct from reasoning_effort,
+    # which is a label the provider maps to a budget you cannot see.
+    #
+    # This exists because on Anthropic models max_tokens covers thinking AND the
+    # answer out of one pool, so a long think can consume the entire budget and
+    # the response comes back finish_reason='length' with no content at all —
+    # measured at 68 of 68 calls on claude-opus-5 with max_tokens=20000. Setting
+    # this to N reserves (max_tokens - N) for the answer, which is the only way
+    # to make "think hard" and "actually emit code" compatible.
+    #
+    # Sent as OpenRouter's unified `reasoning` object. Providers that don't
+    # support a reasoning budget ignore it.
+    reasoning_max_tokens: Optional[int] = None
+
     # Manual mode (human-in-the-loop)
     manual_mode: Optional[bool] = None
     _manual_queue_dir: Optional[str] = None
@@ -120,6 +134,7 @@ class LLMConfig(LLMModelConfig):
 
     # Reasoning parameters (inherited from LLMModelConfig but can be overridden)
     reasoning_effort: Optional[str] = None
+    reasoning_max_tokens: Optional[int] = None
 
     # Manual mode switch
     manual_mode: bool = False
@@ -178,6 +193,7 @@ class LLMConfig(LLMModelConfig):
             "retry_delay": self.retry_delay,
             "random_seed": self.random_seed,
             "reasoning_effort": self.reasoning_effort,
+            "reasoning_max_tokens": self.reasoning_max_tokens,
             "manual_mode": self.manual_mode,
         }
         self.update_model_params(shared_config)

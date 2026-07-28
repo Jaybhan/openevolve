@@ -1,0 +1,20 @@
+# EVOLVE-BLOCK-START
+import numpy as np
+
+def construct_graphs(M, N):
+    """
+    Construct a M×N 0-1 adjacency matrix:
+
+    G —  the primary K_{3,3}-free candidate (maximizing valid 1s).
+         No 3 rows may share 3 or more common 1-columns.
+
+    Returns:
+        G: np.ndarray of shape (M, N), dtype int, values in {0, 1}
+    """
+    G = np.zeros((M, N), dtype=int)
+    return G
+
+def run_graph(M, N):
+    """Fixed interface called by the evaluator. Returns a single MxN matrix G."""
+    return construct_graphs(M, N)
+# EVOLVE-BLOCK-END

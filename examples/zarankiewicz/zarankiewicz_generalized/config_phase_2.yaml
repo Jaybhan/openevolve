@@ -1,48 +1,132 @@
-# Phase 2: Break through the plateau toward z(12,17;3,3)
-# Starts from Phase 1's best checkpoint. Encourages numerical optimization
-# and hybrid approaches to escape local optima found by pure construction.
-max_iterations: 100
+# Phase 2: Generalize and sharpen the construction for z(M,N;3,3).
+# Run standalone from scratch (no phase-1 checkpoint): opus-5 + gpt-5.6-sol are
+# strong enough that the cheap sonnet-5 first pass was not earning its time.
+max_iterations: 50
 checkpoint_interval: 10
 log_level: "INFO"
 
 llm:
-  primary_model: "google/gemini-2.0-flash-001"
-  primary_model_weight: 0.6
-  secondary_model: "anthropic/claude-opus-4.6"
-  secondary_model_weight: 0.4
+  primary_model: "anthropic/claude-opus-5"
+  primary_model_weight: 0.5
+  secondary_model: "openai/gpt-5.6-sol"
+  secondary_model_weight: 0.5
   api_base: "https://openrouter.ai/api/v1"
   temperature: 0.7
   top_p: 0.95
-  max_tokens: 8192
-  timeout: 600
+  # 128000 -> 20000. Phase-2 measurement, over 135 calls: median completion was
+  # 3,916 tokens and no useful call exceeded ~5,000. The ceiling was never the
+  # thing making good calls good — it only set the PRICE of a reasoning spiral,
+  # and one call did burn all 128,000. At 20000 a spiral dies in ~4 minutes
+  # instead of ~25, and healthy calls have 5x headroom over their worst case.
+  #
+  # (The old comment here said 16000 spiralled deterministically. That run
+  # predates the openai.py change that turns an empty finish_reason='length'
+  # response into a retryable RuntimeError instead of a silently discarded
+  # iteration, so those spirals were never actually retried.)
+  max_tokens: 20000
+  retries: 1
+  # 180 -> 240. The 180s cut was chosen from the durations of calls that
+  # SUCCEEDED, which is the wrong population: 22 of 100 completed calls came
+  # back between 222s and 1603s, and asyncio.wait_for had already discarded
+  # every one of them. run_in_executor threads cannot be cancelled, so those
+  # calls ran to completion and were billed anyway — 6.5 hours of generation
+  # paid for and thrown away. Only 78 of 135 calls produced a usable result.
+  # 240 -> 400. The 20000-token cap fixed the zombie problem outright: over the
+  # 50-iteration run, 0 calls returned past the deadline (was 22 of 100), median
+  # completion 4,628 tokens and max 6,776. But 14 of 50 iterations were still
+  # lost to the 240s cut with nothing to show. With spirals now bounded by the
+  # token cap rather than the clock, the timeout no longer has to be the thing
+  # holding them back, so it can be loosened to recover those iterations.
+  # Generation depth is the binding constraint on this run — after 50 iterations
+  # the population was still only generation 2 -4, because 17 of 50 produced
+  # nothing — so effective mutations per iteration matter more than latency.
+  timeout: 400
 
 prompt:
   system_message: |
-    You are an expert mathematician specializing in combinatorics and extremal graph theory. Your task is to improve a constructor function that directly produces a specific 10×21 binary matrix, maximizing the number of 1s while keeping the matrix clear of 3×3 all-ones submatrices (for any combination of 3 rows and 3 columns, at least one of the 9 entries must be 0. You don’t only need to look at the main matrix and see if there are any all 1 3x3 squares, you also need to look at any combination of 3 rows and 3 columns to see if it forms a matrix with all 1 3x3 squares)
+    You are an expert mathematician specializing in extremal combinatorics and design theory.
 
-    Here are some techniques to get started. Feel free to use them, but do not feel bounded to them in any way, shape, or form.
-    Strong symmetry is likely helpful: search for matrices with cyclic, dihedral, transpose, or other automorphism structure.
+    THE GOAL IS A NEW CONSTRUCTION, NOT A REIMPLEMENTATION OF AN OLD ONE. Every exact value you are scored against is already known, so merely reproducing the classical constructions proves nothing — it is a correctness check, not a result. What does not yet exist is a SINGLE construction that derives all of these cases from one principle: the literature covers this range with a patchwork of unrelated families, each valid only in its own regime. Finding the rule that unifies them, or a genuinely new family that beats the patchwork, is the actual objective. Reach for classical constructions to understand WHY they work and what they share, then build the thing that subsumes them — do not simply re-encode one and stop.
+
+    This is a live moment for machine-assisted mathematics: in the past two weeks, Claude Fable 5 produced the counterexample that disproved the 87-year-old Jacobian conjecture (independently verified), and GPT-5.6 Sol reportedly proved the 50-year-old Cycle Double Cover conjecture in graph theory. Genuine breakthroughs on long-open problems are within reach right now — bring that same ambition to this construction.
+
+    Your task is to write construct_graph(M, N), which returns an M×N binary matrix (numpy array of 0s and 1s) containing no K_{3,3}. That means: no 3 rows may share 3 or more common 1-columns. Equivalently, for ANY choice of 3 rows and ANY choice of 3 columns, at least one of those 9 entries must be 0 — not just contiguous 3×3 blocks, but every combination of 3 rows and 3 columns. Subject to that constraint, maximize the number of 1s. This is the Zarankiewicz problem z(M,N;3,3).
+
+    THE POINT OF THIS TASK IS TO LEARN A GENERAL ALGORITHM, NOT ANSWERS TO SPECIFIC CASES.
+
+    You are the mutation step inside an evolutionary pipeline (AlphaEvolve-style). This program will be evaluated, selected, and mutated again over hundreds of generations — this response is one step of that process, not your only chance. You have about 240 seconds per response — enough to reason carefully about one construction, not enough to survey the field. Exceed it and your work is discarded entirely, so a complete simple construction beats an unfinished sophisticated one. Think hard about ONE idea: when you find yourself torn between approaches, pick the most promising and implement it completely rather than deliberating over the comparison — the evolutionary loop, not your deliberation, is the mechanism for comparing alternatives. A committed, fully-implemented construction this generation is worth more than a perfect plan that never becomes code.
+
+    Your function is called on roughly 160 different (M, N) pairs, spanning M = 3..16 and N = M..23. Only a handful ever appear in your feedback, and a quarter of them are held out entirely — scored on every evaluation, never shown to you, not their sizes and not their targets. A construction tuned to the sizes you can see will score poorly on all the ones you cannot.
+
+    Therefore:
+    - Do NOT hardcode matrices, row bitmasks, encoded strings, or per-(M,N) lookup tables and branches. Storing answers is explicitly disallowed and defeats the entire purpose. It will also fail on the hidden instances.
+    - Do NOT solve by search. No random restarts, simulated annealing, hill climbing, genetic methods, exhaustive enumeration, greedy placement with repair, or branch and bound. A search procedure teaches us nothing about why the answer has the form it does, which is our ultimate goal.
+    - THIS IS ENFORCED BY A HARD CPU BUDGET: 25 milliseconds of CPU per (M, N), measured with process_time. An instance over budget scores ZERO for that instance no matter what matrix it returned, and you are called on ~160 of them. This is not a performance guideline you can optimise your way past — it is the rule that makes the previous bullet real. For calibration: a construction that derives its matrix from M and N finishes the largest instance in this range in well under a millisecond, with more than a hundredfold headroom, comfortably enough for finite-field arithmetic, Singer difference sets, or primitive-root computations over the small parameters this range needs. A greedy packer with local improvement, the approach that dominated earlier generations, runs 30x OVER the limit and scores near zero. If you find yourself writing a loop that tries something, checks whether it helped, and keeps the better option, you have already lost the instance.
+    - DO derive the matrix directly from M and N: a formula, an algebraic incidence structure, a number-theoretic pattern, a closed form. Aim for a construction whose correctness you could argue on paper, one where a mathematician reading your code would learn something about why these matrices look the way they do.
+    - ONE rule, not a catalogue. If your program dispatches to several unrelated constructions — one family for this size range, another for that — you have written a lookup table with extra steps, and it will fail on every size that falls between your cases. When two of your constructions both work, that is evidence they are the same object in different clothes: find what they share and express it once. A single principle that DERIVES each case is worth far more than a correct dispatch over four, and it is the only thing that can cover sizes you have never seen.
+    - The counting bound tells you WHEN to stop adding edges; it does not tell you WHICH matrix to build. Packing greedily against that budget plateaus: it reaches the bound only where the bound happens to be achievable by balanced packing, which is why such programs solve small M and then stall completely. The rows you are failing need a matrix with algebraic structure, not a better packing heuristic. Use the budget to check your construction, never as the thing you optimise.
+    - The two 3's in K_{3,3} are logically independent: one bounds how many rows may share columns, the other how many columns they share — call them s and t (z(M,N;s,t) is the general problem, with s = t = 3 the case scored here). Only s = t = 3 is scored, so do not add untested branches for other values. But if your construction's logic keeps these two roles as separate quantities rather than hardcoding one fused literal 3, that's a sign it reflects the real underlying principle rather than an artifact of this specific case.
+
+    Techniques worth exploring. Treat these as different lenses on the same underlying structure, NOT as a menu to pick from and branch between:
+    Strong symmetry is likely helpful: cyclic, dihedral, transpose, or other automorphism structure.
     Near-regular row/column sums are promising; parameterize by degree sequences or partitions rather than arbitrary bit matrices.
-    STRONGLY RECOMMENDED: seed search from algebraic constructions — projective-plane incidences, design/incidence matrices, cyclic difference-set constructions, and structured deletions of these.
-    For parameters near known exact constructions, mutate by deleting or extending rows/columns/edges while preserving low codegree/common-neighborhood counts.
-    Track counts of near-forbidden subconfigurations as a guide for local search moves, while maintaining the no-forbidden-minor constraint as a hard requirement."
-    Search circulant/block-circulant families and small perturbations of them before exploring fully unstructured matrices.
-    For square cases, quotient out row/column permutations and transpose early; many extremal objects are unique only up to these symmetries.
-    Extend smaller good matrices incrementally; literature suggests explicit lower bounds often come from structured extensions rather than exhaustive raw search.
+    STRONGLY RECOMMENDED: algebraic constructions — projective-plane incidences, design/incidence matrices, cyclic difference-set constructions, and structured deletions of these. Note that projective planes and difference sets are the classical K_{2,2} story; the constructions built specifically for the K_{3,3} case are Brown's graph (points of F_q^3 joined when they lie on a common sphere, so any three share at most two neighbours) and the Kollar-Ronyai-Szabo norm graphs over F_{q^2}. Neither has appeared in any program so far.
+    A program over ~5000 characters is a warning sign, not an achievement: it means special-case machinery is accumulating instead of a rule emerging. Aim for a construction you could state in a paragraph and prove on paper.
+    Circulant and block-circulant families, indexed by offset sets chosen so that any three rows have small common neighbourhood.
+    Constructions parameterized by a prime or prime power derived from M and N, with a principled rule for handling sizes that are not exactly that parameter.
+    For square cases, quotient out row/column permutations and transpose; many extremal objects are unique only up to these symmetries.
+    Systematic extension or deletion rules that carry a good construction at one size to neighbouring sizes while preserving low codegree.
 
-    Focus on breaking through the plateau by trying fundamentally different approaches - don't just tweak parameters. Randomized search approaches are discouraged; structured and algebraic methods are strongly preferred.
-  num_top_programs: 4
+    In addition to these, please use your deep knowledge of combinatorics and try novel approaches.
+
+    Scoring: each instance earns 0.5 for attaining the known optimum exactly, plus 0.5 × (your edges / that optimum). Attaining the true optimum is worth far more than merely getting close. A matrix containing a K_{3,3} forfeits both terms and earns only a token consolation — 0.1 × its density ÷ (1 + number of violations) — always at least 10x less than a comparable valid matrix, but enough that removing violations or adding edges while invalid still improves your score. Total score is the average of each individual test case, so you are working to eventually achieve a score of 1.0.
+
+    Break through plateaus with fundamentally different structural ideas rather than tweaking constants.
+  # 3+2, down from 4+3. The prompt saturates once the database holds enough
+  # programs to fill every slot; at 7 full programs call durations quadrupled
+  # (prompt ~13k tokens of example code). 5 programs keeps the learning signal
+  # at ~60% of that payload. Deliberation scales with what the model must read.
+  # Flipped 3+2 -> 2+3: the population holds algebraic programs that were being
+  # ignored in favour of the greedy champion. Weight the prompt toward diverse
+  # material rather than elites.
+  num_top_programs: 2
   num_diverse_programs: 3
 
 database:
   population_size: 70
   archive_size: 30
-  num_islands: 5
+  # Must stay 4 for every phase. Island count can only GROW across a resume
+  # (database.py takes max(saved, config)), and growing it leaves
+  # island_feature_maps short — add() then raises IndexError on the new island
+  # and every iteration routed there is discarded. Phase-1 data also showed
+  # depth beats breadth: the winning island had the most programs/generations,
+  # while starved islands underperformed.
+  num_islands: 4
+  # complexity x diversity is code length and code-diff distance. Neither can
+  # tell a closed-form construction from a greedy search, so through phase 2
+  # both landed in the same cells and competed head to head — which search wins,
+  # because it can always buy more edges with more time. Every one of the top 25
+  # programs was a search; the algebraic attempts that did appear (norm graph,
+  # finite field, projective plane) all stalled below 0.57 and were never
+  # selected. peak_instance_ms separates them by three orders of magnitude, so
+  # constructions get a niche of their own instead of being dominated.
+  feature_dimensions:
+    - "complexity"
+    - "peak_instance_ms"
   elite_selection_ratio: 0.3
-  exploitation_ratio: 0.6
+  # 0.6 -> 0.35. Observed 58 exploitation vs 13 exploration sampling events,
+  # and outcomes clustered 0.61-0.67 just under the champion: it was polishing
+  # a packing-based incumbent, not searching. Closing the remaining gaps needs
+  # a structurally different object, which exploitation cannot reach.
+  exploitation_ratio: 0.35
 
 evaluator:
-  timeout: 90
+  # 90 -> 180. This bounds the whole evaluate() call; the construction itself is
+  # bounded by PER_INSTANCE_TIME_LIMIT (25ms of CPU per instance) inside the
+  # evaluator, and the subprocess by a 120s backstop. This only needs to sit
+  # above that backstop plus scoring, so a slow evaluation is never cut off
+  # before the per-instance rule has had its say.
+  timeout: 180
   cascade_evaluation: false
   cascade_thresholds:
     - 0.0

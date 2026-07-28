@@ -1,51 +1,110 @@
-# Phase 2: Break through the plateau toward z(12,17;3,3)
-# Starts from Phase 1's best checkpoint. Encourages numerical optimization
-# and hybrid approaches to escape local optima found by pure construction.
-max_iterations: 200
+max_iterations: 50
 checkpoint_interval: 10
 log_level: "INFO"
 
 llm:
-  primary_model: "google/gemini-2.0-flash-001"
-  primary_model_weight: 0.4
-  secondary_model: "anthropic/claude-opus-4.6"
-
-  #Used flash .8, opus .2 in second to last round
-  secondary_model_weight: 0.6
+  models:
+    - name: "anthropic/claude-fable-5"
+      weight: 1.0
   api_base: "https://openrouter.ai/api/v1"
   temperature: 0.7
   top_p: 0.95
-  max_tokens: 8192
+  max_tokens: 64000
+  retries: 1
   timeout: 600
+  reasoning_effort: "low"
 
 prompt:
   system_message: |
-    You are an expert mathematician specializing in combinatorics and extremal graph theory. Your task is to improve a constructor function that directly produces a specific 10×21 binary matrix, maximizing the number of 1s while keeping the matrix clear of 3×3 all-ones submatrices (for any combination of 3 rows and 3 columns, at least one of the 9 entries must be 0. You don’t only need to look at the main matrix and see if there are any all 1 3x3 squares, you also need to look at any combination of 3 rows and 3 columns to see if it forms a matrix with all 1 3x3 squares)
+    You are an expert mathematician specializing in extremal combinatorics, finite geometry and design theory. You are being asked to do research, not to fill in a template.
 
-    Here are some techniques to get started. Feel free to use them, but do not feel bounded to them in any way, shape, or form.
-    Strong symmetry is likely helpful: search for matrices with cyclic, dihedral, transpose, or other automorphism structure.
-    Near-regular row/column sums are promising; parameterize by degree sequences or partitions rather than arbitrary bit matrices.
-    STRONGLY RECOMMENDED: seed search from algebraic constructions — projective-plane incidences, design/incidence matrices, cyclic difference-set constructions, and structured deletions of these.
-    For parameters near known exact constructions, mutate by deleting or extending rows/columns/edges while preserving low codegree/common-neighborhood counts.
-    Track counts of near-forbidden subconfigurations as a guide for local search moves, while maintaining the no-forbidden-minor constraint as a hard requirement."
-    Search circulant/block-circulant families and small perturbations of them before exploring fully unstructured matrices.
-    For square cases, quotient out row/column permutations and transpose early; many extremal objects are unique only up to these symmetries.
-    Extend smaller good matrices incrementally; literature suggests explicit lower bounds often come from structured extensions rather than exhaustive raw search.
+    This is a live moment for machine-assisted mathematics: in the past two weeks, Claude Fable 5 produced the counterexample that disproved the 87-year-old Jacobian conjecture (independently verified), and GPT-5.6 Sol reportedly proved the 50-year-old Cycle Double Cover conjecture. Genuine results on long-open problems are within reach right now. Bring that ambition here.
 
-    Randomized search approaches are discouraged; structured and algebraic methods are strongly preferred.
-    Focus on breaking through the plateau by trying fundamentally different approaches - don't just tweak parameters. The record is 108. You must match that. It is of the upmost importance that you make significant improvements to the number of edges, while maintaining validity.
-  num_top_programs: 4
-  num_diverse_programs: 3
+    # THE PROBLEM
+
+    Write construct_graph(M, N) returning an M×N binary matrix (numpy array of 0s and 1s) with no K_{3,3}: no 3 rows may share 3 or more common 1-columns. Equivalently, for ANY 3 rows and ANY 3 columns, at least one of those 9 entries is 0 — every combination, not just contiguous blocks. Subject to that, maximize the number of 1s. This is the Zarankiewicz problem z(M,N;3,3).
+
+    You are called on ~160 pairs. A quarter are held out: scored every time, never shown, neither their sizes nor their targets.
+
+    # WHAT HAS ALREADY BEEN TRIED HERE, AND EXACTLY HOW IT FAILED
+
+    The current incumbent, scoring at 0.7659 with 106 of 161 instances exact. Its core is genuinely good: rows are the nonzero vectors of F_2^4, and column a is the set {x : <a,x> = 1}, the point/hyperplane-complement incidence of PG(3,2). It is K_{3,3}-free by a clean rank argument — three distinct points impose <a,x_i>=1, which is either inconsistent or has a solution set that is a coset of a 1-dimensional space, hence exactly 2 columns. Codegree at most 2 falls out of linear algebra with no triple ever inspected.
+
+    But that incumbent is a catalogue wrapped around that idea, and it has hit a wall:
+
+      - 9 if/elif branches on M and N.
+      - 4 hardcoded literal answer tables, e.g. `omitted = [(0,), (1,2), (3,4), (5,6), (2,3,5), (1,4,5), (1,3,6), (2,4,6)]`.
+      - Ablation: remove the hardcoded tables and it falls to 0.6934 / 72 exact. Remove its greedy leftover-column filler and it falls to 0.4913 / 20 exact. The algebra is carrying less than half of its score.
+      - It is INVALID for every M >= 17 — 0 of 44 sizes tested produce a K_{3,3}-free matrix — because it indexes 4-bit masks against range(M) and the argument silently dies past 15 points.
+      - Asked for (M,N) it is exact on 68 of 91 non-square cells; asked for the transposed (N,M), which has the SAME optimum since s=t=3, it is exact on 23. It has memorised an orientation, not learned a rule.
+      - Its last 29 iterations of evolution gained +0.002, all of it from adding one more lookup table.
+
+    # YOU MUST TRY SOMETHING NEW. THE TEXTBOOK FAMILIES HAVE BEEN TESTED HERE AND THEY DO NOT REACH 1.0
+
+    Reproducing a known construction is a correctness check, not a result. Every target value you are scored against is already published, so matching them proves only that your code runs. What does not exist yet — not here, and not in the literature — is a single principle that derives all of them. That is the actual objective, and it requires an object nobody has written down yet.
+
+    Reach for the classical constructions to understand WHY they work and what they share. Then build the thing that subsumes them. Do not re-encode one and stop.
+
+    # WHY A CATALOGUE CANNOT WIN
+
+    Tabulating cannot reach 1.0. A quarter of the instances are never shown to you — you cannot tabulate what you cannot see, and you cannot tune a branch against feedback you never receive. Every table you write is dead weight on those, and dead weight everywhere the graders look outside the range you fitted. The only thing that reaches every instance at once is a rule that DERIVES them.
+
+    # HARD CONSTRAINTS
+
+    - CPU BUDGET, ENFORCED: 25 milliseconds of process CPU time per (M, N). Over budget scores ZERO for that instance whatever matrix it returned. This is not a guideline you can optimise past. A construction that derives its matrix from M and N finishes the largest instance here in well under a millisecond — a hundredfold margin, ample for finite-field arithmetic, Singer difference sets, or primitive-root computations at these parameters. Greedy packing with local improvement runs 30x OVER and scores near zero. If you write a loop that tries something, checks whether it helped, and keeps the better option, you have lost that instance.
+    - Do NOT hardcode matrices, row bitmasks, encoded strings, or per-(M,N) tables. `omitted = [(0,), (1,2), ...]` is a stored answer. If you find yourself typing integer literals in a list, you are memorising, not deriving.
+    - Do NOT solve by search: no restarts, annealing, hill climbing, genetic methods, enumeration, greedy placement with repair, branch and bound.
+    - DO derive the matrix from M and N: a formula, an algebraic incidence structure, a number-theoretic pattern, a closed form. A mathematician reading your code should learn WHY these matrices look the way they do.
+    - Keep s and t separate in your logic rather than fusing them into one literal 3. Only s=t=3 is scored, so add no untested branches — but a construction whose logic keeps the two roles distinct is a sign it reflects the real principle. Note that s=t makes the problem self-dual: z(M,N;3,3) = z(N,M;3,3). A correct rule cannot care which dimension it was handed.
+
+    # DIRECTIONS THAT ARE UNDEREXPLORED HERE
+
+    These are lenses on one structure, not a menu to branch between.
+
+    Projective and affine geometries over F_2 and F_q, and their truncations — the incumbent found one and stopped. Brown's graph: points of F_q^3 joined when they lie on a common sphere, so any three share at most two neighbours; it has appeared ONCE in this pipeline's entire history. Kollar-Ronyai-Szabo norm graphs over F_{q^2}: they appear often but have never been developed past 0.61, because they are penalised on small sizes while being correct at every prime power — if you build one, make it competitive on small M rather than abandoning it. Cyclic difference families and circulants indexed by offset sets with bounded triple coincidence. Generalized quadrangles and partial linear spaces. Constructions parameterized by a prime power derived from M and N, with a principled rule for the sizes in between — that in-between rule is where the real work is, and where every previous attempt substituted a table.
+
+    You are the mutation step in an evolutionary loop; this is one step of many, not your only chance. Commit to ONE idea and implement it completely. You have 10 minutes and 64,000 tokens to produce this round's program, or else you run out of time/tokens and score 0, DO NOT let that happen. A finished simple construction beats an unfinished sophisticated one.
+
+    # SCORING
+
+    Each instance earns 0.5 for attaining the known optimum exactly, plus 0.5 × (your edges / that optimum), averaged with weight M×N. A matrix containing a K_{3,3} forfeits both and earns a token consolation. Attaining the optimum is worth far more than approaching it — and with 106 of 161 already exact, essentially all remaining score is in the instances a catalogue has never been able to reach.
+
+  # 3+2 -> 2+2. The "diverse" slot is NOT diverse: sampler.py fills it from the
+  # same score-sorted list as the top slot, so extra slots buy near-duplicate
+  # code. A real phase-2 prompt carried 7 examples with two exact duplicate
+  # pairs, ~30k of 45k chars of near-identical programs. Fewer, plus the
+  # sharply higher exploration below, is the better trade.
+  num_top_programs: 2
+  num_diverse_programs: 2
 
 database:
   population_size: 70
   archive_size: 30
-  num_islands: 5
+  # Must stay 4 across every phase: island count can only grow on resume, and
+  # growing it leaves island_feature_maps short (IndexError, iterations lost).
+  num_islands: 4
+  # 0.6 -> 0.2. Phase 2 ended as a monoculture: 36 of 67 programs used the same
+  # F_2^4 idea and all 12 top programs were variants of one lineage. Exploiting
+  # that population means polishing a catalogue. This phase is explicitly a
+  # search for a different object, so weight sampling hard toward exploration.
+  exploitation_ratio: 0.2
+  # 50 -> 5. MEASURED: migration NEVER RAN in phase 2. The interval counts
+  # GENERATIONS, not iterations, and the islands only reached generation ~20 in
+  # 100 iterations, so last_migration_generation stayed 0 for the entire run.
+  # All four islands converged on F_2^4 independently with no cross-pollination.
+  # At 5 the islands actually exchange material a few times per run.
+  migration_interval: 5
+  migration_rate: 0.1
   elite_selection_ratio: 0.3
-  exploitation_ratio: 0.6
+  feature_dimensions:
+    - "complexity"
+    - "peak_instance_ms"
 
 evaluator:
-  timeout: 90
+  # Bounds the whole evaluate() call. The construction is bounded by
+  # PER_INSTANCE_TIME_LIMIT (25ms CPU/instance) and the subprocess by a 120s
+  # backstop; this only needs to clear both.
+  timeout: 180
   cascade_evaluation: false
   cascade_thresholds:
     - 0.0
@@ -54,5 +113,5 @@ evaluator:
   use_llm_feedback: false
 
 diff_based_evolution: false
-allow_full_rewrites: true  # Definitely allow full rewrites
+allow_full_rewrites: true
 max_code_length: 100000
