@@ -1,0 +1,14 @@
+m,w,b,result,seconds,r_forced
+11,5,33,INFEAS,20,15
+10,5,22,TIMEOUT,900,11
+12,6,22,FEAS,0,11
+11,6,14,FEAS,2,None
+12,5,38,TIMEOUT,900,None
+12,5,38,KILLED-weak-model,900+,r<=16
+10,5,22,INFEAS,9,structured
+11,5,32,INFEAS,0,structured
+13,6,26,FEAS,28,structured
+12,7,12,INFEAS,56,structured
+10,5,21,TIMEOUT-partial,profiles,
+12,7,11,INFEAS,profiles,
+11,5,31,TIMEOUT-partial,profiles,

@@ -1,0 +1,22 @@
+[
+ {
+  "m": 11,
+  "w": 5,
+  "status": 1,
+  "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "incumbent_LB": 27,
+  "dual_UB": 32,
+  "exact": false,
+  "seconds": 1500.0
+ },
+ {
+  "m": 12,
+  "w": 5,
+  "status": 1,
+  "message": "Time limit reached. (HiGHS Status 13: Time limit reached)",
+  "incumbent_LB": 36,
+  "dual_UB": 38,
+  "exact": false,
+  "seconds": 1500.0
+ }
+]

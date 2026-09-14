@@ -1,0 +1,344 @@
+== verification vs level_D2.csv ==
+D2(6,5) = 2: WEDGE=2 OK
+D2(6,6) = 2: WEDGE=2 OK; PERFECT-ADM attained
+D2(7,5) = 4: defect 1 below UB (J=5, bud=7, c0=5)
+D2(7,6) = 2: WEDGE=2 OK
+D2(7,7) = 2: WEDGE=2 OK; PERFECT-ADM attained
+D2(8,5) = 10: UB-tight (J=11, bud=11, c0=10)
+D2(8,6) = 4: defect 1 below UB (J=5, bud=5, c0=5)
+D2(8,7) = 2: WEDGE=2 OK
+D2(8,8) = 2: WEDGE=2 OK; PERFECT-ADM attained
+D2(9,5) = 14: UB-tight (J=14, bud=16, c0=14)
+D2(9,6) = 6: UB-tight (J=6, bud=8, c0=6)
+D2(9,7) = 2: WEDGE=2 OK
+D2(9,8) = 2: WEDGE=2 OK
+D2(9,9) = 2: WEDGE=2 OK; PERFECT-ADM attained
+D2(10,6) = 10: defect 1 below UB (J=11, bud=12, c0=11)
+D2(10,7) = 4: defect 1 below UB (J=5, bud=6, c0=5)
+D2(10,8) = 2: WEDGE=2 OK
+D2(10,9) = 2: WEDGE=2 OK
+D2(10,10) = 2: WEDGE=2 OK; PERFECT-ADM attained
+D2(11,7) = 6: defect 1 below UB (J=7, bud=9, c0=7)
+D2(11,8) = 3: defect 2 below UB (J=5, bud=5, c0=5)
+D2(11,9) = 2: WEDGE=2 OK
+D2(11,10) = 2: WEDGE=2 OK
+D2(11,11) = 2: WEDGE=2 OK; PERFECT-ADM attained
+violations: NONE
+
+== residue classification (per w): (c1, c2, B mod slots, perfect) ==
+w=5: slots=10, point mod 6, pair mod 3; signature period 15
+   perfect-admissible residues mod 15: [2, 5, 11]
+   m ==   0 (mod 15): c1= 2, c2=2, B mod 10 =  0
+   m ==   1 (mod 15): c1= 0, c2=1, B mod 10 =  0
+   m ==   2 (mod 15): c1= 0, c2=0, B mod 10 =  0  [PERFECT-ADMISSIBLE]
+   m ==   3 (mod 15): c1= 2, c2=2, B mod 10 =  2
+   m ==   4 (mod 15): c1= 0, c2=1, B mod 10 =  8
+   m ==   5 (mod 15): c1= 0, c2=0, B mod 10 =  0  [PERFECT-ADMISSIBLE]
+   m ==   6 (mod 15): c1= 2, c2=2, B mod 10 =  0
+   m ==   7 (mod 15): c1= 0, c2=1, B mod 10 =  0
+   m ==   8 (mod 15): c1= 0, c2=0, B mod 10 =  2
+   m ==   9 (mod 15): c1= 2, c2=2, B mod 10 =  8
+   m ==  10 (mod 15): c1= 0, c2=1, B mod 10 =  0
+   m ==  11 (mod 15): c1= 0, c2=0, B mod 10 =  0  [PERFECT-ADMISSIBLE]
+   m ==  12 (mod 15): c1= 2, c2=2, B mod 10 =  0
+   m ==  13 (mod 15): c1= 0, c2=1, B mod 10 =  2
+   m ==  14 (mod 15): c1= 0, c2=0, B mod 10 =  8
+w=6: slots=20, point mod 10, pair mod 4; signature period 20
+   perfect-admissible residues mod 20: [2, 6, 12, 16]
+   m ==   0 (mod 20): c1= 2, c2=0, B mod 20 =  0
+   m ==   1 (mod 20): c1= 0, c2=2, B mod 20 =  0
+   m ==   2 (mod 20): c1= 0, c2=0, B mod 20 =  0  [PERFECT-ADMISSIBLE]
+   m ==   3 (mod 20): c1= 2, c2=2, B mod 20 =  2
+   m ==   4 (mod 20): c1= 6, c2=0, B mod 20 =  8
+   m ==   5 (mod 20): c1= 2, c2=2, B mod 20 =  0
+   m ==   6 (mod 20): c1= 0, c2=0, B mod 20 =  0  [PERFECT-ADMISSIBLE]
+   m ==   7 (mod 20): c1= 0, c2=2, B mod 20 = 10
+   m ==   8 (mod 20): c1= 2, c2=0, B mod 20 = 12
+   m ==   9 (mod 20): c1= 6, c2=2, B mod 20 =  8
+   m ==  10 (mod 20): c1= 2, c2=0, B mod 20 =  0
+   m ==  11 (mod 20): c1= 0, c2=2, B mod 20 = 10
+   m ==  12 (mod 20): c1= 0, c2=0, B mod 20 =  0  [PERFECT-ADMISSIBLE]
+   m ==  13 (mod 20): c1= 2, c2=2, B mod 20 = 12
+   m ==  14 (mod 20): c1= 6, c2=0, B mod 20 =  8
+   m ==  15 (mod 20): c1= 2, c2=2, B mod 20 = 10
+   m ==  16 (mod 20): c1= 0, c2=0, B mod 20 =  0  [PERFECT-ADMISSIBLE]
+   m ==  17 (mod 20): c1= 0, c2=2, B mod 20 =  0
+   m ==  18 (mod 20): c1= 2, c2=0, B mod 20 = 12
+   m ==  19 (mod 20): c1= 6, c2=2, B mod 20 = 18
+w=7: slots=35, point mod 15, pair mod 5; signature period 105
+   perfect-admissible residues mod 105: [2, 7, 22, 37, 77, 92]
+   m ==   0 (mod 105): c1= 2, c2=1, B mod 35 =  0
+   m ==   1 (mod 105): c1= 0, c2=3, B mod 35 =  0
+   m ==   2 (mod 105): c1= 0, c2=0, B mod 35 =  0  [PERFECT-ADMISSIBLE]
+   m ==   3 (mod 105): c1= 2, c2=2, B mod 35 =  2
+   m ==   4 (mod 105): c1= 6, c2=4, B mod 35 =  8
+   m ==   5 (mod 105): c1=12, c2=1, B mod 35 = 20
+   m ==   6 (mod 105): c1= 5, c2=3, B mod 35 =  5
+   m ==   7 (mod 105): c1= 0, c2=0, B mod 35 =  0  [PERFECT-ADMISSIBLE]
+   m ==   8 (mod 105): c1=12, c2=2, B mod 35 =  7
+   m ==   9 (mod 105): c1=11, c2=4, B mod 35 = 28
+   m ==  10 (mod 105): c1=12, c2=1, B mod 35 = 30
+   m ==  11 (mod 105): c1= 0, c2=3, B mod 35 = 15
+   m ==  12 (mod 105): c1= 5, c2=0, B mod 35 = 20
+   m ==  13 (mod 105): c1=12, c2=2, B mod 35 = 12
+   m ==  14 (mod 105): c1= 6, c2=4, B mod 35 = 28
+   m ==  15 (mod 105): c1= 2, c2=1, B mod 35 =  0
+   m ==  16 (mod 105): c1= 0, c2=3, B mod 35 =  0
+   m ==  17 (mod 105): c1= 0, c2=0, B mod 35 = 30
+   m ==  18 (mod 105): c1= 2, c2=2, B mod 35 = 22
+   m ==  19 (mod 105): c1= 6, c2=4, B mod 35 = 13
+   m ==  20 (mod 105): c1=12, c2=1, B mod 35 =  5
+   m ==  21 (mod 105): c1= 5, c2=3, B mod 35 =  0
+   m ==  22 (mod 105): c1= 0, c2=0, B mod 35 =  0  [PERFECT-ADMISSIBLE]
+   m ==  23 (mod 105): c1=12, c2=2, B mod 35 =  7
+   m ==  24 (mod 105): c1=11, c2=4, B mod 35 = 23
+   m ==  25 (mod 105): c1=12, c2=1, B mod 35 = 15
+   m ==  26 (mod 105): c1= 0, c2=3, B mod 35 = 20
+   m ==  27 (mod 105): c1= 5, c2=0, B mod 35 =  5
+   m ==  28 (mod 105): c1=12, c2=2, B mod 35 =  7
+   m ==  29 (mod 105): c1= 6, c2=4, B mod 35 = 28
+   m ==  30 (mod 105): c1= 2, c2=1, B mod 35 =  0
+   m ==  31 (mod 105): c1= 0, c2=3, B mod 35 = 30
+   m ==  32 (mod 105): c1= 0, c2=0, B mod 35 = 15
+   m ==  33 (mod 105): c1= 2, c2=2, B mod 35 = 27
+   m ==  34 (mod 105): c1= 6, c2=4, B mod 35 = 33
+   m ==  35 (mod 105): c1=12, c2=1, B mod 35 =  0
+   m ==  36 (mod 105): c1= 5, c2=3, B mod 35 =  0
+   m ==  37 (mod 105): c1= 0, c2=0, B mod 35 =  0  [PERFECT-ADMISSIBLE]
+   m ==  38 (mod 105): c1=12, c2=2, B mod 35 =  2
+   m ==  39 (mod 105): c1=11, c2=4, B mod 35 =  8
+   m ==  40 (mod 105): c1=12, c2=1, B mod 35 = 20
+   m ==  41 (mod 105): c1= 0, c2=3, B mod 35 =  5
+   m ==  42 (mod 105): c1= 5, c2=0, B mod 35 =  0
+   m ==  43 (mod 105): c1=12, c2=2, B mod 35 =  7
+   m ==  44 (mod 105): c1= 6, c2=4, B mod 35 = 28
+   m ==  45 (mod 105): c1= 2, c2=1, B mod 35 = 30
+   m ==  46 (mod 105): c1= 0, c2=3, B mod 35 = 15
+   m ==  47 (mod 105): c1= 0, c2=0, B mod 35 = 20
+   m ==  48 (mod 105): c1= 2, c2=2, B mod 35 = 12
+   m ==  49 (mod 105): c1= 6, c2=4, B mod 35 = 28
+   m ==  50 (mod 105): c1=12, c2=1, B mod 35 =  0
+   m ==  51 (mod 105): c1= 5, c2=3, B mod 35 =  0
+   m ==  52 (mod 105): c1= 0, c2=0, B mod 35 = 30
+   m ==  53 (mod 105): c1=12, c2=2, B mod 35 = 22
+   m ==  54 (mod 105): c1=11, c2=4, B mod 35 = 13
+   m ==  55 (mod 105): c1=12, c2=1, B mod 35 =  5
+   m ==  56 (mod 105): c1= 0, c2=3, B mod 35 =  0
+   m ==  57 (mod 105): c1= 5, c2=0, B mod 35 =  0
+   m ==  58 (mod 105): c1=12, c2=2, B mod 35 =  7
+   m ==  59 (mod 105): c1= 6, c2=4, B mod 35 = 23
+   m ==  60 (mod 105): c1= 2, c2=1, B mod 35 = 15
+   m ==  61 (mod 105): c1= 0, c2=3, B mod 35 = 20
+   m ==  62 (mod 105): c1= 0, c2=0, B mod 35 =  5
+   m ==  63 (mod 105): c1= 2, c2=2, B mod 35 =  7
+   m ==  64 (mod 105): c1= 6, c2=4, B mod 35 = 28
+   m ==  65 (mod 105): c1=12, c2=1, B mod 35 =  0
+   m ==  66 (mod 105): c1= 5, c2=3, B mod 35 = 30
+   m ==  67 (mod 105): c1= 0, c2=0, B mod 35 = 15
+   m ==  68 (mod 105): c1=12, c2=2, B mod 35 = 27
+   m ==  69 (mod 105): c1=11, c2=4, B mod 35 = 33
+   m ==  70 (mod 105): c1=12, c2=1, B mod 35 =  0
+   m ==  71 (mod 105): c1= 0, c2=3, B mod 35 =  0
+   m ==  72 (mod 105): c1= 5, c2=0, B mod 35 =  0
+   m ==  73 (mod 105): c1=12, c2=2, B mod 35 =  2
+   m ==  74 (mod 105): c1= 6, c2=4, B mod 35 =  8
+   m ==  75 (mod 105): c1= 2, c2=1, B mod 35 = 20
+   m ==  76 (mod 105): c1= 0, c2=3, B mod 35 =  5
+   m ==  77 (mod 105): c1= 0, c2=0, B mod 35 =  0  [PERFECT-ADMISSIBLE]
+   m ==  78 (mod 105): c1= 2, c2=2, B mod 35 =  7
+   m ==  79 (mod 105): c1= 6, c2=4, B mod 35 = 28
+   m ==  80 (mod 105): c1=12, c2=1, B mod 35 = 30
+   m ==  81 (mod 105): c1= 5, c2=3, B mod 35 = 15
+   m ==  82 (mod 105): c1= 0, c2=0, B mod 35 = 20
+   m ==  83 (mod 105): c1=12, c2=2, B mod 35 = 12
+   m ==  84 (mod 105): c1=11, c2=4, B mod 35 = 28
+   m ==  85 (mod 105): c1=12, c2=1, B mod 35 =  0
+   m ==  86 (mod 105): c1= 0, c2=3, B mod 35 =  0
+   m ==  87 (mod 105): c1= 5, c2=0, B mod 35 = 30
+   m ==  88 (mod 105): c1=12, c2=2, B mod 35 = 22
+   m ==  89 (mod 105): c1= 6, c2=4, B mod 35 = 13
+   m ==  90 (mod 105): c1= 2, c2=1, B mod 35 =  5
+   m ==  91 (mod 105): c1= 0, c2=3, B mod 35 =  0
+   m ==  92 (mod 105): c1= 0, c2=0, B mod 35 =  0  [PERFECT-ADMISSIBLE]
+   m ==  93 (mod 105): c1= 2, c2=2, B mod 35 =  7
+   m ==  94 (mod 105): c1= 6, c2=4, B mod 35 = 23
+   m ==  95 (mod 105): c1=12, c2=1, B mod 35 = 15
+   m ==  96 (mod 105): c1= 5, c2=3, B mod 35 = 20
+   m ==  97 (mod 105): c1= 0, c2=0, B mod 35 =  5
+   m ==  98 (mod 105): c1=12, c2=2, B mod 35 =  7
+   m ==  99 (mod 105): c1=11, c2=4, B mod 35 = 28
+   m == 100 (mod 105): c1=12, c2=1, B mod 35 =  0
+   m == 101 (mod 105): c1= 0, c2=3, B mod 35 = 30
+   m == 102 (mod 105): c1= 5, c2=0, B mod 35 = 15
+   m == 103 (mod 105): c1=12, c2=2, B mod 35 = 27
+   m == 104 (mod 105): c1= 6, c2=4, B mod 35 = 33
+w=8: slots=56, point mod 21, pair mod 6; signature period 168
+   perfect-admissible residues mod 168: [2, 8, 44, 50, 65, 86, 92, 113, 128, 134]
+   m ==   0 (mod 168): c1= 2, c2=2, B mod 56 =  0
+   m ==   1 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m ==   2 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m ==   3 (mod 168): c1= 2, c2=2, B mod 56 =  2
+   m ==   4 (mod 168): c1= 6, c2=4, B mod 56 =  8
+   m ==   5 (mod 168): c1=12, c2=0, B mod 56 = 20
+   m ==   6 (mod 168): c1=20, c2=2, B mod 56 = 40
+   m ==   7 (mod 168): c1= 9, c2=4, B mod 56 = 14
+   m ==   8 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m ==   9 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m ==  10 (mod 168): c1= 9, c2=4, B mod 56 = 16
+   m ==  11 (mod 168): c1= 6, c2=0, B mod 56 = 50
+   m ==  12 (mod 168): c1= 5, c2=2, B mod 56 = 48
+   m ==  13 (mod 168): c1= 6, c2=4, B mod 56 = 12
+   m ==  14 (mod 168): c1= 9, c2=0, B mod 56 =  0
+   m ==  15 (mod 168): c1=14, c2=2, B mod 56 = 14
+   m ==  16 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m ==  17 (mod 168): c1= 9, c2=0, B mod 56 = 16
+   m ==  18 (mod 168): c1=20, c2=2, B mod 56 =  8
+   m ==  19 (mod 168): c1=12, c2=4, B mod 56 = 34
+   m ==  20 (mod 168): c1= 6, c2=0, B mod 56 = 40
+   m ==  21 (mod 168): c1= 2, c2=2, B mod 56 = 28
+   m ==  22 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m ==  23 (mod 168): c1= 0, c2=0, B mod 56 = 14
+   m ==  24 (mod 168): c1= 2, c2=2, B mod 56 = 16
+   m ==  25 (mod 168): c1= 6, c2=4, B mod 56 =  8
+   m ==  26 (mod 168): c1=12, c2=0, B mod 56 = 48
+   m ==  27 (mod 168): c1=20, c2=2, B mod 56 = 26
+   m ==  28 (mod 168): c1= 9, c2=4, B mod 56 =  0
+   m ==  29 (mod 168): c1= 0, c2=0, B mod 56 = 28
+   m ==  30 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m ==  31 (mod 168): c1= 9, c2=4, B mod 56 = 30
+   m ==  32 (mod 168): c1= 6, c2=0, B mod 56 =  8
+   m ==  33 (mod 168): c1= 5, c2=2, B mod 56 = 48
+   m ==  34 (mod 168): c1= 6, c2=4, B mod 56 = 40
+   m ==  35 (mod 168): c1= 9, c2=0, B mod 56 = 42
+   m ==  36 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m ==  37 (mod 168): c1= 0, c2=4, B mod 56 = 28
+   m ==  38 (mod 168): c1= 9, c2=0, B mod 56 = 16
+   m ==  39 (mod 168): c1=20, c2=2, B mod 56 = 22
+   m ==  40 (mod 168): c1=12, c2=4, B mod 56 = 48
+   m ==  41 (mod 168): c1= 6, c2=0, B mod 56 = 40
+   m ==  42 (mod 168): c1= 2, c2=2, B mod 56 =  0
+   m ==  43 (mod 168): c1= 0, c2=4, B mod 56 = 42
+   m ==  44 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m ==  45 (mod 168): c1= 2, c2=2, B mod 56 = 44
+   m ==  46 (mod 168): c1= 6, c2=4, B mod 56 =  8
+   m ==  47 (mod 168): c1=12, c2=0, B mod 56 =  6
+   m ==  48 (mod 168): c1=20, c2=2, B mod 56 = 40
+   m ==  49 (mod 168): c1= 9, c2=4, B mod 56 =  0
+   m ==  50 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m ==  51 (mod 168): c1=14, c2=2, B mod 56 = 42
+   m ==  52 (mod 168): c1= 9, c2=4, B mod 56 = 16
+   m ==  53 (mod 168): c1= 6, c2=0, B mod 56 = 36
+   m ==  54 (mod 168): c1= 5, c2=2, B mod 56 = 48
+   m ==  55 (mod 168): c1= 6, c2=4, B mod 56 = 54
+   m ==  56 (mod 168): c1= 9, c2=0, B mod 56 =  0
+   m ==  57 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m ==  58 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m ==  59 (mod 168): c1= 9, c2=0, B mod 56 =  2
+   m ==  60 (mod 168): c1=20, c2=2, B mod 56 =  8
+   m ==  61 (mod 168): c1=12, c2=4, B mod 56 = 20
+   m ==  62 (mod 168): c1= 6, c2=0, B mod 56 = 40
+   m ==  63 (mod 168): c1= 2, c2=2, B mod 56 = 14
+   m ==  64 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m ==  65 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m ==  66 (mod 168): c1= 2, c2=2, B mod 56 = 16
+   m ==  67 (mod 168): c1= 6, c2=4, B mod 56 = 50
+   m ==  68 (mod 168): c1=12, c2=0, B mod 56 = 48
+   m ==  69 (mod 168): c1=20, c2=2, B mod 56 = 12
+   m ==  70 (mod 168): c1= 9, c2=4, B mod 56 =  0
+   m ==  71 (mod 168): c1= 0, c2=0, B mod 56 = 14
+   m ==  72 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m ==  73 (mod 168): c1= 9, c2=4, B mod 56 = 16
+   m ==  74 (mod 168): c1= 6, c2=0, B mod 56 =  8
+   m ==  75 (mod 168): c1= 5, c2=2, B mod 56 = 34
+   m ==  76 (mod 168): c1= 6, c2=4, B mod 56 = 40
+   m ==  77 (mod 168): c1= 9, c2=0, B mod 56 = 28
+   m ==  78 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m ==  79 (mod 168): c1= 0, c2=4, B mod 56 = 14
+   m ==  80 (mod 168): c1= 9, c2=0, B mod 56 = 16
+   m ==  81 (mod 168): c1=20, c2=2, B mod 56 =  8
+   m ==  82 (mod 168): c1=12, c2=4, B mod 56 = 48
+   m ==  83 (mod 168): c1= 6, c2=0, B mod 56 = 26
+   m ==  84 (mod 168): c1= 2, c2=2, B mod 56 =  0
+   m ==  85 (mod 168): c1= 0, c2=4, B mod 56 = 28
+   m ==  86 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m ==  87 (mod 168): c1= 2, c2=2, B mod 56 = 30
+   m ==  88 (mod 168): c1= 6, c2=4, B mod 56 =  8
+   m ==  89 (mod 168): c1=12, c2=0, B mod 56 = 48
+   m ==  90 (mod 168): c1=20, c2=2, B mod 56 = 40
+   m ==  91 (mod 168): c1= 9, c2=4, B mod 56 = 42
+   m ==  92 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m ==  93 (mod 168): c1=14, c2=2, B mod 56 = 28
+   m ==  94 (mod 168): c1= 9, c2=4, B mod 56 = 16
+   m ==  95 (mod 168): c1= 6, c2=0, B mod 56 = 22
+   m ==  96 (mod 168): c1= 5, c2=2, B mod 56 = 48
+   m ==  97 (mod 168): c1= 6, c2=4, B mod 56 = 40
+   m ==  98 (mod 168): c1= 9, c2=0, B mod 56 =  0
+   m ==  99 (mod 168): c1=14, c2=2, B mod 56 = 42
+   m == 100 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m == 101 (mod 168): c1= 9, c2=0, B mod 56 = 44
+   m == 102 (mod 168): c1=20, c2=2, B mod 56 =  8
+   m == 103 (mod 168): c1=12, c2=4, B mod 56 =  6
+   m == 104 (mod 168): c1= 6, c2=0, B mod 56 = 40
+   m == 105 (mod 168): c1= 2, c2=2, B mod 56 =  0
+   m == 106 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m == 107 (mod 168): c1= 0, c2=0, B mod 56 = 42
+   m == 108 (mod 168): c1= 2, c2=2, B mod 56 = 16
+   m == 109 (mod 168): c1= 6, c2=4, B mod 56 = 36
+   m == 110 (mod 168): c1=12, c2=0, B mod 56 = 48
+   m == 111 (mod 168): c1=20, c2=2, B mod 56 = 54
+   m == 112 (mod 168): c1= 9, c2=4, B mod 56 =  0
+   m == 113 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m == 114 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m == 115 (mod 168): c1= 9, c2=4, B mod 56 =  2
+   m == 116 (mod 168): c1= 6, c2=0, B mod 56 =  8
+   m == 117 (mod 168): c1= 5, c2=2, B mod 56 = 20
+   m == 118 (mod 168): c1= 6, c2=4, B mod 56 = 40
+   m == 119 (mod 168): c1= 9, c2=0, B mod 56 = 14
+   m == 120 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m == 121 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m == 122 (mod 168): c1= 9, c2=0, B mod 56 = 16
+   m == 123 (mod 168): c1=20, c2=2, B mod 56 = 50
+   m == 124 (mod 168): c1=12, c2=4, B mod 56 = 48
+   m == 125 (mod 168): c1= 6, c2=0, B mod 56 = 12
+   m == 126 (mod 168): c1= 2, c2=2, B mod 56 =  0
+   m == 127 (mod 168): c1= 0, c2=4, B mod 56 = 14
+   m == 128 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m == 129 (mod 168): c1= 2, c2=2, B mod 56 = 16
+   m == 130 (mod 168): c1= 6, c2=4, B mod 56 =  8
+   m == 131 (mod 168): c1=12, c2=0, B mod 56 = 34
+   m == 132 (mod 168): c1=20, c2=2, B mod 56 = 40
+   m == 133 (mod 168): c1= 9, c2=4, B mod 56 = 28
+   m == 134 (mod 168): c1= 0, c2=0, B mod 56 =  0  [PERFECT-ADMISSIBLE]
+   m == 135 (mod 168): c1=14, c2=2, B mod 56 = 14
+   m == 136 (mod 168): c1= 9, c2=4, B mod 56 = 16
+   m == 137 (mod 168): c1= 6, c2=0, B mod 56 =  8
+   m == 138 (mod 168): c1= 5, c2=2, B mod 56 = 48
+   m == 139 (mod 168): c1= 6, c2=4, B mod 56 = 26
+   m == 140 (mod 168): c1= 9, c2=0, B mod 56 =  0
+   m == 141 (mod 168): c1=14, c2=2, B mod 56 = 28
+   m == 142 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m == 143 (mod 168): c1= 9, c2=0, B mod 56 = 30
+   m == 144 (mod 168): c1=20, c2=2, B mod 56 =  8
+   m == 145 (mod 168): c1=12, c2=4, B mod 56 = 48
+   m == 146 (mod 168): c1= 6, c2=0, B mod 56 = 40
+   m == 147 (mod 168): c1= 2, c2=2, B mod 56 = 42
+   m == 148 (mod 168): c1= 0, c2=4, B mod 56 =  0
+   m == 149 (mod 168): c1= 0, c2=0, B mod 56 = 28
+   m == 150 (mod 168): c1= 2, c2=2, B mod 56 = 16
+   m == 151 (mod 168): c1= 6, c2=4, B mod 56 = 22
+   m == 152 (mod 168): c1=12, c2=0, B mod 56 = 48
+   m == 153 (mod 168): c1=20, c2=2, B mod 56 = 40
+   m == 154 (mod 168): c1= 9, c2=4, B mod 56 =  0
+   m == 155 (mod 168): c1= 0, c2=0, B mod 56 = 42
+   m == 156 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m == 157 (mod 168): c1= 9, c2=4, B mod 56 = 44
+   m == 158 (mod 168): c1= 6, c2=0, B mod 56 =  8
+   m == 159 (mod 168): c1= 5, c2=2, B mod 56 =  6
+   m == 160 (mod 168): c1= 6, c2=4, B mod 56 = 40
+   m == 161 (mod 168): c1= 9, c2=0, B mod 56 =  0
+   m == 162 (mod 168): c1=14, c2=2, B mod 56 =  0
+   m == 163 (mod 168): c1= 0, c2=4, B mod 56 = 42
+   m == 164 (mod 168): c1= 9, c2=0, B mod 56 = 16
+   m == 165 (mod 168): c1=20, c2=2, B mod 56 = 36
+   m == 166 (mod 168): c1=12, c2=4, B mod 56 = 48
+   m == 167 (mod 168): c1= 6, c2=0, B mod 56 = 54

@@ -1,0 +1,368 @@
+ground truth cells: 206
+
+== V0: residual histogram (z_hat - z_true) ==
+   +0: 107 cells
+   +1:  43 cells
+   +2:  28 cells
+   +3:  14 cells
+   +4:   9 cells
+   +5:   4 cells
+   +8:   1 cells
+  overshoot cells: [(6, 7, 1), (6, 8, 1), (6, 10, 1), (7, 7, 2), (7, 9, 1), (7, 10, 1), (7, 11, 1), (7, 12, 1), (7, 13, 2), (7, 14, 2), (7, 15, 1), (7, 16, 2), (7, 17, 2), (8, 8, 1), (8, 9, 2), (8, 10, 1), (8, 11, 2), (8, 12, 1), (8, 13, 2), (8, 14, 1), (8, 15, 1), (8, 16, 2), (8, 17, 1), (8, 18, 1), (8, 19, 1), (8, 20, 1), (8, 21, 1), (8, 22, 2), (8, 23, 1), (8, 24, 1), (8, 25, 2), (8, 26, 1), (9, 9, 2), (9, 10, 2), (9, 11, 1), (9, 13, 1), (9, 14, 2), (9, 15, 3), (9, 16, 3), (9, 17, 1), (9, 18, 1), (9, 19, 1), (9, 20, 1), (9, 21, 2), (9, 22, 1), (9, 23, 1), (9, 28, 1), (9, 29, 1), (9, 30, 1), (9, 31, 1), (9, 32, 1), (9, 34, 1), (9, 35, 1), (9, 36, 1), (9, 37, 1), (9, 38, 1), (9, 39, 2), (9, 40, 1), (9, 41, 1), (9, 42, 2), (10, 10, 2), (10, 11, 3), (10, 12, 4), (10, 13, 3), (10, 14, 3), (10, 15, 3), (10, 16, 3), (10, 17, 2), (10, 18, 2), (10, 19, 2), (10, 20, 2), (10, 21, 2), (10, 22, 2), (10, 58, 1), (11, 11, 4), (11, 12, 4), (11, 13, 2), (11, 14, 3), (11, 15, 4), (11, 16, 4), (11, 17, 3), (11, 18, 3), (11, 21, 1), (11, 82, 2), (12, 12, 4), (12, 13, 4), (12, 14, 3), (12, 15, 3), (12, 16, 5), (13, 13, 4), (13, 14, 3), (13, 15, 3), (13, 16, 5), (14, 14, 4), (14, 15, 2), (14, 16, 5), (15, 15, 2), (15, 16, 5), (16, 16, 8)]
+  undershoot cells: []
+
+== V1: residual histogram (z_hat - z_true) ==
+   -1:   1 cells
+   +0: 108 cells
+   +1:  41 cells
+   +2:  29 cells
+   +3:  15 cells
+   +4:   7 cells
+   +5:   4 cells
+   +8:   1 cells
+  overshoot cells: [(6, 7, 1), (6, 8, 1), (6, 10, 1), (7, 7, 2), (7, 11, 1), (7, 12, 1), (7, 13, 2), (7, 14, 2), (7, 15, 1), (7, 16, 2), (7, 17, 2), (8, 8, 1), (8, 9, 2), (8, 10, 1), (8, 11, 2), (8, 12, 1), (8, 13, 2), (8, 14, 1), (8, 15, 1), (8, 16, 2), (8, 17, 1), (8, 18, 1), (8, 19, 1), (8, 20, 1), (8, 21, 1), (8, 22, 2), (8, 23, 1), (8, 24, 1), (8, 25, 2), (8, 26, 1), (9, 9, 2), (9, 10, 2), (9, 11, 1), (9, 13, 1), (9, 14, 2), (9, 15, 3), (9, 16, 3), (9, 17, 1), (9, 18, 1), (9, 19, 1), (9, 20, 1), (9, 21, 2), (9, 22, 1), (9, 23, 1), (9, 28, 1), (9, 29, 1), (9, 30, 1), (9, 31, 1), (9, 32, 1), (9, 34, 1), (9, 35, 1), (9, 36, 1), (9, 37, 1), (9, 38, 1), (9, 39, 2), (9, 40, 1), (9, 41, 1), (9, 42, 2), (10, 10, 2), (10, 11, 3), (10, 12, 4), (10, 13, 2), (10, 14, 3), (10, 15, 3), (10, 16, 3), (10, 17, 2), (10, 18, 2), (10, 19, 2), (10, 20, 2), (10, 21, 2), (10, 22, 2), (10, 58, 1), (11, 11, 3), (11, 12, 4), (11, 13, 2), (11, 14, 3), (11, 15, 4), (11, 16, 4), (11, 17, 3), (11, 18, 3), (11, 21, 1), (11, 82, 2), (12, 12, 4), (12, 13, 3), (12, 14, 3), (12, 15, 3), (12, 16, 5), (13, 13, 4), (13, 14, 3), (13, 15, 3), (13, 16, 5), (14, 14, 4), (14, 15, 2), (14, 16, 5), (15, 15, 2), (15, 16, 5), (16, 16, 8)]
+  undershoot cells: [(7, 8, -1)]
+  -- diagnosis of nonzero residuals --
+  (6,7): +1  no-witness; formula level 5 (k=2, D=2[wedge])
+  (6,8): +1  no-witness; formula level 5 (k=1, D=2[wedge])
+  (6,10): +1  no-witness; formula level 5 (k=0, D=2[wedge])
+  (7,7): +2  no-witness; formula level 6 (k=0, D=2[wedge])
+  (7,11): +1  no-witness; formula level 5 (k=4, D=4[exact])
+  (7,12): +1  no-witness; formula level 5 (k=3, D=4[exact])
+  (7,13): +2  no-witness; formula level 5 (k=3, D=4[exact])
+  (7,14): +2  no-witness; formula level 5 (k=2, D=4[exact])
+  (7,15): +1  no-witness; formula level 5 (k=1, D=4[exact])
+  (7,16): +2  no-witness; formula level 5 (k=1, D=4[exact])
+  (7,17): +2  no-witness; formula level 5 (k=0, D=4[exact])
+  (8,8): +1  MIXED-LEVEL; formula level 6 (k=3, D=4[exact]); true profile [(5, 7), (7, 1)]
+  (8,9): +2  TWO-LAYER-TRUE; formula level 6 (k=2, D=4[exact]); true profile [(5, 9)]
+  (8,10): +1  TWO-LAYER-TRUE; formula level 6 (k=1, D=4[exact]); true profile [(5, 10)]
+  (8,11): +2  TWO-LAYER-TRUE; formula level 6 (k=0, D=4[exact]); true profile [(4, 2), (5, 9)]
+  (8,12): +1  MIXED-LEVEL; formula level 5 (k=10, D=10[exact]); true profile [(4, 4), (5, 7), (6, 1)]
+  (8,13): +2  TWO-LAYER-TRUE; formula level 5 (k=10, D=10[exact]); true profile [(4, 5), (5, 8)]
+  (8,14): +1  TWO-LAYER-TRUE; formula level 5 (k=9, D=10[exact]); true profile [(4, 6), (5, 8)]
+  (8,15): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=10[exact]); true profile [(4, 8), (5, 7)]
+  (8,16): +2  TWO-LAYER-TRUE; formula level 5 (k=8, D=10[exact]); true profile [(4, 10), (5, 6)]
+  (8,17): +1  MIXED-LEVEL; formula level 5 (k=7, D=10[exact]); true profile [(4, 12), (5, 4), (6, 1)]
+  (8,18): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=10[exact]); true profile [(4, 13), (5, 5)]
+  (8,19): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=10[exact]); true profile [(4, 14), (5, 5)]
+  (8,20): +1  TWO-LAYER-TRUE; formula level 5 (k=5, D=10[exact]); true profile [(3, 1), (4, 14), (5, 5)]
+  (8,21): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=10[exact]); true profile [(3, 2), (4, 14), (5, 5)]
+  (8,22): +2  TWO-LAYER-TRUE; formula level 5 (k=4, D=10[exact]); true profile [(4, 20), (5, 2)]
+  (8,23): +1  TWO-LAYER-TRUE; formula level 5 (k=3, D=10[exact]); true profile [(4, 21), (5, 2)]
+  (8,24): +1  TWO-LAYER-TRUE; formula level 5 (k=2, D=10[exact]); true profile [(4, 23), (5, 1)]
+  (8,25): +2  TWO-LAYER-TRUE; formula level 5 (k=2, D=10[exact]); true profile [(4, 25)]
+  (8,26): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=10[exact]); true profile [(4, 26)]
+  (9,9): +2  TWO-LAYER-TRUE; formula level 6 (k=6, D=6[exact]); true profile [(5, 5), (6, 4)]
+  (9,10): +2  TWO-LAYER-TRUE; formula level 6 (k=6, D=6[exact]); true profile [(5, 6), (6, 4)]
+  (9,11): +1  TWO-LAYER-TRUE; formula level 6 (k=5, D=6[exact]); true profile [(5, 7), (6, 4)]
+  (9,13): +1  TWO-LAYER-TRUE; formula level 6 (k=3, D=6[exact]); true profile [(3, 1), (5, 8), (6, 4)]
+  (9,14): +2  MIXED-LEVEL; formula level 6 (k=2, D=6[exact]); true profile [(4, 2), (5, 10), (6, 2)]
+  (9,15): +3  no-witness; formula level 6 (k=1, D=6[exact])
+  (9,16): +3  no-witness; formula level 6 (k=0, D=6[exact])
+  (9,17): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,18): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,19): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,20): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,21): +2  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,22): +1  TWO-LAYER-TRUE; formula level 5 (k=13, D=14[exact]); true profile [(4, 10), (5, 12)]
+  (9,23): +1  TWO-LAYER-TRUE; formula level 5 (k=12, D=14[exact]); true profile [(4, 12), (5, 11)]
+  (9,28): +1  TWO-LAYER-TRUE; formula level 5 (k=9, D=14[exact]); true profile [(4, 20), (5, 8)]
+  (9,29): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=14[exact]); true profile [(4, 22), (5, 7)]
+  (9,30): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=14[exact]); true profile [(4, 23), (5, 7)]
+  (9,31): +1  TWO-LAYER-TRUE; formula level 5 (k=7, D=14[exact]); true profile [(4, 25), (5, 6)]
+  (9,32): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=14[exact]); true profile [(3, 1), (4, 25), (5, 6)]
+  (9,34): +1  TWO-LAYER-TRUE; formula level 5 (k=5, D=14[exact]); true profile [(4, 30), (5, 4)]
+  (9,35): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=14[exact]); true profile [(3, 1), (4, 30), (5, 4)]
+  (9,36): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=14[exact]); true profile [(4, 33), (5, 3)]
+  (9,37): +1  TWO-LAYER-TRUE; formula level 5 (k=3, D=14[exact]); true profile [(3, 1), (4, 33), (5, 3)]
+  (9,38): +1  TWO-LAYER-TRUE; formula level 5 (k=2, D=14[exact]); true profile [(3, 2), (4, 33), (5, 3)]
+  (9,39): +2  TWO-LAYER-TRUE; formula level 5 (k=2, D=14[exact]); true profile [(4, 39)]
+  (9,40): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=14[exact]); true profile [(4, 40)]
+  (9,41): +1  TWO-LAYER-TRUE; formula level 5 (k=0, D=14[exact]); true profile [(3, 1), (4, 40)]
+  (9,42): +2  TWO-LAYER-TRUE; formula level 5 (k=0, D=14[exact]); true profile [(3, 2), (4, 40)]
+  (10,10): +2  no-witness; formula level 7 (k=2, D=4[exact])
+  (10,11): +3  no-witness; formula level 7 (k=1, D=4[exact])
+  (10,12): +4  no-witness; formula level 7 (k=0, D=4[exact])
+  (10,13): +2  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,14): +3  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,15): +3  no-witness; formula level 6 (k=9, D=10[exact])
+  (10,16): +3  no-witness; formula level 6 (k=8, D=10[exact])
+  (10,17): +2  no-witness; formula level 6 (k=7, D=10[exact])
+  (10,18): +2  no-witness; formula level 6 (k=6, D=10[exact])
+  (10,19): +2  no-witness; formula level 6 (k=5, D=10[exact])
+  (10,20): +2  no-witness; formula level 6 (k=4, D=10[exact])
+  (10,21): +2  MIXED-LEVEL; formula level 6 (k=3, D=10[exact]); true profile [(4, 4), (5, 12), (6, 5)]
+  (10,22): +2  MIXED-LEVEL; formula level 6 (k=2, D=10[exact]); true profile [(4, 5), (5, 12), (6, 5)]
+  (10,58): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=21[uleave]); true profile [(4, 58)]
+  (11,11): +3  no-witness; formula level 7 (k=6, D=6[exact])
+  (11,12): +4  no-witness; formula level 7 (k=6, D=6[exact])
+  (11,13): +2  no-witness; formula level 7 (k=4, D=6[exact])
+  (11,14): +3  no-witness; formula level 7 (k=3, D=6[exact])
+  (11,15): +4  no-witness; formula level 7 (k=2, D=6[exact])
+  (11,16): +4  no-witness; formula level 7 (k=0, D=6[exact])
+  (11,17): +3  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,18): +3  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,21): +1  no-witness; formula level 6 (k=12, D=14[exact])
+  (11,82): +2  no-witness; formula level 5 (k=0, D=31[uleave])
+  (12,12): +4  no-witness; formula level 8 (k=0, D=6[uleave])
+  (12,13): +3  no-witness; formula level 7 (k=11, D=11[uleave])
+  (12,14): +3  no-witness; formula level 7 (k=10, D=11[uleave])
+  (12,15): +3  no-witness; formula level 7 (k=9, D=11[uleave])
+  (12,16): +5  no-witness; formula level 7 (k=8, D=11[uleave])
+  (13,13): +4  no-witness; formula level 8 (k=5, D=8[uleave])
+  (13,14): +3  no-witness; formula level 8 (k=3, D=8[uleave])
+  (13,15): +3  no-witness; formula level 8 (k=2, D=8[uleave])
+  (13,16): +5  no-witness; formula level 8 (k=0, D=8[uleave])
+  (14,14): +4  no-witness; formula level 8 (k=11, D=12[uleave])
+  (14,15): +2  no-witness; formula level 8 (k=9, D=12[uleave])
+  (14,16): +5  no-witness; formula level 8 (k=8, D=12[uleave])
+  (15,15): +2  no-witness; formula level 9 (k=2, D=8[uleave])
+  (15,16): +5  no-witness; formula level 9 (k=0, D=8[uleave])
+  (16,16): +8  no-witness; formula level 9 (k=8, D=12[uleave])
+  (7,8): -1  UNDERSHOOT; true profile None
+
+== V2: residual histogram (z_hat - z_true) ==
+   -1:   2 cells
+   +0: 113 cells
+   +1:  41 cells
+   +2:  26 cells
+   +3:  16 cells
+   +4:   5 cells
+   +5:   2 cells
+   +8:   1 cells
+  overshoot cells: [(6, 7, 1), (6, 8, 1), (7, 11, 1), (7, 12, 1), (7, 13, 2), (7, 14, 2), (7, 15, 1), (7, 16, 2), (8, 8, 1), (8, 9, 2), (8, 10, 1), (8, 11, 1), (8, 12, 1), (8, 13, 2), (8, 14, 1), (8, 15, 1), (8, 16, 2), (8, 17, 1), (8, 18, 1), (8, 19, 1), (8, 20, 1), (8, 21, 1), (8, 22, 2), (8, 23, 1), (8, 24, 1), (8, 25, 2), (8, 26, 1), (9, 9, 2), (9, 10, 2), (9, 11, 1), (9, 13, 1), (9, 14, 2), (9, 15, 3), (9, 16, 1), (9, 17, 1), (9, 18, 1), (9, 19, 1), (9, 20, 1), (9, 21, 2), (9, 22, 1), (9, 23, 1), (9, 28, 1), (9, 29, 1), (9, 30, 1), (9, 31, 1), (9, 32, 1), (9, 34, 1), (9, 35, 1), (9, 36, 1), (9, 37, 1), (9, 38, 1), (9, 39, 2), (9, 40, 1), (10, 10, 2), (10, 11, 3), (10, 12, 2), (10, 13, 2), (10, 14, 3), (10, 15, 3), (10, 16, 3), (10, 17, 2), (10, 18, 2), (10, 19, 2), (10, 20, 2), (10, 21, 2), (10, 22, 2), (10, 58, 1), (11, 11, 3), (11, 12, 4), (11, 13, 2), (11, 14, 3), (11, 15, 4), (11, 16, 2), (11, 17, 3), (11, 18, 3), (11, 21, 1), (12, 12, 3), (12, 13, 3), (12, 14, 3), (12, 15, 3), (12, 16, 5), (13, 13, 4), (13, 14, 3), (13, 15, 3), (13, 16, 3), (14, 14, 4), (14, 15, 2), (14, 16, 5), (15, 15, 2), (15, 16, 4), (16, 16, 8)]
+  undershoot cells: [(7, 7, -1), (7, 8, -1)]
+  -- diagnosis of nonzero residuals --
+  (6,7): +1  no-witness; formula level 5 (k=2, D=2[wedge])
+  (6,8): +1  no-witness; formula level 5 (k=1, D=2[wedge])
+  (7,11): +1  no-witness; formula level 5 (k=4, D=4[exact])
+  (7,12): +1  no-witness; formula level 5 (k=3, D=4[exact])
+  (7,13): +2  no-witness; formula level 5 (k=3, D=4[exact])
+  (7,14): +2  no-witness; formula level 5 (k=2, D=4[exact])
+  (7,15): +1  no-witness; formula level 5 (k=1, D=4[exact])
+  (7,16): +2  no-witness; formula level 5 (k=1, D=4[exact])
+  (8,8): +1  MIXED-LEVEL; formula level 6 (k=3, D=4[exact]); true profile [(5, 7), (7, 1)]
+  (8,9): +2  TWO-LAYER-TRUE; formula level 6 (k=2, D=4[exact]); true profile [(5, 9)]
+  (8,10): +1  TWO-LAYER-TRUE; formula level 6 (k=1, D=4[exact]); true profile [(5, 10)]
+  (8,11): +1  TWO-LAYER-TRUE; formula level 5 (k=10, D=10[exact]); true profile [(4, 2), (5, 9)]
+  (8,12): +1  MIXED-LEVEL; formula level 5 (k=10, D=10[exact]); true profile [(4, 4), (5, 7), (6, 1)]
+  (8,13): +2  TWO-LAYER-TRUE; formula level 5 (k=10, D=10[exact]); true profile [(4, 5), (5, 8)]
+  (8,14): +1  TWO-LAYER-TRUE; formula level 5 (k=9, D=10[exact]); true profile [(4, 6), (5, 8)]
+  (8,15): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=10[exact]); true profile [(4, 8), (5, 7)]
+  (8,16): +2  TWO-LAYER-TRUE; formula level 5 (k=8, D=10[exact]); true profile [(4, 10), (5, 6)]
+  (8,17): +1  MIXED-LEVEL; formula level 5 (k=7, D=10[exact]); true profile [(4, 12), (5, 4), (6, 1)]
+  (8,18): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=10[exact]); true profile [(4, 13), (5, 5)]
+  (8,19): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=10[exact]); true profile [(4, 14), (5, 5)]
+  (8,20): +1  TWO-LAYER-TRUE; formula level 5 (k=5, D=10[exact]); true profile [(3, 1), (4, 14), (5, 5)]
+  (8,21): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=10[exact]); true profile [(3, 2), (4, 14), (5, 5)]
+  (8,22): +2  TWO-LAYER-TRUE; formula level 5 (k=4, D=10[exact]); true profile [(4, 20), (5, 2)]
+  (8,23): +1  TWO-LAYER-TRUE; formula level 5 (k=3, D=10[exact]); true profile [(4, 21), (5, 2)]
+  (8,24): +1  TWO-LAYER-TRUE; formula level 5 (k=2, D=10[exact]); true profile [(4, 23), (5, 1)]
+  (8,25): +2  TWO-LAYER-TRUE; formula level 5 (k=2, D=10[exact]); true profile [(4, 25)]
+  (8,26): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=10[exact]); true profile [(4, 26)]
+  (9,9): +2  TWO-LAYER-TRUE; formula level 6 (k=6, D=6[exact]); true profile [(5, 5), (6, 4)]
+  (9,10): +2  TWO-LAYER-TRUE; formula level 6 (k=6, D=6[exact]); true profile [(5, 6), (6, 4)]
+  (9,11): +1  TWO-LAYER-TRUE; formula level 6 (k=5, D=6[exact]); true profile [(5, 7), (6, 4)]
+  (9,13): +1  TWO-LAYER-TRUE; formula level 6 (k=3, D=6[exact]); true profile [(3, 1), (5, 8), (6, 4)]
+  (9,14): +2  MIXED-LEVEL; formula level 6 (k=2, D=6[exact]); true profile [(4, 2), (5, 10), (6, 2)]
+  (9,15): +3  no-witness; formula level 6 (k=1, D=6[exact])
+  (9,16): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,17): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,18): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,19): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,20): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,21): +2  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,22): +1  TWO-LAYER-TRUE; formula level 5 (k=13, D=14[exact]); true profile [(4, 10), (5, 12)]
+  (9,23): +1  TWO-LAYER-TRUE; formula level 5 (k=12, D=14[exact]); true profile [(4, 12), (5, 11)]
+  (9,28): +1  TWO-LAYER-TRUE; formula level 5 (k=9, D=14[exact]); true profile [(4, 20), (5, 8)]
+  (9,29): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=14[exact]); true profile [(4, 22), (5, 7)]
+  (9,30): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=14[exact]); true profile [(4, 23), (5, 7)]
+  (9,31): +1  TWO-LAYER-TRUE; formula level 5 (k=7, D=14[exact]); true profile [(4, 25), (5, 6)]
+  (9,32): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=14[exact]); true profile [(3, 1), (4, 25), (5, 6)]
+  (9,34): +1  TWO-LAYER-TRUE; formula level 5 (k=5, D=14[exact]); true profile [(4, 30), (5, 4)]
+  (9,35): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=14[exact]); true profile [(3, 1), (4, 30), (5, 4)]
+  (9,36): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=14[exact]); true profile [(4, 33), (5, 3)]
+  (9,37): +1  TWO-LAYER-TRUE; formula level 5 (k=3, D=14[exact]); true profile [(3, 1), (4, 33), (5, 3)]
+  (9,38): +1  TWO-LAYER-TRUE; formula level 5 (k=2, D=14[exact]); true profile [(3, 2), (4, 33), (5, 3)]
+  (9,39): +2  TWO-LAYER-TRUE; formula level 5 (k=2, D=14[exact]); true profile [(4, 39)]
+  (9,40): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=14[exact]); true profile [(4, 40)]
+  (10,10): +2  no-witness; formula level 7 (k=2, D=4[exact])
+  (10,11): +3  no-witness; formula level 7 (k=1, D=4[exact])
+  (10,12): +2  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,13): +2  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,14): +3  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,15): +3  no-witness; formula level 6 (k=9, D=10[exact])
+  (10,16): +3  no-witness; formula level 6 (k=8, D=10[exact])
+  (10,17): +2  no-witness; formula level 6 (k=7, D=10[exact])
+  (10,18): +2  no-witness; formula level 6 (k=6, D=10[exact])
+  (10,19): +2  no-witness; formula level 6 (k=5, D=10[exact])
+  (10,20): +2  no-witness; formula level 6 (k=4, D=10[exact])
+  (10,21): +2  MIXED-LEVEL; formula level 6 (k=3, D=10[exact]); true profile [(4, 4), (5, 12), (6, 5)]
+  (10,22): +2  MIXED-LEVEL; formula level 6 (k=2, D=10[exact]); true profile [(4, 5), (5, 12), (6, 5)]
+  (10,58): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=21[uleave]); true profile [(4, 58)]
+  (11,11): +3  no-witness; formula level 7 (k=6, D=6[exact])
+  (11,12): +4  no-witness; formula level 7 (k=6, D=6[exact])
+  (11,13): +2  no-witness; formula level 7 (k=4, D=6[exact])
+  (11,14): +3  no-witness; formula level 7 (k=3, D=6[exact])
+  (11,15): +4  no-witness; formula level 7 (k=2, D=6[exact])
+  (11,16): +2  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,17): +3  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,18): +3  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,21): +1  no-witness; formula level 6 (k=12, D=14[exact])
+  (12,12): +3  no-witness; formula level 7 (k=11, D=11[uleave])
+  (12,13): +3  no-witness; formula level 7 (k=11, D=11[uleave])
+  (12,14): +3  no-witness; formula level 7 (k=10, D=11[uleave])
+  (12,15): +3  no-witness; formula level 7 (k=9, D=11[uleave])
+  (12,16): +5  no-witness; formula level 7 (k=8, D=11[uleave])
+  (13,13): +4  no-witness; formula level 8 (k=5, D=8[uleave])
+  (13,14): +3  no-witness; formula level 8 (k=3, D=8[uleave])
+  (13,15): +3  no-witness; formula level 8 (k=2, D=8[uleave])
+  (13,16): +3  no-witness; formula level 7 (k=14, D=14[uleave])
+  (14,14): +4  no-witness; formula level 8 (k=11, D=12[uleave])
+  (14,15): +2  no-witness; formula level 8 (k=9, D=12[uleave])
+  (14,16): +5  no-witness; formula level 8 (k=8, D=12[uleave])
+  (15,15): +2  no-witness; formula level 9 (k=2, D=8[uleave])
+  (15,16): +4  no-witness; formula level 8 (k=15, D=15[uleave])
+  (16,16): +8  no-witness; formula level 9 (k=8, D=12[uleave])
+  (7,7): -1  UNDERSHOOT; true profile None
+  (7,8): -1  UNDERSHOOT; true profile None
+
+== V2J: residual histogram (z_hat - z_true) ==
+   -1:   2 cells
+   +0: 116 cells
+   +1:  42 cells
+   +2:  22 cells
+   +3:  16 cells
+   +4:   5 cells
+   +5:   2 cells
+   +8:   1 cells
+  overshoot cells: [(6, 7, 1), (6, 8, 1), (7, 11, 1), (7, 12, 1), (7, 13, 1), (7, 14, 1), (8, 8, 1), (8, 9, 2), (8, 10, 1), (8, 11, 1), (8, 12, 1), (8, 13, 2), (8, 14, 1), (8, 15, 1), (8, 16, 2), (8, 17, 1), (8, 18, 1), (8, 19, 1), (8, 20, 1), (8, 21, 1), (8, 22, 2), (8, 23, 1), (8, 24, 1), (8, 25, 2), (8, 26, 1), (9, 9, 2), (9, 10, 2), (9, 11, 1), (9, 13, 1), (9, 14, 2), (9, 15, 3), (9, 16, 1), (9, 17, 1), (9, 18, 1), (9, 19, 1), (9, 20, 1), (9, 21, 2), (9, 22, 1), (9, 23, 1), (9, 28, 1), (9, 29, 1), (9, 30, 1), (9, 31, 1), (9, 32, 1), (9, 34, 1), (9, 35, 1), (9, 36, 1), (9, 37, 1), (9, 38, 1), (9, 39, 1), (10, 10, 2), (10, 11, 3), (10, 12, 2), (10, 13, 2), (10, 14, 3), (10, 15, 3), (10, 16, 3), (10, 17, 2), (10, 18, 2), (10, 19, 2), (10, 20, 2), (10, 21, 2), (10, 22, 2), (10, 58, 1), (11, 11, 3), (11, 12, 4), (11, 13, 2), (11, 14, 3), (11, 15, 4), (11, 16, 2), (11, 17, 3), (11, 18, 3), (11, 21, 1), (12, 12, 3), (12, 13, 3), (12, 14, 3), (12, 15, 3), (12, 16, 5), (13, 13, 4), (13, 14, 3), (13, 15, 3), (13, 16, 3), (14, 14, 4), (14, 15, 2), (14, 16, 5), (15, 15, 2), (15, 16, 4), (16, 16, 8)]
+  undershoot cells: [(7, 7, -1), (7, 8, -1)]
+  -- diagnosis of nonzero residuals --
+  (6,7): +1  no-witness; formula level 5 (k=2, D=2[wedge])
+  (6,8): +1  no-witness; formula level 5 (k=1, D=2[wedge])
+  (7,11): +1  no-witness; formula level 5 (k=4, D=4[exact])
+  (7,12): +1  no-witness; formula level 5 (k=3, D=4[exact])
+  (7,13): +1  no-witness; formula level 5 (k=2, D=4[exact])
+  (7,14): +1  no-witness; formula level 5 (k=1, D=4[exact])
+  (8,8): +1  MIXED-LEVEL; formula level 6 (k=3, D=4[exact]); true profile [(5, 7), (7, 1)]
+  (8,9): +2  TWO-LAYER-TRUE; formula level 6 (k=2, D=4[exact]); true profile [(5, 9)]
+  (8,10): +1  TWO-LAYER-TRUE; formula level 6 (k=1, D=4[exact]); true profile [(5, 10)]
+  (8,11): +1  TWO-LAYER-TRUE; formula level 5 (k=10, D=10[exact]); true profile [(4, 2), (5, 9)]
+  (8,12): +1  MIXED-LEVEL; formula level 5 (k=10, D=10[exact]); true profile [(4, 4), (5, 7), (6, 1)]
+  (8,13): +2  TWO-LAYER-TRUE; formula level 5 (k=10, D=10[exact]); true profile [(4, 5), (5, 8)]
+  (8,14): +1  TWO-LAYER-TRUE; formula level 5 (k=9, D=10[exact]); true profile [(4, 6), (5, 8)]
+  (8,15): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=10[exact]); true profile [(4, 8), (5, 7)]
+  (8,16): +2  TWO-LAYER-TRUE; formula level 5 (k=8, D=10[exact]); true profile [(4, 10), (5, 6)]
+  (8,17): +1  MIXED-LEVEL; formula level 5 (k=7, D=10[exact]); true profile [(4, 12), (5, 4), (6, 1)]
+  (8,18): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=10[exact]); true profile [(4, 13), (5, 5)]
+  (8,19): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=10[exact]); true profile [(4, 14), (5, 5)]
+  (8,20): +1  TWO-LAYER-TRUE; formula level 5 (k=5, D=10[exact]); true profile [(3, 1), (4, 14), (5, 5)]
+  (8,21): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=10[exact]); true profile [(3, 2), (4, 14), (5, 5)]
+  (8,22): +2  TWO-LAYER-TRUE; formula level 5 (k=4, D=10[exact]); true profile [(4, 20), (5, 2)]
+  (8,23): +1  TWO-LAYER-TRUE; formula level 5 (k=3, D=10[exact]); true profile [(4, 21), (5, 2)]
+  (8,24): +1  TWO-LAYER-TRUE; formula level 5 (k=2, D=10[exact]); true profile [(4, 23), (5, 1)]
+  (8,25): +2  TWO-LAYER-TRUE; formula level 5 (k=2, D=10[exact]); true profile [(4, 25)]
+  (8,26): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=10[exact]); true profile [(4, 26)]
+  (9,9): +2  TWO-LAYER-TRUE; formula level 6 (k=6, D=6[exact]); true profile [(5, 5), (6, 4)]
+  (9,10): +2  TWO-LAYER-TRUE; formula level 6 (k=6, D=6[exact]); true profile [(5, 6), (6, 4)]
+  (9,11): +1  TWO-LAYER-TRUE; formula level 6 (k=5, D=6[exact]); true profile [(5, 7), (6, 4)]
+  (9,13): +1  TWO-LAYER-TRUE; formula level 6 (k=3, D=6[exact]); true profile [(3, 1), (5, 8), (6, 4)]
+  (9,14): +2  MIXED-LEVEL; formula level 6 (k=2, D=6[exact]); true profile [(4, 2), (5, 10), (6, 2)]
+  (9,15): +3  no-witness; formula level 6 (k=1, D=6[exact])
+  (9,16): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,17): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,18): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,19): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,20): +1  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,21): +2  no-witness; formula level 5 (k=14, D=14[exact])
+  (9,22): +1  TWO-LAYER-TRUE; formula level 5 (k=13, D=14[exact]); true profile [(4, 10), (5, 12)]
+  (9,23): +1  TWO-LAYER-TRUE; formula level 5 (k=12, D=14[exact]); true profile [(4, 12), (5, 11)]
+  (9,28): +1  TWO-LAYER-TRUE; formula level 5 (k=9, D=14[exact]); true profile [(4, 20), (5, 8)]
+  (9,29): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=14[exact]); true profile [(4, 22), (5, 7)]
+  (9,30): +1  TWO-LAYER-TRUE; formula level 5 (k=8, D=14[exact]); true profile [(4, 23), (5, 7)]
+  (9,31): +1  TWO-LAYER-TRUE; formula level 5 (k=7, D=14[exact]); true profile [(4, 25), (5, 6)]
+  (9,32): +1  TWO-LAYER-TRUE; formula level 5 (k=6, D=14[exact]); true profile [(3, 1), (4, 25), (5, 6)]
+  (9,34): +1  TWO-LAYER-TRUE; formula level 5 (k=5, D=14[exact]); true profile [(4, 30), (5, 4)]
+  (9,35): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=14[exact]); true profile [(3, 1), (4, 30), (5, 4)]
+  (9,36): +1  TWO-LAYER-TRUE; formula level 5 (k=4, D=14[exact]); true profile [(4, 33), (5, 3)]
+  (9,37): +1  TWO-LAYER-TRUE; formula level 5 (k=3, D=14[exact]); true profile [(3, 1), (4, 33), (5, 3)]
+  (9,38): +1  TWO-LAYER-TRUE; formula level 5 (k=2, D=14[exact]); true profile [(3, 2), (4, 33), (5, 3)]
+  (9,39): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=14[exact]); true profile [(4, 39)]
+  (10,10): +2  no-witness; formula level 7 (k=2, D=4[exact])
+  (10,11): +3  no-witness; formula level 7 (k=1, D=4[exact])
+  (10,12): +2  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,13): +2  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,14): +3  no-witness; formula level 6 (k=10, D=10[exact])
+  (10,15): +3  no-witness; formula level 6 (k=9, D=10[exact])
+  (10,16): +3  no-witness; formula level 6 (k=8, D=10[exact])
+  (10,17): +2  no-witness; formula level 6 (k=7, D=10[exact])
+  (10,18): +2  no-witness; formula level 6 (k=6, D=10[exact])
+  (10,19): +2  no-witness; formula level 6 (k=5, D=10[exact])
+  (10,20): +2  no-witness; formula level 6 (k=4, D=10[exact])
+  (10,21): +2  MIXED-LEVEL; formula level 6 (k=3, D=10[exact]); true profile [(4, 4), (5, 12), (6, 5)]
+  (10,22): +2  MIXED-LEVEL; formula level 6 (k=2, D=10[exact]); true profile [(4, 5), (5, 12), (6, 5)]
+  (10,58): +1  TWO-LAYER-TRUE; formula level 5 (k=1, D=21[uleave]); true profile [(4, 58)]
+  (11,11): +3  no-witness; formula level 7 (k=6, D=6[exact])
+  (11,12): +4  no-witness; formula level 7 (k=6, D=6[exact])
+  (11,13): +2  no-witness; formula level 7 (k=4, D=6[exact])
+  (11,14): +3  no-witness; formula level 7 (k=3, D=6[exact])
+  (11,15): +4  no-witness; formula level 7 (k=2, D=6[exact])
+  (11,16): +2  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,17): +3  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,18): +3  no-witness; formula level 6 (k=14, D=14[exact])
+  (11,21): +1  no-witness; formula level 6 (k=12, D=14[exact])
+  (12,12): +3  no-witness; formula level 7 (k=11, D=11[uleave])
+  (12,13): +3  no-witness; formula level 7 (k=11, D=11[uleave])
+  (12,14): +3  no-witness; formula level 7 (k=10, D=11[uleave])
+  (12,15): +3  no-witness; formula level 7 (k=9, D=11[uleave])
+  (12,16): +5  no-witness; formula level 7 (k=8, D=11[uleave])
+  (13,13): +4  no-witness; formula level 8 (k=5, D=8[uleave])
+  (13,14): +3  no-witness; formula level 8 (k=3, D=8[uleave])
+  (13,15): +3  no-witness; formula level 8 (k=2, D=8[uleave])
+  (13,16): +3  no-witness; formula level 7 (k=14, D=14[uleave])
+  (14,14): +4  no-witness; formula level 8 (k=11, D=12[uleave])
+  (14,15): +2  no-witness; formula level 8 (k=9, D=12[uleave])
+  (14,16): +5  no-witness; formula level 8 (k=8, D=12[uleave])
+  (15,15): +2  no-witness; formula level 9 (k=2, D=8[uleave])
+  (15,16): +4  no-witness; formula level 8 (k=15, D=15[uleave])
+  (16,16): +8  no-witness; formula level 9 (k=8, D=12[uleave])
+  (7,7): -1  UNDERSHOOT; true profile None
+  (7,8): -1  UNDERSHOOT; true profile None
+
+== V3 (mixed-ledger formula = Theorem 7 form) ==
+  row 6: 18 cells n>=6: ALL MATCH
+  row 7: 15 cells n>=10: ALL MATCH
+  row 8: 18 cells n>=10: ALL MATCH
+  row 9 [S9 lo-brackets]: 19 cells n>=28: ALL MATCH
+  row 9 [S9 hi-brackets]: 19 cells n>=28: ALL MATCH
+
+== closed-form wide-region reproduction (V1) ==
+  m=6 n=10: formula 40 vs Thm8-form 39
+  row 6, n in [9,80): 1 deviations
+  m=7 n=15: formula 61 vs Thm8-form 60
+  m=7 n=16: formula 65 vs Thm8-form 63
+  m=7 n=17: formula 68 vs Thm8-form 66
+  row 7, n in [15,110): 3 deviations
+  row 8, n in [28,152): ALL MATCH Thm8 closed form
+  m=9 n=40: formula 161 vs Thm8-form 160
+  m=9 n=41: formula 164 vs Thm8-form 163
+  m=9 n=42: formula 168 vs Thm8-form 166
+  row 9, n in [40,208): 3 deviations
+  m=11 n=80: formula 321 vs Thm8-form 320
+  m=11 n=81: formula 325 vs Thm8-form 323
+  m=11 n=82: formula 328 vs Thm8-form 326
+  row 11, n in [80,370): 3 deviations
+  m=12 n=108: formula 433 vs Thm8-form 432
+  m=12 n=109: formula 436 vs Thm8-form 435
+  m=12 n=110: formula 440 vs Thm8-form 438
+  row 12, n in [108,480): 3 deviations
+  m=19 n=482: formula 1929 vs Thm8-form 1928
+  m=19 n=483: formula 1933 vs Thm8-form 1931
+  m=19 n=484: formula 1936 vs Thm8-form 1934
+  row 19, n in [482,882): 3 deviations
+  m=23 n=883: formula 3533 vs Thm8-form 3532
+  m=23 n=884: formula 3537 vs Thm8-form 3535
+  m=23 n=885: formula 3540 vs Thm8-form 3538
+  row 23, n in [883,1283): 3 deviations

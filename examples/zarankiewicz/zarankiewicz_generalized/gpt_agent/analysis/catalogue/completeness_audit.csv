@@ -1,0 +1,82 @@
+witness,bank,m,n,edges,legal,profile,decomposition,status,frontier_check,saturation,optimality
+w_10x21.json,witnesses,10,21,106,True,6^5 5^12 4^4,K5edge[K4sets](x5) + Splits(x6) + K5edge[stars](x4),CONSTRUCTIVE,,236/240,PROVEN-optimal
+w_10x22.json,witnesses,10,22,110,True,6^5 5^12 4^5,K5edge[K4sets](x5) + Splits(x6) + K5edge[stars](x5),CONSTRUCTIVE,,240/240,PROVEN-optimal
+w_10x35.json,witnesses,10,35,156,True,5^16 4^19,"Splits(x8) + UNRECOGNIZED(w=4,x19)",PARTIAL,,236/240,PROVEN-optimal
+w_10x36.json,witnesses,10,36,160,True,5^16 4^20,"Splits(x8) + UNRECOGNIZED(w=4,x20)",PARTIAL,,240/240,PROVEN-optimal
+w_10x47.json,witnesses,10,47,196,True,5^8 4^39,"OA-GDD(lam=2,8 transversals) + UNRECOGNIZED(w=4,x39)",PARTIAL,,236/240,PROVEN-optimal
+w_10x48.json,witnesses,10,48,200,True,5^8 4^40,"Splits(x4) + UNRECOGNIZED(w=4,x40)",PARTIAL,,240/240,PROVEN-optimal
+w_10x53.json,witnesses,10,53,216,True,5^4 4^49,"Splits(x2) + UNRECOGNIZED(w=4,x49)",PARTIAL,,236/240,PROVEN-optimal
+w_10x54.json,witnesses,10,54,220,True,5^4 4^50,"Splits(x2) + UNRECOGNIZED(w=4,x50)",PARTIAL,,240/240,PROVEN-optimal
+w_10x57.json,witnesses,10,57,230,True,5^2 4^55,"2x single block(w=5) + Sub[3-(10,4,2)] (completes with 5 quads)",CONSTRUCTIVE,,240/240,PROVEN-optimal
+w_10x58.json,witnesses,10,58,232,True,4^58,"Sub[3-(10,4,2)] (completes with 2 quads)",CONSTRUCTIVE,,232/240,PROVEN-optimal
+w_10x59.json,witnesses,10,59,236,True,4^59,Sub[2xSQS(10)](x59),CONSTRUCTIVE,,236/240,PROVEN-optimal
+w_11x22.json,witnesses,11,22,121,True,6^11 5^11,"2-(11,6,3) design + 2-(11,5,2) design",CONSTRUCTIVE,,330/330,PROVEN-optimal
+w_7x24.json,witnesses,7,24,87,True,4^15 3^9,"Sub[Z5-HolePacking(7)](x15) + Fills(x9,in-leave)",CONSTRUCTIVE,=F,69/70,PROVEN-optimal
+w_8x10.json,witnesses,8,10,50,True,5^10,"TripleComp[sub-D2(8,5,3)max10]",SPECIES,=F,100/112,PROVEN-optimal
+w_8x11.json,witnesses,8,11,53,True,5^9 4^2,"TripleComp[sub-D2(8,5,3)max10] + OnSupport(5)PointComp{2,3}",SPECIES,=F,98/112,PROVEN-optimal
+w_8x12.json,witnesses,8,12,57,True,6^1 5^7 4^4,EdgeComp[matching(1)] + TripleComp[Fano] + OnSupport(7)Sub[Z5-HolePacking(7)](x4),CONSTRUCTIVE,=F,106/112,PROVEN-optimal
+w_8x13.json,witnesses,8,13,60,True,5^8 4^5,TripleComp[MoebiusKantor 8_3] + Sub[2xSQS(8)](x5),CONSTRUCTIVE,=F,100/112,PROVEN-optimal
+w_8x14.json,witnesses,8,14,64,True,5^8 4^6,TripleComp[MoebiusKantor 8_3] + Splits(x3),CONSTRUCTIVE,=F,104/112,PROVEN-optimal
+w_8x15.json,witnesses,8,15,67,True,5^7 4^8,"TripleComp[sub-MoebiusKantor] + UNRECOGNIZED(w=4,x8)",PARTIAL,=F,102/112,PROVEN-optimal
+w_8x16.json,witnesses,8,16,70,True,5^6 4^10,"TripleComp[sub-D2(8,5,3)max10] + UNRECOGNIZED(w=4,x10)",PARTIAL,=F,100/112,PROVEN-optimal
+w_8x17.json,witnesses,8,17,74,True,6^1 5^4 4^12,"EdgeComp[matching(1)] + TripleComp[sub-D2(8,5,3)max10] + Splits(x6)",SPECIES,=F,108/112,PROVEN-optimal
+w_8x18.json,witnesses,8,18,77,True,5^5 4^13,"TripleComp[sub-D2(8,5,3)max10] + UNRECOGNIZED(w=4,x13)",PARTIAL,=F,102/112,PROVEN-optimal
+w_8x19.json,witnesses,8,19,81,True,5^5 4^14,"TripleComp[sub-D2(8,5,3)max10] + UNRECOGNIZED(w=4,x14)",PARTIAL,=F,106/112,PROVEN-optimal
+w_8x20.json,witnesses,8,20,84,True,5^5 4^14 3^1,"TripleComp[sub-D2(8,5,3)max10] + UNRECOGNIZED(w=4,x14) + Fills(x1,in-leave)",PARTIAL,=F,107/112,PROVEN-optimal
+w_8x21.json,witnesses,8,21,87,True,5^5 4^14 3^2,"TripleComp[sub-D2(8,5,3)max10] + UNRECOGNIZED(w=4,x14) + Fills(x2,in-leave)",PARTIAL,=F,108/112,PROVEN-optimal
+w_8x22.json,witnesses,8,22,90,True,5^2 4^20,"TripleComp[parallel(2)] + UNRECOGNIZED(w=4,x20)",PARTIAL,=F,100/112,PROVEN-optimal
+w_8x23.json,witnesses,8,23,94,True,5^2 4^21,"TripleComp[parallel(2)] + UNRECOGNIZED(w=4,x21)",PARTIAL,=F,104/112,PROVEN-optimal
+w_8x24.json,witnesses,8,24,97,True,5^1 4^23,"TripleComp[pencilpartition(p=0,1 pairs)] + Sub[3-(8,4,2)] (completes with 5 quads)",CONSTRUCTIVE,=F,102/112,PROVEN-optimal
+w_8x25.json,witnesses,8,25,100,True,4^25,"UNRECOGNIZED(w=4,x25)",UNDECODED,=F,100/112,PROVEN-optimal
+w_8x26.json,witnesses,8,26,104,True,4^26,Sub[2xSQS(8)](x26),CONSTRUCTIVE,=F,104/112,PROVEN-optimal
+w_8x27.json,witnesses,8,27,108,True,4^27,Sub[2xSQS(8)](x27),CONSTRUCTIVE,=F,108/112,PROVEN-optimal
+w_8x8.json,witnesses,8,8,42,True,7^1 5^7,PointComp{6} + TripleComp[Fano],CONSTRUCTIVE,=F,105/112,PROVEN-optimal
+w_8x9.json,witnesses,8,9,45,True,5^9,"TripleComp[sub-D2(8,5,3)max10]",SPECIES,=F,90/112,PROVEN-optimal
+w_9x10.json,witnesses,9,10,54,True,6^4 5^6,"OnSupport(8)EdgeComp[matching(4)] + ParityCone(q=7,6 blocks,even)",CONSTRUCTIVE,=F,140/168,PROVEN-optimal
+w_9x11.json,witnesses,9,11,59,True,6^4 5^7,"OnSupport(8)EdgeComp[matching(4)] + ParityCone(q=5,7 blocks,odd)",CONSTRUCTIVE,=F,150/168,PROVEN-optimal
+w_9x12.json,witnesses,9,12,64,True,6^4 5^8,"OnSupport(8)EdgeComp[matching(4)] + ParityCone(q=4,8 blocks,odd)",CONSTRUCTIVE,=F,160/168,PROVEN-optimal
+w_9x13.json,witnesses,9,13,67,True,6^4 5^8 3^1,"OnSupport(8)EdgeComp[matching(4)] + ParityCone(q=3,8 blocks,odd) + Fills(x1,in-leave)",CONSTRUCTIVE,=F,161/168,PROVEN-optimal
+w_9x14.json,witnesses,9,14,70,True,6^2 5^10 4^2,"OnSupport(8)EdgeComp[matching(2)] + UNRECOGNIZED(w=5,x10) + OnSupport(6)EdgeComp[matching(2)]",PARTIAL,=F,148/168,PROVEN-optimal
+w_9x22.json,witnesses,9,22,100,True,5^12 4^10,"AG(2,3)BaseCalc[b=0: 8 base-line cones + 2 pencil-pair quads + 8 comp(line+pt) + 4 comp(pencil-pair) pentads]",CONSTRUCTIVE,=F,160/168,PROVEN-optimal
+w_9x23.json,witnesses,9,23,103,True,5^11 4^12,"UNRECOGNIZED(w=5,x11) + UNRECOGNIZED(w=4,x12)",UNDECODED,=F,158/168,PROVEN-optimal
+w_9x24.json,witnesses,9,24,106,True,5^10 4^14,"UNRECOGNIZED(w=5,x10) + UNRECOGNIZED(w=4,x14)",UNDECODED,=F,156/168,LB-witness (cell open)
+w_9x25.json,witnesses,9,25,109,True,5^12 4^10 3^3,"AG(2,3)BaseCalc[b=0: 8 base-line cones + 2 pencil-pair quads + 8 comp(line+pt) + 4 comp(pencil-pair) pentads] + Fills(x3,in-leave)",CONSTRUCTIVE,=F,163/168,LB-witness (cell open)
+w_9x26.json,witnesses,9,26,112,True,5^12 4^10 3^4,"AG(2,3)BaseCalc[b=0: 8 base-line cones + 2 pencil-pair quads + 8 comp(line+pt) + 4 comp(pencil-pair) pentads] + Fills(x4,in-leave)",CONSTRUCTIVE,=F,164/168,LB-witness (cell open)
+w_9x27.json,witnesses,9,27,116,True,5^8 4^19,"Cone(q=8, derived 4-sets x8) + UNRECOGNIZED(w=4,x19)",PARTIAL,>F_csv(34),156/168,LB-witness (cell open)
+w_9x28.json,witnesses,9,28,120,True,5^8 4^20,"ParityCone(q=8,8 blocks,even) + UNRECOGNIZED(w=4,x20)",PARTIAL,=F,160/168,PROVEN-optimal
+w_9x29.json,witnesses,9,29,123,True,5^7 4^22,"Cone(q=8, derived 4-sets x7) + UNRECOGNIZED(w=4,x22)",PARTIAL,=F,158/168,PROVEN-optimal
+w_9x30.json,witnesses,9,30,127,True,5^7 4^23,"Cone(q=8, derived 4-sets x7) + UNRECOGNIZED(w=4,x23)",PARTIAL,=F,162/168,PROVEN-optimal
+w_9x31.json,witnesses,9,31,130,True,5^6 4^25,"UNRECOGNIZED(w=5,x6) + UNRECOGNIZED(w=4,x25)",UNDECODED,=F,160/168,PROVEN-optimal
+w_9x32.json,witnesses,9,32,133,True,5^6 4^25 3^1,"UNRECOGNIZED(w=5,x6) + UNRECOGNIZED(w=4,x25) + Fills(x1,in-leave)",UNDECODED,=F,161/168,PROVEN-optimal
+w_9x34.json,witnesses,9,34,140,True,5^4 4^30,"UNRECOGNIZED(w=5,x4) + UNRECOGNIZED(w=4,x30)",UNDECODED,=F,160/168,PROVEN-optimal
+w_9x35.json,witnesses,9,35,143,True,5^4 4^30 3^1,"UNRECOGNIZED(w=5,x4) + UNRECOGNIZED(w=4,x30) + Fills(x1,in-leave)",UNDECODED,=F,161/168,PROVEN-optimal
+w_9x36.json,witnesses,9,36,147,True,5^3 4^33,"OnSupport(7)EdgeComp[matching(3)] + UNRECOGNIZED(w=4,x33)",PARTIAL,=F,162/168,PROVEN-optimal
+w_9x37.json,witnesses,9,37,150,True,5^3 4^33 3^1,"OnSupport(7)EdgeComp[matching(3)] + UNRECOGNIZED(w=4,x33) + Fills(x1,in-leave)",PARTIAL,=F,163/168,PROVEN-optimal
+w_9x38.json,witnesses,9,38,153,True,5^3 4^33 3^2,"OnSupport(7)EdgeComp[matching(3)] + UNRECOGNIZED(w=4,x33) + Fills(x2,in-leave)",PARTIAL,=F,164/168,PROVEN-optimal
+w_9x39.json,witnesses,9,39,156,True,4^39,MaxPacking-minus-1 (extends to classified max),SPECIES,=F,156/168,PROVEN-optimal
+w_9x40.json,witnesses,9,40,160,True,4^40,"MaxPacking[T=40, doubled-hub leave at 8]",SPECIES,=F,160/168,PROVEN-optimal
+w_9x41.json,witnesses,9,41,163,True,4^40 3^1,"MaxPacking[T=40, doubled-hub leave at 8] + Fills(x1,in-leave)",SPECIES,=F,161/168,PROVEN-optimal
+w_9x42.json,witnesses,9,42,166,True,4^40 3^2,"MaxPacking[T=40, doubled-hub leave at 2] + Fills(x2,in-leave)",SPECIES,=F,162/168,PROVEN-optimal
+w_9x43.json,witnesses,9,43,169,True,4^40 3^3,"MaxPacking[T=40, doubled-hub leave at 4] + Fills(x3,in-leave)",SPECIES,=F,163/168,PROVEN-optimal
+w_9x44.json,witnesses,9,44,172,True,4^40 3^4,"MaxPacking[T=40, doubled-hub leave at 4] + Fills(x4,in-leave)",SPECIES,=F,164/168,PROVEN-optimal
+w_9x45.json,witnesses,9,45,175,True,4^40 3^5,"MaxPacking[T=40, doubled-hub leave at 0] + Fills(x5,in-leave)",SPECIES,=F,165/168,PROVEN-optimal
+w_9x46.json,witnesses,9,46,178,True,4^40 3^6,"MaxPacking[T=40, doubled-hub leave at 0] + Fills(x6,in-leave)",SPECIES,=F,166/168,PROVEN-optimal
+w_9x47.json,witnesses,9,47,181,True,4^40 3^7,"MaxPacking[T=40, doubled-hub leave at 0] + Fills(x7,in-leave)",SPECIES,=F,167/168,PROVEN-optimal
+w_9x9.json,witnesses,9,9,49,True,6^4 5^5,"OnSupport(8)EdgeComp[matching(4)] + ParityCone(q=4,5 blocks,odd)",CONSTRUCTIVE,=F,130/168,PROVEN-optimal
+t33_m11_b80_hole.json,design_prover,11,80,320,True,4^80,"Z5-HolePacking[c5-blocks rotation, doubled-pentagon hole on [0, 1, 2, 3, 4]]",CONSTRUCTIVE,,320/330,packing-max (T proven)
+t33_m19_b482_hole.json,design_prover,19,482,1928,True,4^482,"Z5-HolePacking[c5-blocks rotation, doubled-pentagon hole on [0, 1, 2, 3, 4]]",CONSTRUCTIVE,,1928/1938,packing-max (T proven)
+t33_m23_b883_hole.json,design_prover,23,883,3532,True,4^883,"Z5-HolePacking[c5-blocks rotation, doubled-pentagon hole on [0, 1, 2, 3, 4]]",CONSTRUCTIVE,,3532/3542,packing-max (T proven)
+t33_m27_b1458_parclass.json,design_prover,27,1458,5832,True,4^1458,"Z9-ParclassPacking[three 9-cycles, doubled-parallel-class hole]",CONSTRUCTIVE,,5832/5850,packing-max (T proven)
+t33_m7_b15_hole.json,design_prover,7,15,60,True,4^15,"Z5-HolePacking[c5-blocks rotation, doubled-pentagon hole on [0, 1, 2, 3, 4]]",CONSTRUCTIVE,=F,60/70,packing-max (T proven)
+T2_10x15_81_cadical_witness.json,sat_attack,10,15,81,True,6^6 5^9,"OnSupport(9)TripleComp[2 parallel classes] + Cone(q=0, Moebius-residual circles x9)",CONSTRUCTIVE,,210/240,PROVEN-optimal
+band_11x82_witness.json,sat_attack,11,82,326,True,4^80 3^2,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x2,in-leave)",SPECIES,,322/330,PROVEN-optimal (Thm F + SAT)
+band_11x83_witness.json,sat_attack,11,83,329,True,4^80 3^3,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x3,in-leave)",SPECIES,,323/330,PROVEN-optimal (Thm F + SAT)
+band_11x84_witness.json,sat_attack,11,84,332,True,4^80 3^4,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x4,in-leave)",SPECIES,,324/330,PROVEN-optimal (Thm F + SAT)
+band_11x85_witness.json,sat_attack,11,85,335,True,4^80 3^5,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x5,in-leave)",SPECIES,,325/330,PROVEN-optimal (Thm F + SAT)
+band_11x86_witness.json,sat_attack,11,86,338,True,4^80 3^6,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x6,in-leave)",SPECIES,,326/330,PROVEN-optimal (Thm F + SAT)
+band_11x87_witness.json,sat_attack,11,87,341,True,4^80 3^7,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x7,in-leave)",SPECIES,,327/330,PROVEN-optimal (Thm F + SAT)
+band_11x88_witness.json,sat_attack,11,88,344,True,4^80 3^8,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x8,in-leave)",SPECIES,,328/330,PROVEN-optimal (Thm F + SAT)
+band_11x89_witness.json,sat_attack,11,89,347,True,4^80 3^9,"MaxPacking[T=80, doubled-pentagon leave on [0, 1, 2, 4, 6]] + Fills(x9,in-leave)",SPECIES,,329/330,PROVEN-optimal (Thm F + SAT)
+smoke_10x14_77_witness.json,sat_attack,10,14,77,True,6^7 5^7,"UNRECOGNIZED(w=6,x7) + UNRECOGNIZED(w=5,x7)",UNDECODED,,210/240,PROVEN-optimal
+smoke_5x5_20_witness.json,sat_attack,5,5,20,True,4^5,"PointComp{0,1,2,3,4}",CONSTRUCTIVE,,20/20,PROVEN-optimal
+smoke_6x6_26_witness.json,sat_attack,6,6,26,True,5^2 4^4,"PointComp{0,1} + EdgeComp[C4]",CONSTRUCTIVE,=F,36/40,PROVEN-optimal

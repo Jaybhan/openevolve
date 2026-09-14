@@ -1,0 +1,23 @@
+{"m": 8, "n": 8, "z_ilp": 42, "z_pub": 42, "match": true, "witness_valid": true, "seconds": 1.8}
+{"m": 8, "n": 9, "z_ilp": 45, "z_pub": 45, "match": true, "witness_valid": true, "seconds": 3.8}
+{"m": 8, "n": 10, "z_ilp": 50, "z_pub": 50, "match": true, "witness_valid": true, "seconds": 0.3}
+{"m": 8, "n": 11, "z_ilp": 53, "z_pub": 53, "match": true, "witness_valid": true, "seconds": 3.4}
+{"m": 8, "n": 12, "z_ilp": 57, "z_pub": 57, "match": true, "witness_valid": true, "seconds": 2.5}
+{"m": 8, "n": 13, "z_ilp": 60, "z_pub": 60, "match": true, "witness_valid": true, "seconds": 4.6}
+{"m": 8, "n": 14, "z_ilp": 64, "z_pub": 64, "match": true, "witness_valid": true, "seconds": 0.7}
+{"m": 8, "n": 15, "z_ilp": 67, "z_pub": 67, "match": true, "witness_valid": true, "seconds": 2.9}
+{"m": 8, "n": 16, "z_ilp": 70, "z_pub": 70, "match": true, "witness_valid": true, "seconds": 14.0}
+{"m": 8, "n": 17, "z_ilp": 74, "z_pub": 74, "match": true, "witness_valid": true, "seconds": 2.2}
+{"m": 8, "n": 18, "z_ilp": 77, "z_pub": 77, "match": true, "witness_valid": true, "seconds": 6.1}
+{"m": 8, "n": 19, "z_ilp": 81, "z_pub": 81, "match": true, "witness_valid": true, "seconds": 1.1}
+{"m": 8, "n": 20, "z_ilp": 84, "z_pub": 84, "match": true, "witness_valid": true, "seconds": 1.7}
+{"m": 8, "n": 21, "z_ilp": 87, "z_pub": 87, "match": true, "witness_valid": true, "seconds": 17.7}
+{"m": 8, "n": 22, "z_ilp": 90, "z_pub": 90, "match": true, "witness_valid": true, "seconds": 56.5}
+{"m": 8, "n": 23, "z_ilp": 94, "z_pub": 94, "match": true, "witness_valid": true, "seconds": 0.9}
+{"m": 9, "n": 9, "z_ilp": 49, "z_pub": 49, "match": true, "witness_valid": true, "seconds": 96.5}
+{"m": 9, "n": 10, "z_ilp": 54, "z_pub": 54, "match": true, "witness_valid": true, "seconds": 57.5}
+{"m": 9, "n": 11, "z_ilp": 59, "z_pub": 59, "match": true, "witness_valid": true, "seconds": 2.9}
+{"m": 9, "n": 12, "z_ilp": 64, "z_pub": 64, "match": true, "witness_valid": true, "seconds": 0.7}
+{"m": 9, "n": 13, "z_ilp": 67, "z_pub": 67, "match": true, "witness_valid": true, "seconds": 24.6}
+{"m": 9, "n": 14, "z_ilp": 70, "z_pub": 70, "match": true, "witness_valid": true, "seconds": 380.3}
+{"m": 9, "n": 15, "status": "UNRESOLVED(1)", "seconds": 900.0}

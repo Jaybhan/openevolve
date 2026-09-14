@@ -1,0 +1,75 @@
+{"m": 8, "n": 24, "z_ilp": 97, "witness_valid": true, "seconds": 16.4}
+{"m": 8, "n": 25, "z_ilp": 100, "witness_valid": true, "seconds": 52.4}
+{"m": 8, "n": 26, "z_ilp": 104, "witness_valid": true, "seconds": 0.8}
+{"m": 8, "n": 27, "z_ilp": 108, "witness_valid": true, "seconds": 0.1}
+{"m": 9, "n": 23, "z_ilp": 103, "witness_valid": true, "seconds": 9.7}
+{"m": 9, "n": 24, "status": "UNRESOLVED(1)", "seconds": 900.0}
+{"m": 9, "n": 47, "z_ilp": 181, "witness_valid": true, "seconds": 7.0}
+{"m": 9, "n": 46, "z_ilp": 178, "witness_valid": true, "seconds": 1.4}
+{"m": 9, "n": 45, "z_ilp": 175, "witness_valid": true, "seconds": 14.2}
+{"m": 9, "n": 44, "z_ilp": 172, "witness_valid": true, "seconds": 5.8}
+{"m": 9, "n": 43, "z_ilp": 169, "witness_valid": true, "seconds": 19.1}
+{"m": 9, "n": 42, "z_ilp": 166, "witness_valid": true, "seconds": 1.5}
+{"m": 9, "n": 41, "z_ilp": 163, "witness_valid": true, "seconds": 6.7}
+{"m": 9, "n": 40, "z_ilp": 160, "witness_valid": true, "seconds": 1.2}
+{"m": 9, "n": 39, "z_ilp": 156, "witness_valid": true, "seconds": 23.5}
+{"m": 9, "n": 38, "z_ilp": 153, "witness_valid": true, "seconds": 24.3}
+{"m": 9, "n": 37, "z_ilp": 150, "witness_valid": true, "seconds": 19.4}
+{"m": 9, "n": 36, "z_ilp": 147, "witness_valid": true, "seconds": 7.6}
+{"m": 9, "n": 35, "z_ilp": 143, "witness_valid": true, "seconds": 118.2}
+{"m": 9, "n": 34, "z_ilp": 140, "witness_valid": true, "seconds": 63.8}
+{"m": 9, "n": 33, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 9, "n": 32, "z_ilp": 133, "witness_valid": true, "seconds": 12.8}
+{"m": 9, "n": 31, "z_ilp": 130, "witness_valid": true, "seconds": 12.7}
+{"m": 9, "n": 30, "z_ilp": 127, "witness_valid": true, "seconds": 68.4}
+{"m": 9, "n": 29, "z_ilp": 123, "witness_valid": true, "seconds": 17.7}
+{"m": 9, "n": 28, "z_ilp": 120, "witness_valid": true, "seconds": 4.7}
+{"m": 9, "n": 27, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 9, "n": 26, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 9, "n": 25, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 9, "n": 24, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 59, "z_ilp": 236, "witness_valid": true, "seconds": 44.6}
+{"m": 10, "n": 58, "z_ilp": 232, "witness_valid": true, "seconds": 71.4}
+{"m": 10, "n": 57, "z_ilp": 230, "witness_valid": true, "seconds": 508.8}
+{"m": 10, "n": 56, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 55, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 54, "z_ilp": 220, "witness_valid": true, "seconds": 14.4}
+{"m": 10, "n": 53, "z_ilp": 216, "witness_valid": true, "seconds": 147.3}
+{"m": 10, "n": 52, "status": "UNRESOLVED(1)", "seconds": 972.4}
+{"m": 10, "n": 51, "status": "UNRESOLVED(1)", "seconds": 1182.9}
+{"m": 10, "n": 50, "status": "UNRESOLVED(1)", "seconds": 1024.9}
+{"m": 10, "n": 49, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 48, "z_ilp": 200, "witness_valid": true, "seconds": 39.4}
+{"m": 10, "n": 47, "z_ilp": 196, "witness_valid": true, "seconds": 88.7}
+{"m": 10, "n": 46, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 45, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 44, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 43, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 42, "status": "UNRESOLVED(1)", "seconds": 600.1}
+{"m": 10, "n": 41, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 40, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 39, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 38, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 37, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 36, "z_ilp": 160, "witness_valid": true, "seconds": 37.0}
+{"m": 10, "n": 35, "z_ilp": 156, "witness_valid": true, "seconds": 154.2}
+{"m": 10, "n": 34, "status": "UNRESOLVED(1)", "seconds": 600.1}
+{"m": 10, "n": 33, "status": "UNRESOLVED(1)", "seconds": 600.1}
+{"m": 10, "n": 32, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 31, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 30, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 29, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 28, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 27, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 26, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 25, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 24, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 23, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 10, "n": 22, "z_ilp": 110, "witness_valid": true, "seconds": 222.1}
+{"m": 10, "n": 21, "z_ilp": 106, "witness_valid": true, "seconds": 336.6}
+{"m": 11, "n": 89, "status": "UNRESOLVED(1)", "seconds": 600.1}
+{"m": 11, "n": 88, "status": "UNRESOLVED(1)", "seconds": 600.0}
+{"m": 11, "n": 87, "status": "UNRESOLVED(1)", "seconds": 600.1}
+{"m": 11, "n": 86, "status": "UNRESOLVED(1)", "seconds": 600.1}
+{"m": 11, "n": 85, "status": "UNRESOLVED(1)", "seconds": 600.1}
+{"m": 11, "n": 84, "status": "UNRESOLVED(1)", "seconds": 600.1}

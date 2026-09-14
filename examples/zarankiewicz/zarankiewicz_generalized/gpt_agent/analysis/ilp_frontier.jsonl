@@ -1,0 +1,3 @@
+{"m": 7, "n": 24, "z_ilp": 87, "witness_valid": true, "seconds": 0.1, "note": "gap band row 7 (predict 87 = 3n+T33(7))"}
+{"m": 12, "n": 17, "status": "UNRESOLVED(1)", "seconds": 1200.1, "note": "CRWR 2016 claim: 103 exact (discrepancy vs Tan/DGH)"}
+{"m": 11, "n": 22, "z_ilp": 121, "witness_valid": true, "seconds": 1.8, "note": "BNL 2026: 121 exact (missing from evaluator suite)"}
