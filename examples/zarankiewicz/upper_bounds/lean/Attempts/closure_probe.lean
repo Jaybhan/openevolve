@@ -1,0 +1,56 @@
+import ZarPrune.Cond
+import Mathlib.Data.Fin.Tuple.Sort
+import Mathlib.Data.List.Sort
+import Mathlib.Data.List.OfFn
+set_option autoImplicit false
+open ZarPrune
+#check @Tuple.sort
+#check @Tuple.monotone_sort
+#check @monotone_toDual_comp_iff
+#check @List.pairwise_ofFn
+#check @List.sum_ofFn
+#check @List.map_ofFn
+#check @List.length_ofFn
+#check @List.getElem?_ofFn
+#check @List.getD_eq_getElem?_getD
+#check @List.ofFn_succ
+#check @List.sorted_mergeSort
+#check @List.mergeSort_perm
+#check @List.eq_of_perm_of_sorted
+#check @List.forall_mem_cons
+#check @List.forall_mem_nil
+#check @Equiv.sum_comp
+#check @Finset.sum_ite_eq'
+#check @List.perm_ext_iff_of_nodup
+#check @List.nodup_finRange
+#check @List.Nodup.map
+#check @List.mem_flatMap
+#check @List.mem_filter
+#check @List.Sublist.sum_le_sum
+#check @List.take_sublist
+#check @Fin.sum_univ_succ
+#check @Fin.castLE
+#check @Fin.castLE_lt_castLE_iff
+#check @Finset.card_image_of_injective
+#check @List.take_ofFn
+#check @List.finRange
+#print List.finRange
+#check @List.ofFn_eq_map
+#check @List.sum_take_ofFn
+#check @List.Pairwise.sublist
+#check @List.take_append_of_le_length
+#check @List.ofFn_add
+#check @List.Perm.map
+#check @List.map_finRange_perm
+#check @Equiv.Perm.map_finRange_perm
+#check @List.mem_finRange
+#check @List.pairwise_map
+#check @List.Sorted
+#check @Nat.findGreatest
+#check @List.not_mem_nil
+#check @Fin.castLE_zero
+#check @Fin.castLE_succ
+#check @List.getD
+example : (3 : Nat) ≤ 5 := by decide +kernel
+example : waterfillBound 9 8 3 (colBudgetOf ⟨9, 8, 3, 3, 0⟩) ≤ 48 := by decide +kernel
+#eval waterfillBound 9 8 3 (colBudgetOf ⟨9, 8, 3, 3, 0⟩)

@@ -1,0 +1,35 @@
+{
+ "formula": "log fhat = a + b*log(max(c2000,1)) + g*log2_volume; d = min(max(cap, fhat), 20*cap)",
+ "fits": {
+  "3,3": {
+   "a": 0.06695910974575574,
+   "b": 0.508949661955265,
+   "g": 0.049787642879315336,
+   "n_fit": 709,
+   "fitted_on": [
+    "m10_n10_s3_t3_w61",
+    "m10_n11_s3_t3_w65",
+    "m11_n11_s3_t3_w70",
+    "m11_n12_s3_t3_w75",
+    "m12_n12_s3_t3_w81",
+    "m9_n10_s3_t3_w55",
+    "m9_n9_s3_t3_w50"
+   ],
+   "holdout": [
+    "m12_n13_s3_t3_w87"
+   ],
+   "train_metrics": {
+    "n": 709,
+    "spearman_rho": 0.47803457179750275,
+    "log_rmse": 0.878428410780875,
+    "clipped_log_rmse": 0.8770935536406765
+   },
+   "holdout_metrics": {
+    "n": 276,
+    "spearman_rho": 0.3947801155802246,
+    "log_rmse": 1.2815348780770257,
+    "clipped_log_rmse": 1.2815348780770257
+   }
+  }
+ }
+}

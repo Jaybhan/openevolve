@@ -1,0 +1,217 @@
+m,n,s,t,bound,kind,provenance,closure_file,hypotheses
+3,3,3,3,8,exact,tan2022,,
+3,4,3,3,10,exact,tan2022,,
+3,5,3,3,12,exact,tan2022,,
+3,6,3,3,14,exact,tan2022,,
+3,7,3,3,16,exact,tan2022,,
+3,8,3,3,18,exact,tan2022,,
+3,9,3,3,20,exact,tan2022,,
+3,10,3,3,22,exact,tan2022,,
+3,11,3,3,24,exact,tan2022,,
+3,12,3,3,26,exact,tan2022,,
+3,13,3,3,28,exact,tan2022,,
+3,14,3,3,30,exact,tan2022,,
+3,15,3,3,32,exact,tan2022,,
+3,16,3,3,34,exact,tan2022,,
+3,17,3,3,36,exact,tan2022,,
+3,18,3,3,38,exact,tan2022,,
+3,19,3,3,40,exact,tan2022,,
+3,20,3,3,42,exact,tan2022,,
+3,21,3,3,44,exact,tan2022,,
+3,22,3,3,46,exact,tan2022,,
+3,23,3,3,48,exact,tan2022,,
+4,4,3,3,13,exact,tan2022,,
+4,5,3,3,16,exact,tan2022,,
+4,6,3,3,18,exact,tan2022,,
+4,7,3,3,21,exact,tan2022,,
+4,8,3,3,24,exact,tan2022,,
+4,9,3,3,26,exact,tan2022,,
+4,10,3,3,28,exact,tan2022,,
+4,11,3,3,30,exact,tan2022,,
+4,12,3,3,32,exact,tan2022,,
+4,13,3,3,34,exact,tan2022,,
+4,14,3,3,36,exact,tan2022,,
+4,15,3,3,38,exact,tan2022,,
+4,16,3,3,40,exact,tan2022,,
+4,17,3,3,42,exact,tan2022,,
+4,18,3,3,44,exact,tan2022,,
+4,19,3,3,46,exact,tan2022,,
+4,20,3,3,48,exact,tan2022,,
+4,21,3,3,50,exact,tan2022,,
+4,22,3,3,52,exact,tan2022,,
+4,23,3,3,54,exact,tan2022,,
+5,5,3,3,20,exact,tan2022,,
+5,6,3,3,22,exact,tan2022,,
+5,7,3,3,25,exact,tan2022,,
+5,8,3,3,28,exact,tan2022,,
+5,9,3,3,30,exact,tan2022,,
+5,10,3,3,33,exact,tan2022,,
+5,11,3,3,36,exact,tan2022,,
+5,12,3,3,38,exact,tan2022,,
+5,13,3,3,41,exact,tan2022,,
+5,14,3,3,44,exact,tan2022,,
+5,15,3,3,46,exact,tan2022,,
+5,16,3,3,49,exact,tan2022,,
+5,17,3,3,52,exact,tan2022,,
+5,18,3,3,54,exact,tan2022,,
+5,19,3,3,57,exact,tan2022,,
+5,20,3,3,60,exact,tan2022,,
+5,21,3,3,62,exact,tan2022,,
+5,22,3,3,64,exact,tan2022,,
+5,23,3,3,66,exact,tan2022,,
+6,6,3,3,26,exact,tan2022,,
+6,7,3,3,29,exact,tan2022,,
+6,8,3,3,32,exact,tan2022,,
+6,9,3,3,36,exact,tan2022,,
+6,10,3,3,39,exact,tan2022,,
+6,11,3,3,42,exact,tan2022,,
+6,12,3,3,45,exact,tan2022,,
+6,13,3,3,48,exact,tan2022,,
+6,14,3,3,50,exact,tan2022,,
+6,15,3,3,53,exact,tan2022,,
+6,16,3,3,56,exact,tan2022,,
+6,17,3,3,58,exact,tan2022,,
+6,18,3,3,61,exact,tan2022,,
+6,19,3,3,64,exact,tan2022,,
+6,20,3,3,66,exact,tan2022,,
+6,21,3,3,69,exact,tan2022,,
+6,22,3,3,72,exact,tan2022,,
+6,23,3,3,74,exact,tan2022,,
+7,7,3,3,33,exact,tan2022,,
+7,8,3,3,37,exact,tan2022,,
+7,9,3,3,40,exact,tan2022,,
+7,10,3,3,44,exact,tan2022,,
+7,11,3,3,47,exact,tan2022,,
+7,12,3,3,50,exact,tan2022,,
+7,13,3,3,53,exact,tan2022,,
+7,14,3,3,56,exact,tan2022,,
+7,15,3,3,60,exact,tan2022,,
+7,16,3,3,63,exact,tan2022,,
+7,17,3,3,66,exact,tan2022,,
+7,18,3,3,69,exact,tan2022,,
+7,19,3,3,72,exact,tan2022,,
+7,20,3,3,75,exact,tan2022,,
+7,21,3,3,78,exact,tan2022,,
+7,22,3,3,81,exact,tan2022,,
+7,23,3,3,84,exact,tan2022,,
+8,8,3,3,42,exact,tan2022,,
+8,9,3,3,45,exact,tan2022,,
+8,10,3,3,50,exact,tan2022,,
+8,11,3,3,53,exact,tan2022,,
+8,12,3,3,57,exact,tan2022,,
+8,13,3,3,60,exact,tan2022,,
+8,14,3,3,64,exact,tan2022,,
+8,15,3,3,67,exact,tan2022,,
+8,16,3,3,70,exact,tan2022,,
+8,17,3,3,74,exact,tan2022,,
+8,18,3,3,77,exact,tan2022,,
+8,19,3,3,81,exact,tan2022,,
+8,20,3,3,84,exact,tan2022,,
+8,21,3,3,87,exact,tan2022,,
+8,22,3,3,90,exact,tan2022,,
+8,23,3,3,94,exact,tan2022,,
+9,9,3,3,49,ub,lean-here,cache/certs/m9_n9_s3_t3_w50/manifest.json,
+9,9,3,3,49,exact,tan2022,,
+9,10,3,3,54,exact,tan2022,,
+9,11,3,3,59,exact,tan2022,,
+9,12,3,3,64,exact,tan2022,,
+9,13,3,3,67,exact,tan2022,,
+9,14,3,3,70,exact,tan2022,,
+9,15,3,3,73,exact,tan2022,,
+9,16,3,3,77,exact,tan2022,,
+9,17,3,3,81,exact,tan2022,,
+9,18,3,3,85,exact,tan2022,,
+9,19,3,3,89,exact,tan2022,,
+9,20,3,3,93,exact,tan2022,,
+9,21,3,3,96,exact,tan2022,,
+9,22,3,3,100,exact,tan2022,,
+9,23,3,3,104,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+10,10,3,3,60,exact,tan2022,,
+10,11,3,3,64,exact,tan2022,,
+10,12,3,3,68,exact,tan2022,,
+10,13,3,3,73,exact,tan2022,,
+10,14,3,3,77,exact,tan2022,,
+10,15,3,3,81,exact,tan2022,,
+10,16,3,3,85,exact,tan2022,,
+10,17,3,3,90,exact,tan2022,,
+10,18,3,3,94,exact,tan2022,,
+10,19,3,3,98,exact,tan2022,,
+10,20,3,3,102,ub,lean-here,cache/certs/m10_n20_s3_t3_w103/manifest.json,"tan2022:z(7,20;3,3)<=75|tan2022:z(8,20;3,3)<=84|tan2022:z(9,20;3,3)<=93|tan2022:z(10,6;3,3)<=39|tan2022:z(10,7;3,3)<=44|tan2022:z(10,8;3,3)<=50|tan2022:z(10,9;3,3)<=54|tan2022:z(10,10;3,3)<=60|tan2022:z(10,11;3,3)<=64|tan2022:z(10,12;3,3)<=68|tan2022:z(10,13;3,3)<=73|tan2022:z(10,14;3,3)<=77|tan2022:z(10,15;3,3)<=81|tan2022:z(10,16;3,3)<=85|tan2022:z(10,17;3,3)<=90|tan2022:z(10,18;3,3)<=94|tan2022:z(10,19;3,3)<=98"
+10,20,3,3,102,exact,tan2022,,
+10,21,3,3,108,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+10,22,3,3,112,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+10,23,3,3,116,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+11,11,3,3,69,exact,tan2022,,
+11,12,3,3,74,exact,tan2022,,
+11,13,3,3,80,exact,tan2022,,
+11,14,3,3,84,exact,tan2022,,
+11,15,3,3,88,exact,tan2022,,
+11,16,3,3,92,exact,tan2022,,
+11,17,3,3,96,exact,tan2022,,
+11,18,3,3,101,exact,tan2022,,
+11,19,3,3,109,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+11,20,3,3,113,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+11,21,3,3,116,ub,lean-here,cache/certs/m11_n21_s3_t3_w117/manifest.json,"tan2022:z(7,21;3,3)<=78|tan2022:z(8,21;3,3)<=87|tan2022:z(9,21;3,3)<=96|tan2022:z(11,7;3,3)<=47|tan2022:z(11,8;3,3)<=53|tan2022:z(11,9;3,3)<=59|tan2022:z(11,10;3,3)<=64|tan2022:z(11,11;3,3)<=69|tan2022:z(11,12;3,3)<=74|tan2022:z(11,13;3,3)<=80|tan2022:z(11,14;3,3)<=84|tan2022:z(11,15;3,3)<=88|tan2022:z(11,16;3,3)<=92|tan2022:z(11,17;3,3)<=96|tan2022:z(11,18;3,3)<=101"
+11,21,3,3,116,exact,tan2022,,"ub: Tan 2022 Table 3 (Roman bound), exactness: bhan26 witness (reproduced)"
+11,22,3,3,121,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+11,23,3,3,125,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+12,12,3,3,80,exact,tan2022,,
+12,13,3,3,86,exact,tan2022,,
+12,14,3,3,91,exact,tan2022,,
+12,15,3,3,96,exact,tan2022,,
+12,16,3,3,99,exact,tan2022,,
+12,17,3,3,108,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+12,17,3,3,103,exact,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+12,18,3,3,113,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+12,18,3,3,109,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+12,19,3,3,118,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+12,20,3,3,122,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+12,21,3,3,127,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+12,22,3,3,132,exact,tan2022,,"ub: Tan 2022 Table 3 (Roman bound), exactness: bhan26 witness (reproduced)"
+12,23,3,3,136,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+13,13,3,3,92,exact,tan2022,,
+13,14,3,3,98,exact,tan2022,,
+13,15,3,3,104,exact,tan2022,,
+13,16,3,3,107,exact,tan2022,,
+13,17,3,3,117,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+13,17,3,3,110,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+13,18,3,3,122,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+13,18,3,3,116,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+13,19,3,3,126,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+13,20,3,3,131,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+13,21,3,3,136,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+13,22,3,3,140,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+13,23,3,3,145,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+14,14,3,3,105,exact,tan2022,,
+14,15,3,3,112,exact,tan2022,,
+14,16,3,3,115,exact,tan2022,,
+14,17,3,3,125,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+14,17,3,3,118,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+14,18,3,3,130,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+14,18,3,3,124,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+14,19,3,3,136,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+14,20,3,3,141,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+14,21,3,3,146,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+14,22,3,3,151,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+14,23,3,3,155,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+15,15,3,3,120,exact,tan2022,,
+15,16,3,3,123,exact,tan2022,,
+15,17,3,3,134,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+15,17,3,3,126,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+15,18,3,3,139,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+15,18,3,3,132,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+15,19,3,3,144,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+15,20,3,3,150,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+15,21,3,3,155,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+15,22,3,3,160,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+15,23,3,3,166,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+16,16,3,3,128,exact,tan2022,,
+16,17,3,3,142,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+16,17,3,3,133,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+16,18,3,3,148,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+16,18,3,3,140,ub,collins16,,"Collins-Riasanovsky-Wallace-Radziszowski 2016 Table 4, via literature_review §2.2"
+16,19,3,3,154,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+16,20,3,3,160,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+16,21,3,3,165,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+16,22,3,3,170,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)
+16,23,3,3,176,ub,tan2022,,Roman 1975 bound as tabulated in Tan 2022 Table 3 (non-bold)

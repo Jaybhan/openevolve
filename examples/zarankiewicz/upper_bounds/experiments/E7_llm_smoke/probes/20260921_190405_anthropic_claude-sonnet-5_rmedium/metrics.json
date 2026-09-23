@@ -1,0 +1,46 @@
+{
+ "model": "anthropic/claude-sonnet-5",
+ "seconds": 230.1,
+ "usage": {
+  "prompt_tokens": 8851,
+  "completion_tokens": 20000,
+  "total_tokens": 28851,
+  "cost": 0.217702,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.217702,
+   "upstream_inference_prompt_cost": 0.017702,
+   "upstream_inference_completions_cost": 0.2
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 19710,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ },
+ "cost_usd": 0.217702,
+ "response_chars": 683,
+ "diff_applied": false,
+ "parent_metrics": {
+  "combined_score": 0.4366422454031942,
+  "sound_battery": 1.0,
+  "proven_gain": 0.33722617106258135,
+  "empirical_gain": 0.33722617106258135,
+  "target_gain": 0.0,
+  "lean_ok": 1.0,
+  "lean_partial": 1.0,
+  "agreement": 1.0,
+  "hard_killed": 0.0,
+  "n_lean_decls": 1.0,
+  "survivors_left": 352.0,
+  "eval_seconds": 4.905164957046509
+ },
+ "child_metrics": null,
+ "child_artifacts": null
+}

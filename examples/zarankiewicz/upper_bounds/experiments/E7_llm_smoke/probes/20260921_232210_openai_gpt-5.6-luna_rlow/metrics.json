@@ -1,0 +1,93 @@
+{
+ "model": "openai/gpt-5.6-luna",
+ "seconds": 12.0,
+ "usage": {
+  "prompt_tokens": 13336,
+  "completion_tokens": 1282,
+  "total_tokens": 14618,
+  "cost": 0.00487225,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 13333,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.00487225,
+   "upstream_inference_prompt_cost": 0.00333385,
+   "upstream_inference_completions_cost": 0.0015384
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 678,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ },
+ "cost_usd": 0.00487225,
+ "response_chars": 1890,
+ "diff_applied": true,
+ "parent_metrics": {
+  "combined_score": 0.2,
+  "sound_battery": 1.0,
+  "pipeline_bug": 0.0,
+  "lean_ladder": 5.0,
+  "lean_partial": 1.0,
+  "lean_ok": 1.0,
+  "proven_gain": 0.0,
+  "target_gain": 0.0,
+  "gen_gain": 0.0,
+  "tail_gain": 0.0,
+  "empirical_gain": 0.0,
+  "schema_gain": 0.0,
+  "agreement": 1.0,
+  "hard_killed": 0.0,
+  "censored_share": 0.0,
+  "survivors_left": 835.0,
+  "kill_novelty": 1.0,
+  "n_new_prunes": 0.0,
+  "n_holes": 0.0,
+  "n_holes_filled": 0.0,
+  "eval_seconds": 10.984462022781372,
+  "gate_seconds": 10.794843912124634,
+  "gate_cache_hit": 0.0,
+  "table_hash": "eeabd3e82d5dbf158b38957ec229e3fbde262e50",
+  "suite_version": "2026-09-21.v2"
+ },
+ "child_metrics": {
+  "combined_score": 0.017925999999999997,
+  "sound_battery": 1.0,
+  "pipeline_bug": 0.0,
+  "lean_ladder": 1.0,
+  "lean_partial": 0.1321,
+  "lean_ok": 0.0,
+  "proven_gain": 0.0,
+  "target_gain": 0.0,
+  "gen_gain": 0.0,
+  "tail_gain": 0.0,
+  "empirical_gain": 0.0,
+  "schema_gain": 0.0,
+  "agreement": 1.0,
+  "hard_killed": 0.0,
+  "censored_share": 0.0,
+  "survivors_left": 835.0,
+  "kill_novelty": 1.0,
+  "n_new_prunes": 1.0,
+  "n_holes": 0.0,
+  "n_holes_filled": 0.0,
+  "eval_seconds": 9.094921112060547,
+  "gate_seconds": 8.991826057434082,
+  "gate_cache_hit": 0.0,
+  "table_hash": "eeabd3e82d5dbf158b38957ec229e3fbde262e50",
+  "suite_version": "2026-09-21.v2"
+ },
+ "child_artifacts": {
+  "kill_signature": "bbe79da85993fe59e765661c43f9032f046e1017",
+  "library_ledger": "external fact used by a table: z(10,17;3,3) = 90  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(11,17;3,3) = 96  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,10;3,3) = 73  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,11;3,3) = 80  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,12;3,3) = 86  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,13;3,3) = 92  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,14;3,3) = 98  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,15;3,3) = 104  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,16;3,3) = 107  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,7;3,3) = 53  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,8;3,3) = 60  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(13,9;3,3) = 67  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,10;3,3) = 81  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,11;3,3) = 88  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,12;3,3) = 96  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,13;3,3) = 104  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,14;3,3) = 112  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,15;3,3) = 120  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,16;3,3) = 123  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used by a table: z(15,7;3,3) = 60  [external: Tan 2022 Table 3 / data/exact_33.csv]\nexternal fact used",
+  "per_instance": "train m9_n9_s3_t3_w50: cases=36 library_survivors=17 work=15457 killed_by_you(python)=0 killed_by_you(lean)=n/a gain_lean=0.000 gain_python=0.000 tail_lean=0.000 [proved-library floor: your Lean is not L5 on this instance]\n    still alive (hardest): rows=[6, 6, 6, 6, 6, 6, 5, 5, 4] cols=[6, 6, 6, 6, 6, 6, 5, 5, 4] d=2880\n    still alive (hardest): rows=[6, 6, 6, 6, 6, 5, 5, 5, 5] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5] d=2003\n    still alive (hardest): rows=[6, 6, 6, 6, 6, 5, 5, 5, 5] cols=[6, 6, 6, 6, 6, 6, 5, 5, 4] d=1859\n    still alive (hardest): rows=[6, 6, 6, 6, 6, 6, 5, 5, 4] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5] d=1820\n    still alive (hardest): rows=[7, 6, 6, 6, 5, 5, 5, 5, 5] cols=[7, 6, 6, 6, 5, 5, 5, 5, 5] d=1083\n    still alive (hardest): rows=[6, 6, 6, 6, 6, 6, 5, 5, 4] cols=[7, 6, 6, 6, 5, 5, 5, 5, 5] d=953\n\ntrain m9_n10_s3_t3_w55: cases=45 library_survivors=22 work=18905 killed_by_you(python)=0 killed_by_you(lean)=n/a gain_lean=0.000 gain_python=0.000 tail_lean=0.000 [proved-library floor: your Lean is not L5 on this instance]\n    still alive (hardest): rows=[7, 7, 7, 6, 6, 6, 6, 5, 5] cols=[6, 6, 6, 6, 6, 6, 5, 5, 5, 4] d=2240\n    still alive (hardest): rows=[7, 7, 6, 6, 6, 6, 6, 6, 5] cols=[6, 6, 6, 6, 6, 6, 5, 5, 5, 4] d=1866\n    still alive (hardest): rows=[7, 7, 7, 6, 6, 6, 6, 6, 4] cols=[6, 6, 6, 6, 6, 6, 5, 5, 5, 4] d=1538\n    still alive (hardest): rows=[7, 7, 7, 6, 6, 6, 6, 5, 5] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5, 5] d=1409\n    still alive (hardest): rows=[7, 7, 7, 6, 6, 6, 6, 5, 5] cols=[7, 6, 6, 6, 5, 5, 5, 5, 5, 5] d=1309\n    still alive (hardest): rows=[7, 7, 6, 6, 6, 6, 6, 6, 5] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5, 5] d=1211\n\ntrain m10_n10_s3_t3_w61: cases=25 library_survivors=10 work=9865 killed_by_you(python)=0 killed_by_you(lean)=n/a gain_lean=0.000 gain_python=0.000 tail_lean=0.000 [proved-library floor: your Lean is not L5 on this instance]\n    still alive (hardest): rows=[7, 7, 7, 6, 6, 6, 6, 6, 5, 5] cols=[7, 7, 7, 6, 6, 6, 6, 6, 5, 5] d=2643\n    ",
+  "lean_errors": "[m9_n9_s3_t3_w50] line 28: Application type mismatch: The argument \u23ce   P \u23ce has type \u23ce   Params \u23ce but is expected to have type \u23ce   Mat ?m.85 ?m.86 \u23ce in the application \u23ce   colSum_le P\n[m9_n9_s3_t3_w50] line 36: Application type mismatch: The argument \u23ce   fun j => colSum A j \u23ce has type \u23ce   Fin P.n \u2192 \u2115 \u23ce of sort `Type` but is expected to have type \u23ce   1 \u2264 P.s \u23ce of sort `Prop` in the application \u23ce   sum_le_waterfillBound P.m P.s ((P.t - 1) * P.m.choose P.s) fun j => colSum A j\n[m9_n9_s3_t3_w50] line 38: omega could not prove the goal: \u23ce a possible counterexample may satisfy the constraints \u23ce   f \u2265 0 \u23ce   e \u2265 0 \u23ce   d \u2265 0 \u23ce   d - e \u2265 0 \u23ce   c \u2265 0 \u23ce   c - f \u2265 0 \u23ce   b \u2265 0 \u23ce   b - c \u2265 1 \u23ce   a \u2265 1 \u23ce where",
+  "lean_axioms": "Classical.choice, Quot.sound, propext, sorryAx",
+  "table_hash": "eeabd3e82d5dbf158b38957ec229e3fbde262e50",
+  "suite_version": "2026-09-21.v2"
+ }
+}

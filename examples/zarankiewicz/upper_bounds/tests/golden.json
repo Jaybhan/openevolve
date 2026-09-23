@@ -1,0 +1,422 @@
+{
+ "_doc": [
+  "Golden adversarial bank (design section 10.1, T-3). One entry per tests/candidates/<name>.py.",
+  "tests/test_evaluator.py runs evaluator.evaluate on each file and asserts the bands below.",
+  "Reward version is detected from the metrics keys: 'lean_ladder' present => v2 (design 5.3/5.4:",
+  "verified floor 0.20, unverified cap 0.19); otherwise the legacy v1 evaluator (E6/E8 reward with",
+  "the proved-library floor), for which only structural checks (lean_ok, sound_battery, score",
+  "relative to `initial`) are asserted.",
+  "Check vocabulary -- v2: ladder (int or list of ints), score ([lo, hi] inclusive), lean_ok (float,",
+  "'in_(0,1)' or 'lt1'), n_holes, n_holes_filled, agreement_lt_1, empirical_gain_gt_0,",
+  "artifact_contains {artifact: substring}. v1: lean_ok, score ('eq_initial' | 'lt_initial' |",
+  "'le_initial' | [lo, hi]). 'sound_battery' is asserted under both versions.",
+  "'requires': files (relative to upper_bounds/) that must exist, else the test is skipped.",
+  "'slow': the test waits for the gate timeout; skipped when ZAR_UB_GOLDEN_SKIP_SLOW=1."
+ ],
+ "tolerance": 1e-06,
+ "candidates": {
+  "initial": {
+   "why": "the proved library verbatim: verified, kills nothing beyond B",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.2
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "lean_ok": 1.0,
+     "score": "eq_initial"
+    }
+   }
+  },
+  "unsound_row7": {
+   "why": "Python kill fires on a witnessed case: battery. Since 2026-09-22 (E19) a wrong MIRROR no longer zeroes a verified Lean prune: the Lean kill (= library) is L5 and kills nothing new -> 0.20 with sound_battery 0, agreement < 1, mirror_unsound artifact.",
+   "expect": {
+    "sound_battery": 0.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.2
+     ],
+     "lean_ok": 1.0,
+     "artifact_contains": {
+      "UNSOUND_counterexamples": "REALIZABLE",
+      "mirror_unsound": "only the Lean kill earns credit"
+     }
+    },
+    "v1": {
+     "score": [
+      0.0,
+      0.0
+     ]
+    }
+   }
+  },
+  "sorry_in_kill": {
+   "why": "sorry outside a have-hole in sound: forbidden",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "sorry_in_sound": {
+   "why": "one typed hole the auto-fill list cannot close",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 2,
+     "score": [
+      0.0,
+      0.19
+     ],
+     "n_holes": 1,
+     "n_holes_filled": 0
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "sketch_two_holes": {
+   "why": "two holes, exactly one omega-fillable",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 3,
+     "score": [
+      0.0,
+      0.19
+     ],
+     "n_holes": 2,
+     "n_holes_filled": 1
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "native_decide": {
+   "why": "native_decide in the proof",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "axiom_smuggle": {
+   "why": "real axiom hidden from a comment-stripping scanner by /- and -/ inside strings",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "implemented_by": {
+   "why": "@[implemented_by] runtime/logic swap",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "opaque": {
+   "why": "opaque kill component",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "unicode_lookalike": {
+   "why": "fullwidth 'axiom' (NFKC-normalises to the forbidden keyword)",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "mask_spoof": {
+   "why": "#eval IO.println of forged MASK lines",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "redefine_valid": {
+   "why": "shadows Valid with False (declared-name rule)",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 0,
+     "score": [
+      0.0,
+      0.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "slow_kill": {
+   "why": "2^(m+n+4)-step kill: the #eval mask never arrives within the 240 s gate timeout. Design \u00a74.2 L1 'kill too slow': the gate re-runs the elaboration alone after a timeout (Lean buffers stdout, so nothing survives the SIGKILL) and attributes the timeout to the mask evaluation. Score <= 0.19 (unverified band).",
+   "slow": true,
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 1,
+     "score": [
+      0.0,
+      0.19
+     ],
+     "artifact_contains": {
+      "lean_errors": "kill too slow"
+     }
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "instance_specific": {
+   "why": "candidate : Prune target type-checks on the first instance only",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "lean_ok": "in_(0,1)",
+     "score": [
+      0.0,
+      1.0
+     ]
+    },
+    "v1": {
+     "lean_ok": "in_(0,1)",
+     "score": "le_initial"
+    }
+   }
+  },
+  "cond_deletion": {
+   "why": "CondPrune target [z(9,8;3,3)=45 tan2022] beside the library candidate (Cond.lean interface)",
+   "requires": [
+    "lean/.lake/build/lib/lean/ZarPrune/Cond.olean"
+   ],
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      1.0
+     ]
+    },
+    "v1": {
+     "lean_ok": 1.0,
+     "score": "le_initial"
+    }
+   }
+  },
+  "notDescending": {
+   "why": "symmetry break as a prune: sound fails (omega)",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 1,
+     "score": [
+      0.0,
+      0.19
+     ]
+    },
+    "v1": {
+     "lean_ok": 0.0,
+     "score": "lt_initial"
+    }
+   }
+  },
+  "cond_candidateF": {
+   "why": "candidateF : CondPrune target [tan2022 fact] through the gate's conditional entry point; no fact granted on the pure TRAIN table -> never -> floor",
+   "requires": [
+    "lean/.lake/build/lib/lean/ZarPrune/Cond.olean"
+   ],
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.2
+     ],
+     "lean_ok": 1.0,
+     "artifact_contains": {
+      "lean_cond": "never"
+     }
+    },
+    "v1": {
+     "lean_ok": 1.0,
+     "score": "eq_initial"
+    }
+   }
+  },
+  "schema_farkas": {
+   "why": "initial program + 8 TRAIN Farkas certificates in SCHEMA_DATA (E-schemas): Prune.ofFarkas is library-proved, so found parameters earn verified credit (schema_gain = proven_gain = 0.137)",
+   "requires": [
+    "lean/.lake/build/lib/lean/ZarPrune/Schemas.olean"
+   ],
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.24,
+      0.26
+     ],
+     "lean_ok": 1.0,
+     "empirical_gain_gt_0": true
+    },
+    "v1": {
+     "lean_ok": 1.0,
+     "score": [
+      0.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "lean_dgh4": {
+   "why": "hand-proved DGH (F-dgh4) inlined + candidate := ofList [counting, argDGH]; kills nothing on the square TRAIN cells, > 0.20 only with a DGH-attackable target (ZAR_UB_TARGETS=9,12,64 -> 0.2597)",
+   "requires": [
+    "lean/.lake/build/lib/lean/ZarPrune/DGH.olean"
+   ],
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      1.0
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "lean_ok": 1.0,
+     "score": [
+      0.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "python_only_dgh4": {
+   "why": "DGH in the Python mirror only (Lean = library): no verified credit; agreement < 1 only on a DGH-attackable target",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.2
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "lean_ok": 1.0,
+     "score": "eq_initial"
+    }
+   }
+  },
+  "schema_recipe": {
+   "why": "search-mode candidate: SCHEMA_DATA computed at import by zar_ub.lemmas.search_certificates (E20); verified credit through Prune.ofFarkas, no new proof",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.24,
+      0.3
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "score": [
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "hand_written": true
+  }
+ }
+}

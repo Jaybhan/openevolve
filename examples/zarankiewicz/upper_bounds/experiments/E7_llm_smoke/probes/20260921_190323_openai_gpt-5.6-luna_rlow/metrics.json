@@ -1,0 +1,61 @@
+{
+ "model": "openai/gpt-5.6-luna",
+ "seconds": 9.5,
+ "usage": {
+  "prompt_tokens": 6428,
+  "completion_tokens": 1180,
+  "total_tokens": 7608,
+  "cost": 0.00302285,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 6425,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.00302285,
+   "upstream_inference_prompt_cost": 0.00160685,
+   "upstream_inference_completions_cost": 0.001416
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 516,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ },
+ "cost_usd": 0.00302285,
+ "response_chars": 2108,
+ "diff_applied": true,
+ "parent_metrics": {
+  "combined_score": 0.4366422454031942,
+  "sound_battery": 1.0,
+  "proven_gain": 0.33722617106258135,
+  "empirical_gain": 0.33722617106258135,
+  "target_gain": 0.0,
+  "lean_ok": 1.0,
+  "lean_partial": 1.0,
+  "agreement": 1.0,
+  "hard_killed": 0.0,
+  "n_lean_decls": 1.0,
+  "survivors_left": 352.0,
+  "eval_seconds": 5.536713123321533
+ },
+ "child_metrics": {
+  "combined_score": 0.4366422454031942,
+  "sound_battery": 1.0,
+  "proven_gain": 0.33722617106258135,
+  "empirical_gain": 0.33722617106258135,
+  "target_gain": 0.0,
+  "lean_ok": 1.0,
+  "lean_partial": 1.0,
+  "agreement": 1.0,
+  "hard_killed": 0.0,
+  "n_lean_decls": 1.0,
+  "survivors_left": 352.0,
+  "eval_seconds": 5.750914096832275
+ },
+ "child_artifacts": {
+  "per_instance": "train m9_n9_s3_t3_w50: cases=36 scored_cases=36 killed_by_you(python)=19 killed_by_you(lean)=19 work_removed_proven=0.201 work_removed_empirical=0.201 lean_gate=OK\n    still alive (hard): rows=[6, 6, 6, 6, 6, 6, 5, 5, 4] cols=[6, 6, 6, 6, 6, 6, 5, 5, 4] conflicts=2880 status=unsat\n    still alive (hard): rows=[6, 6, 6, 6, 6, 5, 5, 5, 5] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5] conflicts=2003 status=unsat\n    still alive (hard): rows=[6, 6, 6, 6, 6, 5, 5, 5, 5] cols=[6, 6, 6, 6, 6, 6, 5, 5, 4] conflicts=1859 status=unsat\n    still alive (hard): rows=[6, 6, 6, 6, 6, 6, 5, 5, 4] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5] conflicts=1820 status=unsat\n    still alive (hard): rows=[7, 6, 6, 6, 5, 5, 5, 5, 5] cols=[7, 6, 6, 6, 5, 5, 5, 5, 5] conflicts=1083 status=unsat\n    still alive (hard): rows=[6, 6, 6, 6, 6, 6, 5, 5, 4] cols=[7, 6, 6, 6, 5, 5, 5, 5, 5] conflicts=953 status=unsat\n\ntrain m9_n10_s3_t3_w55: cases=45 scored_cases=45 killed_by_you(python)=23 killed_by_you(lean)=23 work_removed_proven=0.321 work_removed_empirical=0.321 lean_gate=OK\n    still alive (hard): rows=[7, 7, 7, 6, 6, 6, 6, 5, 5] cols=[6, 6, 6, 6, 6, 6, 5, 5, 5, 4] conflicts=2240 status=unsat\n    still alive (hard): rows=[7, 7, 6, 6, 6, 6, 6, 6, 5] cols=[6, 6, 6, 6, 6, 6, 5, 5, 5, 4] conflicts=1866 status=unsat\n    still alive (hard): rows=[7, 7, 7, 6, 6, 6, 6, 6, 4] cols=[6, 6, 6, 6, 6, 6, 5, 5, 5, 4] conflicts=1538 status=unsat\n    still alive (hard): rows=[7, 7, 7, 6, 6, 6, 6, 5, 5] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5, 5] conflicts=1409 status=unsat\n    still alive (hard): rows=[7, 7, 7, 6, 6, 6, 6, 5, 5] cols=[7, 6, 6, 6, 5, 5, 5, 5, 5, 5] conflicts=1309 status=unsat\n    still alive (hard): rows=[7, 7, 6, 6, 6, 6, 6, 6, 5] cols=[6, 6, 6, 6, 6, 5, 5, 5, 5, 5] conflicts=1211 status=unsat\n\ntrain m10_n10_s3_t3_w61: cases=25 scored_cases=25 killed_by_you(python)=15 killed_by_you(lean)=15 work_removed_proven=0.497 work_removed_empirical=0.497 lean_gate=OK\n    still alive (hard): rows=[7, 7, 7, 6, 6, 6, 6, 6, 5, 5] cols=[7, 7"
+ }
+}

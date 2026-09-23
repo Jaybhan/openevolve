@@ -1,0 +1,55 @@
+{
+ "id": "gen-1790031804-SdkgSTziFZZR93CPCkHi",
+ "object": "chat.completion",
+ "created": 1790031804,
+ "model": "openai/gpt-5.6-luna",
+ "provider": "OpenAI",
+ "system_fingerprint": null,
+ "service_tier": "default",
+ "choices": [
+  {
+   "index": 0,
+   "logprobs": null,
+   "finish_reason": "stop",
+   "native_finish_reason": "completed",
+   "message": {
+    "role": "assistant",
+    "content": "<<<<<<< SEARCH\ndef candidate (P : Params) : Prune P := Prune.or (baseline P) (counting P)\n=======\ndef candidate (P : Params) : Prune P :=\n  Prune.or (baseline P)\n    (Prune.or (counting P) (Prune.transposed (counting P.transpose)))\n>>>>>>> REPLACE\n\n<<<<<<< SEARCH\nCOUNTING = (_argA, _argAT, _argD, _argDT, _argDelColWF, _argDelRowWF, _argWF)\n=======\nCOUNTING = (\n    _argA, _argAT, _argD, _argDT,\n    _argDelColWF, _argDelRowWF, _argWF,\n)\n\n# The Lean library's bundled `counting` is already symmetric, but retaining\n# the explicit transposed copy here makes the Python mirror robust to changes\n# in the bundling of the Lean prunes.  In particular, deletion and\n# waterfilling are checked in both orientations.\nCOUNTING_TRANSPOSED = (\n    lambda m, n, s, t, w, rows, cols:\n        _argA(n, m, t, s, w, cols, rows),\n    lambda m, n, s, t, w, rows, cols:\n        _argAT(n, m, t, s, w, cols, rows),\n    lambda m, n, s, t, w, rows, cols:\n        _argD(n, m, t, s, w, cols, rows),\n    lambda m, n, s, t, w, rows, cols:\n        _argDT(n, m, t, s, w, cols, rows),\n    lambda m, n, s, t, w, rows, cols:\n        _argDelColWF(n, m, t, s, w, cols, rows),\n    lambda m, n, s, t, w, rows, cols:\n        _argDelRowWF(n, m, t, s, w, cols, rows),\n    lambda m, n, s, t, w, rows, cols:\n        _argWF(n, m, t, s, w, cols, rows),\n)\n>>>>>>> REPLACE\n\n<<<<<<< SEARCH\n    return any(p(m, n, s, t, w, rows, cols) for p in COUNTING)\n=======\n    return (\n        any(p(m, n, s, t, w, rows, cols) for p in COUNTING)\n        or any(p(m, n, s, t, w, rows, cols)\n               for p in COUNTING_TRANSPOSED)\n    )\n>>>>>>> REPLACE\n\nThis adds no new mathematical assertion: every explicitly transposed test is\nalready supplied by the proved `counting` bundle through `argAT`, `argDT`,\nand the transposed deletion prunes.  Consequently the Lean side remains\nsound, while the Python mirror is made explicitly identical to the expanded\nLean expression.  The main practical benefit is defensive: if `counting` is\nlater refactored to omit one of its orientation-specific components, the\nmirror will not silently disagree with the Lean candidate.",
+    "refusal": null,
+    "reasoning": null,
+    "reasoning_details": [
+     {
+      "type": "reasoning.encrypted",
+      "data": "gAAAAABqsbfBwr3t5113DYEoivFbIigWX4B5A-GQw7rZbrC0zY99UKJOlt-H3N46GY2V88aLBvR_c8mXECOoU7KfMc4T9HSaT-uxlFYZFp1ThLGkroiMbqyBUOS8tYSWlhxuUQQvSZ0Vg87dRlf77ex1EvBPLsjwq6KrNjS4kimFQy7F5MSm0Q6n7aG9U4Pn2z70cbccKLbqjqofAiQcat58KC84P-E9CmDIxQTPpRkgJ8CFLPy0B9umYfN0FLJuPECYYkKOVuoPIzXlGKGN-50JQd5T7ifap-EhPpCkWMNyrktlq0ii18lfco57Jb14OWj43B951zZz8TZPk64Te_aZRCoSbxlLrOfwSH01skVf-6ujb6manwf9WJuAmQiUrNhw3RzWp-KDIg2-ped8A7CBzJWn_9YFdgblFXUudyrWLhaWHmdAfncvKjs5jRgCHvbscwtHgC-C3K3AFqwHDmCw3DiZFjQE0OC0vLJJAWmN_7En3mS_jnzW6cr1DOzJvsxI0NOIvR-Kkq12tJxOFU2tqYf_TH-xEdPnpWyQWEAR5iLMES0lxQ1b57ldL17HuZcvAjJXXrzlnWFOrMOyfiD0W5VwRU8UlhmuM71vzi5Y7Yv8yiB3pZkWso2jvVcY4SJU1d346uYEAXPC_PEhceS-4iOARHJzKbXHGYgWYynYwBg5VTGTlGyOgbSKVGKK4UajCiVFFJNiUZWhh93ykCimG1fm4lAp4mN08eKgakC7r0fgbmicum4haiqCVgXIR-0nTAfY6Y2JOaMQO599p6CxuRtz3wFuCP4rX_6-9-i30GVBpbXkKvqceN_PPqufcm_Rmd13CNg3G7hXOhW1DFtwOIPziMwjAMGq1jvQTAJWb981m1vSBg30XPz6wqA-XfjPm7B0GIUklQGi3EiiVe58tYws2J2KeSecMKwIpOSrdU8kJgS-R4GCwgQ9hwW5-RD6XU06xyXflA9dMSF9wAvfd7jwfZ1on43cwMIaFIUeZh2tE5JK1MY9pOQZ66HoN5pKBAZb0aymkNsR_JQ_dAeJ7oWrmWzfXijP2Kvj6dN3XxAkoG2674J8km-gWxb0kfCxFggr0uIE-ZOdBzc4smcwxf0FXVC_rkwDmlTA9OuUcj_1T1s5ryp4KI3vpkEiX4GBP2z45HU17_xCxnxo0AKyfoTgesd1kfyn3eijcZ-o70A8LCAqhSPEEpJJqJCitmsHKXMsTkXQsbUM1SvwNs0kXqgq4MoYXGFg0d5k6UIvT4Jf6_98Jc66HAQH-IF_5Rs1B2aoKdvCFZIYdMApvkFiw4JbDj4LKM-_JzgmVxMPXdGEd6Yi7evIEhtAKCl078WFShBVT4zVN31C3jAhvXgyYfbpBpuhDsCGEEOQ5kaQXxjPGY_ycl9Y1ti0EAPFVCUq_jZAFsGkqpj_4wri30I1H0M4bxKlWm67yQSeDpbjAcHoaV20uxHkgbAI3TNh9TmGq0pOnNIpbAEuetyHn79RDL_cLJX2wtvDNe50aqVDq28zJZnypLwG7gthOFYaP0Gm8YVGx6t1u1-jtf3W9tpPhFLvNFXmsSM378e0vF5EAFWPEl26Ez2wxKCQuOBTIwtRmVOlywGW-dKhpKeDamly_ElEm3bVPkuCILolDuTtCeyl87DKftR6e0u8fkejR1M11kCJJPlqkZ9lHabwhTq-4a0IJgi-TMzMluAs5vb6Z71AfY9KQPEGn8S4-TjSM3EX-60QZEsRmfV_WXRTJpQdLWLIKR7h4NvTJjMri595NvR2kKw5W9VCrwZvOFzOCqKkEjrdgpl0yn0jX_3ql5f0EQ_v1hHl-VkEs4q7RnEDmWCd5QK55QJPj2ziYpwGHOYYI2-8vhzlbLcLfBfpMV_xquixilW6NQevlrVvY8YRHOcJDX2n4j0G5JJRDmPnXmNyw4urZj_k_TdbA5ZbFk4g6BT44z5qJw5qXuTXc-omm-vUy5zRDHHB4bg57FjW8f58AkUlWYu6FkdhZpL3z1X7qBjiCtg9LZ7bi2-g7N26vVfkuUbcK82Ojq9-2U-uM7gEOytLBc5mv8KB7HE6mhvwlzkAl6xsRNbOx6ExHmAkxe-9GcmlDO2SeUiOGIEDvV3Sc8JR5M0xIWg4BITyAtpJEE16f0GpVx6Bvf6O4XvmHgSpAGMEcyc2s3-piCwk4zBZnN-spTJuWawBE02BHLy5waw33KAoyBZCETRditprQ5fWbsB7Xg5nQUFqQfcuD5Lra_PD50C6LAE46j0zac21j_bO9w6_4eyBUs7FKRNbfxU0BJfzh-NOI72BT_7Qv_DabS7TOsQjVaRYvTwl9_hCgVTm_QIdn92KuNEn3jVAiIlcS85E-cNeukvhmXsaxHJVqqzSZHN3p2zBChLh1pfynJCPo4R1vmOPvVz3aiQKGQMqDMVbrD6hOf1cZ14jEwJvU7drQK1ajFukBieK1JCE_rfqpDYvSNO28vBhlkHzDL5gNGjDBWsYDM_Dt7AqxDf3y5BHWaevgtqwqtmdh20Kc3sw7F4YutHdOSKBdXZShY4fw6ExK8lPF1hX2JdCkh8hWkY1FAMmcUW5n9MO1Q5aafIwmpKLvRXu0zcRjqs7fnC-tG2a08IBha79Vbc1J61NtqZChJI7alpmPJpIeO2yuLnbKD4yV5bR2nfabJwXNfAsacn-HePfgdySWei1AUJzHi65vCIf2-xSWc-M_AY56P_JIM_-kA1OmP0ESErpor-Agc9_6UC6u4lG_G_a6kspnHo_b4wP_K_BeF8nIniKGixVKwTHFgrWE3rqtmwArxsvJmBMdy0KlDtRzjKaOGGhinmyCDvZKltXLoZQeg5L46gHMc_wHTo6iirI3fbkJ5Z7bjVpH4atBq-UaclMOz-VB_St1jAusWTHzgiGxmxB5nJrpNAvaarxje4IagSZrjP_aSBgaTs__UXt1NxuFieLolOQ0zda6Z8qZXk2ERdl86S-QXhyo8iX9Y5lYaWhMszN9TQ-I2HCvqiDuNgl6iZzco51F8hvzJ3hf6u2o2tGyWYBfpZ-HweT_JwFLMUdDrf0kzJgxGArS9bEeFP5hii2b-URRPitYuR12cqEWqCKM_wa1BEyHYCcsYXQOAElMJIm_vV9vkeC9U2ouh7H5wlOZP0YPnCTyJyI1bTX33I7o0qfVm0vjL_4QNDPBK9BAfnNSZlQ_lyWwRsf-j7g2wa887xGKYsrHT5kmwgJO9tioTT1CIdgNjLZzHZEx3zBDCiGm4ldZqPyRFpemqrw2UhrbzLEVxPl8kejmcyEUahAGAFOJurUR9wEqak0ovZfXxUb8iBCNtit9-dIEfE6oR8Xc6N7gekGxfdmFABHaJhddyfY-zTbAqXEBFYuNy3x4jUKkespIzbc7sKNBcBUSQf930QOaCUiRr-OrOhWsUBHvxT9-GJpn0NVl752C4ARzSmA931VbC1_GVbLu19DdM_RIdMfOXsBFjCBPGxqoS4MvmfxlUbe0Dw0Dt4773AzwOu3wFjNN6xmd_DvQ6CDXpZ4ppFo35aRPYCQgxfQnL9PfwEjcL8JhBzq5WOsPpKlG1KOKknUl_Mir_K56j4Ueil0ZLBm9RqQefSFynx-zScy_S0QsZTRzVx0spECRveA117nIWRNeMrnOAxo98v4-P8O9egG0FzxWpw8ssHDmT_sMWLRB3TjUfmRhI3UU0H5C945KTDXsFCUO7LhwOxQW91wHK5JBO7jG98k_tPFicmOoTGBzq6DW3c85elDgiZLk758Xa0N5rGXEwRmfnk26j9d6d5x_OTpKvCsylXjr-6r7kng8Q_bVFw1jy3PGDfmKsFfswU7NHQ_8i3_ln3jzn2wrfrTKLke29F3arrMpahUsBHGq_FRbJUAuMSvGskMPT93hf2B60CQ3rD8Qy61xGx-v5oRIbiWsumiq3nYhmd-vorPr_uTQmtbm15gRnatBrkKdncCQuXoHRnV9ceB418YgslR_p6CorEEVFwKP7pzYKScHu34a3h21wn4P2fqKmMbB6n9UfM6Wd4ixERbe-upr4CIQ2F_lM4Rb8EOPvaglHZADSLHXS8eRLR7CBYl7TX4rMytCXyyrUalvkdrb9l4aUDSoWpGV_XCfr6vctrV9_Or0kI-ouzXoa824rs9vq_QGpu5bGp5VB0uP33hurhfTvQxULeiHWDfqVrfzyPhJSq7qGHMb1YLbChg9gdHk7HXkhIOqkLIOl7zqopCso7tUsq9oa9XfsWTkVSo24jkciwNot6r80NkVoepocgHsVSORhu4ZB1IaroFrpRY_ucW7pdBDooreJ5f3IA_Omw3UHurcRuLtCL5hEIjo7MruulcTB7ENzFeKrf-Yg2y8nVhxLjjEwOBrKJYun3Z_ddHEes0UnG99GA2vmRZ-Ggt9Tup1PUCkaGkbmMrjyJ21oWsuw_1sSxqL7N6WpaxVJXd68wIwik0FRnoQM_NjBpbkn9FB9P6XiI0tUnctPa5Hby8iU35rKQdKpxsmA88bJetUWEpIHmSK_LyBZia4ghiTRvmMFj68KBdarD9YHJYsRFJnWbyyTogXROozDcfeJW7IbFUOI-swWckRfe1vChzBAPoJqPN1XcCp_49ak1m5AsoXAfxdc6P.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtbHVuYS0yMDI2MDcwOXxvcGVuYWkifQ",
+      "format": "openai-responses-v1",
+      "id": "rs_077a3b80d65ff999016ab1b7bcf3c487d1ad85e679ff699990",
+      "index": 0
+     }
+    ]
+   }
+  }
+ ],
+ "usage": {
+  "prompt_tokens": 6428,
+  "completion_tokens": 1180,
+  "total_tokens": 7608,
+  "cost": 0.00302285,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 6425,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.00302285,
+   "upstream_inference_prompt_cost": 0.00160685,
+   "upstream_inference_completions_cost": 0.001416
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 516,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

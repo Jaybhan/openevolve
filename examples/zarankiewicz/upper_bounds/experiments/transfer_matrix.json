@@ -1,0 +1,1978 @@
+[
+ {
+  "table": "m10_n10_s3_t3_w60",
+  "trust": "pure",
+  "cases": 144,
+  "union_kills": 91,
+  "union_work_share": 0.407,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 48,
+   "marginal": 0,
+   "work_share": 0.185
+  },
+  "argDT": {
+   "kills": 48,
+   "marginal": 0,
+   "work_share": 0.232
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 91,
+   "marginal": 0,
+   "work_share": 0.407
+  }
+ },
+ {
+  "table": "m10_n10_s3_t3_w61",
+  "trust": "pure",
+  "cases": 25,
+  "union_kills": 15,
+  "union_work_share": 0.497,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 8,
+   "marginal": 0,
+   "work_share": 0.267
+  },
+  "argDT": {
+   "kills": 8,
+   "marginal": 0,
+   "work_share": 0.273
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 15,
+   "marginal": 0,
+   "work_share": 0.497
+  }
+ },
+ {
+  "table": "m10_n11_s3_t3_w64",
+  "trust": "pure",
+  "cases": 725,
+  "union_kills": 413,
+  "union_work_share": 0.26,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 340,
+   "marginal": 0,
+   "work_share": 0.193
+  },
+  "argDT": {
+   "kills": 83,
+   "marginal": 0,
+   "work_share": 0.07
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 413,
+   "marginal": 0,
+   "work_share": 0.26
+  }
+ },
+ {
+  "table": "m10_n11_s3_t3_w65",
+  "trust": "pure",
+  "cases": 195,
+  "union_kills": 129,
+  "union_work_share": 0.391,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 114,
+   "marginal": 0,
+   "work_share": 0.283
+  },
+  "argDT": {
+   "kills": 15,
+   "marginal": 0,
+   "work_share": 0.109
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 129,
+   "marginal": 0,
+   "work_share": 0.391
+  }
+ },
+ {
+  "table": "m10_n14_s3_t3_w77",
+  "trust": "pure",
+  "cases": 2064,
+  "union_kills": 946,
+  "union_work_share": 0.238,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 946,
+   "marginal": 0,
+   "work_share": 0.238
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 946,
+   "marginal": 0,
+   "work_share": 0.238
+  }
+ },
+ {
+  "table": "m10_n14_s3_t3_w78",
+  "trust": "pure",
+  "cases": 525,
+  "union_kills": 305,
+  "union_work_share": 0.297,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 303,
+   "marginal": 0,
+   "work_share": 0.296
+  },
+  "argDT": {
+   "kills": 2,
+   "marginal": 0,
+   "work_share": 0.001
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 305,
+   "marginal": 0,
+   "work_share": 0.297
+  }
+ },
+ {
+  "table": "m10_n20_s3_t3_w103",
+  "trust": "tan2022",
+  "cases": 6,
+  "union_kills": 2,
+  "union_work_share": 0.333,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 2,
+   "marginal": 0,
+   "work_share": 0.333
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 2,
+   "marginal": 0,
+   "work_share": 0.333
+  }
+ },
+ {
+  "table": "m10_n20_s3_t3_w103",
+  "trust": "pure",
+  "cases": 130,
+  "union_kills": 63,
+  "union_work_share": 0.44,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 63,
+   "marginal": 0,
+   "work_share": 0.44
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 63,
+   "marginal": 0,
+   "work_share": 0.44
+  }
+ },
+ {
+  "table": "m10_n22_s3_t3_w111",
+  "trust": "tan2022",
+  "cases": 3,
+  "union_kills": 0,
+  "union_work_share": 0.0,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  }
+ },
+ {
+  "table": "m10_n23_s3_t3_w113",
+  "trust": "tan2022",
+  "cases": 4818,
+  "union_kills": 3661,
+  "union_work_share": 0.655,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 3629,
+   "marginal": 0,
+   "work_share": 0.646
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 219,
+   "marginal": 32,
+   "work_share": 0.024
+  },
+  "evolved": {
+   "kills": 3629,
+   "marginal": 0,
+   "work_share": 0.646
+  }
+ },
+ {
+  "table": "m11_n11_s3_t3_w69",
+  "trust": "pure",
+  "cases": 2025,
+  "union_kills": 1060,
+  "union_work_share": 0.259,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 555,
+   "marginal": 0,
+   "work_share": 0.117
+  },
+  "argDT": {
+   "kills": 555,
+   "marginal": 0,
+   "work_share": 0.146
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 1060,
+   "marginal": 0,
+   "work_share": 0.259
+  }
+ },
+ {
+  "table": "m11_n11_s3_t3_w70",
+  "trust": "pure",
+  "cases": 625,
+  "union_kills": 388,
+  "union_work_share": 0.277,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 203,
+   "marginal": 0,
+   "work_share": 0.141
+  },
+  "argDT": {
+   "kills": 203,
+   "marginal": 0,
+   "work_share": 0.151
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 388,
+   "marginal": 0,
+   "work_share": 0.277
+  }
+ },
+ {
+  "table": "m11_n12_s3_t3_w74",
+  "trust": "pure",
+  "cases": 2079,
+  "union_kills": 1016,
+  "union_work_share": 0.239,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 555,
+   "marginal": 0,
+   "work_share": 0.113
+  },
+  "argDT": {
+   "kills": 488,
+   "marginal": 0,
+   "work_share": 0.127
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 1016,
+   "marginal": 0,
+   "work_share": 0.239
+  }
+ },
+ {
+  "table": "m11_n12_s3_t3_w75",
+  "trust": "pure",
+  "cases": 420,
+  "union_kills": 193,
+  "union_work_share": 0.219,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 56,
+   "marginal": 0,
+   "work_share": 0.12
+  },
+  "argDT": {
+   "kills": 138,
+   "marginal": 0,
+   "work_share": 0.098
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 193,
+   "marginal": 0,
+   "work_share": 0.219
+  }
+ },
+ {
+  "table": "m11_n21_s3_t3_w117",
+  "trust": "pure",
+  "cases": 37,
+  "union_kills": 37,
+  "union_work_share": 1.0,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 28,
+   "marginal": 0,
+   "work_share": 0.757
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 37,
+   "marginal": 9,
+   "work_share": 1.0
+  },
+  "evolved": {
+   "kills": 28,
+   "marginal": 0,
+   "work_share": 0.757
+  }
+ },
+ {
+  "table": "m11_n23_s3_t3_w124",
+  "trust": "tan2022",
+  "cases": 822,
+  "union_kills": 486,
+  "union_work_share": 0.485,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 486,
+   "marginal": 0,
+   "work_share": 0.485
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 486,
+   "marginal": 0,
+   "work_share": 0.485
+  }
+ },
+ {
+  "table": "m12_n12_s3_t3_w80",
+  "trust": "pure",
+  "cases": 1296,
+  "union_kills": 689,
+  "union_work_share": 0.285,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 351,
+   "marginal": 0,
+   "work_share": 0.14
+  },
+  "argDT": {
+   "kills": 351,
+   "marginal": 0,
+   "work_share": 0.148
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 689,
+   "marginal": 0,
+   "work_share": 0.285
+  }
+ },
+ {
+  "table": "m12_n12_s3_t3_w81",
+  "trust": "pure",
+  "cases": 225,
+  "union_kills": 88,
+  "union_work_share": 0.258,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 45,
+   "marginal": 0,
+   "work_share": 0.134
+  },
+  "argDT": {
+   "kills": 45,
+   "marginal": 0,
+   "work_share": 0.135
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 88,
+   "marginal": 0,
+   "work_share": 0.258
+  }
+ },
+ {
+  "table": "m12_n13_s3_t3_w86",
+  "trust": "pure",
+  "cases": 1710,
+  "union_kills": 1082,
+  "union_work_share": 0.41,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 878,
+   "marginal": 0,
+   "work_share": 0.337
+  },
+  "argDT": {
+   "kills": 255,
+   "marginal": 0,
+   "work_share": 0.081
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 1082,
+   "marginal": 0,
+   "work_share": 0.41
+  }
+ },
+ {
+  "table": "m12_n13_s3_t3_w87",
+  "trust": "pure",
+  "cases": 360,
+  "union_kills": 258,
+  "union_work_share": 0.352,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 232,
+   "marginal": 0,
+   "work_share": 0.297
+  },
+  "argDT": {
+   "kills": 38,
+   "marginal": 0,
+   "work_share": 0.058
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 258,
+   "marginal": 0,
+   "work_share": 0.352
+  }
+ },
+ {
+  "table": "m12_n18_s3_t3_w109",
+  "trust": "tan2022",
+  "cases": 2562,
+  "union_kills": 1044,
+  "union_work_share": 0.359,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 1023,
+   "marginal": 0,
+   "work_share": 0.352
+  },
+  "argDT": {
+   "kills": 21,
+   "marginal": 0,
+   "work_share": 0.007
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 1044,
+   "marginal": 0,
+   "work_share": 0.359
+  }
+ },
+ {
+  "table": "m13_n13_s3_t3_w92",
+  "trust": "pure",
+  "cases": 3969,
+  "union_kills": 2527,
+  "union_work_share": 0.433,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 1444,
+   "marginal": 0,
+   "work_share": 0.206
+  },
+  "argDT": {
+   "kills": 1444,
+   "marginal": 0,
+   "work_share": 0.245
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 2527,
+   "marginal": 0,
+   "work_share": 0.433
+  }
+ },
+ {
+  "table": "m13_n13_s3_t3_w93",
+  "trust": "pure",
+  "cases": 1024,
+  "union_kills": 710,
+  "union_work_share": 0.435,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 440,
+   "marginal": 0,
+   "work_share": 0.228
+  },
+  "argDT": {
+   "kills": 440,
+   "marginal": 0,
+   "work_share": 0.263
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 710,
+   "marginal": 0,
+   "work_share": 0.435
+  }
+ },
+ {
+  "table": "m13_n19_s3_t3_w123",
+  "trust": "tan2022",
+  "cases": 4130,
+  "union_kills": 1482,
+  "union_work_share": 0.327,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 1473,
+   "marginal": 0,
+   "work_share": 0.325
+  },
+  "argDT": {
+   "kills": 9,
+   "marginal": 0,
+   "work_share": 0.002
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 1482,
+   "marginal": 0,
+   "work_share": 0.327
+  }
+ },
+ {
+  "table": "m16_n17_s3_t3_w134",
+  "trust": "tan2022",
+  "cases": 2139,
+  "union_kills": 1146,
+  "union_work_share": 0.5,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 1017,
+   "marginal": 0,
+   "work_share": 0.436
+  },
+  "argDT": {
+   "kills": 183,
+   "marginal": 0,
+   "work_share": 0.083
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 1146,
+   "marginal": 0,
+   "work_share": 0.5
+  }
+ },
+ {
+  "table": "m5_n5_s3_t3_w20",
+  "trust": "tan2022",
+  "cases": 1,
+  "union_kills": 0,
+  "union_work_share": 0.0,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  }
+ },
+ {
+  "table": "m6_n6_s3_t3_w26",
+  "trust": "tan2022",
+  "cases": 4,
+  "union_kills": 3,
+  "union_work_share": 0.75,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 2,
+   "marginal": 0,
+   "work_share": 0.5
+  },
+  "argDT": {
+   "kills": 2,
+   "marginal": 0,
+   "work_share": 0.5
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 3,
+   "marginal": 0,
+   "work_share": 0.75
+  }
+ },
+ {
+  "table": "m7_n7_s3_t3_w33",
+  "trust": "tan2022",
+  "cases": 4,
+  "union_kills": 0,
+  "union_work_share": 0.0,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  }
+ },
+ {
+  "table": "m8_n8_s2_t2_w25",
+  "trust": "pure",
+  "cases": 1,
+  "union_kills": 1,
+  "union_work_share": 1.0,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 1,
+   "marginal": 0,
+   "work_share": 1.0
+  },
+  "argDT": {
+   "kills": 1,
+   "marginal": 0,
+   "work_share": 1.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 1,
+   "marginal": 0,
+   "work_share": 1.0
+  },
+  "evolved": {
+   "kills": 1,
+   "marginal": 0,
+   "work_share": 1.0
+  }
+ },
+ {
+  "table": "m8_n9_s2_t2_w27",
+  "trust": "pure",
+  "cases": 6,
+  "union_kills": 6,
+  "union_work_share": 1.0,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 5,
+   "marginal": 0,
+   "work_share": 0.715
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 6,
+   "marginal": 1,
+   "work_share": 1.0
+  },
+  "evolved": {
+   "kills": 5,
+   "marginal": 0,
+   "work_share": 0.715
+  }
+ },
+ {
+  "table": "m9_n10_s3_t3_w54",
+  "trust": "pure",
+  "cases": 165,
+  "union_kills": 81,
+  "union_work_share": 0.29,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 48,
+   "marginal": 0,
+   "work_share": 0.194
+  },
+  "argDT": {
+   "kills": 33,
+   "marginal": 0,
+   "work_share": 0.095
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 81,
+   "marginal": 0,
+   "work_share": 0.29
+  }
+ },
+ {
+  "table": "m9_n10_s3_t3_w55",
+  "trust": "pure",
+  "cases": 45,
+  "union_kills": 23,
+  "union_work_share": 0.321,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 16,
+   "marginal": 0,
+   "work_share": 0.235
+  },
+  "argDT": {
+   "kills": 8,
+   "marginal": 0,
+   "work_share": 0.09
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 23,
+   "marginal": 0,
+   "work_share": 0.321
+  }
+ },
+ {
+  "table": "m9_n12_s3_t3_w64",
+  "trust": "pure",
+  "cases": 12,
+  "union_kills": 5,
+  "union_work_share": 0.435,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 3,
+   "marginal": 0,
+   "work_share": 0.248
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 3,
+   "marginal": 2,
+   "work_share": 0.306
+  },
+  "evolved": {
+   "kills": 3,
+   "marginal": 0,
+   "work_share": 0.248
+  }
+ },
+ {
+  "table": "m9_n23_s3_t3_w104",
+  "trust": "tan2022",
+  "cases": 244,
+  "union_kills": 150,
+  "union_work_share": 0.369,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 150,
+   "marginal": 0,
+   "work_share": 0.369
+  },
+  "argDT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 150,
+   "marginal": 0,
+   "work_share": 0.369
+  }
+ },
+ {
+  "table": "m9_n9_s3_t3_w49",
+  "trust": "pure",
+  "cases": 169,
+  "union_kills": 90,
+  "union_work_share": 0.191,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 47,
+   "marginal": 0,
+   "work_share": 0.1
+  },
+  "argDT": {
+   "kills": 47,
+   "marginal": 0,
+   "work_share": 0.094
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 90,
+   "marginal": 0,
+   "work_share": 0.191
+  }
+ },
+ {
+  "table": "m9_n9_s3_t3_w50",
+  "trust": "tan2022",
+  "cases": 25,
+  "union_kills": 15,
+  "union_work_share": 0.002,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 8,
+   "marginal": 0,
+   "work_share": 0.001
+  },
+  "argDT": {
+   "kills": 8,
+   "marginal": 0,
+   "work_share": 0.001
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 15,
+   "marginal": 0,
+   "work_share": 0.002
+  }
+ },
+ {
+  "table": "m9_n9_s3_t3_w50",
+  "trust": "pure",
+  "cases": 36,
+  "union_kills": 19,
+  "union_work_share": 0.201,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 10,
+   "marginal": 0,
+   "work_share": 0.114
+  },
+  "argDT": {
+   "kills": 10,
+   "marginal": 0,
+   "work_share": 0.098
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 19,
+   "marginal": 0,
+   "work_share": 0.201
+  }
+ },
+ {
+  "table": "m9_n9_s4_t4_w62",
+  "trust": "pure",
+  "cases": 49,
+  "union_kills": 24,
+  "union_work_share": 0.299,
+  "argA": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argAT": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argD": {
+   "kills": 14,
+   "marginal": 0,
+   "work_share": 0.182
+  },
+  "argDT": {
+   "kills": 14,
+   "marginal": 0,
+   "work_share": 0.172
+  },
+  "argDelColWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDelRowWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argWF": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "argDGH": {
+   "kills": 0,
+   "marginal": 0,
+   "work_share": 0.0
+  },
+  "evolved": {
+   "kills": 24,
+   "marginal": 0,
+   "work_share": 0.299
+  }
+ }
+]

@@ -1,0 +1,57 @@
+m,n,s,t,lb,ub,status,lb_source,ub_source,lb_verified,ub_reviewed,reviewed_ub,reviewed_ub_source,notes
+9,17,3,3,81,81,exact,tan2022,tan2022,1,1,81,tan2022,
+9,18,3,3,85,85,exact,tan2022,tan2022,1,1,85,tan2022,
+9,19,3,3,89,89,exact,tan2022,tan2022,1,1,89,tan2022,
+9,20,3,3,93,93,exact,tan2022,tan2022,1,1,93,tan2022,
+9,21,3,3,96,96,exact,tan2022,tan2022,1,1,96,tan2022,
+9,22,3,3,100,100,exact,tan2022,tan2022,1,1,100,tan2022,
+9,23,3,3,103,103,exact,bhan26,dfield26,1,0,104,tan2022,dfield: LRAT+Lean end-to-end
+10,17,3,3,90,90,exact,tan2022,tan2022,1,1,90,tan2022,
+10,18,3,3,94,94,exact,tan2022,tan2022,1,1,94,tan2022,
+10,19,3,3,98,98,exact,tan2022,tan2022,1,1,98,tan2022,
+10,20,3,3,102,102,exact,tan2022,tan2022,1,1,102,tan2022,
+10,21,3,3,106,106,exact,bhan26,dfield26,1,0,108,tan2022,"dfield: deletion from tan (9,21)=96"
+10,22,3,3,110,110,exact,bhan26,dfield26,1,0,112,tan2022,dfield: Lean end-to-end
+10,23,3,3,112,112,exact,bhan26,dfield26,1,0,116,tan2022,"dfield: 13 SAT/MIP profiles, 25 GB certs"
+11,17,3,3,96,96,exact,tan2022,tan2022,1,1,96,tan2022,
+11,18,3,3,101,101,exact,tan2022,tan2022,1,1,101,tan2022,
+11,19,3,3,106,106,exact,dfield26,dfield26,0,0,109,tan2022,"also wang26 (secondary); dfield: deletion from tan (11,18)=101"
+11,20,3,3,111,111,exact,bhan26,dfield26,1,0,113,tan2022,dfield: two deletions
+11,21,3,3,116,116,exact,bhan26,tan2022,1,1,116,tan2022,bhan LB = dgh/tan UB
+11,22,3,3,121,121,exact,bhan26,tan2022,1,1,121,tan2022,bhan LB = tan UB
+11,23,3,3,123,123,exact,dfield26,dfield26,0,0,125,tan2022,"dfield: deletion from (10,23)=112"
+12,17,3,3,103,103,exact,collins16,collins16,1,1,103,collins16,"Collins Table 4, unique extremal graph; re-certified afrasyab26"
+12,18,3,3,108,108,exact,hou26,hou26,1,0,109,collins16,hou: uniqueness import + 924 checks; afrasyab: 4-case orbit certs; LB bhan/hou
+12,19,3,3,114,114,exact,hadamard,afrasyab26,0,0,118,tan2022,"afrasyab: deletion chain; LB Hadamard 3-(12,6,2) blocks"
+12,20,3,3,120,120,exact,afrasyab26,afrasyab26,0,0,122,tan2022,
+12,21,3,3,126,126,exact,numaro,afrasyab26,0,0,127,tan2022,LB numaro (unreviewed)
+12,22,3,3,132,132,exact,bhan26,tan2022,1,1,132,tan2022,bhan LB = tan/Roman UB
+12,23,3,3,134,134,exact,dfield26,dfield26,0,0,136,tan2022,dfield: Lean end-to-end
+13,17,3,3,110,110,exact,hou26,collins16,1,1,110,collins16,hou witness
+13,18,3,3,116,116,exact,hou26,collins16,1,1,116,collins16,hou/wang/afrasyab witnesses
+13,19,3,3,118,122,open,saurabh26,afrasyab26,1,0,125,dgh26,open
+13,20,3,3,119,128,open,bhan26,afrasyab26,1,0,130,dgh26,open
+13,21,3,3,127,134,open,bhan26,afrasyab26,1,0,135,dgh26,open
+13,22,3,3,137,137,exact,bhan26,afrasyab26,1,0,140,tan2022,afrasyab: 83 profiles
+13,23,3,3,135,144,open,bhan26,dfield26,1,0,145,tan2022,open; note (a): afrasyab chain would give 143
+14,17,3,3,118,118,exact,hou26,collins16,1,1,118,collins16,hou/afrasyab witness
+14,18,3,3,124,124,exact,hou26,collins16,1,1,124,collins16,hou/afrasyab witness
+14,19,3,3,126,130,open,saurabh26,afrasyab26,1,0,135,dgh26,open
+14,20,3,3,126,136,open,saurabh26,afrasyab26,1,0,140,dgh26,open; LB padded
+14,21,3,3,131,142,open,bhan26,afrasyab26,1,0,145,dgh26,open
+14,22,3,3,137,148,open,bhan26,afrasyab26,1,0,150,dgh26,open; note (a)
+14,23,3,3,138,154,open,bhan26,afrasyab26,1,0,155,tan2022,open; note (a)
+15,17,3,3,126,126,exact,hou26,collins16,1,1,126,collins16,hou/afrasyab witness
+15,18,3,3,132,132,exact,bhan26,collins16,1,1,132,collins16,bhan LB = collins16 UB
+15,19,3,3,132,139,open,bhan26,afrasyab26,1,0,143,dgh26,open
+15,20,3,3,138,145,open,bhan26,afrasyab26,1,0,149,dgh26,open
+15,21,3,3,139,152,open,bhan26,afrasyab26,1,0,154,dgh26,open
+15,22,3,3,143,158,open,bhan26,afrasyab26,1,0,160,tan2022,open
+15,23,3,3,149,165,open,bhan26,dgh26,1,1,165,dgh26,open; UB dgh = afrasyab
+16,17,3,3,132,133,open,afrasyab26,collins16,0,1,133,collins16,open; gap 1
+16,18,3,3,136,140,open,saurabh26,collins16,1,1,140,collins16,open; UB collins16 = afrasyab
+16,19,3,3,136,147,open,saurabh26,afrasyab26,1,0,152,dgh26,open; LB padded
+16,20,3,3,146,154,open,bhan26,afrasyab26,1,0,158,dgh26,open
+16,21,3,3,147,161,open,bhan26,afrasyab26,1,0,164,dgh26,open
+16,22,3,3,149,168,open,bhan26,afrasyab26,1,0,169,dgh26,open
+16,23,3,3,158,175,open,bhan26,dgh26,1,1,175,dgh26,open; UB dgh = afrasyab

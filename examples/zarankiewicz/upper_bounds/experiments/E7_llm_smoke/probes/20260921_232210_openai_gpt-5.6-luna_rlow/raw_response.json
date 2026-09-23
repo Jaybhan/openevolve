@@ -1,0 +1,62 @@
+{
+ "id": "gen-1790047330-kXe1dlsZB78dvyqe5v5n",
+ "object": "chat.completion",
+ "created": 1790047330,
+ "model": "openai/gpt-5.6-luna",
+ "provider": "OpenAI",
+ "system_fingerprint": null,
+ "service_tier": "default",
+ "choices": [
+  {
+   "index": 0,
+   "logprobs": null,
+   "finish_reason": "stop",
+   "native_finish_reason": "completed",
+   "message": {
+    "role": "assistant",
+    "content": "<<<<<<< SEARCH\n/-- Pattern for a NEW prune: `kill` on the profile, `sound` via library lemmas. This one kills nothing. -/\ndef examplePrune (P : Params) : Prune P where\n  name := \"example (kills nothing)\"\n  kill := fun _ => false\n  sound := by intro A h; simp at h\n\n/-- The evolved library. Keep `counting P` first; append new prunes. -/\ndef candidate (P : Params) : Prune P :=\n  Prune.ofList P [counting P, examplePrune P]\n=======\n/-- A water-filled strengthening of the column counting bound.  The ordinary\ncolumn budget bounds the sum of binomial costs; water filling converts that\ncost bound into a sharper bound on the total column degree. -/\ndef waterfillPrune (P : Params) : Prune P where\n  name := \"waterfill column degree bound\"\n  kill := fun pf =>\n    decide\n      (1 \u2264 P.s \u2227\n        waterfillBound P.m P.n P.s\n            ((P.t - 1) * (P.m).choose P.s) <\n          sumFin P.n (fun j => pf.col j))\n  sound := by\n    intro A hk hv\n    have hk' :\n        1 \u2264 P.s \u2227\n          waterfillBound P.m P.n P.s\n              ((P.t - 1) * (P.m).choose P.s) <\n            sumFin P.n (fun j => (colSum A j)) :=\n      of_decide_eq_true hk\n    have hB :\n        sumFin P.n (fun j => (colSum A j).choose P.s) \u2264\n          (P.t - 1) * (P.m).choose P.s := by\n      rw [sumFin_eq_sum]\n      exact colBudget P A hv.1\n    have hc : \u2200 j : Fin P.n, colSum A j \u2264 P.m := by\n      intro j\n      exact colSum_le P A j\n    have hw :\n        sumFin P.n (fun j => colSum A j) \u2264\n          waterfillBound P.m P.n P.s\n            ((P.t - 1) * (P.m).choose P.s) := by\n      exact\n        sum_le_waterfillBound P.m P.s\n          ((P.t - 1) * (P.m).choose P.s)\n          (fun j => colSum A j) hc hB\n    rw [\u2190 profileOf_col A] at hk'\n    omega\n\n/-- The evolved library. Keep `counting P` first; append new prunes. -/\ndef candidate (P : Params) : Prune P :=\n  Prune.ofList P [counting P, waterfillPrune P]\n>>>>>>> REPLACE",
+    "refusal": null,
+    "reasoning": null,
+    "reasoning_details": [
+     {
+      "type": "reasoning.encrypted",
+      "data": "gAAAAABqsfRoF5rKQWiQ9hgboZYU3uKtUwbum4j-ruwfm3RZ5Cc00x0QEOxGb-gYZvRYC5NI_qJdk8Fr2w6Idnu7Wh1Tr9BCJ4pfOOnfGBNW1pxM5L7LlFNsVg5dYYcTkcbTPp8yF5g_zSbU3semezy91lmMStjLNQtp4lpECWudNN3UK7ew-o7fwAWjOHeSOa76HWcTVsvoSUPZc4IZHN8rMx1JJw8JnMF0lkk--_qZO_L3WY8SoULs4AuOuVLptFZDm5htTLsdErYP3LFLmZ4uawITwLR5SrI0MXe0gkdTLcB86EU1ANSQ7ftcNB1ex4enCJLEC0kcha-ZF3wwEBQeJXxGhXULyd4J5QSCSQgj6sm1nVEkWTDt_hTKYuvgsdRDBOvq4ysAoT6xnP9iDP2sQSP0STiWw0es4Vgk9gTxml2iPDEPa4GlRytlG2HGQsRRzydCZhgJsLIg5jPffppvO_-ykSMQ3KnOQiv4LmG-M4yuRpp0MUXAb3-FptePsm3xv7mxRedV9kFRuBBE-Zjfv61lUGc8wTsJSJHMWOsm7LDWV2Bz855TkJ4rt8MqwW8BELIAnCOgCE5LfpCJDTg8VbEoVL120Bmf6eXEwSFlFpEIsSDHsg-qwXFFxbo8ZmAkJCnticXpMEaUF7xVgJWrN7jynkf5F_MJCBSeqNvBml2fyJR6SoLZi54mFR3nuvV4qtJsH37ElO3FoCrtzcT3XsA024mClykzU7tpVrPIK5QVHw8ZFz6NwyWdBPf8Sv8yD1mKeO4lINuPZ-o262TulNulXA-YelKgCdsoRlHGAAbKy2XeBk7HRDI85Zizog1iW9sGZYIwjl466amnzAPsw46dmRPV-jegGMi_4Hp9_kAu5W4CQE_cjozjNKia91AZ1Tpz-AVzq_vMOUj76Q7rKQnev4UUIyuwgmMmQpnrxutIzhY6DQdJWIV8mtKJi8kUKFeYCPYVfFjXvGmKRyYU51yrXX5YdxEY-w7r3vxlXLQ7P-69P3Gb-CGvSYCrnKx6KfVkXChS2aVQrFcT6HM-EDWGF1caD1hxdkeDv5OGk3XCrByRah9kcbAJcjVx2PuiGAG6r9njBxgxfCl4DPglTH3V4e6wkernZHuX89-nDXsglnUeieGLZOOL8pRLhfpvz0CsMI5n9_QTOI8_UA1CAJqOwUeO0-9-dQxWOZOqUAdhp6nQnZjoD8F6H_7GgPq0p4iDAMBObrCLUNzCnJIDj03feZuqjjmp6IMVqqejIWUuKqs23Umo2hZPFfxLNjpRBomOn4AYa_wCoskYf7HtALSOop8OA1G9Zjxct6RSMjErECBSdgHfmzCKhghldZR6W1j-m-xdtwmB43X6oMYMIsJyqrNgmLvpSmisM7aKnYPxe3z4ubdHgKIhEGgykFHRVWTyiEVQqSlt8Irc1A-GkxP23yho3e_FAY9plevSNTxDodImanYuGRgkDsYzX7twIGnhdywuv3ioP8VXONRgOdmfn4UVSHi-UuEF5RLrZG5f4-Sd4qbRufFXAH5KDlIBNNHESuAxPP8MQABquV1o3Ydm1nlnr1pl5VI1dAgp_-7et4hPs7FXjyU34qG3pMSjViPgBMBm26WHlDL0YngoTtX7KtYcNgfnAEhXbcN_FA-XwKYolJ0dLHR6615yu5krdNwLzg0H_RbVY7RDtluAcBTA8cXpD3U8o1Tl7v9M19fToQUbwIkskzUV5Qez40DhkjCzOyk1kK4SMI6TCXmezzDqViP3Oy6GQuv3gjUxjmYM0kQFAMsoRYYDazs0_-mOpQ0oxxekB39QfouELcm-cUhYzhtFTA90eo4MCA_kCYK23s6MflRDV0QhJ11F29eCQFZ85Tsca8vCGVdu3eLuv-n9DD_onyCxvqa0Pl6U7ZMLYjloL83SrBygEKL3a7XysvnuLn98KRjhCAk5BKObW8f8iYF_Rqw22gKClw26sexvssJqr30NRWmJuaNAbJbCeXaY_AQFVZLt4Ho3DBwdICSejmvYmg-HtAQx20-twIMbxWZ7_BKH3zBFvUdYJ-JH5hwoYgwH27VhoKkqIXeFoNFSiVKhfe7jyLwXlRQ3Ulx-Cx8tv2mUeDCI3CVUUf-Ap5oSab-314eB6PUdNxj8Jy3D5YYb96-dvD6aWtFlps0SqQPxtIru_ihSe1rtfh1x-QSkp-2FpQcmsVp3cXQGj2R5YcKRNjiAr--kp12YwT-DzwivxAwfxdnpB6k4ShGAVaHvZsZjlj2tEnwVQzKRJ1kqzKlWs_cR56FxnjILFWGORmYeXB2aTbZvxvQxl8m1NA58lTsp3UwnEQBsc9vbw7K91UkCFI2a42Ikcz-EUnXPGeds_dClLEjKwp7AFYYH3iMIaph6YBWQnKJv1YSaDQN1dSMLlCN7HQUL_SAbvpjoBGaLgKRXFTqJ1VbayswXv-1bZfp3598L-2h58tpGIEl7ziRrIGAH_aaMRLJKQCj9aBAq1nfL_vJGRdznGwnwwbZv453BUCHV-l2ncSPcJ5UmT_eGBT2mOE0jaJaCYkzTj8wyugPTmxu6v17dgXAVJImKYTP5nF-jMb2kJKYtG6S7MKHXBGB8-hO20LWoxKTX099JLe6I2faE3DzMJ6Ccu63vtnWlyZLd6o5Ve1XiesW03Ky74C-JkuqPLDCvmtvTDYAGpWDMexU1cl5-q9oll6nsp7aNe09L2pIEhz513sbWC0u9yDo3jttWVAhBo09F3ei4cGuPt1sjjYzSQIQJz6fkRof34ybURaBYGr4B3eqYnp0a_Yb5Sg2smpmauwXPXc8mEdM9y0V-kNOeFEvk73uXHm2oaqc0s69mQuJTSPW9EIDjAgk3dNqPZQKhW8yiv66pKip32gf1A1nbVRclcVcXfZEc3HBHbDQEWwdDC9MBIdM96vFH6DjSvTJqQ7Rhs030DspRkqUBF4BKKFNsHjgoaJYJwBdndXebplSx2tGCdQKfXeZYL_nNNoCGEUAEoxpUW7Fd-jp3VpzZhSTBXJg2vbp9z-hvovbF1_OkE6NTujbqy9T3xH97UeLVoASoyMiOutQidwGopTSS_uZ9fZ8YmyvWIZPs15xVC7H8ZMRge3DWdkU9W5rBzeufkR50rohPlAJbVKnSZE30J-jtZAB3mNVrC6a4cBOG_aaofNSdkZfaWpMwiEN_gZpLQLNUfVAzp02vQAr062qdWPBGJFuAYke5xMQthXhHy8DKfHhJOQJRh1h_nkPEJ8g65p0DRhuT_5zifrfKGN-2HYTm87PRvA7b90BceqG_RPcVYQ_NrXdoeL9IM3Nv4ORoGOpnQw6unRpxYkIgZS0NHtRqmdwkRQU5SA8JrpERd5G8Av-jIaKSBflxZgLFhOyBMXbUwp14lEHtoeGe6vj2w4dDRwKyqLlE-w27uydU5jx__Hl_m9OvQG0ki5cwcZ5B1c1mEjsMSpnR3wcVmjwEScZYFE3BFTbX8MF-b0o3TFbM2-UF_OHi-K3KOYsFmRF0D3k3zZ_bvRhWLQ_ATbWQgUMAteIa9giMUGzBdlL0IUT7MSNq06buKQVa8AHrVvuq1KusVHJxZ4_kboqF-j4WPaavc2-J4NxcKOLffxKfWoaxcU-RpKDkjl0NLs3-Kc3STN3myNYCqzuYRYhonKvh6LBkauO9pbv3bjMTc6q26fFpI5g2f4hu9j04oV4ETk3OzLOHdm_IBcRJWL2SvNWP4ZCp3rPNlsRdVZfnL4Gm91iY3YG4TD1ogM2n_gxtRAEhycc3ghFf1Uv7C0BSIZYWcx7zsWq29eTM0a0dZFLx-WXCQYRzhep4wcFofkSl0Zy9pu71pZT8Dohrk0i5eU15_fhMy4Wx6UUpAE1EGiUCeXFRHiKH1-UKfBas9XdXYPv8f0iYNCVY97NJn1s4mi9wwdix_9QBvF8PsZ-fV1xMxTCnNSxuG-Wl8CXsqCqsqDiF004RsiLX7ZcKNhJRQIt3l0cO8nkqjGNavwu5FKUVE2VasB2y4iMBUndjUHwC6OWNapoUAXsULRUDjniT7vqS7YHD_pO7dSMBlFlvTBYaAWRzjfzhOClsp7OlqwsKTBxMoEovybZ1KTvyIHbDVvUlCbNzy0a3o46ml2NqUQWoiF23yzlVfO0wfXPoMYyO2Yed60BrhHgozRJEylSKXR6PjRrQ0uGvE3uWtX-X7x3o3qVtkRqEkJnctQ==.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtbHVuYS0yMDI2MDcwOXxvcGVuYWkifQ",
+      "format": "openai-responses-v1",
+      "id": "rs_0a9783c1f72b6d6f016ab1f46321b487d1886e64641b22cff8",
+      "index": 0
+     },
+     {
+      "type": "reasoning.encrypted",
+      "data": "gAAAAABqsfRqbxFvNKl8GBSAqdExEPcWfjNlweoIvi5ung8Gnz0FhCGoGGUERJJ0M_Y44BdeTOmY19-6cVcmUxi73kiIfOb_uv3HiEBlkH1tkZo-x8kkSRihB5QtqrVBj684IM-O4C4AwxryCxLuMyqPK2ua1nbhD23Z6ihQzah-CzL48GwCd_R4BVvHNSxVJstYUO5GYuQw2--_SWOYABmOqbbf125Gz4jDGl0rDYIaJmTLTtgRHD1t7GxH80W-Xh2sAaXwJU7YBwEEMz3Eio67JA0GXwm1WwSfaGr8s4Cp5JnQu9sXzP_UJmaSUaORif627dobXil5T3-tGzwsqeo0HGYW2FIJvArZjSV1ipHvalwThrcql81e22Q7V7NDd6MKkliNV35Naw5em7FhHPikqID5rjW83Gq-CbuAHZX0v0sG1EuE4XMyd4PSSohHH5rHkI5rDeclNgHbDfcwFRrfRM-xHOE86376MMPv32ORKicNXeBMOr8SGcNS-tBTjPIFY4jzE2OjFze19IzKHyctm3PpejTcm4uT1EQ0V0HQ8haoImwaeG5sIRULVGkV6_c1SSulit8PbpeG1h8xMCQT4jQnmVHDfR_WEUcQ5rtJweY6q53l9wW1ZXCJ3H9mpd3E3_ehtqHjuCN2K0tRXtRoB7qNibnKaG1nXBfnvnXg_3duGRdfvl-Vt723t4tsqbDC7SLxeb5qyNFpbHlaSW0F3LDh-rXz7qXV7meRlyUviFpwgWRNGgqogUbIVYyI3roiI0RwmrxVtvKExBA3jO5sWkTf0rxvs59pPa_YSpEshMtte1T1WaItQgHwbiSXY7IX8rM9mlH6yHQBqgdkiEM5F38jTdgN2E4Ij_gvQe0H4wCoMYOZsDCe3Uiq66PL1aQff9DqThoGh9lTKXTqV_AIKHf3Z3uW27_CZjwS2w8FIwN_pt-kw5Exw-sjHN3MRs9-LnYeEwXkXCrdBV6BeZAqdEiSAACeK7uOEG73rouf3cjZumv2rZkdsBJ46u4O1DsivjKTBn9bAo3O3YnFkmy8llhpYfpHPOCCV-GVetlaynEvJ08q3SkSeRw5SPZR-go9zopegnt-8Pe7z9_0I__4ymueQ0VzcTPczYDPfINvq1M912Y9PWCg2ci2VQ8A4ipdzosZ6R4VEOUM1k_aevPzYN6oCKjidQCfPv3H3motenrpVCS0AIKP44hplOnuI4F8pd0ph35-Kq8XAWvRsz6G8v-Qn33a5r67oW5bvOI0f9sn4XVDAWK8DdqC8--OTCfHkM7vV0kZQ_4TFHfpTPesbW0HkxDF9WcMhtx-zTOGMGIGoZfswAsglyEGybxgtBa3NUbtYllqEDPw5Wp4Kp0SN6C24aV_0spqAEyD7JZLOWxDRT_EgqBsH_SCuG6vAQYMh5OXAVdT1oeqteDV_Ax2OyR5LL-gW5IbH3mquRVV7cyA6vHOKzlwSr7Lu_oBlzWzSy-1c0tlFcWgoG68hvNzPWVupaaPEPdNa01OctkFesBQZ0hWSV6Q6yQNxvhxh3UKty2a9T8KVnkaei9zxPUk4O8DrRQ9xcgLqn-NwqJtEOgfvTEcEIUvH2YYvwsO0u-FGUmiC3Up5TRPLJJmec8Q3JWUOOKWj57NSTs2EaUt0i7wB77-chDXg3Mo8g0mR23mKOIqqm05HBmGXJDzZ0dq1cX6cNbVq8EuHooSI3N9Xt1HrI7B1tDytusellLnFH35n4atJD_R4KAu8hsWOkVTV8Buy7Cjr8GBIC_YlRxMLmRPO_nL-JMXEy1ErYYClA32is-xlUiIhMfPTXeCAbTx-dZxUkCGojtNR_hSeOd3Dm3M65n7F2EQoaGBrWzng0XqGoMVpzLJG_EONpLJRdrBM0eVYULzwa55ZAD-_KBZ-ShqRxnfeij1dypROaUrb-4rDSbpYLc8e_vpga2CuTJ1ReOHCFvZIRZm9onxnhOK15Tb9A5LY9ba3mJdb3sCCzlf1NueskdI_VIegLgvitFdNqSkswcylLEzS9woJq_ESFyWWGl_QO9uZ9Xpw1bL4ONVM-LQwQw21RNMJDH47YNhHF7IupFdptweh3EGwZhJQsCYv92wXlw3VJmuvpwOMNWOfmBpQBAqecBDar8bEjBz04iKt2bGYmtgCdeIyrwhUZderqqpRrJGByi4SVcM7o9ifGsBdywkQO_bA3Ix0tY5ce5hlJEa9U1uDDAm9o5fZAXeceiWxPezyD03W-ShIG1zOjzdUFsgaLg6j8Gs2VNZRar9jA7jO7L9GH2CfZrt3JQyjzaK5PYX4Z3FLoNR1Qg7pwXca6Hdu2sBAf-L48KtsaWyBZ-ZoozPU9T7eoOFxyhoJSMP8tPjHMHLKwiwB4UGR5M0FCzYogZ0KS0izfwy2GUQChStQpphRQTy3zBPFDgFIuop6G4=.eyJlbmRwb2ludF9zbHVnIjoib3BlbmFpL2dwdC01LjYtbHVuYS0yMDI2MDcwOXxvcGVuYWkifQ",
+      "format": "openai-responses-v1",
+      "id": "rs_0a9783c1f72b6d6f016ab1f468c56887d1b8b7cb10714223ce",
+      "index": 1
+     }
+    ]
+   }
+  }
+ ],
+ "usage": {
+  "prompt_tokens": 13336,
+  "completion_tokens": 1282,
+  "total_tokens": 14618,
+  "cost": 0.00487225,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 13333,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.00487225,
+   "upstream_inference_prompt_cost": 0.00333385,
+   "upstream_inference_completions_cost": 0.0015384
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 678,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ }
+}

@@ -1,0 +1,63 @@
+[
+ {
+  "path": "initial_program.py",
+  "wall": 0.2,
+  "metrics": {
+   "combined_score": 0.2,
+   "lean_ladder": 5.0,
+   "lean_ok": 1.0,
+   "sound_battery": 1.0,
+   "proven_gain": 0.0,
+   "empirical_gain": 0.0,
+   "schema_gain": 0.0,
+   "target_gain": 0.0,
+   "tail_gain": 0.0,
+   "agreement": 1.0,
+   "survivors_left": 2353.0,
+   "lean_partial": 1.0,
+   "n_new_prunes": 0.0,
+   "gate_cache_hit": 1.0,
+   "kill_novelty": 1.0,
+   "eval_seconds": 0.20448017120361328
+  },
+  "all_metrics": {
+   "combined_score": 0.2,
+   "sound_battery": 1.0,
+   "pipeline_bug": 0.0,
+   "lean_ladder": 5.0,
+   "lean_partial": 1.0,
+   "lean_ok": 1.0,
+   "proven_gain": 0.0,
+   "target_gain": 0.0,
+   "gen_gain": 0.0,
+   "tail_gain": 0.0,
+   "empirical_gain": 0.0,
+   "schema_gain": 0.0,
+   "agreement": 1.0,
+   "hard_killed": 0.0,
+   "censored_share": 0.0,
+   "survivors_left": 2353.0,
+   "kill_novelty": 1.0,
+   "n_new_prunes": 0.0,
+   "n_holes": 0.0,
+   "n_holes_filled": 0.0,
+   "eval_seconds": 0.20448017120361328,
+   "gate_seconds": 0.007420778274536133,
+   "gate_cache_hit": 1.0,
+   "table_hash": "f16e120c5d5dd24d3c4d0560f5eac43884d26fbb",
+   "suite_version": "2026-09-21.v2"
+  },
+  "artifacts": {
+   "lean_axioms": "Classical.choice, Quot.sound, propext"
+  },
+  "artifact_keys": [
+   "kill_signature",
+   "lean_axioms",
+   "library_ledger",
+   "per_instance",
+   "suite_version",
+   "table_hash"
+  ],
+  "repeat": 0
+ }
+]

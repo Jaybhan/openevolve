@@ -1,0 +1,2748 @@
+{
+ "train": {
+  "tables": 7,
+  "survivors": 716,
+  "kills": 164,
+  "d_share": 0.06629368496013918,
+  "mean_gain": 0.13678708176312862,
+  "certs": 8
+ },
+ "all": {
+  "tables": 15,
+  "survivors": 4632,
+  "kills": 659,
+  "d_share": 0.10164352825669622,
+  "mean_gain": 0.12321478728060731,
+  "certs": 23
+ },
+ "sat_checks": [
+  {
+   "table": "case_table_m10_n10_s3_t3_w60_pure.json",
+   "sat_cases": 1,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m10_n10_s3_t3_w61_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m10_n11_s3_t3_w64_pure.json",
+   "sat_cases": 1,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m10_n11_s3_t3_w65_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m10_n14_s3_t3_w77_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m10_n14_s3_t3_w78_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m10_n20_s3_t3_w103.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m10_n20_s3_t3_w103_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m11_n11_s3_t3_w69_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m11_n11_s3_t3_w70_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m11_n12_s3_t3_w74_pure.json",
+   "sat_cases": 2,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m11_n12_s3_t3_w75_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m12_n12_s3_t3_w80_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m12_n12_s3_t3_w81_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m12_n13_s3_t3_w86_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m12_n13_s3_t3_w87_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m13_n13_s3_t3_w92_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m13_n13_s3_t3_w93_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m9_n10_s3_t3_w54_pure.json",
+   "sat_cases": 2,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m9_n10_s3_t3_w55_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m9_n9_s3_t3_w49_pure.json",
+   "sat_cases": 5,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m9_n9_s3_t3_w50.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m9_n9_s3_t3_w50_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  },
+  {
+   "table": "case_table_m9_n9_s4_t4_w62_pure.json",
+   "sat_cases": 0,
+   "sat_killed": 0
+  }
+ ],
+ "gate": {
+  "seconds": 154.1,
+  "per_instance": {
+   "m9_n9_s3_t3_w50": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 18,
+    "mirror_true": 18,
+    "identical": true,
+    "errors": []
+   },
+   "m9_n10_s3_t3_w55": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 25,
+    "mirror_true": 25,
+    "identical": true,
+    "errors": []
+   },
+   "m10_n10_s3_t3_w61": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 5,
+    "mirror_true": 5,
+    "identical": true,
+    "errors": []
+   },
+   "m10_n11_s3_t3_w65": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 129,
+    "mirror_true": 129,
+    "identical": true,
+    "errors": []
+   },
+   "m11_n11_s3_t3_w70": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 292,
+    "mirror_true": 292,
+    "identical": true,
+    "errors": []
+   },
+   "m11_n12_s3_t3_w75": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 37,
+    "mirror_true": 37,
+    "identical": true,
+    "errors": []
+   },
+   "m12_n12_s3_t3_w81": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 61,
+    "mirror_true": 61,
+    "identical": true,
+    "errors": []
+   },
+   "m10_n20_s3_t3_w103": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 92,
+    "mirror_true": 92,
+    "identical": true,
+    "errors": []
+   },
+   "m12_n13_s3_t3_w87": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 40,
+    "mirror_true": 40,
+    "identical": true,
+    "errors": []
+   },
+   "m13_n13_s3_t3_w93": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 449,
+    "mirror_true": 449,
+    "identical": true,
+    "errors": []
+   },
+   "m10_n14_s3_t3_w78": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 247,
+    "mirror_true": 247,
+    "identical": true,
+    "errors": []
+   },
+   "m9_n9_s4_t4_w62": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 4,
+    "mirror_true": 4,
+    "identical": true,
+    "errors": []
+   },
+   "m12_n13_s3_t3_w86": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 494,
+    "mirror_true": 494,
+    "identical": true,
+    "errors": []
+   },
+   "m13_n13_s3_t3_w92": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 1372,
+    "mirror_true": 1372,
+    "identical": true,
+    "errors": []
+   },
+   "m10_n14_s3_t3_w77": {
+    "ladder": 5,
+    "axioms": [
+     "propext",
+     "Classical.choice",
+     "Quot.sound"
+    ],
+    "schema_mask_true": 720,
+    "mirror_true": 720,
+    "identical": true,
+    "errors": []
+   }
+  },
+  "ok": true
+ },
+ "tables": [
+  {
+   "inst": "m9_n9_s3_t3_w50",
+   "kind": "train",
+   "cases": 36,
+   "library_survivors": 17,
+   "schema_kills": 5,
+   "certs": 1,
+   "nnz": [
+    2
+   ],
+   "d_survivors": 15457.0,
+   "d_killed": 1494.0,
+   "gain": 0.09665523710940027,
+   "tail_size": 1,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.26,
+   "hardest_killed": [
+    {
+     "rows": [
+      7,
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "cols": [
+      7,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 501.0
+    },
+    {
+     "rows": [
+      7,
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "cols": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      4
+     ],
+     "d": 311.0
+    },
+    {
+     "rows": [
+      7,
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "cols": [
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 294.0
+    },
+    {
+     "rows": [
+      8,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "cols": [
+      8,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 201.0
+    },
+    {
+     "rows": [
+      7,
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 187.0
+    }
+   ],
+   "mask_true": 18
+  },
+  {
+   "inst": "m9_n10_s3_t3_w55",
+   "kind": "train",
+   "cases": 45,
+   "library_survivors": 22,
+   "schema_kills": 6,
+   "certs": 1,
+   "nnz": [
+    9
+   ],
+   "d_survivors": 18905.0,
+   "d_killed": 2900.0,
+   "gain": 0.15339857180640043,
+   "tail_size": 2,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.02,
+   "hardest_killed": [
+    {
+     "rows": [
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5
+     ],
+     "cols": [
+      7,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 1043.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      4
+     ],
+     "cols": [
+      7,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 486.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 453.0
+    },
+    {
+     "rows": [
+      8,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 384.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      4
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 366.0
+    }
+   ],
+   "mask_true": 25
+  },
+  {
+   "inst": "m10_n10_s3_t3_w61",
+   "kind": "train",
+   "cases": 25,
+   "library_survivors": 10,
+   "schema_kills": 1,
+   "certs": 1,
+   "nnz": [
+    2
+   ],
+   "d_survivors": 9865.0,
+   "d_killed": 1464.0,
+   "gain": 0.14840344652812976,
+   "tail_size": 1,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.01,
+   "hardest_killed": [
+    {
+     "rows": [
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5
+     ],
+     "cols": [
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5
+     ],
+     "d": 1464.0
+    }
+   ],
+   "mask_true": 5
+  },
+  {
+   "inst": "m10_n11_s3_t3_w65",
+   "kind": "train",
+   "cases": 195,
+   "library_survivors": 66,
+   "schema_kills": 32,
+   "certs": 1,
+   "nnz": [
+    10
+   ],
+   "d_survivors": 178192.0,
+   "d_killed": 65350.0,
+   "gain": 0.36673924755320103,
+   "tail_size": 6,
+   "tail_kills": 2,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.04,
+   "hardest_killed": [
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5
+     ],
+     "d": 10079.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      4
+     ],
+     "d": 6630.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5
+     ],
+     "d": 5046.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5
+     ],
+     "d": 4797.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      4
+     ],
+     "d": 4334.0
+    }
+   ],
+   "mask_true": 129
+  },
+  {
+   "inst": "m11_n11_s3_t3_w70",
+   "kind": "train",
+   "cases": 625,
+   "library_survivors": 237,
+   "schema_kills": 77,
+   "certs": 2,
+   "nnz": [
+    11,
+    2
+   ],
+   "d_survivors": 1440928.0,
+   "d_killed": 144813.0,
+   "gain": 0.10049981678473872,
+   "tail_size": 23,
+   "tail_kills": 1,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.21,
+   "hardest_killed": [
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 16756.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 11612.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      4
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 10708.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5
+     ],
+     "cols": [
+      8,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 7292.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      8,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 7276.0
+    }
+   ],
+   "mask_true": 292
+  },
+  {
+   "inst": "m11_n12_s3_t3_w75",
+   "kind": "train",
+   "cases": 420,
+   "library_survivors": 227,
+   "schema_kills": 14,
+   "certs": 1,
+   "nnz": [
+    11
+   ],
+   "d_survivors": 2645385.0,
+   "d_killed": 64522.0,
+   "gain": 0.02439040064111651,
+   "tail_size": 22,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.26,
+   "hardest_killed": [
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 13322.0
+    },
+    {
+     "rows": [
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 11998.0
+    },
+    {
+     "rows": [
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5
+     ],
+     "d": 8985.0
+    },
+    {
+     "rows": [
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "d": 4865.0
+    },
+    {
+     "rows": [
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "d": 4007.0
+    }
+   ],
+   "mask_true": 37
+  },
+  {
+   "inst": "m12_n12_s3_t3_w81",
+   "kind": "train",
+   "cases": 225,
+   "library_survivors": 137,
+   "schema_kills": 29,
+   "certs": 1,
+   "nnz": [
+    12
+   ],
+   "d_survivors": 4515472.0,
+   "d_killed": 304446.0,
+   "gain": 0.06742285191891347,
+   "tail_size": 13,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.16,
+   "hardest_killed": [
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6
+     ],
+     "d": 39712.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6
+     ],
+     "d": 26049.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      5
+     ],
+     "d": 23408.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6
+     ],
+     "d": 22211.0
+    },
+    {
+     "rows": [
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      5
+     ],
+     "d": 22107.0
+    }
+   ],
+   "mask_true": 61
+  },
+  {
+   "inst": "m10_n20_s3_t3_w103",
+   "kind": "",
+   "cases": 130,
+   "library_survivors": 67,
+   "schema_kills": 33,
+   "certs": 2,
+   "nnz": [
+    44,
+    10
+   ],
+   "d_survivors": 3208360.863509748,
+   "d_killed": 1320000.0,
+   "gain": 0.4114250410585054,
+   "tail_size": 6,
+   "tail_kills": 0,
+   "censored_killed": 33,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.05,
+   "hardest_killed": [
+    {
+     "rows": [
+      11,
+      11,
+      11,
+      11,
+      11,
+      11,
+      10,
+      9,
+      9,
+      9
+     ],
+     "cols": [
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 40000.0
+    },
+    {
+     "rows": [
+      12,
+      11,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10
+     ],
+     "cols": [
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 40000.0
+    },
+    {
+     "rows": [
+      12,
+      11,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10
+     ],
+     "cols": [
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 40000.0
+    },
+    {
+     "rows": [
+      12,
+      11,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10
+     ],
+     "cols": [
+      7,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 40000.0
+    },
+    {
+     "rows": [
+      12,
+      11,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10,
+      10
+     ],
+     "cols": [
+      7,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 40000.0
+    }
+   ],
+   "mask_true": 92
+  },
+  {
+   "inst": "m12_n13_s3_t3_w87",
+   "kind": "",
+   "cases": 360,
+   "library_survivors": 102,
+   "schema_kills": 6,
+   "certs": 3,
+   "nnz": [
+    47,
+    53,
+    57
+   ],
+   "d_survivors": 5000337.0,
+   "d_killed": 75110.0,
+   "gain": 0.015020987585436742,
+   "tail_size": 10,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.16,
+   "hardest_killed": [
+    {
+     "rows": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5,
+      5
+     ],
+     "d": 21805.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      4
+     ],
+     "d": 20979.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      4
+     ],
+     "d": 17364.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      3
+     ],
+     "d": 5392.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      3
+     ],
+     "d": 5288.0
+    }
+   ],
+   "mask_true": 40
+  },
+  {
+   "inst": "m13_n13_s3_t3_w93",
+   "kind": "",
+   "cases": 1024,
+   "library_survivors": 314,
+   "schema_kills": 94,
+   "certs": 2,
+   "nnz": [
+    59,
+    13
+   ],
+   "d_survivors": 12441779.668113839,
+   "d_killed": 3194955.217560329,
+   "gain": 0.25679246078826284,
+   "tail_size": 31,
+   "tail_kills": 0,
+   "censored_killed": 61,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.42,
+   "hardest_killed": [
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "d": 49333.959227136744
+    },
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "d": 49333.959227136744
+    },
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5
+     ],
+     "d": 49333.959227136744
+    },
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "d": 49333.959227136744
+    },
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      9,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "d": 49333.959227136744
+    }
+   ],
+   "mask_true": 449
+  },
+  {
+   "inst": "m10_n14_s3_t3_w78",
+   "kind": "",
+   "cases": 525,
+   "library_survivors": 220,
+   "schema_kills": 16,
+   "certs": 1,
+   "nnz": [
+    2
+   ],
+   "d_survivors": 2991687.0,
+   "d_killed": 93168.0,
+   "gain": 0.031142295300277067,
+   "tail_size": 22,
+   "tail_kills": 0,
+   "censored_killed": 1,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.22,
+   "hardest_killed": [
+    {
+     "rows": [
+      10,
+      10,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 20000.0
+    },
+    {
+     "rows": [
+      10,
+      10,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 13062.0
+    },
+    {
+     "rows": [
+      10,
+      10,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+     ],
+     "cols": [
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+     ],
+     "d": 8772.0
+    },
+    {
+     "rows": [
+      10,
+      10,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 8047.0
+    },
+    {
+     "rows": [
+      10,
+      10,
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 7147.0
+    }
+   ],
+   "mask_true": 247
+  },
+  {
+   "inst": "m9_n9_s4_t4_w62",
+   "kind": "gen",
+   "cases": 49,
+   "library_survivors": 25,
+   "schema_kills": 2,
+   "certs": 1,
+   "nnz": [
+    2
+   ],
+   "d_survivors": 10471.0,
+   "d_killed": 318.0,
+   "gain": 0.030369592207048036,
+   "tail_size": 2,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.02,
+   "hardest_killed": [
+    {
+     "rows": [
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "d": 168.0
+    },
+    {
+     "rows": [
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      5
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "d": 150.0
+    }
+   ],
+   "mask_true": 4
+  },
+  {
+   "inst": "m12_n13_s3_t3_w86",
+   "kind": "",
+   "cases": 1710,
+   "library_survivors": 628,
+   "schema_kills": 29,
+   "certs": 1,
+   "nnz": [
+    2
+   ],
+   "d_survivors": 12235218.75525827,
+   "d_killed": 102937.0,
+   "gain": 0.008413172012618186,
+   "tail_size": 62,
+   "tail_kills": 0,
+   "censored_killed": 0,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 0.85,
+   "hardest_killed": [
+    {
+     "rows": [
+      10,
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "d": 12942.0
+    },
+    {
+     "rows": [
+      10,
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "d": 9928.0
+    },
+    {
+     "rows": [
+      10,
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "d": 8932.0
+    },
+    {
+     "rows": [
+      10,
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "d": 7929.0
+    },
+    {
+     "rows": [
+      10,
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6,
+      6,
+      6
+     ],
+     "cols": [
+      9,
+      8,
+      8,
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6
+     ],
+     "d": 7338.0
+    }
+   ],
+   "mask_true": 494
+  },
+  {
+   "inst": "m13_n13_s3_t3_w92",
+   "kind": "",
+   "cases": 3969,
+   "library_survivors": 1442,
+   "schema_kills": 225,
+   "certs": 4,
+   "nnz": [
+    13,
+    59,
+    65,
+    2
+   ],
+   "d_survivors": 54154186.35521618,
+   "d_killed": 5739570.467697637,
+   "gain": 0.10598572066155318,
+   "tail_size": 144,
+   "tail_kills": 8,
+   "censored_killed": 99,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 2.37,
+   "hardest_killed": [
+    {
+     "rows": [
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "d": 50363.988754135375
+    },
+    {
+     "rows": [
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "d": 50363.988754135375
+    },
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "d": 49333.959227136744
+    },
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "d": 49333.959227136744
+    },
+    {
+     "rows": [
+      9,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6,
+      6
+     ],
+     "cols": [
+      8,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      5
+     ],
+     "d": 49333.959227136744
+    }
+   ],
+   "mask_true": 1372
+  },
+  {
+   "inst": "m10_n14_s3_t3_w77",
+   "kind": "",
+   "cases": 2064,
+   "library_survivors": 1118,
+   "schema_kills": 90,
+   "certs": 1,
+   "nnz": [
+    2
+   ],
+   "d_survivors": 15153043.0,
+   "d_killed": 478275.0,
+   "gain": 0.031562967253508094,
+   "tail_size": 111,
+   "tail_kills": 0,
+   "censored_killed": 6,
+   "sat_killed": [],
+   "lp_no_cert": [],
+   "seconds": 1.1,
+   "hardest_killed": [
+    {
+     "rows": [
+      10,
+      10,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      7,
+      6,
+      6,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 20000.0
+    },
+    {
+     "rows": [
+      10,
+      10,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 20000.0
+    },
+    {
+     "rows": [
+      10,
+      10,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 20000.0
+    },
+    {
+     "rows": [
+      10,
+      10,
+      9,
+      7,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      6,
+      6,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 20000.0
+    },
+    {
+     "rows": [
+      11,
+      9,
+      8,
+      8,
+      7,
+      7,
+      7,
+      7,
+      7,
+      6
+     ],
+     "cols": [
+      7,
+      7,
+      7,
+      6,
+      6,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      4
+     ],
+     "d": 20000.0
+    }
+   ],
+   "mask_true": 720
+  }
+ ]
+}

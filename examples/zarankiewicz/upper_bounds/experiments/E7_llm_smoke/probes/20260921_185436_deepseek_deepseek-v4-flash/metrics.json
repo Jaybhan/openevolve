@@ -1,0 +1,46 @@
+{
+ "model": "deepseek/deepseek-v4-flash",
+ "seconds": 110.6,
+ "usage": {
+  "prompt_tokens": 6532,
+  "completion_tokens": 12000,
+  "total_tokens": 18532,
+  "cost": 0.004091288,
+  "is_byok": false,
+  "prompt_tokens_details": {
+   "cached_tokens": 0,
+   "cache_write_tokens": 0,
+   "audio_tokens": 0,
+   "video_tokens": 0
+  },
+  "cost_details": {
+   "upstream_inference_cost": 0.004091288,
+   "upstream_inference_prompt_cost": 0.000875288,
+   "upstream_inference_completions_cost": 0.003216
+  },
+  "completion_tokens_details": {
+   "reasoning_tokens": 12000,
+   "image_tokens": 0,
+   "audio_tokens": 0
+  }
+ },
+ "cost_usd": 0.004091288,
+ "response_chars": 41735,
+ "diff_applied": false,
+ "parent_metrics": {
+  "combined_score": 0.4366422454031942,
+  "sound_battery": 1.0,
+  "proven_gain": 0.33722617106258135,
+  "empirical_gain": 0.33722617106258135,
+  "target_gain": 0.0,
+  "lean_ok": 1.0,
+  "lean_partial": 1.0,
+  "agreement": 1.0,
+  "hard_killed": 0.0,
+  "n_lean_decls": 1.0,
+  "survivors_left": 352.0,
+  "eval_seconds": 5.1974029541015625
+ },
+ "child_metrics": null,
+ "child_artifacts": null
+}

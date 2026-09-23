@@ -1,7 +1,8 @@
 # ZarPrune — a Lean verifier for Zarankiewicz pruning arguments
 
-Lean 4.34.0, no Mathlib, no `sorry`, no `native_decide`.
-Full build in well under a second: `lake build`.
+Lean 4.34.0, no `sorry`, no `native_decide`. The core is Mathlib-free; only
+`ZarPrune/Counting.lean` (the counting arguments) uses targeted Mathlib imports.
+Full build in about 3 s with prebuilt Mathlib oleans: `lake build`.
 
 ## What this is
 
@@ -29,6 +30,8 @@ There is no third outcome and no trusted escape hatch.
 | `ZarPrune/Basic.lean` | `Params`, `Mat`, `HasKst`, `Valid`, `Profile`, `profileOf` |
 | `ZarPrune/Prune.lean` | the `Prune` gate, combinators, `skip`, `upper_bound_of_cover` |
 | `ZarPrune/Prunes.lean` | four proved baseline prunes + `baseline` |
+| `ZarPrune/Counting.lean` | Guy's Arguments A and D, transposition, deletion, waterfilling, `counting` (Mathlib) |
+| `Attempts/CountingAudit.lean` | `#print axioms` for every item of `Counting.lean` + `#eval` smoke tests |
 | `ZarPrune/Demo.lean` | tests, including the negative one |
 
 ## The two theorems that matter
@@ -71,7 +74,7 @@ elaborate here, by construction.
 
 ## Proved ledger
 
-Proved, with the obligation discharged:
+Proved, with the obligation discharged (Mathlib-free core, `ZarPrune/Prunes.lean`):
 
 - `deficit` — row sums total less than `w`
 - `mismatch` — row-sum total ≠ column-sum total (via Fubini)
@@ -81,14 +84,40 @@ Proved, with the obligation discharged:
 Axiom audit: everything above depends only on `propext` and `Quot.sound`. No
 `Classical.choice`.
 
-Not proved, and the next target:
+Proved in `ZarPrune/Counting.lean` (Mathlib; strategy in `COUNTING_NOTES.md`,
+axiom audit in `Attempts/CountingAudit.lean` — every item within
+`{propext, Quot.sound, Classical.choice}`):
 
-- **the Kővári–Sós–Turán counting prune**, `Σᵢ C(rᵢ, t) ≤ (s-1)·C(n, t)` for a
-  `K_{s,t}`-free matrix, and its column dual. This is the real prune — Guy's
-  counting arguments are refinements of it — and it is what actually kills
-  partition pairs at scale. It needs double counting over `t`-subsets of columns,
-  which this Mathlib-free core does not have; it wants either `Finset` or a
-  hand-rolled subset-counting layer. Nothing else in the design blocks on it.
+- `sumFin_eq_sum` — bridge from the Mathlib-free `sumFin` to `Finset.sum`
+- `support` / `rowSupport`, `card_support` / `card_rowSupport` — column/row supports as finsets
+- `hasKst_of_subsets` — an `s`-set of rows inside the supports of `t` columns is a `K_{s,t}`
+- `budget_general` — the one double-counting lemma (`∑_{j∈J} C(|S j|,k) ≤ B·C(|T|,k)`)
+- `colBudget` — **Argument A / KST**: `∑_j C(c_j, s) ≤ (t-1)·C(m, s)` for `K_{s,t}`-free
+- `rowBudget` — its transpose `∑_i C(r_i, t) ≤ (s-1)·C(n, t)`
+- `rowLocalBudget` — **Argument D**: `∑_{j∋i} C(c_j-1, s-1) ≤ (t-1)·C(m-1, s-1)` per row
+- `hasKst_transpose`, `valid_transpose`, `Prune.transposed` — any prune on `Pᵀ` is a prune on `P`
+- `argA` / `argAT` — Argument A as prunes (column / row side)
+- `boundD_le`, `argD` / `argDT` — Argument D as prunes, exact "r lightest columns" form
+  computed by layer-cake without sorting; agrees with `zar_ub/cases.py` on all
+  13,903 cached cases
+- `deleteCol` / `deleteRow`, `weight_deleteCol` / `weight_deleteRow`,
+  `not_hasKst_deleteCol` / `not_hasKst_deleteRow` — deleting a line drops exactly its sum
+  and cannot create a `K_{s,t}`
+- `choose_tangent`, `equalCost_le_sum_choose`, `sum_le_waterfillBound`,
+  `weight_le_waterfill` — waterfilling: `∑ C(c_j,s) ≤ B ⇒ ∑ c_j ≤ waterfillBound`
+- `argDelCol` / `argDelRow` — deletion prunes parametrised by any proved bound `U`
+  on the instance with one line fewer; `argDelColWF` / `argDelRowWF` / `argWF`
+  instantiate `U` by waterfilling
+- `countingA`, `countingD`, `deletion`, `counting` — bundles; `counting P` folds all
+  seven counting prunes
+
+Not proved:
+
+- tightness (achievability) of `waterfillBound` — not needed for soundness, checked by
+  brute force on tiny instances only
+- no prune yet plugs a *table* of proved exact `z(m, n-1; s, t)` values into
+  `argDelCol`'s `U`; that instantiation is a one-liner once such a table is verified
+- the partition-level (unordered) cover step, see Scope below
 
 ## Scope
 

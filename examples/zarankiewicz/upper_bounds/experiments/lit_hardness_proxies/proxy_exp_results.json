@@ -1,0 +1,1038 @@
+[
+ {
+  "name": "V78_p000.json",
+  "w": [
+   8,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "status": "unsat",
+  "t": 33.4,
+  "feats": {
+   "kst_slack": 0,
+   "max_w": 8,
+   "distinct_w": 4,
+   "log2_vol": 107.35525126099205,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 328,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.21428571428571427,
+   "st_1000": {
+    "res": null,
+    "restarts": 160,
+    "conflicts": 1003,
+    "decisions": 7945,
+    "propagations": 517777,
+    "sec": 0.03
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 611,
+    "conflicts": 5001,
+    "decisions": 22549,
+    "propagations": 2001708,
+    "sec": 0.12
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1202,
+    "conflicts": 20000,
+    "decisions": 50763,
+    "propagations": 4769908,
+    "sec": 0.37
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 5719,
+    "conflicts": 100002,
+    "decisions": 217296,
+    "propagations": 18434089,
+    "sec": 2.06
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 19668,
+    "conflicts": 400003,
+    "decisions": 753934,
+    "propagations": 70086473,
+    "sec": 10.8
+   }
+  },
+  "t_static": 0.04311227798461914,
+  "t_la": 0.04944205284118652
+ },
+ {
+  "name": "V78_p001.json",
+  "w": [
+   8,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "status": "timeout",
+  "t": 214.8,
+  "feats": {
+   "kst_slack": 4,
+   "max_w": 8,
+   "distinct_w": 3,
+   "log2_vol": 107.88132007265963,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 328,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.2714285714285714,
+   "st_1000": {
+    "res": null,
+    "restarts": 101,
+    "conflicts": 1002,
+    "decisions": 3631,
+    "propagations": 348205,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 481,
+    "conflicts": 5000,
+    "decisions": 20130,
+    "propagations": 1692452,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1053,
+    "conflicts": 20002,
+    "decisions": 57090,
+    "propagations": 4035212,
+    "sec": 0.34
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6017,
+    "conflicts": 100000,
+    "decisions": 290195,
+    "propagations": 17973435,
+    "sec": 2.04
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 21284,
+    "conflicts": 400000,
+    "decisions": 994454,
+    "propagations": 70736145,
+    "sec": 10.2
+   }
+  },
+  "t_static": 0.04291486740112305,
+  "t_la": 0.05212998390197754
+ },
+ {
+  "name": "V78_p002.json",
+  "w": [
+   7,
+   7,
+   7,
+   7,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "status": "unsat",
+  "t": 9.2,
+  "feats": {
+   "kst_slack": 0,
+   "max_w": 7,
+   "distinct_w": 2,
+   "log2_vol": 107.40036161743326,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 468,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.36428571428571427,
+   "st_1000": {
+    "res": null,
+    "restarts": 99,
+    "conflicts": 1002,
+    "decisions": 4588,
+    "propagations": 375071,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 382,
+    "conflicts": 5001,
+    "decisions": 15776,
+    "propagations": 1620042,
+    "sec": 0.1
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1004,
+    "conflicts": 20001,
+    "decisions": 48556,
+    "propagations": 4844086,
+    "sec": 0.35
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 5059,
+    "conflicts": 100002,
+    "decisions": 225197,
+    "propagations": 20085422,
+    "sec": 2.03
+   },
+   "st_400000": {
+    "res": false,
+    "restarts": 8141,
+    "conflicts": 234384,
+    "decisions": 423498,
+    "propagations": 54206931,
+    "sec": 5.35
+   }
+  },
+  "t_static": 0.04192495346069336,
+  "t_la": 0.04946303367614746
+ },
+ {
+  "name": "V78_p003.json",
+  "w": [
+   7,
+   7,
+   7,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   4
+  ],
+  "status": "timeout",
+  "t": 188.8,
+  "feats": {
+   "kst_slack": 1,
+   "max_w": 7,
+   "distinct_w": 4,
+   "log2_vol": 107.41861332198948,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 468,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.19285714285714287,
+   "st_1000": {
+    "res": null,
+    "restarts": 114,
+    "conflicts": 1000,
+    "decisions": 5939,
+    "propagations": 393436,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 413,
+    "conflicts": 5001,
+    "decisions": 17279,
+    "propagations": 1662053,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1187,
+    "conflicts": 20001,
+    "decisions": 51496,
+    "propagations": 4291418,
+    "sec": 0.36
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 5923,
+    "conflicts": 100001,
+    "decisions": 247371,
+    "propagations": 18405689,
+    "sec": 2.03
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 22404,
+    "conflicts": 400000,
+    "decisions": 934592,
+    "propagations": 71326756,
+    "sec": 10.4
+   }
+  },
+  "t_static": 0.05454683303833008,
+  "t_la": 0.05229997634887695
+ },
+ {
+  "name": "V78_p004.json",
+  "w": [
+   7,
+   7,
+   7,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5,
+   5
+  ],
+  "status": "unsat",
+  "t": 333.8,
+  "feats": {
+   "kst_slack": 5,
+   "max_w": 7,
+   "distinct_w": 3,
+   "log2_vol": 107.94468213365707,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 468,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.2857142857142857,
+   "st_1000": {
+    "res": null,
+    "restarts": 141,
+    "conflicts": 1000,
+    "decisions": 6818,
+    "propagations": 450110,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 532,
+    "conflicts": 5000,
+    "decisions": 20344,
+    "propagations": 1479215,
+    "sec": 0.1
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1290,
+    "conflicts": 20000,
+    "decisions": 57663,
+    "propagations": 3876851,
+    "sec": 0.35
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 5882,
+    "conflicts": 100000,
+    "decisions": 261579,
+    "propagations": 18454846,
+    "sec": 1.97
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 22283,
+    "conflicts": 400000,
+    "decisions": 958446,
+    "propagations": 68912663,
+    "sec": 10.04
+   }
+  },
+  "t_static": 0.04672408103942871,
+  "t_la": 0.05125284194946289
+ },
+ {
+  "name": "V78_p005.json",
+  "w": [
+   7,
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   4,
+   4
+  ],
+  "status": "timeout",
+  "t": 363.2,
+  "feats": {
+   "kst_slack": 2,
+   "max_w": 7,
+   "distinct_w": 4,
+   "log2_vol": 107.4368650265457,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 468,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.16428571428571428,
+   "st_1000": {
+    "res": null,
+    "restarts": 115,
+    "conflicts": 1000,
+    "decisions": 6480,
+    "propagations": 397905,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 430,
+    "conflicts": 5000,
+    "decisions": 16591,
+    "propagations": 1642286,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 922,
+    "conflicts": 20001,
+    "decisions": 51327,
+    "propagations": 4025163,
+    "sec": 0.34
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 5998,
+    "conflicts": 100002,
+    "decisions": 319158,
+    "propagations": 19387693,
+    "sec": 2.14
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 23706,
+    "conflicts": 400000,
+    "decisions": 1215852,
+    "propagations": 78994043,
+    "sec": 11.37
+   }
+  },
+  "t_static": 0.044966936111450195,
+  "t_la": 0.05196809768676758
+ },
+ {
+  "name": "V78_p008.json",
+  "w": [
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   4,
+   3
+  ],
+  "status": "unsat",
+  "t": 70.3,
+  "feats": {
+   "kst_slack": 0,
+   "max_w": 7,
+   "distinct_w": 5,
+   "log2_vol": 106.91079621487812,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.2642857142857143,
+   "st_1000": {
+    "res": null,
+    "restarts": 185,
+    "conflicts": 1000,
+    "decisions": 6900,
+    "propagations": 444903,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 458,
+    "conflicts": 5000,
+    "decisions": 20612,
+    "propagations": 1717404,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1240,
+    "conflicts": 20001,
+    "decisions": 60836,
+    "propagations": 4470514,
+    "sec": 0.37
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6974,
+    "conflicts": 100000,
+    "decisions": 286873,
+    "propagations": 19521165,
+    "sec": 2.18
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 22872,
+    "conflicts": 400000,
+    "decisions": 933518,
+    "propagations": 78735716,
+    "sec": 11.18
+   }
+  },
+  "t_static": 0.04321718215942383,
+  "t_la": 0.04905390739440918
+ },
+ {
+  "name": "V78_p009.json",
+  "w": [
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   4,
+   4,
+   4
+  ],
+  "status": "unsat",
+  "t": 85.5,
+  "feats": {
+   "kst_slack": 3,
+   "max_w": 7,
+   "distinct_w": 4,
+   "log2_vol": 107.45511673110194,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.2785714285714286,
+   "st_1000": {
+    "res": null,
+    "restarts": 96,
+    "conflicts": 1000,
+    "decisions": 6210,
+    "propagations": 339674,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 385,
+    "conflicts": 5000,
+    "decisions": 19693,
+    "propagations": 1516242,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1185,
+    "conflicts": 20000,
+    "decisions": 56478,
+    "propagations": 4347402,
+    "sec": 0.36
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6626,
+    "conflicts": 100000,
+    "decisions": 277912,
+    "propagations": 19623212,
+    "sec": 2.31
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 22910,
+    "conflicts": 400001,
+    "decisions": 930742,
+    "propagations": 80344153,
+    "sec": 11.01
+   }
+  },
+  "t_static": 0.04382181167602539,
+  "t_la": 0.050710201263427734
+ },
+ {
+  "name": "V78_p010.json",
+  "w": [
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   5,
+   3
+  ],
+  "status": "timeout",
+  "t": 282.6,
+  "feats": {
+   "kst_slack": 4,
+   "max_w": 7,
+   "distinct_w": 4,
+   "log2_vol": 107.4368650265457,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.24285714285714285,
+   "st_1000": {
+    "res": null,
+    "restarts": 185,
+    "conflicts": 1000,
+    "decisions": 8647,
+    "propagations": 476408,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 417,
+    "conflicts": 5003,
+    "decisions": 19304,
+    "propagations": 1528223,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1208,
+    "conflicts": 20000,
+    "decisions": 52909,
+    "propagations": 4174396,
+    "sec": 0.36
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6766,
+    "conflicts": 100001,
+    "decisions": 291584,
+    "propagations": 19409000,
+    "sec": 2.25
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 24436,
+    "conflicts": 400005,
+    "decisions": 1044893,
+    "propagations": 79381205,
+    "sec": 11.78
+   }
+  },
+  "t_static": 0.04387521743774414,
+  "t_la": 0.05116677284240723
+ },
+ {
+  "name": "V78_p011.json",
+  "w": [
+   7,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   4,
+   4
+  ],
+  "status": "unsat",
+  "t": 280.0,
+  "feats": {
+   "kst_slack": 7,
+   "max_w": 7,
+   "distinct_w": 4,
+   "log2_vol": 107.98118554276952,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.22857142857142856,
+   "st_1000": {
+    "res": null,
+    "restarts": 71,
+    "conflicts": 1000,
+    "decisions": 5136,
+    "propagations": 305190,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 390,
+    "conflicts": 5001,
+    "decisions": 19609,
+    "propagations": 1372477,
+    "sec": 0.1
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1152,
+    "conflicts": 20002,
+    "decisions": 57686,
+    "propagations": 4025314,
+    "sec": 0.36
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6881,
+    "conflicts": 100003,
+    "decisions": 299948,
+    "propagations": 19540719,
+    "sec": 2.24
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 23726,
+    "conflicts": 400002,
+    "decisions": 1019603,
+    "propagations": 79365658,
+    "sec": 17.54
+   }
+  },
+  "t_static": 0.05363917350769043,
+  "t_la": 0.05317091941833496
+ },
+ {
+  "name": "V78_p014.json",
+  "w": [
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   2
+  ],
+  "status": "unsat",
+  "t": 22.7,
+  "feats": {
+   "kst_slack": 0,
+   "max_w": 6,
+   "distinct_w": 3,
+   "log2_vol": 106.30311363765688,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.4,
+   "st_1000": {
+    "res": null,
+    "restarts": 140,
+    "conflicts": 1000,
+    "decisions": 5770,
+    "propagations": 401887,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 395,
+    "conflicts": 5000,
+    "decisions": 14382,
+    "propagations": 1487856,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1210,
+    "conflicts": 20001,
+    "decisions": 54978,
+    "propagations": 3811550,
+    "sec": 0.36
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6388,
+    "conflicts": 100001,
+    "decisions": 257369,
+    "propagations": 17750570,
+    "sec": 2.17
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 22093,
+    "conflicts": 400000,
+    "decisions": 839354,
+    "propagations": 64574008,
+    "sec": 10.14
+   }
+  },
+  "t_static": 0.04253387451171875,
+  "t_la": 0.0502471923828125
+ },
+ {
+  "name": "V78_p015.json",
+  "w": [
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   4,
+   3
+  ],
+  "status": "unsat",
+  "t": 19.4,
+  "feats": {
+   "kst_slack": 5,
+   "max_w": 6,
+   "distinct_w": 4,
+   "log2_vol": 107.45511673110192,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.39285714285714285,
+   "st_1000": {
+    "res": null,
+    "restarts": 163,
+    "conflicts": 1000,
+    "decisions": 6687,
+    "propagations": 449010,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 471,
+    "conflicts": 5001,
+    "decisions": 19119,
+    "propagations": 1585669,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1261,
+    "conflicts": 20000,
+    "decisions": 52445,
+    "propagations": 4623951,
+    "sec": 0.39
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6128,
+    "conflicts": 100001,
+    "decisions": 238827,
+    "propagations": 18128181,
+    "sec": 2.13
+   },
+   "st_400000": {
+    "res": false,
+    "restarts": 19717,
+    "conflicts": 392861,
+    "decisions": 755356,
+    "propagations": 63908973,
+    "sec": 10.17
+   }
+  },
+  "t_static": 0.0442957878112793,
+  "t_la": 0.049749135971069336
+ },
+ {
+  "name": "V78_p016.json",
+  "w": [
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   4,
+   4,
+   4
+  ],
+  "status": "unsat",
+  "t": 32.3,
+  "feats": {
+   "kst_slack": 8,
+   "max_w": 6,
+   "distinct_w": 2,
+   "log2_vol": 107.99943724732574,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.4142857142857143,
+   "st_1000": {
+    "res": null,
+    "restarts": 97,
+    "conflicts": 1002,
+    "decisions": 5126,
+    "propagations": 344107,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 470,
+    "conflicts": 5000,
+    "decisions": 17941,
+    "propagations": 1460533,
+    "sec": 0.1
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 1073,
+    "conflicts": 20000,
+    "decisions": 50158,
+    "propagations": 4150115,
+    "sec": 0.38
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 5755,
+    "conflicts": 100003,
+    "decisions": 239060,
+    "propagations": 17809344,
+    "sec": 2.09
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 22740,
+    "conflicts": 400003,
+    "decisions": 851507,
+    "propagations": 71078653,
+    "sec": 10.3
+   }
+  },
+  "t_static": 0.04491281509399414,
+  "t_la": 0.05233573913574219
+ },
+ {
+  "name": "V78_p017.json",
+  "w": [
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   6,
+   5,
+   5,
+   5,
+   3
+  ],
+  "status": "unsat",
+  "t": 157.1,
+  "feats": {
+   "kst_slack": 9,
+   "max_w": 6,
+   "distinct_w": 3,
+   "log2_vol": 107.98118554276951,
+   "subcases_GR": 1644,
+   "subcases_GR_D": 71,
+   "root_fixed_frac": 0.0,
+   "failed_lits": 0,
+   "mean_implied_cells": 0.34285714285714286,
+   "st_1000": {
+    "res": null,
+    "restarts": 134,
+    "conflicts": 1001,
+    "decisions": 5455,
+    "propagations": 366956,
+    "sec": 0.02
+   },
+   "st_5000": {
+    "res": null,
+    "restarts": 472,
+    "conflicts": 5001,
+    "decisions": 19998,
+    "propagations": 1606416,
+    "sec": 0.11
+   },
+   "st_20000": {
+    "res": null,
+    "restarts": 957,
+    "conflicts": 20003,
+    "decisions": 52618,
+    "propagations": 3977489,
+    "sec": 0.36
+   },
+   "st_100000": {
+    "res": null,
+    "restarts": 6200,
+    "conflicts": 100004,
+    "decisions": 285689,
+    "propagations": 18702825,
+    "sec": 2.29
+   },
+   "st_400000": {
+    "res": null,
+    "restarts": 22597,
+    "conflicts": 400003,
+    "decisions": 1014395,
+    "propagations": 76325527,
+    "sec": 11.47
+   }
+  },
+  "t_static": 0.04217219352722168,
+  "t_la": 0.04938077926635742
+ }
+]

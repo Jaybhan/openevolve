@@ -3,3 +3,9 @@ import ZarPrune.Basic
 import ZarPrune.Prune
 import ZarPrune.Prunes
 import ZarPrune.Demo
+import ZarPrune.Counting
+import ZarPrune.Cond
+import ZarPrune.Schemas
+import ZarPrune.DGH
+import ZarPrune.Closure
+import ZarPrune.Evolved

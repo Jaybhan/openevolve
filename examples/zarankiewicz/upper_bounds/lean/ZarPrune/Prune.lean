@@ -104,3 +104,11 @@ theorem upper_bound_succ_of_cover
   omega
 
 end ZarPrune
+
+/-- **Weight monotonicity.**  A prune for weight `w` is a prune for every `w' ≥ w`:
+a matrix with `≥ w'` ones has `≥ w` ones, and the `K_{s,t}` condition ignores `w`. -/
+def ZarPrune.Prune.mono {P : ZarPrune.Params} (p : ZarPrune.Prune P) (w' : Nat) (h : P.w ≤ w') :
+    ZarPrune.Prune {P with w := w'} where
+  name := p.name
+  kill := p.kill
+  sound := fun A hk hv => p.sound A hk ⟨hv.1, Nat.le_trans h hv.2⟩

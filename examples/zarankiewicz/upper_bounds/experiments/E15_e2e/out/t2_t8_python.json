@@ -1,0 +1,50 @@
+{
+ "T2_uncached": {
+  "ladder": 5,
+  "axioms": [
+   "propext",
+   "Classical.choice",
+   "Quot.sound"
+  ],
+  "mask_len": 195,
+  "n_cases": 195,
+  "kills": 129,
+  "seconds_gate": 2.295403003692627,
+  "wall": 2.3,
+  "errors": [],
+  "cache_hit": false,
+  "scored_survivors": 66,
+  "killed_scored_survivors": 0
+ },
+ "T8": {
+  "10,21,107": {
+   "n_cases_trust": 0,
+   "n_cases_pure": 185,
+   "n_facts": 18,
+   "fact_tags": [
+    "lean-here",
+    "tan2022"
+   ],
+   "wall": 0.0
+  },
+  "11,19,107": {
+   "n_cases_trust": 0,
+   "n_cases_pure": 2970,
+   "n_facts": 16,
+   "fact_tags": [
+    "tan2022"
+   ],
+   "wall": 0.0
+  },
+  "11,20,112": {
+   "n_cases_trust": 0,
+   "n_cases_pure": 198,
+   "n_facts": 16,
+   "fact_tags": [
+    "lean-here",
+    "tan2022"
+   ],
+   "wall": 0.0
+  }
+ }
+}

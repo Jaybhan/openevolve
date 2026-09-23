@@ -1,5 +1,18 @@
 name = "ZarPrune"
 defaultTargets = ["ZarPrune"]
 
+# Mathlib is used ONLY by ZarPrune/Counting.lean (the double-counting lemmas
+# behind Guy's Arguments A and D) and by evolved candidate proofs.  The core
+# (Sum/Basic/Prune/Prunes) stays Mathlib-free.  Prebuilt oleans: `lake exe cache get`.
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.34.0"
+
 [[lean_lib]]
 name = "ZarPrune"
+# `ZarPrune` = the library root (Sum/Basic/Prune/Prunes/Demo/Counting/Cond/Schemas/DGH/Closure/Evolved,
+# Evolved/E_*.lean through Evolved.lean).  `ZarPrune.Closures.*` = the generated Tier-1 closure files
+# (zar_ub/closure.py; each ends with `#print axioms z_m_n_le_u`), so `lake build` re-checks every
+# claimed bound; they import the root and are never imported by it.
+globs = ["ZarPrune", "ZarPrune.Closures.+"]
