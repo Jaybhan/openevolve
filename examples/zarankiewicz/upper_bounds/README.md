@@ -11,11 +11,11 @@ are named, provenance-tagged facts.
                  ┌──────────────── OpenEvolve loop ────────────────┐
  initial_program ──► LLM edits NOTES + LEAN_SOURCE + SCHEMA_DATA + kill()   (genome, design §2)
                       │
-                      ▼  evaluator.py  (LLM-free, deterministic, 2–30 s)
+                      ▼  evaluator.py  (LLM-free, deterministic, 2–90 s)
    stage 1  sandboxed candidate subprocess (no project writes, no network) → Python mask, battery
    stage 2  one Lean process: scan → elaborate → type-check → #print axioms → nonce-tagged #eval masks
             ladder L0–L5, sorry-hole auto-fill, HMAC-authenticated result cache
-   stage 3  reward v2: verified floor 0.20 + difficulty-weighted work removed; unverified ≤ 0.19
+   stage 3  reward v3 (E27): verified floor 0.20 + work above 20k conflicts removed (family-balanced) + depth + closure; unverified ≤ 0.19
                  └───────────────────────────────────────────────────┘
  promotion: leanchecker replay → lean/ZarPrune/Evolved/E_<sha>.lean → accepted_prunes.jsonl
  closure:   survivors ──► cadical DRAT ──► drat-trim ──► LRAT ──► lrat-check
@@ -38,7 +38,7 @@ are named, provenance-tagged facts.
 
 | path | what |
 |---|---|
-| `zar_ub/` | engine (`known`, `partitions`, `cases`, `encoding`, `solve`, `difficulty`, `casetable`), `lean_gate` (the trust gate), `reward`, `lemmas` (schema registry), `ledger` (fact provenance), `certify` (DRAT→LRAT), `closure` (Tier-1 theorems), `promote`, `closure_daemon`, `sandbox`, `cli` |
+| `zar_ub/` | engine (`known`, `partitions`, `cases`, `encoding`, `solve`, `difficulty`, `casetable`; E24 estimators `hardness_model` (the censored label), `hardness_progress`, `hardness_lookahead`, `hardness_sampling`), `lean_gate` (the trust gate), `reward`, `lemmas` (schema registry), `ledger` (fact provenance), `certify` (DRAT→LRAT), `closure` (Tier-1 theorems), `promote`, `closure_daemon`, `sandbox`, `cli` |
 | `lean/` | ZarPrune library; `lean/Candidates/` gate scratch (gitignored); `lean/Attempts/` proof attempts and audits |
 | `evaluator.py`, `initial_program.py`, `suite.py`, `run_candidate.py`, `config*.yaml` | the OpenEvolve example (`config_stub.yaml` = no-LLM stub server, `config_smoke_luna.yaml` = cheap paid smoke) |
 | `tests/` | engine, gate (46 forbidden constructs), ledger, tables, lemmas, promotion, sandbox, and the golden adversarial bank (`tests/candidates/`, `tests/golden.json`); `tests/attacks/` = red-team PoCs |

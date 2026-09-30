@@ -20,6 +20,7 @@ class SolveResult:
     conflicts: int = 0
     decisions: int = 0
     propagations: int = 0
+    restarts: int = 0  # E27: needed by the E24 hardness model (zar_ub.hardness_model)
     matrix: Optional[List[List[int]]] = None
     witness_ok: Optional[bool] = None  # independent K_{s,t}-free check of the model
     proof: Optional[List[str]] = None
@@ -56,6 +57,7 @@ def solve_cnf(cnf: CNF, inst: Instance, solver: str = "cadical195",
             conflicts=int(st.get("conflicts", 0)),
             decisions=int(st.get("decisions", 0)),
             propagations=int(st.get("propagations", 0)),
+            restarts=int(st.get("restarts", 0)),
             solver=solver,
         )
         if res is None:

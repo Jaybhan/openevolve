@@ -58,6 +58,44 @@ class CachedTables(unittest.TestCase):
             if tab.records:
                 self.assertTrue(tab.table_hash, f"{name}: empty table_hash")
 
+    def test_model_labels_respect_the_clip(self):
+        """E27: a censored model label is never below the conflicts reached and never above 2M unless the
+        lower bound is; a 'lower_bound' label equals the conflicts reached."""
+        from zar_ub.difficulty import CENSOR_CLIP, MODEL_CAP  # noqa: E402
+
+        ceil = CENSOR_CLIP * MODEL_CAP
+        for name, tab in _tables():
+            for rec in tab.records:
+                p = rec.probe or {}
+                if not rec.censored or p.get("d_method") not in ("model", "lower_bound"):
+                    continue
+                lb = float(p.get("conflicts") or 0)
+                self.assertGreaterEqual(rec.d + 1e-9, lb, f"{name}: model label below the lower bound")
+                self.assertLessEqual(rec.d, max(ceil, lb) + 1e-9, f"{name}: model label above the ceiling")
+                if p["d_method"] == "lower_bound":
+                    self.assertEqual(rec.d, lb, f"{name}: lower_bound label != conflicts reached")
+
+    def test_scored_censored_cases_carry_model_labels(self):
+        """E27: every censored library survivor of a scored (3,3) table is labelled by the hardness model
+        (or by its lower bound at the 2M ceiling), not by the legacy fhat extrapolation."""
+        from suite import load_suite  # noqa: E402
+        from zar_ub.difficulty import load_hardness_model  # noqa: E402
+
+        if load_hardness_model() is None:
+            self.skipTest("no hardness model (or ZAR_UB_DIFFICULTY=legacy)")
+        s = load_suite(verbose=False, state={"graduated": [], "entered": [], "history": []})
+        bad = []
+        for kind in ("train", "target", "gen"):
+            for inst, tab in s[kind]:
+                if (inst.s, inst.t) != (3, 3):
+                    continue
+                for i in tab.scored_indices():
+                    r = tab.records[i]
+                    if r.censored and (r.probe or {}).get("d_method") not in ("model", "lower_bound"):
+                        bad.append(f"{inst.tag}#{i}")
+        self.assertFalse(bad, f"{len(bad)} censored survivors without a model label, e.g. {bad[:5]} "
+                              f"(run experiments/E27_integration/relabel_tables.py run/apply)")
+
     def test_crn_sample_is_deterministic(self):
         for name, tab in _tables():
             s1, s2 = make_sample(tab), make_sample(tab)
@@ -73,9 +111,13 @@ class CachedTables(unittest.TestCase):
     def test_suite_loads(self):
         from suite import load_suite  # noqa: E402
 
-        s = load_suite(verbose=False)
+        import suite as suite_mod  # noqa: E402
+
+        s = load_suite(verbose=False, state={"graduated": [], "entered": [], "history": []})
         self.assertEqual(set(s.keys()), {"train", "battery", "target", "gen"})
-        self.assertEqual(len(s["train"]), 7)
+        # E27 suite v3: the 7 square cells + the 7 exactly-known wide cells
+        self.assertEqual(len(s["train"]), len(suite_mod.TRAIN_CELLS) + len(suite_mod.WIDE_TRAIN_CELLS))
+        self.assertEqual(len(set(i.tag for i, _ in s["train"])), len(s["train"]), "duplicate TRAIN cell")
         self.assertGreaterEqual(len(s["gen"]), 1)
         for kind, tables in s.items():
             for inst, tab in tables:

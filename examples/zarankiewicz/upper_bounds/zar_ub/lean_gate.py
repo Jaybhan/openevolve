@@ -96,7 +96,7 @@ def _gate_secret() -> Optional[bytes]:
 def _mac(secret: bytes, key: str, payload: str) -> str:
     import hmac
     return hmac.new(secret, (key + "\x00" + payload).encode(), "sha256").hexdigest()
-WRAPPER_VERSION = "gate-v2.1"  # v2.1: CondPrune entry point (candidateF) + per-instance facts
+WRAPPER_VERSION = "gate-v2.2"  # v2.1: CondPrune entry point (candidateF) + per-instance facts; v2.2 (E27): heartbeats on the generated gateKill_eq
 ALLOWED_AXIOMS = {"propext", "Quot.sound", "Classical.choice"}
 SORRY_AXIOM = "sorryAx"
 MAX_HEARTBEATS = 400000
@@ -162,6 +162,7 @@ FORBIDDEN: List[Tuple[str, str]] = [
 _DERIVING_OK = {"Repr", "DecidableEq"}
 _DERIVING = re.compile(r"\bderiving\s+([A-Za-z_][\w.]*(?:\s*,\s*[A-Za-z_][\w.]*)*)")
 _SET_OPTION = re.compile(r"\bset_option\b")
+GATE_EQ_HEARTBEATS = 2_000_000  # E27: the generated gateKill_eq rfl on large instances (harness code only)
 _SET_OPTION_OK = re.compile(r"\bset_option\s+(maxHeartbeats|maxRecDepth)\s+(\d+)(\s+in\b|\s*$)", re.M)
 _SET_OPTION_LIMITS = {"maxHeartbeats": MAX_HEARTBEATS, "maxRecDepth": MAX_RECDEPTH}
 # declared-name rule (S1): wrapper/library names the candidate may not (re)declare
@@ -571,6 +572,10 @@ def build_gate_file(inst: Instance, candidate_src: str, cases: Optional[List[Tup
                        (f"def {G} (hF : ∀ f ∈ {FK}, ZarPrune.FactHolds f) : ZarPrune.Prune {T} := "
                         f"ZarPrune.Prune.or ({base_term}) ({CF}.discharge hF)", f"gateInst{k}"),
                        (f"def {GK} : ZarPrune.Profile {T}.m {T}.n → Bool := fun pf => ({base_term}).kill pf || {CF}.kill pf", f"gateInst{k}"),
+                       # E27: the defeq check unfolds the whole kill and exceeds the default 200k heartbeats on
+                       # the large later targets ((13,19,123), (16,17,134)); harness-generated, so a higher limit
+                       # on this one rfl is sound (candidate code is still capped at MAX_HEARTBEATS by the scan)
+                       (f"set_option maxHeartbeats {GATE_EQ_HEARTBEATS} in", f"gateInst{k}"),
                        (f"theorem {GK}_eq : ∀ hF pf, ({G} hF).kill pf = {GK} pf := fun _ _ => rfl", f"gateInst{k}"),
                        (f'#eval IO.println ("COND {nonce} {k} " ++ {CF}.name)', f"cond{k}")]
             gate_kill = GK

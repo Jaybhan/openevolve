@@ -29,6 +29,10 @@ from .difficulty import (
     CENSORED_MAX_CAP,
     _label_worker,
     _continue_worker,
+    _relabel_worker,
+    difficulty_method,
+    model_clip,
+    relabel_probe,
     label_case,
     continue_label,
     label_from_probe,
@@ -527,13 +531,21 @@ def deepen(
     verbose: bool = True,
     save: bool = True,
     limit: Optional[int] = None,
+    only_survivors: bool = False,
 ) -> dict:
+    """Solve censored cases further, up to `cap` conflicts; cases still open are relabelled with the
+    current censored-label method (the E24 hardness model, floored at the conflicts reached).
+    only_survivors: skip cases the proved library already kills (their label never enters the reward).
+    E28: deepening target survivors to 50k before estimating beats every estimator at equal cost
+    (held-out hard-regime Spearman 0.932 vs 0.837, experiments/E24_difficulty/EVALUATION.md 4.5)."""
     inst = tab.instance
     calib = load_calibration(inst.s, inst.t)
+    mask = tab.baseline_lean_mask if only_survivors else None
     todo = [
         (i, r)
         for i, r in enumerate(tab.records)
         if r.probe and r.probe.get("status") == "unknown" and int(r.probe.get("budget_cap", 0)) < cap
+        and not (mask is not None and i < len(mask) and mask[i])
     ]
     todo.sort(key=lambda ir: (-difficulty(ir[1]), ir[0]))  # hardest first (critical path)
     if limit is not None:
@@ -586,34 +598,138 @@ def deepen(
     }
 
 
-def relabel(tab: CaseTable, save: bool = True) -> dict:
-    """Recompute the censored labels (d = min(max(cap, fhat), 20*cap)) of a table with
-    the CURRENT calibration file, without solving anything; bumps table_hash."""
+def relabel(tab: CaseTable, save: bool = True, jobs: int = 1, method: Optional[str] = None,
+            indices: Optional[Sequence[int]] = None, results: Optional[Dict[int, dict]] = None,
+            verbose: bool = False) -> dict:
+    """Recompute the censored labels of a table (bumps table_hash).
+
+    method "model" (default; see difficulty.relabel_probe): the E24 hardness model, clipped to
+    [conflicts reached, 2M]; runs the fresh 20k probe + lookahead for records without stored 20k
+    statistics (about 24k conflicts, 1.2 s each; `jobs` processes).  method "legacy"
+    (ZAR_UB_DIFFICULTY=legacy): d = min(max(cap, fhat), 20*cap), no solving.
+    indices: restrict to these record indices; results: precomputed {idx: relabel_probe(...)} (e.g.
+    from a resumable background job) -- applied without solving."""
     inst = tab.instance
     calib = load_calibration(inst.s, inst.t)
     before = tab.table_hash
-    n = 0
-    for r in tab.records:
-        if r.probe and r.probe.get("status") == "unknown":
+    meth = method or difficulty_method()
+    todo = [i for i, r in enumerate(tab.records) if r.probe and r.probe.get("status") == "unknown"]
+    if indices is not None:
+        keep = set(int(i) for i in indices)
+        todo = [i for i in todo if i in keep]
+    cost = {"conflicts": 0, "propagations": 0, "seconds": 0.0}
+    t0 = time.time()
+    if meth == "legacy":
+        res = {}
+        for i in todo:
+            r = tab.records[i]
             cap = int(r.probe.get("budget_cap") or 20_000)
             c2000 = int(r.probe.get("c2000") or min(int(r.probe.get("conflicts", cap)), 2000))
             fh = fhat(calib, c2000, float(r.probe.get("log2_volume", 0.0)))
-            r.probe["fhat"] = fh
-            r.probe["c2000"] = c2000
-            r.probe["d"] = r.d = censored_d(cap, fh)
-            r.probe["censored"] = r.censored = True
-            n += 1
+            res[i] = {"d": censored_d(cap, fh), "d_method": "fhat", "d_model": None, "fhat": fh, "c2000": c2000}
+    elif results is not None:
+        res = {i: results[i] for i in todo if i in results}
+    else:
+        args = [(asdict(inst), i, tab.records[i].rows, tab.records[i].cols, tab.records[i].probe) for i in todo]
+        if jobs > 1 and len(args) > 1:
+            import multiprocessing as mp
+
+            with mp.get_context("fork" if hasattr(os, "fork") else "spawn").Pool(jobs) as pool:
+                outs = list(pool.imap_unordered(_relabel_worker, args, chunksize=2))
+        else:
+            outs = [_relabel_worker(a) for a in args]
+        res = {o["idx"]: o for o in outs}
+    by_method: Dict[str, int] = {}
+    for i, o in res.items():
+        r = tab.records[i]
+        for k in ("fhat", "c2000", "d_model", "d_method", "ps20k"):
+            if k in o and (k != "ps20k" or o[k] is not None):
+                r.probe[k] = o[k]
+        r.probe["d"] = r.d = float(o["d"])
+        r.probe["censored"] = r.censored = True
+        by_method[o["d_method"]] = by_method.get(o["d_method"], 0) + 1
+        cost["conflicts"] += int(o.get("cost_conflicts", 0) or 0)
+        cost["propagations"] += int(o.get("cost_propagations", 0) or 0)
+        cost["seconds"] += float(o.get("cost_seconds", 0.0) or 0.0)
+        if verbose:
+            print(f"  [{inst.tag}] #{i} rows={r.rows} cols={r.cols} -> d={r.d:.0f} ({o['d_method']})", flush=True)
     tab.calibration = list(calib) if calib else None
     tab.refresh()
-    if save and n and tab.path:
+    if save and res and tab.path:
         tab.save()
     return {
         "instance": inst.tag,
-        "relabelled": n,
+        "relabelled": len(res),
+        "by_method": by_method,
         "hash_before": before,
         "hash_after": tab.table_hash,
         "calibration": tab.calibration,
+        "cost_conflicts": cost["conflicts"],
+        "cost_propagations": cost["propagations"],
+        "cost_solver_seconds": round(cost["seconds"], 1),
+        "wall_seconds": round(time.time() - t0, 1),
     }
+
+
+def apply_ground_truth(tab: CaseTable, gt_rows: Sequence[dict], sources: Sequence[str] = ("deepen",),
+                       save: bool = True) -> dict:
+    """Write E24 ground-truth labels (experiments/E24_difficulty/ground_truth.jsonl rows of this table)
+    into the table.  Rows are matched on (rows, cols).  An unsat row becomes an exact label (status,
+    conflicts = d, budget_cap = the run's cap, censored False); an 'unknown' row (open at the deeper cap)
+    raises the lower bound (conflicts reached) and is relabelled with `model_clip` (d = conflicts
+    reached once that is >= 2M).  A 'sat' row is refused: a SAT claim needs a checked witness matrix,
+    which the ground-truth file does not carry.  The previous cap/conflicts are kept in
+    probe['deepened_from'].  Atomic save, table_hash bumped."""
+    idx = {(tuple(r.rows), tuple(r.cols)): i for i, r in enumerate(tab.records)}
+    before = tab.table_hash
+    n_exact = n_open = n_same = n_missing = 0
+    refused: List[str] = []
+    for g in gt_rows:
+        if g.get("source") not in sources:
+            continue
+        i = idx.get((tuple(g["rows"]), tuple(g["cols"])))
+        if i is None:
+            n_missing += 1
+            continue
+        r = tab.records[i]
+        p = dict(r.probe or {})
+        st = g["status"]
+        new_cap = int(g.get("cap") or 0)
+        d = int(g["d"])
+        if st == "sat":
+            refused.append(f"rows={r.rows} cols={r.cols}: ground truth says sat (no witness in the file)")
+            continue
+        if st == "unsat" and p.get("status") == "unsat" and int(p.get("conflicts", -1)) == d:
+            n_same += 1
+            continue
+        if st == "unknown" and p.get("status") == "unknown" and int(p.get("conflicts", 0)) >= d:
+            n_same += 1
+            continue
+        p.setdefault("deepened_from", {"budget_cap": p.get("budget_cap"), "conflicts": p.get("conflicts"),
+                                       "d": p.get("d")})
+        p.update({"status": st, "conflicts": d, "budget_cap": max(new_cap, int(p.get("budget_cap") or 0)),
+                  "source": "E24 ground truth (fresh cadical195 run, cap %d)" % new_cap})
+        if g.get("c2000") is not None and "c2000" not in p:
+            p["c2000"] = int(g["c2000"])
+        if st == "unsat":
+            p.update({"d": float(max(1, d)), "censored": False, "d_method": "exact", "d_model": None})
+            r.d, r.censored = float(max(1, d)), False
+            n_exact += 1
+        else:
+            lab = model_clip(d, float(p.get("d_model") or 0.0))
+            p.update({"d": lab, "censored": True,
+                      "d_method": "lower_bound" if lab == float(max(1, d)) else "model"})
+            r.d, r.censored = lab, True
+            n_open += 1
+        r.probe = p
+        tab.conf_cap = max(int(tab.conf_cap or 0), new_cap)
+    tab.refresh()
+    changed = n_exact + n_open
+    if save and changed and tab.path:
+        tab.save()
+    return {"instance": tab.instance.tag, "path": tab.path, "exact_written": n_exact, "open_raised": n_open,
+            "unchanged": n_same, "not_in_table": n_missing, "refused": refused,
+            "hash_before": before, "hash_after": tab.table_hash}
 
 
 # ---------------------------------------------------------------------------

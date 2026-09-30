@@ -1,0 +1,195 @@
+{
+ "within_rho": 0.8374598054050832,
+ "within_C": 0.8465322163709226,
+ "n_cells": 15,
+ "pooled_C": 0.8654049378377041,
+ "log_rmse": 0.5104502498866251,
+ "feature_frequency": [
+  [
+   "pr:ps20k_decs_per_conf",
+   17
+  ],
+  [
+   "pr:ps20k_restarts_per_kconf",
+   17
+  ],
+  [
+   "pr:st_distinct_rows",
+   17
+  ],
+  [
+   "la:knfl_rand_mean_log_nodes",
+   14
+  ],
+  [
+   "la:la1_failed_neg",
+   11
+  ],
+  [
+   "pr:st_argD_row_mean_rel",
+   10
+  ],
+  [
+   "la:la1_newbin_pos_mean",
+   6
+  ],
+  [
+   "pr:st_argA_min_rel",
+   4
+  ],
+  [
+   "la:knfl_rand_mean_depth",
+   3
+  ],
+  [
+   "pr:st_var_rows",
+   1
+  ],
+  [
+   "pr:st_spread_rows",
+   1
+  ],
+  [
+   "la:kn_row_mean_depth",
+   1
+  ]
+ ],
+ "chosen": {
+  "10,11": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "10,14": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "la:la1_newbin_pos_mean",
+   "pr:st_distinct_rows",
+   "pr:st_var_rows"
+  ],
+  "10,19": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "la:la1_newbin_pos_mean",
+   "pr:st_distinct_rows",
+   "pr:st_argA_min_rel"
+  ],
+  "10,20": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "10,22": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "11,11": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "11,12": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "11,21": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "la:la1_newbin_pos_mean",
+   "pr:st_distinct_rows",
+   "pr:st_argA_min_rel"
+  ],
+  "12,12": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "12,13": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "12,18": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_depth",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "13,13": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "pr:st_distinct_rows",
+   "la:la1_newbin_pos_mean",
+   "pr:st_argA_min_rel"
+  ],
+  "13,19": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "la:la1_newbin_pos_mean",
+   "pr:st_distinct_rows",
+   "pr:st_spread_rows"
+  ],
+  "16,17": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_depth",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "9,16": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "la:la1_failed_neg",
+   "pr:st_distinct_rows",
+   "la:kn_row_mean_depth"
+  ],
+  "9,18": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_depth",
+   "pr:st_distinct_rows",
+   "la:la1_failed_neg",
+   "pr:st_argD_row_mean_rel"
+  ],
+  "9,23": [
+   "pr:ps20k_decs_per_conf",
+   "pr:ps20k_restarts_per_kconf",
+   "la:knfl_rand_mean_log_nodes",
+   "la:la1_newbin_pos_mean",
+   "pr:st_distinct_rows",
+   "pr:st_argA_min_rel"
+  ]
+ }
+}

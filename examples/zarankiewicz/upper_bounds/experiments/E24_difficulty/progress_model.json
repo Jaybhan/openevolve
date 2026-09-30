@@ -1,0 +1,175 @@
+{
+ "formula": "log d_hat = intercept + sum_k coef_k (T_k(x_k) - mu_k)/sd_k ; T in {id, log1p}; d_hat = max(floor, exp(.))",
+ "frozen": "2026-09-22T21:25:03",
+ "source": "progress_features_dev.jsonl,progress_features_test.jsonl,progress_features_test2.jsonl",
+ "models": {
+  "20k": {
+   "features": [
+    "ps20k_decs_per_conf",
+    "ps20k_restarts_per_kconf",
+    "bin20k_promoted1_frac",
+    "st_argA_row_rel"
+   ],
+   "transforms": [
+    "id",
+    "log1p",
+    "id",
+    "id"
+   ],
+   "intercept": 11.337660671526955,
+   "coef": [
+    1.1772597960207585,
+    -0.5123430173754026,
+    -0.345073379277329,
+    0.2062597248099266
+   ],
+   "mu": {
+    "ps20k_decs_per_conf": 2.195005632805647,
+    "ps20k_restarts_per_kconf": 3.952068765202552,
+    "bin20k_promoted1_frac": 0.06912026185149937,
+    "st_argA_row_rel": 0.28963293150109165
+   },
+   "sd": {
+    "ps20k_decs_per_conf": 0.39893435869794414,
+    "ps20k_restarts_per_kconf": 0.22442665521283692,
+    "bin20k_promoted1_frac": 0.009406220478227392,
+    "st_argA_row_rel": 0.15444849770184393
+   },
+   "floor": 20000,
+   "n_fit": 571,
+   "cells": [
+    "m10_n20_s3_t3_w103_pure",
+    "m11_n11_s3_t3_w70_pure",
+    "m11_n12_s3_t3_w75_pure",
+    "m11_n21_s3_t3_w117_pure",
+    "m12_n12_s3_t3_w81_pure",
+    "m12_n13_s3_t3_w87_pure",
+    "m9_n18_s3_t3_w86_pure",
+    "m9_n23_s3_t3_w104"
+   ],
+   "train_logrmse": 0.4909947757412675,
+   "smear": 1.134037909161429,
+   "tier": "20k"
+  },
+  "free20k": {
+   "features": [
+    "ps20k_decs_per_conf",
+    "ps20k_restarts_per_kconf",
+    "st_distinct_rows",
+    "st_row_lp_lcap"
+   ],
+   "transforms": [
+    "id",
+    "log1p",
+    "id",
+    "id"
+   ],
+   "intercept": 11.337660671526955,
+   "coef": [
+    1.3853046936568847,
+    -0.5724457536542507,
+    0.1713763651789828,
+    -0.08303192382347398
+   ],
+   "mu": {
+    "ps20k_decs_per_conf": 2.195005632805647,
+    "ps20k_restarts_per_kconf": 3.952068765202552,
+    "st_distinct_rows": 3.5376532399299476,
+    "st_row_lp_lcap": 5.530647985989492
+   },
+   "sd": {
+    "ps20k_decs_per_conf": 0.39893435869794414,
+    "ps20k_restarts_per_kconf": 0.22442665521283692,
+    "st_distinct_rows": 0.7199197943037186,
+    "st_row_lp_lcap": 0.9905098372718825
+   },
+   "floor": 20000,
+   "n_fit": 571,
+   "cells": [
+    "m10_n20_s3_t3_w103_pure",
+    "m11_n11_s3_t3_w70_pure",
+    "m11_n12_s3_t3_w75_pure",
+    "m11_n21_s3_t3_w117_pure",
+    "m12_n12_s3_t3_w81_pure",
+    "m12_n13_s3_t3_w87_pure",
+    "m9_n18_s3_t3_w86_pure",
+    "m9_n23_s3_t3_w104"
+   ],
+   "train_logrmse": 0.5474387747280176,
+   "smear": 1.1686745413523296,
+   "tier": "free20k"
+  },
+  "2k": {
+   "features": [
+    "bin2k_shrunken_frac",
+    "bin2k_decisions",
+    "bin2k_promoted1_frac",
+    "bin2k_searched_per_dec"
+   ],
+   "transforms": [
+    "id",
+    "log1p",
+    "id",
+    "id"
+   ],
+   "intercept": 9.227108306818128,
+   "coef": [
+    -0.21538414545786608,
+    0.35780157638292953,
+    -0.3879543022392073,
+    0.3254868278835905
+   ],
+   "mu": {
+    "bin2k_shrunken_frac": 0.19764887701386274,
+    "bin2k_decisions": 8.448530625421634,
+    "bin2k_promoted1_frac": 0.06563310568592225,
+    "bin2k_searched_per_dec": 3.5028122671297197
+   },
+   "sd": {
+    "bin2k_shrunken_frac": 0.05187819723249636,
+    "bin2k_decisions": 0.25781890019692233,
+    "bin2k_promoted1_frac": 0.01681019887938658,
+    "bin2k_searched_per_dec": 0.6635246278839301
+   },
+   "floor": 2000,
+   "n_fit": 3396,
+   "cells": [
+    "m10_n10_s3_t3_w60_pure",
+    "m10_n10_s3_t3_w61_pure",
+    "m10_n11_s3_t3_w64_pure",
+    "m10_n11_s3_t3_w65_pure",
+    "m10_n14_s3_t3_w77_pure",
+    "m10_n14_s3_t3_w78_pure",
+    "m10_n20_s3_t3_w103_pure",
+    "m10_n22_s3_t3_w111",
+    "m10_n23_s3_t3_w113",
+    "m11_n11_s3_t3_w69_pure",
+    "m11_n11_s3_t3_w70_pure",
+    "m11_n12_s3_t3_w74_pure",
+    "m11_n12_s3_t3_w75_pure",
+    "m11_n21_s3_t3_w117_pure",
+    "m11_n23_s3_t3_w124",
+    "m12_n12_s3_t3_w80_pure",
+    "m12_n12_s3_t3_w81_pure",
+    "m12_n13_s3_t3_w86_pure",
+    "m12_n13_s3_t3_w87_pure",
+    "m12_n18_s3_t3_w109",
+    "m13_n13_s3_t3_w92_pure",
+    "m13_n13_s3_t3_w93_pure",
+    "m13_n19_s3_t3_w123",
+    "m16_n17_s3_t3_w134",
+    "m9_n10_s3_t3_w54_pure",
+    "m9_n10_s3_t3_w55_pure",
+    "m9_n12_s3_t3_w64_pure",
+    "m9_n18_s3_t3_w86_pure",
+    "m9_n23_s3_t3_w104",
+    "m9_n9_s3_t3_w49_pure",
+    "m9_n9_s3_t3_w50",
+    "m9_n9_s3_t3_w50_pure"
+   ],
+   "train_logrmse": 0.8575218971168542,
+   "smear": 1.7403578711775491,
+   "tier": "2k"
+  }
+ }
+}

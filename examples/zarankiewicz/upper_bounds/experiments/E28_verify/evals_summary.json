@@ -1,0 +1,121 @@
+{
+ "cert_close_10_22": {
+  "class": "exploit",
+  "s1": 0.20409431160584954,
+  "s2": 0.20409431160584954,
+  "identical": true,
+  "diff": []
+ },
+ "cert_one_train": {
+  "class": "exploit",
+  "s1": 0.2,
+  "s2": 0.2,
+  "identical": true,
+  "diff": []
+ },
+ "cert_target_12_18": {
+  "class": "genuine",
+  "s1": 0.20630012780497498,
+  "s2": 0.20630012780497498,
+  "identical": true,
+  "diff": []
+ },
+ "dgh_lib": {
+  "class": "genuine",
+  "s1": 0.39211804976388204,
+  "s2": 0.39211804976388204,
+  "identical": true,
+  "diff": []
+ },
+ "e1_dgh_s2": {
+  "class": "exploit",
+  "s1": 0.2,
+  "s2": 0.2,
+  "identical": true,
+  "diff": []
+ },
+ "e2_easy_certs": {
+  "class": "exploit",
+  "s1": 0.20027483055875622,
+  "s2": 0.20027483055875622,
+  "identical": true,
+  "diff": []
+ },
+ "e3_relist": {
+  "class": "exploit",
+  "s1": 0.2,
+  "s2": 0.2,
+  "identical": true,
+  "diff": []
+ },
+ "f_weak": {
+  "class": "genuine",
+  "s1": 0.21260818065040915,
+  "s2": 0.21260818065040915,
+  "identical": true,
+  "diff": []
+ },
+ "initial_program": {
+  "class": "reference",
+  "s1": 0.2,
+  "s2": 0.2,
+  "identical": true,
+  "diff": []
+ },
+ "inst_dgh_10_23": {
+  "class": "exploit",
+  "s1": 0.20046539001783945,
+  "s2": 0.20046539001783945,
+  "identical": true,
+  "diff": []
+ },
+ "instance_specific": {
+  "class": "exploit",
+  "s1": 0.2,
+  "s2": 0.2,
+  "identical": true,
+  "diff": []
+ },
+ "lean_dgh4": {
+  "class": "genuine",
+  "s1": 0.39211804976388204,
+  "s2": 0.39211804976388204,
+  "identical": true,
+  "diff": []
+ },
+ "recipe_dgh": {
+  "class": "genuine",
+  "s1": 0.41175222388689275,
+  "s2": 0.41175222388689275,
+  "identical": true,
+  "diff": []
+ },
+ "schema_pool": {
+  "class": "genuine",
+  "s1": 0.24965296138563658,
+  "s2": 0.24965296138563658,
+  "identical": true,
+  "diff": []
+ },
+ "schema_recipe": {
+  "class": "genuine",
+  "s1": 0.24965296138563658,
+  "s2": 0.24965296138563658,
+  "identical": true,
+  "diff": []
+ },
+ "schema_recipe_frozen": {
+  "class": "genuine",
+  "s1": 0.24299085777300264,
+  "s2": 0.24299085777300264,
+  "identical": true,
+  "diff": []
+ },
+ "unsound_program": {
+  "class": "reference",
+  "s1": 0.2,
+  "s2": 0.2,
+  "identical": true,
+  "diff": []
+ }
+}

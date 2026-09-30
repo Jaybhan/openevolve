@@ -11,7 +11,8 @@
   "artifact_contains {artifact: substring}. v1: lean_ok, score ('eq_initial' | 'lt_initial' |",
   "'le_initial' | [lo, hi]). 'sound_battery' is asserted under both versions.",
   "'requires': files (relative to upper_bounds/) that must exist, else the test is skipped.",
-  "'slow': the test waits for the gate timeout; skipped when ZAR_UB_GOLDEN_SKIP_SLOW=1."
+  "'slow': the test waits for the gate timeout; skipped when ZAR_UB_GOLDEN_SKIP_SLOW=1.",
+  "E27 (2026-09-23): reward v3 / suite v3. The 'v2' key of an expectation still means 'the verified-floor reward family' (lean_ladder present); bands are for reward v3 on the default suite v3."
  ],
  "tolerance": 1e-06,
  "candidates": {
@@ -34,14 +35,14 @@
    }
   },
   "unsound_row7": {
-   "why": "Python kill fires on a witnessed case: battery. Since 2026-09-22 (E19) a wrong MIRROR no longer zeroes a verified Lean prune: the Lean kill (= library) is L5 and kills nothing new -> 0.20 with sound_battery 0, agreement < 1, mirror_unsound artifact.",
+   "why": "Python kill fires on a witnessed case: battery. Since 2026-09-22 (E19) a wrong MIRROR no longer zeroes a verified Lean prune: the Lean kill (= library) is L5 and kills nothing new -> 0.20 with sound_battery 0, agreement < 1, mirror_unsound artifact. E28: an unsound mirror on an L5 candidate costs MIRROR_PENALTY=0.02, so the no-op-Lean version scores 0.18.",
    "expect": {
     "sound_battery": 0.0,
     "v2": {
      "ladder": 5,
      "score": [
-      0.2,
-      0.2
+      0.18,
+      0.18
      ],
      "lean_ok": 1.0,
      "artifact_contains": {
@@ -232,7 +233,7 @@
    }
   },
   "slow_kill": {
-   "why": "2^(m+n+4)-step kill: the #eval mask never arrives within the 240 s gate timeout. Design \u00a74.2 L1 'kill too slow': the gate re-runs the elaboration alone after a timeout (Lean buffers stdout, so nothing survives the SIGKILL) and attributes the timeout to the mask evaluation. Score <= 0.19 (unverified band).",
+   "why": "2^(m+n+4)-step kill: the #eval mask never arrives within the 480 s gate timeout (240 s before E27). Design \u00a74.2 L1 'kill too slow': the gate re-runs the elaboration alone after a timeout (Lean buffers stdout, so nothing survives the SIGKILL) and attributes the timeout to the mask evaluation. Score <= 0.19 (unverified band).",
    "slow": true,
    "expect": {
     "sound_battery": 1.0,
@@ -331,7 +332,7 @@
    }
   },
   "schema_farkas": {
-   "why": "initial program + 8 TRAIN Farkas certificates in SCHEMA_DATA (E-schemas): Prune.ofFarkas is library-proved, so found parameters earn verified credit (schema_gain = proven_gain = 0.137)",
+   "why": "initial program + 8 TRAIN Farkas certificates in SCHEMA_DATA (E-schemas): Prune.ofFarkas is library-proved, so found parameters earn verified credit. v2: 0.2496 (schema_gain = proven_gain = 0.137). v3 (E27): 0.2014 -- the 8 certificates kill mostly EASY square-cell cases (<= 20k conflicts), which v3 no longer pays for (R3 attacks A/B).",
    "requires": [
     "lean/.lake/build/lib/lean/ZarPrune/Schemas.olean"
    ],
@@ -340,8 +341,8 @@
     "v2": {
      "ladder": 5,
      "score": [
-      0.24,
-      0.26
+      0.2,
+      0.215
      ],
      "lean_ok": 1.0,
      "empirical_gain_gt_0": true
@@ -356,7 +357,7 @@
    }
   },
   "lean_dgh4": {
-   "why": "hand-proved DGH (F-dgh4) inlined + candidate := ofList [counting, argDGH]; kills nothing on the square TRAIN cells, > 0.20 only with a DGH-attackable target (ZAR_UB_TARGETS=9,12,64 -> 0.2597)",
+   "why": "hand-proved DGH (F-dgh4) inlined + candidate := ofList [counting, argDGH]. Under reward/suite v3 (E27) the wide exact TRAIN cells make DGH count: it closes (11,21,117)p (lower-bound work >= 1.4e7 conflicts -> Depth and Close) and kills part of (9,16), (9,18), (10,23). Under v2 it scored exactly 0.20 on the default suite.",
    "requires": [
     "lean/.lake/build/lib/lean/ZarPrune/DGH.olean"
    ],
@@ -365,8 +366,8 @@
     "v2": {
      "ladder": 5,
      "score": [
-      0.2,
-      1.0
+      0.3,
+      0.5
      ],
      "lean_ok": 1.0
     },
@@ -398,7 +399,7 @@
    }
   },
   "schema_recipe": {
-   "why": "search-mode candidate: SCHEMA_DATA computed at import by zar_ub.lemmas.search_certificates (E20); verified credit through Prune.ofFarkas, no new proof",
+   "why": "search-mode candidate: SCHEMA_DATA computed at import by zar_ub.lemmas.search_certificates (E20); verified credit through Prune.ofFarkas, no new proof v2: 0.2594; v3 (E27): 0.2497 live (search budget is wall-time dependent), 0.2430 for the frozen twin.",
    "expect": {
     "sound_battery": 1.0,
     "v2": {
@@ -406,6 +407,90 @@
      "score": [
       0.24,
       0.3
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "score": [
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "hand_written": true
+  },
+  "e1_dgh_s2": {
+   "why": "E25 exploit e1 (R1): argDGH only when s = 2 -> clears the tiny GEN table (8,9;2,2) w=27 (1 survivor, 150 conflicts). v2/S1 paid 0.2400; v3 pays nothing because no GEN case has work above 20k conflicts.",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.2
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "score": [
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "hand_written": true
+  },
+  "e2_easy_certs": {
+   "why": "E25 exploit e2 (R1): Farkas certificates that kill only easy cases (d <= table median), broadly. v2 paid 0.2068; v3 pays ~0 (easy work is below the 20k excess threshold).",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.21
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "score": [
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "hand_written": true
+  },
+  "e3_relist": {
+   "why": "E25 exploit e3 (R1): re-lists every library prune: kills nothing new -> exactly the floor.",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.2
+     ],
+     "lean_ok": 1.0
+    },
+    "v1": {
+     "score": [
+      0.0,
+      1.0
+     ]
+    }
+   },
+   "hand_written": true
+  },
+  "cert_close_10_22": {
+   "why": "E25/R3 finding 1: one certificate closing the small tan2022 target (10,22,111) (3 survivors, 58,333 conflicts of true work). VR paid 0.3087 on an inflated censored label; v3 computes closure importance from lower-bound work (< 1e6 -> no Close/Depth) and pays only its small hard-work target gain.",
+   "expect": {
+    "sound_battery": 1.0,
+    "v2": {
+     "ladder": 5,
+     "score": [
+      0.2,
+      0.215
      ],
      "lean_ok": 1.0
     },

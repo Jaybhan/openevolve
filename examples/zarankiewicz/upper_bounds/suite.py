@@ -1,24 +1,35 @@
 """The evaluation suite (design §5.1, §8.3): which instances a candidate prune
-library is scored on, with their roles and weights.
+library is scored on, with their roles and weights.  Suite v3 (E27, 2026-09-23) = E25's "S1".
 
 TRAIN   (omega = 1, pure mode, exact labels)  exactly known cells at w = z+1: every case
         is empty and labelled with its refutation cost d (§6).  A prune earns credit
         for the difficulty of the scored survivors it kills.
-BATTERY (pure mode) the same cells at w = z, whose 'sat' cases carry witnesses, plus the
-        record profiles of data/witnesses_33.json ((11,21)=116, (12,22)=132): any candidate
-        whose Python kill fires on one is unsound and is rejected before Lean runs.
-TARGET  (omega = 2, --trust tan2022, censored labels) open cells; ZAR_UB_TARGETS="m,n,w;..."
-        overrides DEFAULT_TARGETS (set it to "" or "none" for no targets).  Only cached
-        tables are loaded: build them with  python -m zar_ub table M N 3 3 W --trust tan2022 --baseline
+          square: TRAIN_CELLS (9,9) ... (12,12)
+          wide / vwide (E27): WIDE_TRAIN_CELLS (9,12), (10,14), (9,16), (9,18), (10,19), (10,20), (11,21):
+          exactly known wide cells, labelled exactly by E24 (A1; three of them are the new
+          cache/case_table_*_pure_gt.json tables).  They exist so that a rule that only helps wide
+          cells (DGH) can earn credit at all: under suite v2 DGH killed nothing on any scored cell.
+        Shape families (reward.family_of, aspect n/m): square < 1.2 <= wide < 1.8 <= vwide; the
+        reward averages gains within a family first, so seven wide cells do not outvote the square ones.
+BATTERY (pure mode) the TRAIN cells at w = z (when a table exists), whose 'sat' cases carry
+        witnesses, plus the record profiles of data/witnesses_33.json ((11,21)=116, (12,22)=132): any
+        candidate whose Python kill fires on one is unsound and is rejected before Lean runs.
+TARGET  (omega = 2, --trust tan2022, labels: exact where solved, E24 hardness model where censored)
+        open cells; DEFAULT_TARGETS now includes the later targets of design §5.1 ((10,23),(11,23),
+        (13,19),(16,17),(10,22)); ZAR_UB_TARGETS="m,n,w;..." overrides (set it to "" or "none" for none).
+        Only cached tables are loaded: build them with
+            python -m zar_ub table M N 3 3 W --trust tan2022 --baseline
 GEN     (omega = 1 inside G_gen, held out, other (s,t)) (7,7;2,2) w=22, (8,8;2,2) w=25,
-        (9,9;4,4) w=62 -- w = z+1 from Tan 2022 Tables 2 and 4 (z_2(7,7)=21, z_2(8,8)=24,
-        z_4(9,9)=61); built in pure mode; never shown in the prompt.
+        (9,9;4,4) w=62, (8,9;2,2) w=27 -- w = z+1 from Tan 2022 Tables 2 and 4; built in pure mode;
+        never shown in the prompt.  NOTE (E27): every GEN case has d <= 1,080 conflicts, so under reward
+        v3 (only work above 20k counts) no GEN cell carries weight and G_gen := G_train.  A GEN cell
+        with hard cases ((10,10;4,4) w=75, (11,11;4,4) w=87) is a TODO.
 
 Band rule: a TRAIN cell graduates when the population's mean gain_I on it exceeds
 BAND_THRESHOLD (0.75); when the first cell graduates the band cells (12,13)87,
-(13,13)93, (10,14)78 enter TRAIN.  The state lives in cache/suite_state.json and is
-advanced by `update_band_rule(mean_gain_by_cell)` (called by the closure daemon /
-integrator, never inside evaluate()).
+(13,13)93, (10,14)78 enter TRAIN ((10,14) is already a wide TRAIN cell).  The state lives in
+cache/suite_state.json and is advanced by `update_band_rule(mean_gain_by_cell)` (called by the
+closure daemon / integrator, never inside evaluate()).
 
 Tables are built once (`python -m zar_ub table M N S T W --pure --baseline`) and cached.
 """
@@ -34,13 +45,18 @@ from zar_ub import Instance, exact_value
 from zar_ub.casetable import CaseTable, CaseRecord, load_table, CACHE_DIR
 
 _HERE = os.path.dirname(os.path.abspath(__file__))
-SUITE_VERSION = "2026-09-21.v2"
+SUITE_VERSION = "2026-09-23.v3"
 
 TRAIN_CELLS: List[Tuple[int, int]] = [(9, 9), (9, 10), (10, 10), (10, 11), (11, 11), (11, 12), (12, 12)]
+#: E27: exactly known WIDE cells in TRAIN (E25 suite S1; tables *_pure.json or E24's *_pure_gt.json)
+WIDE_TRAIN_CELLS: List[Tuple[int, int]] = [(9, 12), (10, 14), (9, 16), (9, 18), (10, 19), (10, 20), (11, 21)]
 BAND_CELLS: List[Tuple[int, int]] = [(12, 13), (13, 13), (10, 14)]
 BAND_THRESHOLD = 0.75
-GEN_CELLS: List[Tuple[int, int, int, int, int]] = [(7, 7, 2, 2, 22), (8, 8, 2, 2, 25), (9, 9, 4, 4, 62)]
-DEFAULT_TARGETS = "13,17,117;13,18,122;15,17,133;9,23,104;12,18,109"
+GEN_CELLS: List[Tuple[int, int, int, int, int]] = [(7, 7, 2, 2, 22), (8, 8, 2, 2, 25), (9, 9, 4, 4, 62),
+                                                   (8, 9, 2, 2, 27)]
+#: design §5.1 targets + (E27) the later targets; (13,17),(13,18),(15,17) have 0 cases (Argument I)
+DEFAULT_TARGETS = ("13,17,117;13,18,122;15,17,133;9,23,104;12,18,109;"
+                   "10,23,113;11,23,124;13,19,123;16,17,134;10,22,111")
 OMEGA: Dict[str, float] = {"train": 1.0, "battery": 1.0, "target": 2.0, "gen": 1.0}
 WITNESSES_PATH = os.path.join(_HERE, "data", "witnesses_33.json")
 STATE_PATH = os.path.join(CACHE_DIR, "suite_state.json")
@@ -72,7 +88,10 @@ def train_cells(state: Optional[dict] = None) -> List[Tuple[int, int]]:
     state = state if state is not None else load_state()
     grad = {tuple(c) for c in state.get("graduated", [])}
     entered = [tuple(c) for c in state.get("entered", [])]
-    cells = [c for c in TRAIN_CELLS if c not in grad] + [c for c in entered if c not in grad]
+    cells: List[Tuple[int, int]] = []
+    for c in list(TRAIN_CELLS) + list(WIDE_TRAIN_CELLS) + entered:
+        if c not in grad and c not in cells:  # (10,14) is both WIDE and BAND: once
+            cells.append(c)
     return cells
 
 
@@ -236,6 +255,11 @@ def _load(inst: Instance, prefer_pure: bool) -> Optional[CaseTable]:
         tab = load_table(inst, use_table=ut)
         if tab is not None:
             return tab
+        if not ut:  # E24's exactly-labelled wide pure tables live under *_pure_gt.json
+            gt = os.path.join(CACHE_DIR, f"case_table_{inst.tag}_pure_gt.json")
+            tab = load_table(inst, path=gt) if os.path.exists(gt) else None
+            if tab is not None:
+                return tab
     return None
 
 

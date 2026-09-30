@@ -371,6 +371,15 @@ Per survivor: `encode_case` → DIMACS (sha1) → `tools/cadical -q --binary=fal
 
 ## 5. Reward function
 
+> **Superseded in part by E27 (2026-09-23; `experiments/LOG.md` E26–E27, `docs/build/INTEGRATION.md` batch 3).**
+> Suite v3 adds the exactly-known wide cells `(9,12) (10,14) (9,16) (9,18) (10,19) (10,20) (11,21)` to TRAIN, the later
+> targets to TARGET and `(8,9;2,2)27` to GEN.  Reward v3 (`zar_ub/reward.py`, all constants in one block) replaces the
+> verified branch of §5.3 by `0.20 + 0.80·(0.28 G_train + 0.21 G_target + 0.07 G_gen + 0.14 Tail + 0.15 Depth + 0.15 Close)`:
+> only work above 20,000 conflicts per case counts; role gains are ln(1+X/2000)-weighted means within the shape families
+> square/wide/vwide/gen, then averaged over families; Depth = max a_I·gain_I and Close = max over closed cells of a_I, with
+> a_I from LOWER-BOUND work and zero below 1e6 conflicts.  The soundness branches are unchanged; `ZAR_UB_REWARD=v2`
+> restores the formula below for comparisons.
+
 ### 5.1 Suite (`suite.py`)
 
 * `TRAIN` (ω = 1, pure mode, exact labels): `(9,9)50 (9,10)55 (10,10)61 (10,11)65 (11,11)70 (11,12)75 (12,12)81`; band rule: a cell leaves TRAIN when the population's mean `gain_I` exceeds 0.75 and `(12,13)87`, `(13,13)93`, `(10,14)78` enter.
@@ -461,6 +470,12 @@ Artifacts: `per_instance` (hardest alive survivors with profiles and `d`), `lean
 `d(q)` = CaDiCaL 1.9.5 (pysat `cadical195`, default options, seed 0) conflicts to refute `encode_case(P, q)`; exact when refuted, censored-and-calibrated otherwise. Conflicts, not seconds: reproducible across machines for a fixed build; conflicts and propagations are statistically indistinguishable workload measures [LR §5.2]; on 1,571 labelled cases `c2000` has Spearman ρ = 0.913 with the true count [E10].
 
 ### 6.2 Estimator (`zar_ub/difficulty.py::label_case`, exact)
+
+> **Superseded for censored labels by E27 (2026-09-23).** A case open at ≥ 20k conflicts is labelled by the E24 hardness
+> model (`zar_ub/hardness_model.py`, `experiments/E24_difficulty/hardness_model.json`): 20k-probe decisions/conflict and
+> restarts, BCP lookahead (Knuth tree size, failed literals) and two static slack features; `d = min(max(r, d̂), max(r, 2M))`
+> with `r` the conflicts reached.  Held out by shape: within-cell ρ 0.837 vs 0.324 for the fhat label below, reward-gain
+> error 0.020 vs 0.061 (`experiments/E24_difficulty/EVALUATION.md`).  `ZAR_UB_DIFFICULTY=legacy` restores the fhat rule.
 
 ```python
 SCHEDULE = [(2_000, 5.0), (20_000, 30.0), (200_000, 120.0), (2_000_000, 600.0)]   # (conf_cap, time_limit s)

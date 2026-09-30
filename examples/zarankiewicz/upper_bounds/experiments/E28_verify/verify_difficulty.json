@@ -1,0 +1,90 @@
+{
+ "legacy clip(fhat,20k,400k)": {
+  "name": "legacy clip(fhat,20k,400k)",
+  "n_cells": 15,
+  "cells_constant": 7,
+  "within_rho_mean": 0.3223066969413725,
+  "within_C_mean": 0.5519222972822246,
+  "pooled_C": 0.7061691408176044,
+  "log_rmse": 1.1157479009330984
+ },
+ "legacy clip(fhat,20k,400k) | TARGET cells": {
+  "name": "legacy clip(fhat,20k,400k) | TARGET",
+  "n_cells": 4,
+  "cells_constant": 2,
+  "within_rho_mean": 0.5139722081036692,
+  "within_C_mean": 0.5602764694994036,
+  "pooled_C": 0.5791676993852051,
+  "log_rmse": 1.3225626444365266
+ },
+ "legacy clip(fhat,20k,400k) | library survivors": {
+  "name": "legacy clip(fhat,20k,400k) | survivors",
+  "n_cells": 14,
+  "cells_constant": 7,
+  "within_rho_mean": 0.18529778069335376,
+  "within_C_mean": 0.5261920086239894,
+  "pooled_C": 0.71925066503591,
+  "log_rmse": 1.09193738858894
+ },
+ "adopted model, LOSO refit (fixed 6 features)": {
+  "name": "adopted model, LOSO refit (fixed 6 features)",
+  "n_cells": 15,
+  "cells_constant": 0,
+  "within_rho_mean": 0.8450551013009538,
+  "within_C_mean": 0.8523001081342857,
+  "pooled_C": 0.8693177417180918,
+  "log_rmse": 0.4868241383134027
+ },
+ "adopted model, LOSO refit (fixed 6 features) | TARGET cells": {
+  "name": "adopted model, LOSO refit (fixed 6 features) | TARGET",
+  "n_cells": 4,
+  "cells_constant": 0,
+  "within_rho_mean": 0.8457417258957054,
+  "within_C_mean": 0.8919747769243469,
+  "pooled_C": 0.895847564698557,
+  "log_rmse": 0.6535376310119478
+ },
+ "adopted model, LOSO refit (fixed 6 features) | library survivors": {
+  "name": "adopted model, LOSO refit (fixed 6 features) | survivors",
+  "n_cells": 14,
+  "cells_constant": 0,
+  "within_rho_mean": 0.8262411217016835,
+  "within_C_mean": 0.8516690832479269,
+  "pooled_C": 0.8718370914708827,
+  "log_rmse": 0.4726427316178502
+ },
+ "adopted model, frozen (in-sample)": {
+  "name": "adopted model, frozen (in-sample)",
+  "n_cells": 15,
+  "cells_constant": 0,
+  "within_rho_mean": 0.8488987426089164,
+  "within_C_mean": 0.854373500098672,
+  "pooled_C": 0.8735434470686387,
+  "log_rmse": 0.47143943145080575
+ },
+ "adopted model, frozen (in-sample) | TARGET cells": {
+  "name": "adopted model, frozen (in-sample) | TARGET",
+  "n_cells": 4,
+  "cells_constant": 0,
+  "within_rho_mean": 0.8484241477300565,
+  "within_C_mean": 0.8932028331034513,
+  "pooled_C": 0.8973830408472927,
+  "log_rmse": 0.6423893104040213
+ },
+ "adopted model, frozen (in-sample) | library survivors": {
+  "name": "adopted model, frozen (in-sample) | survivors",
+  "n_cells": 14,
+  "cells_constant": 0,
+  "within_rho_mean": 0.8306587380393109,
+  "within_C_mean": 0.8539612913782422,
+  "pooled_C": 0.8764961543391511,
+  "log_rmse": 0.4548757338193075
+ },
+ "holdout_12_13": {
+  "n": 104,
+  "rho_model": 0.8790248586365091,
+  "rho_legacy": 0.18209156677598248,
+  "rmse_model": 0.3331934336099707,
+  "rmse_legacy": 0.843245655611588
+ }
+}

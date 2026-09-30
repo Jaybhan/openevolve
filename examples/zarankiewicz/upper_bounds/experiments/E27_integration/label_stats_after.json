@@ -1,0 +1,112 @@
+{
+ "m9_n23_s3_t3_w104": {
+  "survivors": 94,
+  "censored": 6,
+  "W": 67290239.0,
+  "W_censored_share": 0.178332001466067,
+  "distinct_censored_labels": 2,
+  "median": 2000000.0,
+  "min": 2000000.0,
+  "max": 2000003.0,
+  "at_2M": 6
+ },
+ "m12_n18_s3_t3_w109": {
+  "survivors": 1518,
+  "censored": 1420,
+  "W": 1230569869.8843467,
+  "W_censored_share": 0.9759908472301717,
+  "distinct_censored_labels": 1172,
+  "median": 580017.8022505785,
+  "min": 28107.673245156664,
+  "max": 2000004.0,
+  "at_2M": 253
+ },
+ "m10_n23_s3_t3_w113": {
+  "survivors": 1189,
+  "censored": 1188,
+  "W": 1156733956.2668016,
+  "W_censored_share": 0.9999887562737053,
+  "distinct_censored_labels": 908,
+  "median": 749963.3053865507,
+  "min": 24492.019521589413,
+  "max": 2000000.0,
+  "at_2M": 280
+ },
+ "m11_n23_s3_t3_w124": {
+  "survivors": 336,
+  "censored": 336,
+  "W": 538969320.3159122,
+  "W_censored_share": 1.0,
+  "distinct_censored_labels": 134,
+  "median": 2000000.0,
+  "min": 66542.75201945362,
+  "max": 2000000.0,
+  "at_2M": 203
+ },
+ "m13_n19_s3_t3_w123": {
+  "survivors": 2648,
+  "censored": 2533,
+  "W": 3139686639.551653,
+  "W_censored_share": 0.9923234835934321,
+  "distinct_censored_labels": 1487,
+  "median": 1388454.362013223,
+  "min": 31872.925985934595,
+  "max": 2000004.0,
+  "at_2M": 1049
+ },
+ "m16_n17_s3_t3_w134": {
+  "survivors": 993,
+  "censored": 975,
+  "W": 1637380766.8569663,
+  "W_censored_share": 0.9917800506318174,
+  "distinct_censored_labels": 298,
+  "median": 2000000.0,
+  "min": 42367.354099400094,
+  "max": 2000007.0,
+  "at_2M": 683
+ },
+ "m10_n22_s3_t3_w111": {
+  "survivors": 3,
+  "censored": 0,
+  "W": 58333.0,
+  "W_censored_share": 0.0,
+  "distinct_censored_labels": 0,
+  "median": null,
+  "min": null,
+  "max": null,
+  "at_2M": 0
+ },
+ "m10_n20_s3_t3_w103_pure": {
+  "survivors": 67,
+  "censored": 6,
+  "W": 35606546.0,
+  "W_censored_share": 0.33701673843904995,
+  "distinct_censored_labels": 2,
+  "median": 2000000.0,
+  "min": 2000000.0,
+  "max": 2000001.0,
+  "at_2M": 6
+ },
+ "m11_n21_s3_t3_w117_pure": {
+  "survivors": 9,
+  "censored": 6,
+  "W": 14993770.0,
+  "W_censored_share": 0.8003329382803658,
+  "distinct_censored_labels": 4,
+  "median": 2000001.0,
+  "min": 2000000.0,
+  "max": 2000003.0,
+  "at_2M": 6
+ },
+ "m10_n19_s3_t3_w99_pure_gt": {
+  "survivors": 165,
+  "censored": 5,
+  "W": 49665067.0,
+  "W_censored_share": 0.2013488273357207,
+  "distinct_censored_labels": 3,
+  "median": 2000000.0,
+  "min": 2000000.0,
+  "max": 2000002.0,
+  "at_2M": 5
+ }
+}

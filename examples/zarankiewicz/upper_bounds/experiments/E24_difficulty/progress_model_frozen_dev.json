@@ -1,0 +1,164 @@
+{
+ "formula": "log d_hat = intercept + sum_k coef_k (T_k(x_k) - mu_k)/sd_k ; T in {id, log1p}; d_hat = max(floor, exp(.))",
+ "frozen": "2026-09-22T21:24:58",
+ "source": "progress_features_dev.jsonl",
+ "models": {
+  "20k": {
+   "features": [
+    "bin20k_improvedglue_frac",
+    "ps20k_decs_per_conf",
+    "ps20k_restarts_per_kconf",
+    "bin20k_units_probe"
+   ],
+   "transforms": [
+    "id",
+    "id",
+    "log1p",
+    "id"
+   ],
+   "intercept": 10.659109153527458,
+   "coef": [
+    -0.1604161514117424,
+    0.510047361297765,
+    -0.32577953144963406,
+    -0.12868237778434277
+   ],
+   "mu": {
+    "bin20k_improvedglue_frac": 0.2931136247293457,
+    "ps20k_decs_per_conf": 1.9301509271510158,
+    "ps20k_restarts_per_kconf": 3.874884727943085,
+    "bin20k_units_probe": 18.27480916030534
+   },
+   "sd": {
+    "bin20k_improvedglue_frac": 0.017449805035765313,
+    "ps20k_decs_per_conf": 0.22404203306128215,
+    "ps20k_restarts_per_kconf": 0.23758936555498097,
+    "bin20k_units_probe": 7.265996761150245
+   },
+   "floor": 20000,
+   "n_fit": 262,
+   "cells": [
+    "m11_n11_s3_t3_w70_pure",
+    "m11_n12_s3_t3_w75_pure",
+    "m12_n12_s3_t3_w81_pure",
+    "m12_n13_s3_t3_w87_pure"
+   ],
+   "train_logrmse": 0.2824463618514449,
+   "smear": 1.042506854645198,
+   "tier": "20k"
+  },
+  "free20k": {
+   "features": [
+    "ps20k_decs_per_conf",
+    "ps20k_restarts_per_kconf",
+    "st_distinct_rows",
+    "st_col_lp_slackT"
+   ],
+   "transforms": [
+    "id",
+    "log1p",
+    "id",
+    "id"
+   ],
+   "intercept": 10.659109153527458,
+   "coef": [
+    0.7200315932738872,
+    -0.47100033762929383,
+    0.1276077846231295,
+    0.10268289756535356
+   ],
+   "mu": {
+    "ps20k_decs_per_conf": 1.9301509271510158,
+    "ps20k_restarts_per_kconf": 3.874884727943085,
+    "st_distinct_rows": 3.450381679389313,
+    "st_col_lp_slackT": 10.818702290076336
+   },
+   "sd": {
+    "ps20k_decs_per_conf": 0.22404203306128215,
+    "ps20k_restarts_per_kconf": 0.23758936555498097,
+    "st_distinct_rows": 0.5690992005989559,
+    "st_col_lp_slackT": 6.418050154182173
+   },
+   "floor": 20000,
+   "n_fit": 262,
+   "cells": [
+    "m11_n11_s3_t3_w70_pure",
+    "m11_n12_s3_t3_w75_pure",
+    "m12_n12_s3_t3_w81_pure",
+    "m12_n13_s3_t3_w87_pure"
+   ],
+   "train_logrmse": 0.3155971414739262,
+   "smear": 1.0524978573824466,
+   "tier": "free20k"
+  },
+  "2k": {
+   "features": [
+    "bin2k_promoted1_frac",
+    "bin2k_chrono_frac",
+    "bin2k_reduced_frac",
+    "bin2k_decisions"
+   ],
+   "transforms": [
+    "id",
+    "id",
+    "id",
+    "log1p"
+   ],
+   "intercept": 8.958142525738243,
+   "coef": [
+    -0.20531457478170362,
+    0.17753979645861837,
+    0.2666310097778713,
+    0.20019664067163911
+   ],
+   "mu": {
+    "bin2k_promoted1_frac": 0.0667783507427788,
+    "bin2k_chrono_frac": 0.3434181414971353,
+    "bin2k_reduced_frac": 0.16109537102277033,
+    "bin2k_decisions": 8.420646155467502
+   },
+   "sd": {
+    "bin2k_promoted1_frac": 0.016829972788856173,
+    "bin2k_chrono_frac": 0.037061647992989145,
+    "bin2k_reduced_frac": 0.041060295297163346,
+    "bin2k_decisions": 0.24189173099140382
+   },
+   "floor": 2000,
+   "n_fit": 3061,
+   "cells": [
+    "m10_n10_s3_t3_w60_pure",
+    "m10_n10_s3_t3_w61_pure",
+    "m10_n11_s3_t3_w64_pure",
+    "m10_n11_s3_t3_w65_pure",
+    "m10_n14_s3_t3_w77_pure",
+    "m10_n14_s3_t3_w78_pure",
+    "m10_n22_s3_t3_w111",
+    "m10_n23_s3_t3_w113",
+    "m11_n11_s3_t3_w69_pure",
+    "m11_n11_s3_t3_w70_pure",
+    "m11_n12_s3_t3_w74_pure",
+    "m11_n12_s3_t3_w75_pure",
+    "m11_n23_s3_t3_w124",
+    "m12_n12_s3_t3_w80_pure",
+    "m12_n12_s3_t3_w81_pure",
+    "m12_n13_s3_t3_w86_pure",
+    "m12_n13_s3_t3_w87_pure",
+    "m12_n18_s3_t3_w109",
+    "m13_n13_s3_t3_w92_pure",
+    "m13_n13_s3_t3_w93_pure",
+    "m13_n19_s3_t3_w123",
+    "m16_n17_s3_t3_w134",
+    "m9_n10_s3_t3_w54_pure",
+    "m9_n10_s3_t3_w55_pure",
+    "m9_n12_s3_t3_w64_pure",
+    "m9_n23_s3_t3_w104",
+    "m9_n9_s3_t3_w49_pure",
+    "m9_n9_s3_t3_w50",
+    "m9_n9_s3_t3_w50_pure"
+   ],
+   "train_logrmse": 0.6000720366705211,
+   "smear": 1.2248712541651654,
+   "tier": "2k"
+  }
+ }
+}

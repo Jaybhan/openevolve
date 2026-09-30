@@ -1,0 +1,1078 @@
+{
+ "rows": {
+  "cert_close_10_22": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 58333.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2422857142857143,
+    "proven_gain": 0.0,
+    "target_gain": 0.14285714285714285,
+    "tail_gain": 0.05,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.21050458529496857,
+    "proven_gain": 0.0,
+    "target_gain": 0.04558041985744254,
+    "tail_gain": 0.025420310347484126,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2040943915176135,
+    "proven_gain": 0.0,
+    "target_gain": 0.01825112130704627,
+    "tail_gain": 0.00918038516097952,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "cert_one_train": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 65350.0,
+   "v2/S0 old": {
+    "combined_score": 0.22215337599921428,
+    "proven_gain": 0.05239132107902872,
+    "target_gain": 0.0,
+    "tail_gain": 0.033675957837031666,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.22215337599921428,
+    "proven_gain": 0.05239132107902872,
+    "target_gain": 0.0,
+    "tail_gain": 0.033675957837031666,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2114520965963451,
+    "proven_gain": 0.028210711350246234,
+    "target_gain": 0.0,
+    "tail_gain": 0.015154181026664248,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "cert_target_12_18": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 10852987.0,
+   "v2/S0 old": {
+    "combined_score": 0.2098570602475175,
+    "proven_gain": 0.0,
+    "target_gain": 0.04107108436465613,
+    "tail_gain": 0.0,
+    "depth_term": 0.06014664597586955,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.20602957465588573,
+    "proven_gain": 0.0,
+    "target_gain": 0.024635897862127696,
+    "tail_gain": 0.000730994806094114,
+    "depth_term": 0.04177941427248703,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.20174195033658468,
+    "proven_gain": 0.0,
+    "target_gain": 0.007038827960607913,
+    "tail_gain": 0.0003289476627423513,
+    "depth_term": 0.04177941427248703,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.20946596519864466,
+    "proven_gain": 0.0,
+    "target_gain": 0.013383140961549406,
+    "tail_gain": 0.0,
+    "depth_term": 0.06014664597586955,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.20639834645711358,
+    "proven_gain": 0.0,
+    "target_gain": 0.007791840317688321,
+    "tail_gain": 0.0006766747414597399,
+    "depth_term": 0.04177941427248703,
+    "closure_bonus": 0.0
+   }
+  },
+  "dgh_lib": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 19824534.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2762570381517284,
+    "proven_gain": 0.08780281451996011,
+    "target_gain": 0.0006672396055882783,
+    "tail_gain": 0.05,
+    "depth_term": 0.6799365817933944,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.2271775032423734,
+    "proven_gain": 0.06144523716118653,
+    "target_gain": 0.0027914868177989424,
+    "tail_gain": 0.024338742933959986,
+    "depth_term": 0.05648273202706191,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.3105215640433032,
+    "proven_gain": 0.08739392649399853,
+    "target_gain": 0.00048627173204543564,
+    "tail_gain": 0.03908197463207684,
+    "depth_term": 0.6799365817933944,
+    "closure_bonus": 0.0
+   }
+  },
+  "e1_dgh_s2": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 0.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.24000000000000002,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "e2_easy_certs": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 451951.0,
+   "v2/S0 old": {
+    "combined_score": 0.206848092501565,
+    "proven_gain": 0.01380789101562861,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.206848092501565,
+    "proven_gain": 0.01380789101562861,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2038495856235162,
+    "proven_gain": 0.008233756047607095,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0014100626861618744,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.20033199726814155,
+    "proven_gain": 0.0005813919492932653,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0014100626861618744,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.20027483055875622,
+    "proven_gain": 0.00037722513005992276,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0014100626861618744,
+    "closure_bonus": 0.0
+   }
+  },
+  "e3_relist": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 0.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "f_weak": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 28617970.0,
+   "v2/S0 old": {
+    "combined_score": 0.22855330535165017,
+    "proven_gain": 0.07240683968447238,
+    "target_gain": 0.0224296527192458,
+    "tail_gain": 0.0,
+    "depth_term": 0.032807261441383385,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.224990298691218,
+    "proven_gain": 0.07240683968447238,
+    "target_gain": 0.007583791634111723,
+    "tail_gain": 0.0,
+    "depth_term": 0.012409552028643179,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2167977053557138,
+    "proven_gain": 0.04119713103528158,
+    "target_gain": 0.014060930336765457,
+    "tail_gain": 0.001500000897499789,
+    "depth_term": 0.05770967576993207,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.21587985938091417,
+    "proven_gain": 0.005366521646392606,
+    "target_gain": 0.04572320916361181,
+    "tail_gain": 0.0,
+    "depth_term": 0.055797784836978656,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.21269329650486146,
+    "proven_gain": 0.002601473717338353,
+    "target_gain": 0.027118595372975552,
+    "tail_gain": 0.004319631687097819,
+    "depth_term": 0.05770967576993207,
+    "closure_bonus": 0.0
+   }
+  },
+  "initial": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 0.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "inst_dgh_10_23": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 1507537.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2001601375053412,
+    "proven_gain": 0.0,
+    "target_gain": 0.0006672396055882783,
+    "tail_gain": 0.0,
+    "depth_term": 0.003302869939095398,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.20298880774109412,
+    "proven_gain": 0.0,
+    "target_gain": 0.0027914868177989424,
+    "tail_gain": 0.0025067781361555936,
+    "depth_term": 0.01865899003712059,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2004780380436751,
+    "proven_gain": 0.0,
+    "target_gain": 0.00048627173204543564,
+    "tail_gain": 0.0,
+    "depth_term": 0.003302869939095398,
+    "closure_bonus": 0.0
+   }
+  },
+  "instance_specific": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 0.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "lean_dgh4": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 19824534.0,
+   "v2/S0 old": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.2762570381517284,
+    "proven_gain": 0.08780281451996011,
+    "target_gain": 0.0006672396055882783,
+    "tail_gain": 0.05,
+    "depth_term": 0.6799365817933944,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.2271775032423734,
+    "proven_gain": 0.06144523716118653,
+    "target_gain": 0.0027914868177989424,
+    "tail_gain": 0.024338742933959986,
+    "depth_term": 0.05648273202706191,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.3105215640433032,
+    "proven_gain": 0.08739392649399853,
+    "target_gain": 0.00048627173204543564,
+    "tail_gain": 0.03908197463207684,
+    "depth_term": 0.6799365817933944,
+    "closure_bonus": 0.0
+   }
+  },
+  "recipe_dgh": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 85176934.0,
+   "v2/S0 old": {
+    "combined_score": 0.2594192360118436,
+    "proven_gain": 0.13678708176312862,
+    "target_gain": 0.04107108436465613,
+    "tail_gain": 0.03618943500078059,
+    "depth_term": 0.06014664597586955,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.25559175042021176,
+    "proven_gain": 0.13678708176312862,
+    "target_gain": 0.024635897862127696,
+    "tail_gain": 0.036920429806874704,
+    "depth_term": 0.04177941427248703,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.35971715857019343,
+    "proven_gain": 0.18348549269694128,
+    "target_gain": 0.17543137423948854,
+    "tail_gain": 0.1181141943105934,
+    "depth_term": 0.6799365817933944,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.26592858058675556,
+    "proven_gain": 0.08963721699390365,
+    "target_gain": 0.11906415863752179,
+    "tail_gain": 0.04975905328144411,
+    "depth_term": 0.12711972674864255,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.33013620431408,
+    "proven_gain": 0.11190840698172254,
+    "target_gain": 0.06693148766172353,
+    "tail_gain": 0.053258666221613925,
+    "depth_term": 0.6799365817933944,
+    "closure_bonus": 0.0
+   }
+  },
+  "schema_pool": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 78275876.0,
+   "v2/S0 old": {
+    "combined_score": 0.2618488033884074,
+    "proven_gain": 0.13678708176312862,
+    "target_gain": 0.04107108436465613,
+    "tail_gain": 0.03618943500078059,
+    "depth_term": 0.06014664597586955,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.2580213177967756,
+    "proven_gain": 0.13678708176312862,
+    "target_gain": 0.024635897862127696,
+    "tail_gain": 0.036920429806874704,
+    "depth_term": 0.04177941427248703,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.29192648038538865,
+    "proven_gain": 0.1158000851820041,
+    "target_gain": 0.17476413463390025,
+    "tail_gain": 0.07320173204205832,
+    "depth_term": 0.19463903041659902,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.26096932201504086,
+    "proven_gain": 0.05530383412962736,
+    "target_gain": 0.11627267181972285,
+    "tail_gain": 0.030989435618467467,
+    "depth_term": 0.18733019003136162,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.24963343387427694,
+    "proven_gain": 0.046288910238146304,
+    "target_gain": 0.0664452159296781,
+    "tail_gain": 0.01922374179837642,
+    "depth_term": 0.19463903041659902,
+    "closure_bonus": 0.0
+   }
+  },
+  "schema_recipe_frozen": {
+   "kind": "real (R1 Lean-gated)",
+   "work_lb_removed": 65352400.0,
+   "v2/S0 old": {
+    "combined_score": 0.2594192360118436,
+    "proven_gain": 0.13678708176312862,
+    "target_gain": 0.04107108436465613,
+    "tail_gain": 0.03618943500078059,
+    "depth_term": 0.06014664597586955,
+    "closure_bonus": 0.0
+   },
+   "v2/S0 new": {
+    "combined_score": 0.25559175042021176,
+    "proven_gain": 0.13678708176312862,
+    "target_gain": 0.024635897862127696,
+    "tail_gain": 0.036920429806874704,
+    "depth_term": 0.04177941427248703,
+    "closure_bonus": 0.0
+   },
+   "v2/S1 new": {
+    "combined_score": 0.283460120418465,
+    "proven_gain": 0.09568267817698115,
+    "target_gain": 0.17476413463390025,
+    "tail_gain": 0.0681141943105934,
+    "depth_term": 0.19463903041659902,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 old": {
+    "combined_score": 0.24552900518762957,
+    "proven_gain": 0.02819197983271711,
+    "target_gain": 0.11627267181972285,
+    "tail_gain": 0.025420310347484126,
+    "depth_term": 0.12711972674864255,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2429713239207687,
+    "proven_gain": 0.02451448048772401,
+    "target_gain": 0.0664452159296781,
+    "tail_gain": 0.014176691589537079,
+    "depth_term": 0.19463903041659902,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 A1 clear GEN (9,9;4,4)": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 0.0,
+   "v2/S0 new": {
+    "combined_score": 0.28,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 A2 clear (9,12,64)": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 0.0,
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 A2 clear (10,10,61)": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 9865.0,
+   "v2/S0 new": {
+    "combined_score": 0.2634920634920635,
+    "proven_gain": 0.14285714285714285,
+    "target_gain": 0.0,
+    "tail_gain": 0.1111111111111111,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 A3 clear every table with W_lb<1e5": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 102560.0,
+   "v2/S0 new": {
+    "combined_score": 0.4704761904761905,
+    "proven_gain": 0.42857142857142855,
+    "target_gain": 0.0,
+    "tail_gain": 0.3333333333333333,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2040943915176135,
+    "proven_gain": 0.0,
+    "target_gain": 0.01825112130704627,
+    "tail_gain": 0.00918038516097952,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 A5 real: pool certs on small tables only": {
+   "kind": "real (R3 attack shape)",
+   "work_lb_removed": 129541.0,
+   "v2/S0 new": {
+    "combined_score": 0.24279813219607208,
+    "proven_gain": 0.10931378614244736,
+    "target_gain": 0.0,
+    "tail_gain": 0.033675957837031666,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2040943915176135,
+    "proven_gain": 0.0,
+    "target_gain": 0.01825112130704627,
+    "tail_gain": 0.00918038516097952,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 A4 real: pool certs + DGH on small tables only": {
+   "kind": "real (R3 attack shape)",
+   "work_lb_removed": 129541.0,
+   "v2/S0 new": {
+    "combined_score": 0.24279813219607208,
+    "proven_gain": 0.10931378614244736,
+    "target_gain": 0.0,
+    "tail_gain": 0.033675957837031666,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2040943915176135,
+    "proven_gain": 0.0,
+    "target_gain": 0.01825112130704627,
+    "tail_gain": 0.00918038516097952,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 B easy exact d<=2000": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 302039.0,
+   "v2/S0 new": {
+    "combined_score": 0.4099622025658841,
+    "proven_gain": 0.3726248943897815,
+    "target_gain": 5.510769531309343e-07,
+    "tail_gain": 0.06701315064178281,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 B easy exact d<=5000": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 1063285.0,
+   "v2/S0 new": {
+    "combined_score": 0.5108499553290047,
+    "proven_gain": 0.5547301987762291,
+    "target_gain": 1.2326613658377914e-05,
+    "tail_gain": 0.3333333333333333,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 B easy exact d<=20000": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 7807387.0,
+   "v2/S0 new": {
+    "combined_score": 0.5891676751505494,
+    "proven_gain": 0.7318915218886665,
+    "target_gain": 0.0003985072377555419,
+    "tail_gain": 0.46791716505696723,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 B4 real: pool certs killing only exact d<=20k": {
+   "kind": "real (R3 attack shape)",
+   "work_lb_removed": 280543.0,
+   "v2/S0 new": {
+    "combined_score": 0.2489095556245967,
+    "proven_gain": 0.1271552457747124,
+    "target_gain": 0.0,
+    "tail_gain": 0.03618943500078059,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 C1 real: cert_close_10_22": {
+   "kind": "real (R3 attack shape)",
+   "work_lb_removed": 58333.0,
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2040943915176135,
+    "proven_gain": 0.0,
+    "target_gain": 0.01825112130704627,
+    "tail_gain": 0.00918038516097952,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 C2 tail-index sniper (targets)": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 206986981.0,
+   "v2/S0 new": {
+    "combined_score": 0.3000047124625899,
+    "proven_gain": 0.0,
+    "target_gain": 0.26853815377930973,
+    "tail_gain": 0.2222222222222222,
+    "depth_term": 0.2331443969456489,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.31861692082493376,
+    "proven_gain": 0.0,
+    "target_gain": 0.1934510606037886,
+    "tail_gain": 0.5191054911608876,
+    "depth_term": 0.2331443969456489,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 C3a deepened censored, EASY half": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 138000000.0,
+   "v2/S0 new": {
+    "combined_score": 0.2205886033742883,
+    "proven_gain": 0.0,
+    "target_gain": 0.05849287519437878,
+    "tail_gain": 0.040939458297733516,
+    "depth_term": 0.07212109570299746,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.21625062786479782,
+    "proven_gain": 0.0,
+    "target_gain": 0.026525600261584636,
+    "tail_gain": 0.028033888718677555,
+    "depth_term": 0.07212109570299746,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 C3b deepened censored, HARD half": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 138000114.0,
+   "v2/S0 new": {
+    "combined_score": 0.22140732985054257,
+    "proven_gain": 0.0,
+    "target_gain": 0.05849291057753077,
+    "tail_gain": 0.0460564456995948,
+    "depth_term": 0.07212113212779327,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.22098113981803513,
+    "proven_gain": 0.0,
+    "target_gain": 0.02652562021422736,
+    "tail_gain": 0.07027053363133674,
+    "depth_term": 0.07212113212779327,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 D1 random 10% of m16_n17_w134": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 15372492.0,
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.21795939805978845,
+    "proven_gain": 0.0,
+    "target_gain": 0.03372660038596365,
+    "tail_gain": 0.015838637641593545,
+    "depth_term": 0.08766168149240053,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 D1 random 10% of m13_n19_w123": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 32828112.0,
+   "v2/S0 new": {
+    "combined_score": 0.2,
+    "proven_gain": 0.0,
+    "target_gain": 0.0,
+    "tail_gain": 0.0,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2152669240685478,
+    "proven_gain": 0.0,
+    "target_gain": 0.017393599371667186,
+    "tail_gain": 0.01414058995618239,
+    "depth_term": 0.08967544415846063,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 D1 random 10% of m12_n18_w109": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 16332851.0,
+   "v2/S0 new": {
+    "combined_score": 0.21395080000423156,
+    "proven_gain": 0.0,
+    "target_gain": 0.050818391625305576,
+    "tail_gain": 0.010964912588488734,
+    "depth_term": 0.08771698489045944,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2144111921168433,
+    "proven_gain": 0.0,
+    "target_gain": 0.016359174759078148,
+    "tail_gain": 0.010150112236277155,
+    "depth_term": 0.08771698489045944,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 D1 random 10% of m9_n23_w104": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 6963509.0,
+   "v2/S0 new": {
+    "combined_score": 0.21572695452248963,
+    "proven_gain": 0.0,
+    "target_gain": 0.051742341114288506,
+    "tail_gain": 0.020679954094127404,
+    "depth_term": 0.08236264339918259,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.2124122838556919,
+    "proven_gain": 0.0,
+    "target_gain": 0.009398992792610606,
+    "tail_gain": 0.008479784452066248,
+    "depth_term": 0.08236264339918259,
+    "closure_bonus": 0.0
+   }
+  },
+  "R3 G tail top-decile of tables with <=30 survivors": {
+   "kind": "oracle (R3 attack shape)",
+   "work_lb_removed": 2047392.0,
+   "v2/S0 new": {
+    "combined_score": 0.3148258606566877,
+    "proven_gain": 0.12605298371778115,
+    "target_gain": 0.0,
+    "tail_gain": 0.3333333333333333,
+    "depth_term": 0.0,
+    "closure_bonus": 0.0
+   },
+   "v3/S1 new": {
+    "combined_score": 0.22232012386033745,
+    "proven_gain": 0.010510509445098999,
+    "target_gain": 0.01825112130704627,
+    "tail_gain": 0.04826235979305637,
+    "depth_term": 0.09088007116086359,
+    "closure_bonus": 0.0
+   }
+  }
+ },
+ "criteria": {
+  "C1 initial == 0.20": true,
+  "C2 dgh uplift >= 0.02 and >= 0.5 x recipe uplift": true,
+  "C2 ratio dgh/recipe uplift": 2.57198415033907,
+  "C3 real exploits below min(recipe, dgh)": true,
+  "C3 real exploit violations": {},
+  "C3 R3 realizable attacks (A5, B4, C1) below min(recipe, dgh)": true,
+  "C3 R3 realizable violations": {},
+  "C3 oracle shapes below min(recipe, dgh)": false,
+  "C3 oracle violations": {
+   "R3 C2 tail-index sniper (targets)": 0.31861692082493376
+  },
+  "tiny-table clears below f_weak": {
+   "R3 A1 clear GEN (9,9;4,4)": [
+    0.2,
+    true
+   ],
+   "R3 A2 clear (9,12,64)": [
+    0.2,
+    true
+   ],
+   "R3 A2 clear (10,10,61)": [
+    0.2,
+    true
+   ]
+  },
+  "C5 recipe uplift retained vs v2/S0 old": 0.7231887652039746,
+  "C5 recipe+dgh >= max(recipe, dgh)": true,
+  "C4 live property test": {
+   "mono_fail": 0,
+   "trials": 60,
+   "uniform_fail": []
+  }
+ }
+}

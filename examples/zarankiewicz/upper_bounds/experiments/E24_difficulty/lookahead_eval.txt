@@ -1,0 +1,176 @@
+counts: {'H': 262, 'M': 2799, 'C': 1398}
+
+== per-feature Spearman (HARD / MID): pooled | mean within-cell | LOCO-signed ==
+fl_log2vol_cols              H +0.39 | +0.63 | +0.63   M +0.35 | +0.53 | +0.53   AUC(loco) 0.90 tgt 0.95
+fl_fixed_cells               H -0.34 | -0.60 | +0.60   M -0.00 | -0.54 | +0.54   AUC(loco) 0.90 tgt 0.95
+fl_fixed_frac                H -0.41 | -0.60 | +0.60   M -0.24 | -0.54 | +0.54   AUC(loco) 0.90 tgt 0.95
+fl_free_cells                H +0.39 | +0.60 | +0.60   M +0.35 | +0.54 | +0.54   AUC(loco) 0.90 tgt 0.95
+fl_units                     H -0.34 | -0.60 | +0.60   M +0.00 | -0.54 | +0.54   AUC(loco) 0.90 tgt 0.95
+fl_log2vol_rows              H +0.40 | +0.60 | +0.60   M +0.35 | +0.55 | +0.55   AUC(loco) 0.91 tgt 0.96
+la1_failed                   H -0.32 | -0.58 | +0.58   M +0.04 | -0.46 | +0.46   AUC(loco) 0.88 tgt 0.93
+la1_failed_frac              H -0.40 | -0.58 | +0.58   M -0.23 | -0.46 | +0.46   AUC(loco) 0.88 tgt 0.93
+la1_failed_neg               H -0.31 | -0.56 | +0.56   M +0.04 | -0.45 | +0.45   AUC(loco) 0.88 tgt 0.92
+ams_score_mean               H -0.31 | -0.52 | +0.52   M +0.05 | -0.45 | +0.45   AUC(loco) 0.89 tgt 0.93
+ams_score_max                H -0.24 | -0.50 | +0.50   M +0.14 | -0.36 | +0.36   AUC(loco) 0.86 tgt 0.89
+march_prod_max               H -0.24 | -0.50 | +0.50   M +0.13 | -0.36 | +0.36   AUC(loco) 0.86 tgt 0.89
+march_prod_mean              H -0.29 | -0.47 | +0.47   M +0.05 | -0.43 | +0.43   AUC(loco) 0.88 tgt 0.92
+ams_score_top3               H -0.26 | -0.46 | +0.46   M +0.13 | -0.40 | +0.40   AUC(loco) 0.87 tgt 0.90
+la1_newbin_std               H -0.12 | -0.45 | +0.45   M +0.06 | -0.14 | +0.14   AUC(loco) 0.63 tgt 0.56
+kn_rand_mean_log_conf        H +0.40 | +0.44 | +0.44   M +0.44 | +0.46 | +0.46   AUC(loco) 0.90 tgt 0.94
+kn_rand_mean_log_nodes       H +0.40 | +0.44 | +0.44   M +0.44 | +0.46 | +0.46   AUC(loco) 0.90 tgt 0.94
+la1_zero_frac                H -0.21 | -0.43 | +0.43   M +0.06 | -0.27 | +0.27   AUC(loco) 0.78 tgt 0.85
+kn_rand_mean_depth           H +0.40 | +0.41 | +0.41   M +0.44 | +0.43 | +0.43   AUC(loco) 0.88 tgt 0.93
+la1_newbin_min               H +0.26 | +0.41 | +0.41   M +0.24 | +0.20 | +0.20   AUC(loco) 0.70 tgt 0.76
+la2_failed_frac              H -0.32 | -0.41 | +0.41   M -0.17 | -0.28 | +0.28   AUC(loco) 0.78 tgt 0.82
+knfl_rand_mean_log_conf      H +0.49 | +0.39 | +0.39   M +0.49 | +0.54 | +0.54   AUC(loco) 0.92 tgt 0.96
+knfl_rand_mean_log_nodes     H +0.49 | +0.39 | +0.39   M +0.49 | +0.54 | +0.54   AUC(loco) 0.92 tgt 0.96
+knfl_rand_log_mean_conf      H +0.40 | +0.39 | +0.39   M +0.41 | +0.38 | +0.38   AUC(loco) 0.84 tgt 0.89
+knfl_rand_log_mean_nodes     H +0.40 | +0.39 | +0.39   M +0.41 | +0.38 | +0.38   AUC(loco) 0.84 tgt 0.89
+knfl_rand_mean_depth         H +0.49 | +0.39 | +0.39   M +0.48 | +0.53 | +0.53   AUC(loco) 0.92 tgt 0.95
+la1_wred_mean                H +0.02 | -0.38 | +0.38   M +0.15 | -0.14 | +0.14   AUC(loco) 0.65 tgt 0.59
+la1_newbin_max               H +0.08 | -0.37 | +0.37   M +0.14 | -0.11 | +0.11   AUC(loco) 0.59 tgt 0.52
+la1_wred_max                 H +0.08 | -0.37 | +0.37   M +0.14 | -0.12 | +0.12   AUC(loco) 0.59 tgt 0.52
+la1_newbin_mean              H -0.04 | -0.35 | +0.35   M +0.13 | -0.11 | +0.11   AUC(loco) 0.61 tgt 0.53
+la1_rate_vars                H -0.05 | -0.35 | +0.35   M +0.11 | -0.07 | +0.07   AUC(loco) 0.57 tgt 0.44
+max_col                      H -0.02 | -0.32 | +0.32   M +0.02 | -0.11 | +0.11   AUC(loco) 0.57 tgt 0.49
+fl_rounds                    H -0.29 | -0.29 | +0.29   M -0.11 | -0.31 | +0.31   AUC(loco) 0.74 tgt 0.79
+la1_failed_pos               H -0.20 | -0.29 | +0.29   M +0.04 | -0.16 | +0.16   AUC(loco) 0.63 tgt 0.68
+kn_row_var_log_nodes         H +0.05 | +0.29 | +0.29   M +0.29 | +0.30 | +0.30   AUC(loco) 0.77 tgt 0.84
+la1_std                      H -0.12 | -0.28 | +0.28   M +0.11 | -0.11 | +0.11   AUC(loco) 0.65 tgt 0.65
+bin_root                     H +0.27 | +0.26 | +0.26   M +0.30 | +0.22 | +0.22   AUC(loco) 0.74 tgt 0.82
+la1_neg_max                  H +0.16 | +0.24 | +0.24   M +0.25 | -0.03 | +0.03   AUC(loco) 0.49 tgt 0.49
+kn_row_log_mean_conf         H +0.11 | +0.22 | +0.22   M +0.40 | +0.32 | +0.32   AUC(loco) 0.76 tgt 0.85
+kn_row_log_mean_nodes        H +0.11 | +0.22 | +0.22   M +0.40 | +0.32 | +0.32   AUC(loco) 0.76 tgt 0.85
+
+== models, leave_one_cell_out ==
+  [HARD]
+   vol+fl_free                        n= 262 pooled +0.480 within +0.550  lRMSE 1.672  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.69}
+   FL-only: vol+fl_free+fl_vol_rows   n= 262 pooled +0.485 within +0.565  lRMSE 1.677  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.59, 'm12_n12': 0.41, 'm12_n13': 0.7}
+   vol+fl_free+knfl                   n= 262 pooled +0.507 within +0.368  lRMSE 1.304  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+la1_failed_frac+ams_mean       n= 262 pooled +0.417 within +0.577  lRMSE 1.555  top10 0.45  cells {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free+knfl+log_ncell         n= 262 pooled +0.509 within +0.368  lRMSE 1.302  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.32, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+log_c2000 (fhat form, refit)   n= 262 pooled +0.062 within +0.179  lRMSE 1.877  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   greedy(nested)                     n= 262 pooled +0.472 within +0.434  lRMSE 1.281  top10 0.34  cells {'m11_n11': 0.26, 'm11_n12': 0.37, 'm12_n12': 0.46, 'm12_n13': 0.64}
+   fhat fixed (E11)                   n= 262 pooled +0.249 within +0.179  lRMSE 1.128  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+  [HARD_clipped]
+   vol+fl_free                        n= 262 pooled +nan within +0.550  lRMSE 0.942  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.69}
+   FL-only: vol+fl_free+fl_vol_rows   n= 262 pooled +nan within +0.565  lRMSE 0.942  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.59, 'm12_n12': 0.41, 'm12_n13': 0.7}
+   vol+fl_free+knfl                   n= 262 pooled +0.300 within +0.368  lRMSE 0.931  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+la1_failed_frac+ams_mean       n= 262 pooled +nan within +0.577  lRMSE 0.942  top10 0.45  cells {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free+knfl+log_ncell         n= 262 pooled +0.308 within +0.368  lRMSE 0.930  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.32, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+log_c2000 (fhat form, refit)   n= 262 pooled +nan within +0.179  lRMSE 0.942  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   greedy(nested)                     n= 262 pooled +0.346 within +0.434  lRMSE 0.919  top10 0.34  cells {'m11_n11': 0.26, 'm11_n12': 0.37, 'm12_n12': 0.46, 'm12_n13': 0.64}
+   fhat fixed (E11)                   n= 262 pooled +0.175 within +0.179  lRMSE 0.838  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+  [MID]
+   vol+fl_free                        n=2799 pooled +0.381 within +0.444  lRMSE 0.624  top10 0.26  cells 
+   FL-only: vol+fl_free+fl_vol_rows   n=2799 pooled +0.378 within +0.457  lRMSE 0.636  top10 0.27  cells 
+   vol+fl_free+knfl                   n=2799 pooled +0.563 within +0.519  lRMSE 0.561  top10 0.26  cells 
+   vol+la1_failed_frac+ams_mean       n=2799 pooled +0.435 within +0.482  lRMSE 0.602  top10 0.28  cells 
+   vol+fl_free+knfl+log_ncell         n=2799 pooled +0.557 within +0.517  lRMSE 0.564  top10 0.26  cells 
+   vol+log_c2000 (fhat form, refit)   n=2799 pooled +0.244 within +0.196  lRMSE 0.625  top10 0.13  cells 
+   greedy(nested)                     n=2799 pooled +0.569 within +0.563  lRMSE 0.557  top10 0.31  cells 
+   fhat fixed (E11)                   n=2799 pooled +0.307 within +0.195  lRMSE 2.886  top10 0.13  cells 
+  greedy chosen per fold: [(('la1_failed_frac', 'knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'kn_rand_mean_log_conf'), 22), (('knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'kn_rand_mean_log_conf', 'la1_zero_frac'), 3), (('la1_failed_frac', 'knfl_rand_mean_log_conf', 'fl_free_cells', 'kn_rand_mean_depth'), 1), (('knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'la1_failed_frac', 'march_prod_mean'), 1), (('knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'kn_rand_mean_log_conf', 'march_prod_mean'), 1)]
+
+== models, leave_one_mn_out ==
+  [HARD]
+   vol+fl_free                        n= 262 pooled +0.468 within +0.550  lRMSE 1.662  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.69}
+   FL-only: vol+fl_free+fl_vol_rows   n= 262 pooled +0.469 within +0.565  lRMSE 1.668  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.59, 'm12_n12': 0.41, 'm12_n13': 0.7}
+   vol+fl_free+knfl                   n= 262 pooled +0.504 within +0.368  lRMSE 1.291  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+la1_failed_frac+ams_mean       n= 262 pooled +0.405 within +0.578  lRMSE 1.547  top10 0.45  cells {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free+knfl+log_ncell         n= 262 pooled +0.503 within +0.367  lRMSE 1.284  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+log_c2000 (fhat form, refit)   n= 262 pooled -0.066 within +0.179  lRMSE 1.868  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   greedy(nested)                     n= 262 pooled +0.467 within +0.406  lRMSE 1.280  top10 0.34  cells {'m11_n11': 0.26, 'm11_n12': 0.26, 'm12_n12': 0.46, 'm12_n13': 0.64}
+   fhat fixed (E11)                   n= 262 pooled +0.249 within +0.179  lRMSE 1.128  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+  [HARD_clipped]
+   vol+fl_free                        n= 262 pooled +nan within +0.550  lRMSE 0.942  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.69}
+   FL-only: vol+fl_free+fl_vol_rows   n= 262 pooled +nan within +0.565  lRMSE 0.942  top10 0.41  cells {'m11_n11': 0.56, 'm11_n12': 0.59, 'm12_n12': 0.41, 'm12_n13': 0.7}
+   vol+fl_free+knfl                   n= 262 pooled +0.337 within +0.368  lRMSE 0.929  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+la1_failed_frac+ams_mean       n= 262 pooled +nan within +0.578  lRMSE 0.942  top10 0.45  cells {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free+knfl+log_ncell         n= 262 pooled +0.338 within +0.367  lRMSE 0.927  top10 0.27  cells {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+log_c2000 (fhat form, refit)   n= 262 pooled +nan within +0.179  lRMSE 0.942  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   greedy(nested)                     n= 262 pooled +0.324 within +0.406  lRMSE 0.917  top10 0.34  cells {'m11_n11': 0.26, 'm11_n12': 0.26, 'm12_n12': 0.46, 'm12_n13': 0.64}
+   fhat fixed (E11)                   n= 262 pooled +0.175 within +0.179  lRMSE 0.838  top10 0.03  cells {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+  [MID]
+   vol+fl_free                        n=2799 pooled +0.371 within +0.444  lRMSE 0.626  top10 0.26  cells 
+   FL-only: vol+fl_free+fl_vol_rows   n=2799 pooled +0.367 within +0.457  lRMSE 0.638  top10 0.27  cells 
+   vol+fl_free+knfl                   n=2799 pooled +0.561 within +0.520  lRMSE 0.561  top10 0.26  cells 
+   vol+la1_failed_frac+ams_mean       n=2799 pooled +0.424 within +0.483  lRMSE 0.606  top10 0.28  cells 
+   vol+fl_free+knfl+log_ncell         n=2799 pooled +0.555 within +0.517  lRMSE 0.566  top10 0.26  cells 
+   vol+log_c2000 (fhat form, refit)   n=2799 pooled +0.184 within +0.195  lRMSE 0.628  top10 0.13  cells 
+   greedy(nested)                     n=2799 pooled +0.561 within +0.558  lRMSE 0.560  top10 0.30  cells 
+   fhat fixed (E11)                   n=2799 pooled +0.307 within +0.195  lRMSE 2.886  top10 0.13  cells 
+  greedy chosen per fold: [(('la1_failed_frac', 'knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'kn_rand_mean_log_conf'), 9), (('knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'kn_rand_mean_log_conf', 'la1_zero_frac'), 3), (('knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'kn_rand_mean_log_conf', 'march_prod_mean'), 3), (('la1_failed_frac', 'knfl_rand_mean_log_conf', 'fl_free_cells', 'kn_rand_mean_depth'), 1), (('knfl_rand_mean_log_conf', 'fl_log2vol_cols', 'la1_failed_frac', 'march_prod_mean'), 1)]
+
+== HARD regime, models trained conditional on d > 20000 (leave-one-hard-cell-out) ==
+  [HARD]
+   vol+fl_free [Honly]                                  pooled +0.386 within +0.557  lRMSE 0.604  top10 0.41  {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free [HM+shift]                               pooled +0.439 within +0.550  lRMSE 0.521  top10 0.41  {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.69}
+   FL-only: vol+fl_free+fl_vol_rows [Honly]             pooled +0.365 within +0.575  lRMSE 0.639  top10 0.48  {'m11_n11': 0.57, 'm11_n12': 0.6, 'm12_n12': 0.43, 'm12_n13': 0.7}
+   FL-only: vol+fl_free+fl_vol_rows [HM+shift]          pooled +0.439 within +0.565  lRMSE 0.523  top10 0.41  {'m11_n11': 0.56, 'm11_n12': 0.59, 'm12_n12': 0.41, 'm12_n13': 0.7}
+   vol+fl_free+knfl [Honly]                             pooled +0.439 within +0.451  lRMSE 0.571  top10 0.41  {'m11_n11': 0.12, 'm11_n12': 0.44, 'm12_n12': 0.44, 'm12_n13': 0.81}
+   vol+fl_free+knfl [HM+shift]                          pooled +0.489 within +0.368  lRMSE 0.479  top10 0.27  {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+la1_failed_frac+ams_mean [Honly]                 pooled +0.319 within +0.571  lRMSE 0.681  top10 0.41  {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.4, 'm12_n13': 0.7}
+   vol+la1_failed_frac+ams_mean [HM+shift]              pooled +0.375 within +0.577  lRMSE 0.556  top10 0.45  {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free+knfl+log_ncell [Honly]                   pooled +0.337 within +0.468  lRMSE 0.693  top10 0.38  {'m11_n11': 0.15, 'm11_n12': 0.44, 'm12_n12': 0.47, 'm12_n13': 0.82}
+   vol+fl_free+knfl+log_ncell [HM+shift]                pooled +0.491 within +0.368  lRMSE 0.478  top10 0.27  {'m11_n11': 0.0, 'm11_n12': 0.32, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+log_c2000 (fhat form, refit) [Honly]             pooled +0.083 within +0.179  lRMSE 0.566  top10 0.03  {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   vol+log_c2000 (fhat form, refit) [HM+shift]          pooled -0.123 within +0.179  lRMSE 0.573  top10 0.03  {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   constant (mean log d of other cells' HARD)           pooled -0.239 within +nan  lRMSE 0.583  top10 0.03  {'m11_n11': nan, 'm11_n12': nan, 'm12_n12': nan, 'm12_n13': nan}
+   fhat fixed (E11)                                     pooled +0.249 within +0.179  lRMSE 1.128  top10 0.03  {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+  [HARD_clipped]
+   vol+fl_free [Honly]                                  pooled +0.385 within +0.557  lRMSE 0.573  top10 0.41  {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free [HM+shift]                               pooled +0.439 within +0.550  lRMSE 0.521  top10 0.41  {'m11_n11': 0.56, 'm11_n12': 0.56, 'm12_n12': 0.39, 'm12_n13': 0.69}
+   FL-only: vol+fl_free+fl_vol_rows [Honly]             pooled +0.362 within +0.575  lRMSE 0.580  top10 0.48  {'m11_n11': 0.57, 'm11_n12': 0.6, 'm12_n12': 0.43, 'm12_n13': 0.7}
+   FL-only: vol+fl_free+fl_vol_rows [HM+shift]          pooled +0.439 within +0.565  lRMSE 0.523  top10 0.41  {'m11_n11': 0.56, 'm11_n12': 0.59, 'm12_n12': 0.41, 'm12_n13': 0.7}
+   vol+fl_free+knfl [Honly]                             pooled +0.439 within +0.451  lRMSE 0.551  top10 0.41  {'m11_n11': 0.12, 'm11_n12': 0.44, 'm12_n12': 0.44, 'm12_n13': 0.81}
+   vol+fl_free+knfl [HM+shift]                          pooled +0.489 within +0.368  lRMSE 0.479  top10 0.27  {'m11_n11': 0.0, 'm11_n12': 0.31, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+la1_failed_frac+ams_mean [Honly]                 pooled +0.319 within +0.571  lRMSE 0.621  top10 0.41  {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.4, 'm12_n13': 0.7}
+   vol+la1_failed_frac+ams_mean [HM+shift]              pooled +0.376 within +0.577  lRMSE 0.543  top10 0.45  {'m11_n11': 0.59, 'm11_n12': 0.6, 'm12_n12': 0.39, 'm12_n13': 0.72}
+   vol+fl_free+knfl+log_ncell [Honly]                   pooled +0.336 within +0.468  lRMSE 0.640  top10 0.38  {'m11_n11': 0.15, 'm11_n12': 0.44, 'm12_n12': 0.47, 'm12_n13': 0.82}
+   vol+fl_free+knfl+log_ncell [HM+shift]                pooled +0.491 within +0.368  lRMSE 0.478  top10 0.27  {'m11_n11': 0.0, 'm11_n12': 0.32, 'm12_n12': 0.46, 'm12_n13': 0.69}
+   vol+log_c2000 (fhat form, refit) [Honly]             pooled +0.083 within +0.179  lRMSE 0.566  top10 0.03  {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   vol+log_c2000 (fhat form, refit) [HM+shift]          pooled -0.123 within +0.179  lRMSE 0.573  top10 0.03  {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+   constant (mean log d of other cells' HARD)           pooled -0.239 within +nan  lRMSE 0.583  top10 0.03  {'m11_n11': nan, 'm11_n12': nan, 'm12_n12': nan, 'm12_n13': nan}
+   fhat fixed (E11)                                     pooled +0.175 within +0.179  lRMSE 0.838  top10 0.03  {'m11_n11': 0.36, 'm11_n12': 0.09, 'm12_n12': 0.07, 'm12_n13': 0.19}
+
+== E11-comparable: held-out (12,13,87), all sampled d > 2000 cases (E11 fhat: rho 0.395, lRMSE 1.282, n=276) ==
+   vol+fl_free                        n=253 rho +0.817 lRMSE 1.183
+   FL-only: vol+fl_free+fl_vol_rows   n=253 rho +0.819 lRMSE 1.184
+   vol+fl_free+knfl                   n=253 rho +0.836 lRMSE 0.913
+   vol+la1_failed_frac+ams_mean       n=253 rho +0.860 lRMSE 1.096
+   vol+fl_free+knfl+log_ncell         n=253 rho +0.835 lRMSE 0.910
+   vol+log_c2000 (fhat form, refit)   n=253 rho +0.377 lRMSE 1.348
+   greedy(nested)                     n=253 rho +0.834 lRMSE 0.892
+   fhat fixed (E11)                   n=253 rho +0.377 lRMSE 1.234
+
+== model AUC hard-vs-mid (C u H vs M), leave-one-cell-out ==
+  vol+fl_free                        mean 0.850  target-cells 0.890
+  FL-only: vol+fl_free+fl_vol_rows   mean 0.858  target-cells 0.905
+  vol+fl_free+knfl                   mean 0.919  target-cells 0.951
+  vol+la1_failed_frac+ams_mean       mean 0.890  target-cells 0.937
+  vol+fl_free+knfl+log_ncell         mean 0.918  target-cells 0.950
+  vol+log_c2000 (fhat form, refit)   mean 0.725  target-cells 0.855
+  fhat fixed (E11)                   mean 0.724  target-cells 0.855
+
+== cost per case ==
+  m10_n10  n=  20  full: 0.17s calls  10761 props   3647186 UPconf  1670 | FL-only: 0.009s calls   446 props    24947
+  m10_n11  n= 190  full: 0.21s calls  11871 props   4610739 UPconf  1712 | FL-only: 0.009s calls   486 props    27995
+  m10_n14  n= 500  full: 0.36s calls  14336 props   7091888 UPconf  1821 | FL-only: 0.013s calls   635 props    55569
+  m10_n20  n=   2  full: 0.73s calls  17836 props  13314189 UPconf  2417 | FL-only: 0.021s calls   770 props   109518
+  m10_n22  n=   3  full: 0.87s calls  17661 props  17178466 UPconf  2612 | FL-only: 0.045s calls  1214 props   595971
+  m10_n23  n= 250  full: 0.92s calls  20254 props  16431775 UPconf  2862 | FL-only: 0.036s calls  1514 props   358824
+  m11_n11  n= 408  full: 0.28s calls  12619 props   5699167 UPconf  1625 | FL-only: 0.012s calls   534 props    38093
+  m11_n12  n= 451  full: 0.33s calls  13624 props   6956065 UPconf  1721 | FL-only: 0.014s calls   594 props    59361
+  m11_n23  n= 248  full: 0.97s calls  20543 props  17626683 UPconf  2329 | FL-only: 0.033s calls  1118 props   173216
+  m12_n12  n= 454  full: 0.40s calls  14477 props   8356047 UPconf  1842 | FL-only: 0.019s calls   710 props   102735
+  m12_n13  n= 504  full: 0.46s calls  15350 props   9514210 UPconf  1866 | FL-only: 0.021s calls   769 props   115849
+  m12_n18  n= 250  full: 0.88s calls  19683 props  17954161 UPconf  2330 | FL-only: 0.040s calls  1339 props   370878
+  m13_n13  n= 500  full: 0.62s calls  16146 props  12487055 UPconf  1903 | FL-only: 0.029s calls   869 props   210752
+  m13_n19  n= 250  full: 1.25s calls  21191 props  24441484 UPconf  2300 | FL-only: 0.056s calls  1369 props   649532
+  m16_n17  n= 225  full: 1.81s calls  22463 props  33506235 UPconf  2341 | FL-only: 0.090s calls  1629 props  1120179
+  m9_n10   n=  15  full: 0.15s calls  10061 props   2732260 UPconf  1605 | FL-only: 0.006s calls   410 props    14308
+  m9_n12   n=   1  full: 0.19s calls  10526 props   3494482 UPconf  1705 | FL-only: 0.007s calls   420 props    20344
+  m9_n23   n= 171  full: 0.65s calls  17892 props  12038329 UPconf  2232 | FL-only: 0.018s calls   870 props    68085
+  m9_n9    n=  17  full: 0.13s calls   9248 props   2299375 UPconf  1624 | FL-only: 0.005s calls   335 props    11733
+  overall {'cost_seconds': 0.616, 'cost_calls': 16194.58, 'cost_propagations': 12026725.504, 'cost_conflicts': 1987.404, 'cost_fl_seconds': 0.027, 'cost_fl_calls': 877.775, 'cost_fl_propagations': 210857.27, 'cost_fl_conflicts': 11.508}

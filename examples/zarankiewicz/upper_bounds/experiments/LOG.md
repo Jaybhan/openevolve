@@ -635,3 +635,273 @@ golden bank of 22 candidates) green; spend $3.31 of $16 (`cost_ledger.md`); `doc
 thesis-facing summary; `docs/build/INTEGRATION.md` + `docs/build/*.md` the build provenance; this log
 E1–E23 the experiment record. Nothing has been committed to git (working tree only), by design — the
 repo owner decides what to keep.
+
+---
+
+# Batch 3 (2026-09-22/23): the two pitfalls — difficulty of open cells, and single-cell rules
+
+Numbering note: the LOG entries E24–E27 below map onto the experiment folders as
+E24 = `experiments/E24_difficulty/GROUND_TRUTH.md` (A1), E25 = `experiments/E24_difficulty/{LOOKAHEAD,SAMPLING,PROGRESS,EVALUATION}.md`
+(A2–A4, D5), E26 = `experiments/E25_reward/` (R1, R3 in `attacks/`) + `experiments/E26_dynamics/` (R2), E27 = `experiments/E27_integration/`.
+R1's and R2's REPORT.md files were not written (the harness refused subagent report files); the entries below are
+built from their result files (`results/*.md|json`, `attacks/results.md`, `E26_dynamics/results/*.md`).
+All solver costs are CaDiCaL 1.9.5 (pysat `cadical195`) conflicts/propagations; seconds are inflated by contention.
+
+## E24 — 2026-09-22 — Ground truth for difficulty (A1)
+
+**Question.** How hard are the cases we currently label by extrapolation, really?
+
+**Run.** `experiments/E24_difficulty/gt_{initial,deepen,newtables}.py`: every probed record of every cached table
+(`ground_truth_initial.jsonl`, 32,801 rows), then ONE fresh 2M-conflict run (180 s wall, never hit) on every censored
+case of the wide pure tables and the (9,23) target, a seeded 150-case sample of each of (12,18), (13,19), (16,17), and
+three NEW exactly-known wide pure tables (w = z+1): (9,16,78), (9,18,86), (10,19,99).  Determinism check: 60/60 cached
+exact labels reproduce the identical conflict count with today's encoder.
+
+| quantity | value |
+|---|---|
+| final file | `ground_truth.jsonl`, 35,081 rows (3,554 deepened/new) |
+| deepen cost | 770.3 M conflicts, 196.9 G propagations, 38,436 solver-s (91.5 min wall, 7 processes) |
+| outcome of the 3,554 runs | 3,363 unsat, **191 open at 2M**, **0 SAT** (consistent with z(9,23) = 103: all 146 censored (9,23,104) cases are unsat or open) |
+| exact HARD labels (d > 20k) | **2,238** (was 262); 1,518 of them in wide cells; max exact d 1,986,172 (was 221,874) |
+| old censored label vs truth | Spearman 0.11 on (10,20,103)p, 0.23 on (13,13,93)p, 0.34 on (12,18); a **constant** 400,000 on every censored case of (13,19) and (16,17), whose sampled true d spans > 1.5 decades (51 % of the (16,17) sample is above 2M) |
+| c2000 on hard cases | the constant 2,000: fhat is a function of log2_volume alone there |
+
+New wide TRAIN candidates (library = Argument D exactly on all three):
+
+| cell | cases | library survivors | survivor work | DGH kills on survivors | DGH gain / tail on survivors |
+|---|---|---|---|---|---|
+| (9,18) w86 | 363 | 140 | 19.8 M | 47 | 0.110 / 0.000 |
+| (9,16) w78 | 1,491 | 693 | 36.7 M | 90 | 0.031 / 0.000 |
+| (10,19) w99 | 426 | 165 | 49.7 M | 0 | 0 / 0 (control) |
+
+DGH kills the EASIER survivors of these cells (median d 30k vs 137k on (9,18)), hence zero tail gain.
+
+## E25 — 2026-09-23 — Difficulty estimators head to head (A2 lookahead, A3 sampling, A4 CDCL progress, D5 evaluation)
+
+**Question.** The proposal's techniques for estimating the difficulty of a case the pipeline cannot solve — AlphaMapleSAT-style
+lookahead [16] and Chivilikhin-style sampling of a decomposition's hardness [17] — were not implemented.  Do they beat the
+current censored label, and which estimator should label the censored cases?
+
+**Implemented.** `zar_ub/hardness_lookahead.py` (A2: level-1 failed literals, pair lookahead, march-style scores, Knuth tree-size
+probes after the failed-literal fixpoint; BCP only), `zar_ub/hardness_sampling.py` (A3: Chivilikhin d-hardness — solve N random
+cubes of a decomposition set at a budget, extrapolate; default knuth:row:8, N=100, b=5000, ≤ 50k conflicts), and
+`zar_ub/hardness_progress.py` (A4: statistics of the 2k/20k probes the pipeline already runs, CaDiCaL binary statistics,
+static/LP slack of Arguments A/D/DGH).  D5 (`EVALUATION.md`) compared everything on the E24 ground truth: 5,133 cases
+(2,429 HARD incl. 191 open at 2M, 18 cells; 2,704 MID), leave-one-shape-out, nested feature selection, plus the error each
+estimator induces in the reward's gain_I / tail_I on 106 real kill masks.  Evaluation spend: 15,387 estimator runs,
+0.34 G conflicts, ~167 G propagations, 38 min wall on 10 processes.
+
+| model (HARD regime, held out by shape) | within-cell ρ | Harrell C (incl. open) | log-RMSE | gain_I / tail_I error (real masks) | extra cost per case |
+|---|---|---|---|---|---|
+| current label `clip(fhat, 20k, 400k)` | 0.324 (constant in 8/15 cells) | 0.552 | 1.116 | 0.061 / 0.164 | 0 |
+| lookahead alone (greedy) | 0.691 | 0.782 | 0.707 | 0.031 / 0.088 | ~2k UP conflicts, 0.8 s |
+| static/LP slack alone (greedy) | 0.624 | 0.762 | 0.772 | 0.038 / 0.098 | 0 |
+| sampling alone (unit-slope calibration) | 0.721 | 0.771 | 0.828 | 0.050 / 0.157 | ~46k conflicts, 3 s |
+| A4 free20k (probe stats + static) | 0.802 | 0.826 | 0.547 | 0.026 / 0.058 | the probe the pipeline runs anyway |
+| **winner: greedy free tier (probe stats + static + lookahead)** | **0.837** | **0.847** | **0.510** | **0.020 / 0.046** | ~24k conflicts, 18 M props, 1.3 s (0.8 s if the probe stats are stored) |
+| greedy free + sampling | 0.853 | 0.850 | 0.493 | 0.027 / 0.067 | +46k conflicts |
+| greedy free + CaDiCaL binary stats | 0.874 | 0.865 | 0.485 | 0.026 / 0.055 | +22k conflicts |
+| greedy all families | 0.888 | 0.872 | 0.451 | 0.028 / 0.057 | ~92k conflicts, 4.9 s |
+| GBM all families | 0.899 | 0.878 | 0.394 | 0.023 / 0.101 | ~92k conflicts |
+| continue the solve to 50k, then the winner on the still-open | **0.932** | **0.934** | – | **0.017 / 0.044** | ≤ 30k conflicts more |
+
+Target cells alone: current 0.514 / C 0.560 → winner 0.835 / 0.885.  Library survivors only (what the reward sees):
+0.064 / 0.506 → 0.821 / 0.858.  Square→wide transfer: winner 0.823 / 0.843 (bias −0.13 nats); the zero-conflict
+(static + lookahead) tier ranks at 0.689 but its level is off by −1.46 nats on wide cells.
+
+**Winner** (`experiments/E24_difficulty/hardness_model.json`, `zar_ub/hardness_model.py`), refit on all 2,238 exact hard cases:
+`log d̂ = 11.301 + 0.900 z[decisions/conflict of the 20k probe] − 0.381 z[log1p restarts per 1k conflicts] + 0.364 z[log1p Knuth
+tree-size estimate after failed literals] + 0.161 z[distinct row sums] − 0.240 z[failed negative cell literals] − 0.154 z[mean row
+Argument-D slack]`, d̂ = exp(·)·1.121 (Duan smearing, for sums), floor 20k, ceiling 2M.  Chosen over the better rankers because
+its reward-gain error is the lowest of all (table-bootstrap 95 % CI of the difference: current label +0.027…+0.057, free+binary
++0.001…+0.012, all +0.002…+0.015) and it is the cheapest; `predict()` recomputes all features and matched the cached
+predictions exactly on 6 seeded cases.
+
+**Verdict on each proposal technique.**
+* *Lookahead (AlphaMapleSAT / march / Knuth).* Real but modest: the best **zero-conflict** signal (ρ 0.71 hard, 0.59 mid, with
+  static features), +0.035 ρ and −0.005 gain error inside the free tier; adds nothing once CaDiCaL binary statistics are present;
+  its magnitudes do not transfer from square to wide cells.  Two of its features are in the winner.
+* *Sampling (Chivilikhin d-hardness).* A genuine standalone estimator (ρ 0.72, C 0.77) and +0.014–0.048 ρ on top of CDCL features,
+  but it does **not** reduce gain error, and spending its ~46k conflicts on simply continuing the solve is strictly better
+  (the 50k-direct row).  Not in the winner.
+* *LP / counting slack.* Weak alone (single best ρ 0.38), nothing on top of the others; two small static terms survive.
+* *What actually works* was not a proposal technique: the search statistics (decisions per conflict, restarts) of the 20k probe the
+  pipeline already runs (A4).
+* On the user's DGH example the current label **over**-credits DGH: (9,18,86)p true gain/tail 0.110/0.000, current label
+  0.269/0.499, winner 0.101/0.  Accurate difficulty removes DGH's false tail credit; it does not make narrow rules look better.
+
+## E26 — 2026-09-23 — Rewarding single-cell rules: reward variants (R1), dynamics (R2), adversarial critique (R3)
+
+**Question.** Under reward v2 a rule that helps one cell (DGH, which closes z(11,21) ≤ 116 with zero SAT) scores exactly 0.20,
+the score of doing nothing.  Can a reward credit it without opening exploits, and what does the loop then do?
+
+**R1 (`zar_ub/reward_variants.py`, `experiments/E25_reward/`).** 16 real Lean-gated programs + 8 oracle masks over 25 cached tables
+(20,712 cases); offline scoring from cached Lean masks (4,106 s of gate wall for the masks, 8,195 HiGHS LPs, 0 SAT).  Criteria:
+C1 soundness ordering exact; C2 DGH uplift ≥ 0.02 and ≥ 0.5 × the recipe's; C3 every exploit (real or oracle shape) below
+min(recipe, DGH); C4 monotone in kills, uniform gain beats a single cell; C5 the recipe keeps ≥ 80 % of its v2 uplift.
+
+| variant | recipe | DGH | recipe+DGH | fails |
+|---|---|---|---|---|
+| V0/S0 (today) | 0.2594 | **0.2000** | 0.2594 | C2 (DGH = no-op); C3 oracle: clearing (10,10,61) 0.2635 > recipe, clearing GEN 0.2800, killing every d ≤ 2k 0.4100 |
+| V0/S1 (suite only: wide exact cells in TRAIN, later targets in TARGET) | 0.2937 | 0.2806 | 0.3743 | C3 oracle (easy-2k 0.3617) |
+| V1 mixture / V2 power means | 0.38–0.51 | 0.38–0.52 | – | scale-free: clearing a tiny table ≈ the recipe |
+| V3 family / V4 work weights / V5 closure alone | – | – | – | C3 oracle |
+| **VR** = family-balanced ln(1+W/2000)-weighted means + Depth + Close, S1 | 0.3403 | 0.3182 | 0.3634 | none of C1–C5 (on R1's attack set) |
+
+The suite change is necessary: on S0 no formula can credit DGH, because it kills nothing on a scored cell.
+
+**R2 (`experiments/E26_dynamics/`).** OpenEvolve with a blind genome mutator over five atoms (R recipe, D DGH, C the (10,22)
+closing certificate, T a (12,18) certificate, U an unsound-mirror twin), real Lean gate per genome; 12 seeds × 50 iterations and
+8 seeds × 150 iterations per configuration (fixed seeds do not make OpenEvolve reproducible: `database.py` samples from
+`list(set(uuid4 ids))`).  At 150 iterations: V0/S0 best 0.2594, the reported best contains D in 1/8 runs, R+D population share
+0.31; under VR / V3+V4+V5 / V0/S1 the best is R+D+C in 32/32 runs, R+D reaches 84–94 % of the population, 68–76 % of parents,
+~20/20 archive slots; the three are dynamically indistinguishable (pairwise p ≥ 0.12).  MAP-Elites axis `gain_concentration`
+instead of `lean_ladder`: +1.7 D elite cells at 50 iterations (p = 0.019), gone at 150 (p = 0.78) because OpenEvolve culls by
+global fitness — **negative result, config unchanged**.  0 soundness violations in 124 runs; but the unsound-mirror twin ties its
+sound twin (E19 rule: L5 Lean + wrong mirror = verified score), so it is the *reported* best in 3/8 VR runs at 150 iterations.
+
+**R3 (`experiments/E25_reward/attacks/`, offline).** No realizable program beats the genuine rules under VR, but four weaknesses
+with one cause (credit keyed on labelled work that is tiny or inflated by the censored ceiling):
+1. VR's closure bonus was paid on an inflated label: the (10,22,111) certificate scores 0.3087 because one censored case is labelled
+   400k; its true d is 34,219 (the whole cell is 58,333 conflicts).  On the final ground truth the recipe scores 0.2998, not R1's
+   0.3374 (R1's GT column predates the final file).
+2. Easy-case oracles break C3 once the threshold moves off 2k: kill every exact d ≤ 5k → 0.3422 (> recipe 0.3403); d ≤ 20k → 0.4136.
+3. Clearing all 7 tables with < 1e5 conflicts of true work → 0.3929; realizable part (pool certificates on small tables) 0.3187.
+4. Clearing a tiny table (8 cases, 9.6e3 conflicts) outranks f_weak, which removes 1.98e7 target conflicts.
+**Fix (VR\*\*):** count only work above 20,000 conflicts per case (d' = max(0, d − 20k), the HARD regime); compute Depth/Close
+importance from LOWER-BOUND work (exact d, else conflicts reached — never fhat); credit Depth/Close only on cells with
+≥ 1e6 lower-bound conflicts.  Under VR\*\* every attack shape scores below the genuine rules and no tiny-table clear beats f_weak;
+C2 2.97; the cost is C5: 1.04 on table labels, **0.81** on ground-truth labels (just above the 0.8 bar), because the recipe loses its
+inflated closure.  Not holes: splitting a rule, the tail tie-break (aligned with true difficulty), the single-cell square target.
+
+## E27 — 2026-09-23 — Integration: the hardness model is the censored label, reward v3 + suite v3 are live
+
+Full report: `docs/build/INTEGRATION.md` (batch 3).  Scripts and outputs: `experiments/E27_integration/`.
+
+**What changed.** `difficulty.py`: a case open at ≥ 20k conflicts is labelled by the E25 winner
+(`zar_ub/hardness_model.py`) from the statistics of its own fresh 20k run (now stored in the probe as `ps20k`),
+`d = min(max(r, d̂), max(r, 2M))` with r = conflicts reached; `ZAR_UB_DIFFICULTY=legacy` restores fhat.
+`reward.py` v3 = R3's VR\*\* (`ZAR_UB_REWARD=v2` restores v2); `suite.py` v3 = S1 (7 square + 7 wide exact TRAIN cells,
+7 non-empty targets, 4 GEN cells); the evaluator gates only library survivors (8,817 of 19,317 scored cases);
+prompt/initial-program credit text rewritten; one gate fix (gate v2.2, below).
+
+**Relabel (cost in CaDiCaL conflicts).**
+* E24 write-back (no solver): 1,088 exact labels + 186 raised lower bounds into 12 tables.
+* Model relabel of every remaining censored case of the scored tables: 11,840 cases (11,649 model, 191 at the 2M lower
+  bound), **32.0 min wall on 12 processes, 0.283 G conflicts, 349 G propagations, 22,990 solver-s**; no re-probe decided
+  a case.  Before: one distinct censored label (400,000) on (12,18), (10,23), (11,23), (13,19), (16,17); after: 1,172 / 908 /
+  134 / 1,487 / 298 distinct labels; 2,468 of 6,452 censored target survivors (38 %; 2,474 of 6,458 including (9,23)) at the 2M ceiling [corrected E28].
+* `python -m zar_ub calibrate --model --holdout "12,13,87"` (no solver): held-out (12,13,87) hard cases ρ **0.879** (legacy
+  0.182), log-RMSE 0.33 (0.84); leave-one-shape-out within-cell ρ 0.845 (legacy 0.324), log-RMSE 0.48 (1.12).
+
+**Before/after, difficulty (E25 protocol, held out by shape, HARD regime):** within-cell ρ 0.324 → 0.837, Harrell C 0.552 → 0.847,
+log-RMSE 1.116 → 0.510, reward gain error 0.061 → 0.020, tail error 0.164 → 0.046; target cells ρ 0.514 → 0.835.
+
+**Before/after, reward (live evaluator, default suite; golden bank, all 119 unit tests OK in 1,620 s):**
+
+| candidate | v2 (before) | v3 (after) |
+|---|---|---|
+| initial / e3_relist / python_only_dgh4 / cond_* / instance_specific | 0.2000 | 0.2000 |
+| **lean_dgh4** (DGH, closes (11,21)) | **0.2000** | **0.3921** |
+| schema_recipe (search mode, live) | 0.2594 | 0.2497 |
+| schema_farkas (8 hand-picked TRAIN certificates) | 0.2496 | 0.2014 |
+| cert_close_10_22 (R3 finding 1, VR paid 0.3087) | 0.2000 | 0.2041 |
+| e2_easy_certs (exploit) | 0.2068 | 0.2003 |
+| e1_dgh_s2 (exploit; v2/S1 paid 0.2400) | 0.2000 | 0.2000 |
+| unsound_row7 (mirror unsound, Lean = library) | 0.2000, battery 0 | 0.2000, battery 0 |
+| forbidden-construct bank / L1–L3 sketches | 0 / ≤ 0.19 | 0 / ≤ 0.19 (unchanged) |
+
+Offline re-score of R1's Lean-gated masks and R3's attack shapes with the final code (`rescore_benchmark.py`, `rescore.md`):
+recipe 0.2594 → 0.2430 (frozen twin), DGH 0.2000 → 0.3921, recipe+DGH 0.2594 → 0.4118, f_weak 0.2286 → 0.2126; every realizable
+exploit ≤ 0.2041; every R3 exploit shape at 0.2000–0.2223 (v2: up to 0.5892) except R3's tail sniper (0.3186; R3: not a hole, it
+removes 4× the recipe's work in the targets' hardest decile).  `--check` reproduces R3's VR\*\* column exactly.
+Changing only the labels (v2 on the new labels) moves DGH not at all (0.2000) and the recipe 0.2594 → 0.2556: **accurate
+difficulty does not fix pitfall 2; the suite + formula change does.**
+
+**Honest negatives.** (1) R1's C5 fails: the general recipe keeps 72 % of its v2 uplift (bar 80 %); v3 prizes closing a cell
+(DGH: 4.5× the recipe's uplift for 0.4× its lower-bound work removed) over thinning many.  (2) GEN carries no weight in v3 (all
+GEN cases ≤ 1,080 conflicts).  (3) A third of the censored target survivors are tied at the 2M ceiling.  (4) R2's dynamics
+were measured on VR, not on the shipped v3.  (5) D5's cheaper-and-better "deepen to 50k first" was not run.
+
+**Gate fix found on the way (gate v2.2).** The conditional entry point's generated `gateKillK_eq := rfl` ran out of heartbeats on
+(13,19,123) and (16,17,134), so any `candidateF` program was L1 there; the harness now gives that one theorem 2M heartbeats.
+
+## E28 — 2026-09-23 — Follow-ups to the batch-3 verifier: deepen-to-50k, mirror penalty, doc fixes
+
+**Deepen target survivors to 50k before estimating** (D5's recommendation, EVALUATION.md 4.5).
+`python -m zar_ub deepen M N 3 3 W --cap 50000 --jobs 12 --survivors` (new `--survivors` flag: skip cases
+the proved library kills, since their label never enters the reward) on the five target tables;
+script `experiments/E28_deepen50k/run.sh`, log `run.log`, pre-run table copies in the same folder (gitignored).
+
+| target | censored survivors deepened | solved within 50k | still open (model label, floored at 50k) | wall |
+|---|---|---|---|---|
+| (12,18) 109 | 1,386 | 92 | 1,294 | 4.4 min |
+| (10,23) 113 | 1,188 | 18 | 1,170 | 3.8 min |
+| (11,23) 124 | 336 | 4 | 332 | 1.3 min |
+| (13,19) 123 | 2,490 | 105 | 2,385 | 10.0 min |
+| (16,17) 134 | 918 | 7 | 911 | 5.1 min |
+
+226 of 6,318 (3.6 %) became exact; no SAT anywhere; records and baseline masks unchanged (checked against
+the copies). As D5 predicted, the gain on *target* cells is small (their hard cases rarely finish within
+50k: within-cell ranking 0.835 -> 0.850 in D5's held-out test); it is large on near-square cells. Survivors
+still tied at the 2M ceiling after the pass: 280 / 203 / 253 / 1,049 / 683.
+
+**Unsound-mirror twins.** E26 showed a program whose Python mirror is unsound but whose Lean is L5 tied
+its sound twin and was reported as the best program in 3/8 runs. `reward.MIRROR_PENALTY = 0.02` is now
+subtracted in that case, so the sound twin always ranks strictly above. `unsound_row7` and
+`experiments/E6_evaluator/unsound_program.py` (Lean = the sound library) now score **0.18** (golden band
+updated). Stale "unsound = 0" rows in `docs/build/B-reward.md` and `INTEGRATION.md` are annotated.
+
+**Doc fix.** E27's "2,468 of 7,452 (33 %)" censored target survivors at the 2M ceiling is 2,468 of 6,452 (38 %).
+
+## E29 — 2026-09-23 — Rebalancing: the closure bonus is for TARGET cells only
+
+**Problem found in the E27 re-score.** With the closure bonus over TRAIN ∪ TARGET, DGH — which closes the
+wide *practice* cell (11,21) (value already known) and helps no target (G_target 0.0005) — scored 0.3921,
+**3.9x the uplift** of the general recipe (0.2497), which thins every target (G_target 0.067) and removes
+2.5x more lower-bound work. The fix for "specialists are under-rewarded" had overshot.
+
+**Offline weight sweep** (`experiments/E29_weights/sweep.py`; components are weight-independent, so every
+weight vector is scored exactly on the E27 benchmark; G_gen reconstructed from the stored scores).
+Criteria: P1 DGH and recipe uplifts within 2x of each other; P2 recipe+DGH above both; P3 every real
+exploit below min(recipe, DGH); P4 tiny-table clears <= f_weak; P5 target-helping f_weak above every
+real exploit. The shipped weights fail P1 (ratio 3.9). 111 feasible vectors exist; every one of them puts
+(almost) no weight on a closure bonus over practice cells — a feasible region with closure weight >= 0.06
+is empty. So the principled change, rather than a tuned weight vector: **Close = importance of the best
+TARGET cell closed** (closing a target = a bound with zero SAT, the thesis objective); closing a practice
+cell still pays through Depth (= a_I when closed). Weights unchanged.
+
+**Result** (live evaluator, and `experiments/E29_weights/rescore_final.md` for the whole benchmark):
+
+| program | E27 shipped | E29 |
+|---|---|---|
+| initial | 0.2000 | 0.2000 |
+| DGH (`lean_dgh4`) | 0.3921 | **0.3105** |
+| general recipe (`schema_recipe`, live) | 0.2497 | 0.2497 |
+| recipe + DGH | 0.4118 | **0.3301** |
+| f_weak (target-helping weak rule) | 0.2126 | 0.2127 |
+| best real exploit | 0.2041 | 0.2041 |
+| tail-index sniper (oracle shape, removes 4x the recipe's work) | 0.3186 | 0.3186 |
+
+DGH/recipe uplift ratio 2.2 (live recipe; 2.6 vs the frozen 34-certificate recipe) — DGH still clearly
+above the general rule, as a cell-closing argument should be, but no longer dominating it; all exploit
+criteria still hold; monotonicity test passes. Unit test `test_closure_bonus_formula` updated (a TRAIN
+closure pays Depth, not Close). C5 (recipe keeps >= 80 % of its old uplift) stays at 72 % against the frozen
+recipe: its old credit came from easy cases and inflated 400k labels, which the new labels removed.
+
+**E29 dynamics re-run with the SHIPPED reward** (E26's open item: R2 had measured VR, not the shipped
+v3).  `experiments/E26_dynamics/run_shipped.sh`: the same synthetic-mutator harness and atom bank (R = general
+recipe, D = DGH, C = one-cell certificates, T = subsumed target certificates, B = broken proof, U = unsound
+mirror), live evaluator unchanged ("V0 live" = v3 + E28 penalty + E29 target-only closure), 8 seed pairs x
+150 iterations (culling active).  Results `experiments/E26_dynamics/results/aggregate_E29.{md,json}`:
+
+| reward (150 iterations, 8 seeds) | best score | best program contains R and D | population share R+D | population share D | best program has an unsound mirror (U) | audit violations |
+|---|---|---|---|---|---|---|
+| v2 (before batch 3) | 0.2594 | 1/8 | 0.31 | 0.31 | 1/8 | 0 |
+| VR (R1's recommendation) | 0.3700 | 8/8 | 0.84 | 0.84 | 3/8 | 0 |
+| **shipped (v3 + E28 + E29)** | **0.3367** | **8/8 (R+D+C every run)** | **0.90** | **0.97** | **0/8** | **0** |
+
+The specialist is found by iteration ~9 and spreads; the best program is the general rule plus both
+specialists in every run; the mirror penalty works (U-carrying programs score 0.3167 = best − 0.02 and are
+never reported best).  Full unit suite after E28/E29: **119 tests OK** (700 s,
+`experiments/E29_weights/unittest_final.log`).

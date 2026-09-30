@@ -1,0 +1,289 @@
+{
+ "shipped": {
+  "weights": {
+   "tr": 0.28,
+   "ta": 0.21,
+   "ge": 0.07,
+   "tl": 0.14,
+   "de": 0.15,
+   "cl": 0.15
+  },
+  "criteria": {
+   "P1": false,
+   "P2": true,
+   "P3": true,
+   "P4": true,
+   "P5": true
+  },
+  "ratio_dgh_over_recipe": 3.869216344857474,
+  "C5": 0.8359084408356325,
+  "scores": {
+   "schema_pool": 0.2497,
+   "lean_dgh4": 0.3921,
+   "recipe_dgh": 0.4118,
+   "f_weak": 0.2126
+  }
+ },
+ "n_feasible": 111,
+ "closest": [
+  {
+   "weights": {
+    "tr": 0.28,
+    "ta": 0.32,
+    "ge": 0.07,
+    "tl": 0.18,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.3,
+   "ratio": 1.992,
+   "C5": 0.945,
+   "scores": {
+    "schema_pool": 0.2561,
+    "lean_dgh4": 0.3118,
+    "recipe_dgh": 0.3378,
+    "f_weak": 0.2151
+   },
+   "max_real_exploit": 0.206
+  },
+  {
+   "weights": {
+    "tr": 0.28,
+    "ta": 0.36,
+    "ge": 0.07,
+    "tl": 0.14,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.3,
+   "ratio": 1.919,
+   "C5": 0.97,
+   "scores": {
+    "schema_pool": 0.2576,
+    "lean_dgh4": 0.3106,
+    "recipe_dgh": 0.3382,
+    "f_weak": 0.2159
+   },
+   "max_real_exploit": 0.2063
+  },
+  {
+   "weights": {
+    "tr": 0.3,
+    "ta": 0.34,
+    "ge": 0.07,
+    "tl": 0.14,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.3,
+   "ratio": 1.954,
+   "C5": 0.965,
+   "scores": {
+    "schema_pool": 0.2573,
+    "lean_dgh4": 0.312,
+    "recipe_dgh": 0.3389,
+    "f_weak": 0.2155
+   },
+   "max_real_exploit": 0.206
+  },
+  {
+   "weights": {
+    "tr": 0.32,
+    "ta": 0.32,
+    "ge": 0.07,
+    "tl": 0.14,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.3,
+   "ratio": 1.989,
+   "C5": 0.959,
+   "scores": {
+    "schema_pool": 0.257,
+    "lean_dgh4": 0.3134,
+    "recipe_dgh": 0.3396,
+    "f_weak": 0.2151
+   },
+   "max_real_exploit": 0.2057
+  },
+  {
+   "weights": {
+    "tr": 0.26,
+    "ta": 0.34,
+    "ge": 0.07,
+    "tl": 0.18,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.34,
+   "ratio": 1.956,
+   "C5": 0.95,
+   "scores": {
+    "schema_pool": 0.2564,
+    "lean_dgh4": 0.3104,
+    "recipe_dgh": 0.337,
+    "f_weak": 0.2155
+   },
+   "max_real_exploit": 0.2063
+  },
+  {
+   "weights": {
+    "tr": 0.26,
+    "ta": 0.38,
+    "ge": 0.07,
+    "tl": 0.14,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.34,
+   "ratio": 1.884,
+   "C5": 0.976,
+   "scores": {
+    "schema_pool": 0.258,
+    "lean_dgh4": 0.3092,
+    "recipe_dgh": 0.3375,
+    "f_weak": 0.2163
+   },
+   "max_real_exploit": 0.2066
+  },
+  {
+   "weights": {
+    "tr": 0.24,
+    "ta": 0.36,
+    "ge": 0.07,
+    "tl": 0.18,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.38,
+   "ratio": 1.921,
+   "C5": 0.956,
+   "scores": {
+    "schema_pool": 0.2568,
+    "lean_dgh4": 0.309,
+    "recipe_dgh": 0.3363,
+    "f_weak": 0.2159
+   },
+   "max_real_exploit": 0.2066
+  },
+  {
+   "weights": {
+    "tr": 0.28,
+    "ta": 0.4,
+    "ge": 0.07,
+    "tl": 0.1,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.38,
+   "ratio": 1.849,
+   "C5": 0.996,
+   "scores": {
+    "schema_pool": 0.2592,
+    "lean_dgh4": 0.3094,
+    "recipe_dgh": 0.3387,
+    "f_weak": 0.2166
+   },
+   "max_real_exploit": 0.2066
+  },
+  {
+   "weights": {
+    "tr": 0.3,
+    "ta": 0.38,
+    "ge": 0.07,
+    "tl": 0.1,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.38,
+   "ratio": 1.882,
+   "C5": 0.99,
+   "scores": {
+    "schema_pool": 0.2588,
+    "lean_dgh4": 0.3107,
+    "recipe_dgh": 0.3394,
+    "f_weak": 0.2162
+   },
+   "max_real_exploit": 0.2063
+  },
+  {
+   "weights": {
+    "tr": 0.32,
+    "ta": 0.36,
+    "ge": 0.07,
+    "tl": 0.1,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.38,
+   "ratio": 1.917,
+   "C5": 0.985,
+   "scores": {
+    "schema_pool": 0.2585,
+    "lean_dgh4": 0.3121,
+    "recipe_dgh": 0.3401,
+    "f_weak": 0.2158
+   },
+   "max_real_exploit": 0.206
+  },
+  {
+   "weights": {
+    "tr": 0.34,
+    "ta": 0.34,
+    "ge": 0.07,
+    "tl": 0.1,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.38,
+   "ratio": 1.951,
+   "C5": 0.979,
+   "scores": {
+    "schema_pool": 0.2582,
+    "lean_dgh4": 0.3135,
+    "recipe_dgh": 0.3408,
+    "f_weak": 0.2154
+   },
+   "max_real_exploit": 0.2057
+  },
+  {
+   "weights": {
+    "tr": 0.36,
+    "ta": 0.32,
+    "ge": 0.07,
+    "tl": 0.1,
+    "de": 0.15,
+    "cl": 0.0
+   },
+   "L1_change": 0.38,
+   "ratio": 1.986,
+   "C5": 0.974,
+   "scores": {
+    "schema_pool": 0.2579,
+    "lean_dgh4": 0.3149,
+    "recipe_dgh": 0.3415,
+    "f_weak": 0.215
+   },
+   "max_real_exploit": 0.2054
+  }
+ ],
+ "max_C5_feasible": 1.065,
+ "real_exploits": [
+  "cert_close_10_22",
+  "cert_one_train",
+  "e1_dgh_s2",
+  "e2_easy_certs",
+  "e3_relist",
+  "inst_dgh_10_23",
+  "instance_specific",
+  "R3 A5 real: pool certs on small tables only",
+  "R3 A4 real: pool certs + DGH on small tables only",
+  "R3 B4 real: pool certs killing only exact d<=20k",
+  "R3 C1 real: cert_close_10_22"
+ ],
+ "tiny": [
+  "R3 A1 clear GEN (9,9;4,4)",
+  "R3 A2 clear (9,12,64)",
+  "R3 A2 clear (10,10,61)"
+ ]
+}

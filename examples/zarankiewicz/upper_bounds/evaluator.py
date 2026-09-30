@@ -5,6 +5,7 @@
                     counterexample battery, the static scan of LEAN_SOURCE, SCHEMA_DATA validation.
                     combined_score = 0 if hard-zero else 0.01 + 0.08·E.
   stage 2  (2–6 s)  ONE Lean process (`zar_ub.lean_gate.run_gate_multi`) on TRAIN ∪ GEN ∪ TARGET
+                    (E27: only each table's library survivors + witnessed cases are sent to Lean)
                     plus the witnessed battery cases → ladder L0–L5, K^L per instance, axioms,
                     holes.  Scored WITHOUT the target term (design §5.5).
   stage 3  (≈0 s)   the same masks scored WITH the TARGET tables (full §5.3 formula).
@@ -67,7 +68,7 @@ try:
 except ImportError:  # pragma: no cover
     LIBRARY_LEAN = "def candidate (P : Params) : Prune P := Prune.or (baseline P) (counting P)\n"
 CANDIDATE_TIMEOUT = 90.0
-GATE_TIMEOUT = 240.0
+GATE_TIMEOUT = 480.0  # E27: suite v3 has ~4x the cases of v2 (the gate sees only library survivors, see below)
 _MEMO_MAX = 32
 
 _STATE: dict = {"suite": None, "table_hash": None, "library": None}
@@ -332,8 +333,15 @@ def _gate_data(program_path: str, s1: dict) -> dict:
         return _MEMO_GATE[sha]
     t0 = time.time()
     suite = _suite()
-    scored = [(kind, inst, tab) for kind, inst, tab in _scored(suite) if tab.records]
-    inputs = [(inst, [(r.rows, r.cols) for r in tab.records]) for _, inst, tab in scored]
+    lib = _library_masks(suite)
+    # E27: Lean evaluates the candidate only on the cases the reward can see -- the library survivors
+    # S_I (every one, not the CRN sample) and any witnessed case (PIPELINE_BUG check).  A kill of a case
+    # the proved library already kills earns nothing, so gating it only cost time (suite v3: ~19k cases,
+    # ~9k of them survivors).  Masks are expanded back to full length with False elsewhere.
+    positions = {inst.tag: _gate_positions(tab, lib.get(inst.tag)) for _, inst, tab in _scored(suite)}
+    scored = [(kind, inst, tab) for kind, inst, tab in _scored(suite) if positions[inst.tag]]
+    inputs = [(inst, [(tab.records[i].rows, tab.records[i].cols) for i in positions[inst.tag]])
+              for _, inst, tab in scored]
     schema_terms = s1.get("schema_terms")
     if schema_terms is not None:
         # re-render against the gate's numbering: targetK is the index in the FILTERED `scored` list
@@ -379,11 +387,12 @@ def _gate_data(program_path: str, s1: dict) -> dict:
         out["ladders"][inst.tag] = lad
         if getattr(g, "typed_ok", False):
             typed += 1
-        if lad == 5 and getattr(g, "kill_mask", None) is not None and len(g.kill_mask) == len(tab.records):
-            out["lean_masks"][inst.tag] = [bool(x) for x in g.kill_mask]
+        pos = positions[inst.tag]
+        if lad == 5 and getattr(g, "kill_mask", None) is not None and len(g.kill_mask) == len(pos):
+            out["lean_masks"][inst.tag] = _expand(g.kill_mask, pos, len(tab.records))
         sm = getattr(g, "schema_mask", None)
-        if sm is not None and len(sm) == len(tab.records):
-            out["schema_masks"][inst.tag] = [bool(x) for x in sm]
+        if sm is not None and len(sm) == len(pos):
+            out["schema_masks"][inst.tag] = _expand(sm, pos, len(tab.records))
         if getattr(g, "cond_name", None) is not None:
             out["gate_info"]["cond"][inst.tag] = g.cond_name
         out["gate_info"]["n_facts"][inst.tag] = int(getattr(g, "n_facts", 0) or 0)
@@ -394,6 +403,9 @@ def _gate_data(program_path: str, s1: dict) -> dict:
             for i, v in zip(pos, km):
                 full[i] = bool(v)
             out["lean_masks"][inst.tag] = full
+    for _, inst, tab in _scored(suite):  # nothing to verify on this table: an all-False (sound) mask
+        if not positions[inst.tag] and tab.records and ladders and reward.combine_ladders(ladders) == 5:
+            out["lean_masks"].setdefault(inst.tag, [False] * len(tab.records))
     g0 = results[0] if results else None
     ladder = reward.combine_ladders(ladders)
     out["ladder"] = ladder
@@ -423,6 +435,26 @@ def _gate_data(program_path: str, s1: dict) -> dict:
     gi["axioms"] = sorted(set(a for g in results for a in (getattr(g, "axioms", None) or [])))
     out["seconds"] = time.time() - t0
     return _memo_put(_MEMO_GATE, sha, out)
+
+
+def _gate_positions(tab, lib_mask) -> List[int]:
+    """Record indices the Lean gate evaluates for one scored table: probed cases the proved library
+    does not kill (S_I without the CRN sample restriction) plus every witnessed case."""
+    base = getattr(tab, "baseline_lean_mask", None) or lib_mask
+    out = []
+    for i, r in enumerate(tab.records):
+        if getattr(r, "probe", None) is None:
+            continue
+        if reward.is_witnessed(r) or not (base and i < len(base) and base[i]):
+            out.append(i)
+    return out
+
+
+def _expand(mask, pos: List[int], n: int) -> List[bool]:
+    full = [False] * n
+    for i, v in zip(pos, mask):
+        full[i] = bool(v)
+    return full
 
 
 # --------------------------------------------------------------------------------------

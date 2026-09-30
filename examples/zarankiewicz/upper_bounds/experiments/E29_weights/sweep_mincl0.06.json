@@ -1,0 +1,48 @@
+{
+ "shipped": {
+  "weights": {
+   "tr": 0.28,
+   "ta": 0.21,
+   "ge": 0.07,
+   "tl": 0.14,
+   "de": 0.15,
+   "cl": 0.15
+  },
+  "criteria": {
+   "P1": false,
+   "P2": true,
+   "P3": true,
+   "P4": true,
+   "P5": true
+  },
+  "ratio_dgh_over_recipe": 3.869216344857474,
+  "C5": 0.8359084408356325,
+  "scores": {
+   "schema_pool": 0.2497,
+   "lean_dgh4": 0.3921,
+   "recipe_dgh": 0.4118,
+   "f_weak": 0.2126
+  }
+ },
+ "n_feasible": 0,
+ "closest": [],
+ "max_C5_feasible": 0,
+ "real_exploits": [
+  "cert_close_10_22",
+  "cert_one_train",
+  "e1_dgh_s2",
+  "e2_easy_certs",
+  "e3_relist",
+  "inst_dgh_10_23",
+  "instance_specific",
+  "R3 A5 real: pool certs on small tables only",
+  "R3 A4 real: pool certs + DGH on small tables only",
+  "R3 B4 real: pool certs killing only exact d<=20k",
+  "R3 C1 real: cert_close_10_22"
+ ],
+ "tiny": [
+  "R3 A1 clear GEN (9,9;4,4)",
+  "R3 A2 clear (9,12,64)",
+  "R3 A2 clear (10,10,61)"
+ ]
+}

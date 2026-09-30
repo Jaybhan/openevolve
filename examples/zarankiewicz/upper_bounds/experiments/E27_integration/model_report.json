@@ -1,0 +1,86 @@
+{
+ "model": [
+  "pr:ps20k_decs_per_conf",
+  "pr:ps20k_restarts_per_kconf",
+  "la:knfl_rand_mean_log_nodes",
+  "pr:st_distinct_rows",
+  "la:la1_failed_neg",
+  "pr:st_argD_row_mean_rel"
+ ],
+ "n_hard_exact": 2238,
+ "holdout": [
+  [
+   12,
+   13
+  ]
+ ],
+ "holdout_model": {
+  "n": 104,
+  "pooled_rho": 0.8791658998374914,
+  "within_rho_mean": 0.8791658998374914,
+  "cells_constant": 0,
+  "log_rmse": 0.3304788000826965,
+  "per_cell_rho": {
+   "m12_n13_s3_t3_w87_pure": 0.8791658998374914
+  }
+ },
+ "holdout_legacy": {
+  "n": 104,
+  "pooled_rho": 0.18209156677598246,
+  "within_rho_mean": 0.18209156677598246,
+  "cells_constant": 0,
+  "log_rmse": 0.8432456556115876,
+  "per_cell_rho": {
+   "m12_n13_s3_t3_w87_pure": 0.18209156677598246
+  }
+ },
+ "loso_model": {
+  "n": 2238,
+  "pooled_rho": 0.8808001185191167,
+  "within_rho_mean": 0.8447731620224109,
+  "cells_constant": 0,
+  "log_rmse": 0.48012353099746424,
+  "per_cell_rho": {
+   "m10_n14_s3_t3_w78_pure": 0.7573217972667693,
+   "m10_n19_s3_t3_w99_pure": 0.9091143084710571,
+   "m10_n20_s3_t3_w103_pure": 0.9154977763064673,
+   "m11_n11_s3_t3_w70_pure": 0.8064567930742357,
+   "m11_n12_s3_t3_w75_pure": 0.8180266891481517,
+   "m11_n21_s3_t3_w117_pure": 0.908102766798419,
+   "m12_n12_s3_t3_w81_pure": 0.7367596869622809,
+   "m12_n13_s3_t3_w87_pure": 0.8791658998374914,
+   "m12_n18_s3_t3_w109": 0.8398738259975034,
+   "m13_n13_s3_t3_w93_pure": 0.8819236523087528,
+   "m13_n19_s3_t3_w123": 0.8472424412094065,
+   "m16_n17_s3_t3_w134": 0.8128162408984326,
+   "m9_n16_s3_t3_w78_pure": 0.7769926128174086,
+   "m9_n18_s3_t3_w86_pure": 0.8993713578922704,
+   "m9_n23_s3_t3_w104": 0.8829315813475148
+  }
+ },
+ "loso_legacy": {
+  "n": 2238,
+  "pooled_rho": 0.5084896058503258,
+  "within_rho_mean": 0.3241735618474879,
+  "cells_constant": 7,
+  "log_rmse": 1.1157590385265512,
+  "per_cell_rho": {
+   "m10_n14_s3_t3_w78_pure": NaN,
+   "m10_n19_s3_t3_w99_pure": 0.3997211533173572,
+   "m10_n20_s3_t3_w103_pure": 0.3500050444220883,
+   "m11_n11_s3_t3_w70_pure": NaN,
+   "m11_n12_s3_t3_w75_pure": NaN,
+   "m11_n21_s3_t3_w117_pure": NaN,
+   "m12_n12_s3_t3_w81_pure": NaN,
+   "m12_n13_s3_t3_w87_pure": 0.18209156677598246,
+   "m12_n18_s3_t3_w109": 0.33548173870234044,
+   "m13_n13_s3_t3_w93_pure": 0.23142917508255,
+   "m13_n19_s3_t3_w123": NaN,
+   "m16_n17_s3_t3_w134": NaN,
+   "m9_n16_s3_t3_w78_pure": 0.19028337908816126,
+   "m9_n18_s3_t3_w86_pure": 0.21138166728592528,
+   "m9_n23_s3_t3_w104": 0.6929947701054984
+  }
+ },
+ "note": "fixed 6-feature model refitted per fold (features selected on all data); strictly nested numbers are in experiments/E24_difficulty/EVALUATION.md (within 0.837 vs legacy 0.324)"
+}

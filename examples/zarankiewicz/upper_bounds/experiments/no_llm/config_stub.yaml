@@ -114,51 +114,57 @@ prompt:
     \   intro A hk hv\n      have h1 : (P.t - 1) * (P.m).choose P.s < sumFin P.n (fun j => (colSum A j).choose P.s) :=\n \
     \       of_decide_eq_true hk\n      rw [sumFin_eq_sum] at h1\n      have h2 := colBudget P A hv.1\n      omega\n(hk :\
     \ kill (profileOf A) = true; hv : Valid P A, so hv.1 : ¬ HasKst P A and hv.2 : P.w ≤ weight A.)\n\nREWARD. Only the Lean-evaluated\
-    \ kill of `candidate` (plus the harness-instantiated schemas from SCHEMA_DATA)\nearns credit: the difficulty-weighted\
-    \ fraction (SAT solver conflicts) of the cases that SURVIVE the already\nproved library `counting` (Arguments A and D\
-    \ on both sides, deletion with the waterfilled counting bound)\nthat your prunes kill, on training cells, open target\
-    \ cells, a held-out (s,t) cell, and the hardest decile.\nA verified library that kills nothing scores exactly 0.20; no\
-    \ unverified program can exceed 0.19 (partial\ncredit for how far the Lean file gets: parses < kills type-check < holes\
-    \ remain < holes filled), and killing a\nrealizable case scores 0. Re-proving or re-listing library prunes earns nothing:\
-    \ the baseline is already PROVED.\n\nWHERE THE ROOM IS. Look at the hardest surviving profiles in the artifacts (per_instance:\
-    \ near-regular rows/cols\nof 6s, 7s and 8s) and find a NEW reason such a profile is empty:\n  * the Davies-Gill-Horsley\
-    \ `v = s-1` rounding inequality (their constraint (4)): for each (s-1)-set X of rows,\n    Σ_{j ⊇ X} (c_j - s + 1) ≤ (t-1)(m-s+1);\
-    \ with D = k-s+1, R = (t-1)(m-s+1), α = R mod D, c = (R-α)/D the\n    leftover α < D cannot buy a fraction of a column,\
-    \ so for s ≤ k ≤ m:\n    Σ_{c_j<k} (c_j-s+1)·C(c_j,s-1) + (D-α)·Σ_{c_j≥k} C(c_j,s-1) ≤ (D-α)·c·C(m,s-1) + α·Σ_{c_j<k}\
-    \ C(c_j,s-1)\n    (row dual with (t,s,n,m) swapped; check complete partitions only). It closes z(13,17) ≤ 116 and z(13,18)\
-    \ ≤ 121\n    with zero SAT calls; it is proved in the library as `argDGH P` (DGH.lean) but not in the scoring baseline,\n\
-    \    so it earns credit only on wide target cells -- on the square training cells it kills nothing, and the\n    room\
-    \ there is in arguments that go BEYOND it (per-row rounding P10, general v P9 via `subsetLocalBudget`);\n  * cross-side\
-    \ arguments coupling `rows` AND `cols` at once (a heavy row meets r columns, whose sums bound the\n    pair counts available\
-    \ to the other rows; two-line deletions bounded by the (m-1, n-1) waterfill);\n  * residue / overlap arguments mod a small\
-    \ g on the exceptional (lightest or heaviest) columns;\n  * Farkas combinations of the proved inequalities: put the multipliers\
-    \ in SCHEMA_DATA[\"farkas\"], no proof needed.\nPrefer general prunes (parametric in P); instance-specific ones are scored\
-    \ only where they type-check.\n\nSKETCHES ARE ACCEPTED. If you cannot finish `sound`, leave typed holes `have h : <statement>\
-    \ := by sorry`\ninside the `sound := by` block (nowhere else): the harness tries omega/simp_all/decide/linarith/nlinarith/\n\
+    \ kill of `candidate` (plus the harness-instantiated schemas from SCHEMA_DATA)\nearns credit, and only on cases that SURVIVE\
+    \ the already proved library `counting` (Arguments A and D on both\nsides, deletion with the waterfilled counting bound).\
+    \ A killed case is worth its SAT work ABOVE the first\n20,000 solver conflicts, so easy cases earn nothing. Score = 0.20\
+    \ + 0.80 x (0.28 training + 0.21 open targets\n+ 0.07 held-out (s,t) + 0.14 hardest decile + 0.15 DEPTH + 0.15 CLOSURE).\
+    \ Training and target gains are\naveraged inside shape families (square, wide, very wide) and then over the families,\
+    \ so a rule that works\nonly on wide cells counts as much as one that works only on square cells. DEPTH = your best single\
+    \ cell\n(share of its work you kill x how much SAT work it holds). CLOSURE pays when you kill EVERY surviving case\nof\
+    \ a cell holding >= 1e6 conflicts of work: that bound is then proved with zero SAT calls.\nA verified library that kills\
+    \ nothing scores exactly 0.20; no unverified program can exceed 0.19 (partial\ncredit for how far the Lean file gets:\
+    \ parses < kills type-check < holes remain < holes filled), and killing a\nrealizable case scores 0. Re-proving or re-listing\
+    \ baseline prunes earns nothing: the baseline is already PROVED.\n\nWHERE THE ROOM IS. Look at the hardest surviving profiles\
+    \ in the artifacts (per_instance: near-regular rows/cols\nof 6s, 7s and 8s) and find a NEW reason such a profile is empty:\n\
+    \  * the Davies-Gill-Horsley `v = s-1` rounding inequality (their constraint (4)): for each (s-1)-set X of rows,\n   \
+    \ Σ_{j ⊇ X} (c_j - s + 1) ≤ (t-1)(m-s+1); with D = k-s+1, R = (t-1)(m-s+1), α = R mod D, c = (R-α)/D the\n    leftover\
+    \ α < D cannot buy a fraction of a column, so for s ≤ k ≤ m:\n    Σ_{c_j<k} (c_j-s+1)·C(c_j,s-1) + (D-α)·Σ_{c_j≥k} C(c_j,s-1)\
+    \ ≤ (D-α)·c·C(m,s-1) + α·Σ_{c_j<k} C(c_j,s-1)\n    (row dual with (t,s,n,m) swapped; check complete partitions only).\
+    \ It closes z(13,17) ≤ 116 and z(13,18) ≤ 121\n    with zero SAT calls; it is proved in the library as `argDGH P` (DGH.lean)\
+    \ but not in the scoring baseline,\n    so listing it earns credit where it fires: the wide training cells (it closes\
+    \ (11,21) outright and kills\n    part of (9,16) and (9,18)) and the wide target (10,23). On the square cells it kills\
+    \ nothing, and the\n    room there is in arguments that go BEYOND it (per-row rounding P10, general v P9 via `subsetLocalBudget`);\n\
+    \  * cross-side arguments coupling `rows` AND `cols` at once (a heavy row meets r columns, whose sums bound the\n    pair\
+    \ counts available to the other rows; two-line deletions bounded by the (m-1, n-1) waterfill);\n  * residue / overlap\
+    \ arguments mod a small g on the exceptional (lightest or heaviest) columns;\n  * Farkas combinations of the proved inequalities:\
+    \ put the multipliers in SCHEMA_DATA[\"farkas\"], no proof needed.\nPrefer general prunes (parametric in P); instance-specific\
+    \ ones are scored only where they type-check.\n\nSKETCHES ARE ACCEPTED. If you cannot finish `sound`, leave typed holes\
+    \ `have h : <statement> := by sorry`\ninside the `sound := by` block (nowhere else): the harness tries omega/simp_all/decide/linarith/nlinarith/\n\
     positivity/grind and the library lemmas on each hole and reports the goals of those it cannot close in the\nlean_holes\
     \ artifact, so the next attempt (or you, now) can close them. Keep EVERY verified prune; when a Lean\nproof fails, the\
     \ exact error and goal are in the lean_errors artifact -- fix them rather than deleting the prune.\n\nALREADY PROVED (re-adding\
     \ them earns nothing): deficit, mismatch, rowCap/colCap, Argument A (argA/argAT),\nArgument D (argD/argDT), deletion vs\
-    \ the waterfilled bound (argDelColWF/argDelRowWF/argWF), the DGH inequality\n(argDGH) and Argument I with ledgered facts.\
-    \ Trivial arithmetic (w <= m*n, row sums add up) is already in\nthe baseline. Credit exists ONLY for cases the artifacts\
-    \ list as still alive.\nSEARCH MODE THAT PAYS TODAY: in the Python part of the EVOLVE block write\n    from zar_ub.lemmas\
-    \ import search_certificates\n    SCHEMA_DATA = {\"farkas\": search_certificates(max_seconds=40.0), \"residue\": [], \"\
-    prefix\": []}\n(wrapped in try/except). It reads the case tables you are scored on, solves the pair-codegree LP for every\n\
-    surviving case and returns Farkas certificates that the PROVED Lean schema `Prune.ofFarkas` re-checks --\nverified credit\
-    \ with no new proof. Then improve on it: add hidden-variable inequalities the LP does not\nhave (prove them in Lean as\
-    \ new `Prune`s), or filter/extend the certificate list.\nHOLES: if you cannot finish `sound`, leave typed holes `have\
-    \ h : <statement> := by sorry` inside the\n`sound := by` block -- the harness tries omega/simp/decide/linarith and the\
-    \ library lemmas on each and\nreports the goals it cannot close. A bare `sorry` elsewhere inside `sound := by` is tolerated\
-    \ as an\nuntyped hole (no auto-fill, ladder capped at L2); a sorry anywhere else scores 0.\nNEVER edit the delimiters\
-    \  LEAN_SOURCE = r\\'\\'\\'  and the closing  \\'\\'\\'  (a broken string literal makes\nthe whole program a SyntaxError\
-    \ and scores 0).\nOUTPUT FORMAT (strict): your entire reply is SEARCH/REPLACE blocks, preceded by at most five lines of\n\
-    explanation. Do NOT deliberate, enumerate options, or verify arithmetic in the reply -- a reply that runs\nout of tokens\
-    \ before its first SEARCH/REPLACE block is discarded and earns nothing. Decide privately, then\nemit the blocks.\nIMPORTANT:\
-    \ a change that adds no new mathematical content (re-listing, transposing an already symmetric\nbundle, cosmetic edits)\
-    \ earns nothing. Attempt a SUBSTANTIVE new argument every time: the partial-credit\nterm rewards a serious Lean attempt\
-    \ even if it does not fully compile, and a sound Python kill earns\nempirical credit on its own. Think briefly, then WRITE\
-    \ THE CODE -- most of your output budget must be the\nSEARCH/REPLACE blocks, not deliberation. Your kill must never fire\
-    \ on a realizable case.\n"
+    \ the waterfilled bound (argDelColWF/argDelRowWF/argWF) and Argument I\nwith ledgered facts. (argDGH is proved but NOT\
+    \ in the baseline: listing it once earns its wide-cell credit.)\nTrivial arithmetic (w <= m*n, row sums add up) is already\
+    \ in the baseline. Credit exists ONLY for cases the\nartifacts list as still alive; the score_breakdown artifact shows\
+    \ every term.\nSEARCH MODE THAT PAYS TODAY: in the Python part of the EVOLVE block write\n    from zar_ub.lemmas import\
+    \ search_certificates\n    SCHEMA_DATA = {\"farkas\": search_certificates(max_seconds=40.0), \"residue\": [], \"prefix\"\
+    : []}\n(wrapped in try/except). It reads the case tables you are scored on, solves the pair-codegree LP for every\nsurviving\
+    \ case and returns Farkas certificates that the PROVED Lean schema `Prune.ofFarkas` re-checks --\nverified credit with\
+    \ no new proof. Then improve on it: add hidden-variable inequalities the LP does not\nhave (prove them in Lean as new\
+    \ `Prune`s), or filter/extend the certificate list.\nHOLES: if you cannot finish `sound`, leave typed holes `have h :\
+    \ <statement> := by sorry` inside the\n`sound := by` block -- the harness tries omega/simp/decide/linarith and the library\
+    \ lemmas on each and\nreports the goals it cannot close. A bare `sorry` elsewhere inside `sound := by` is tolerated as\
+    \ an\nuntyped hole (no auto-fill, ladder capped at L2); a sorry anywhere else scores 0.\nNEVER edit the delimiters  LEAN_SOURCE\
+    \ = r\\'\\'\\'  and the closing  \\'\\'\\'  (a broken string literal makes\nthe whole program a SyntaxError and scores\
+    \ 0).\nOUTPUT FORMAT (strict): your entire reply is SEARCH/REPLACE blocks, preceded by at most five lines of\nexplanation.\
+    \ Do NOT deliberate, enumerate options, or verify arithmetic in the reply -- a reply that runs\nout of tokens before its\
+    \ first SEARCH/REPLACE block is discarded and earns nothing. Decide privately, then\nemit the blocks.\nIMPORTANT: a change\
+    \ that adds no new mathematical content (re-listing, transposing an already symmetric\nbundle, cosmetic edits) earns nothing.\
+    \ Attempt a SUBSTANTIVE new argument every time: the partial-credit\nterm rewards a serious Lean attempt even if it does\
+    \ not fully compile, and a sound Python kill earns\nempirical credit on its own. Think briefly, then WRITE THE CODE --\
+    \ most of your output budget must be the\nSEARCH/REPLACE blocks, not deliberation. Your kill must never fire on a realizable\
+    \ case.\n"
   template_variations:
     improvement_areas:
     - 'PROPOSE: add ONE new prune (a `def myPrune (P : Params) : Prune P where ...` in the argA shape) that kills at least
@@ -187,7 +193,7 @@ database:
     lean_ladder: 6
   migration_interval: 20
 evaluator:
-  timeout: 400
+  timeout: 700
   cascade_evaluation: true
   cascade_thresholds:
   - 0.005

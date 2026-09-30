@@ -1,0 +1,158 @@
+{
+ "target": "log d, d = CaDiCaL 1.9.5 conflicts; fitted on exact d > 2000 DEV cases",
+ "n_fit": 3061,
+ "n_hard": 262,
+ "fitted_on": [
+  "m10_n10_s3_t3_w60_pure",
+  "m10_n10_s3_t3_w61_pure",
+  "m10_n11_s3_t3_w64_pure",
+  "m10_n11_s3_t3_w65_pure",
+  "m10_n14_s3_t3_w77_pure",
+  "m10_n14_s3_t3_w78_pure",
+  "m10_n22_s3_t3_w111",
+  "m10_n23_s3_t3_w113",
+  "m11_n11_s3_t3_w69_pure",
+  "m11_n11_s3_t3_w70_pure",
+  "m11_n12_s3_t3_w74_pure",
+  "m11_n12_s3_t3_w75_pure",
+  "m11_n23_s3_t3_w124",
+  "m12_n12_s3_t3_w80_pure",
+  "m12_n12_s3_t3_w81_pure",
+  "m12_n13_s3_t3_w86_pure",
+  "m12_n13_s3_t3_w87_pure",
+  "m12_n18_s3_t3_w109",
+  "m13_n13_s3_t3_w92_pure",
+  "m13_n13_s3_t3_w93_pure",
+  "m13_n19_s3_t3_w123",
+  "m16_n17_s3_t3_w134",
+  "m9_n10_s3_t3_w54_pure",
+  "m9_n10_s3_t3_w55_pure",
+  "m9_n12_s3_t3_w64_pure",
+  "m9_n23_s3_t3_w104",
+  "m9_n9_s3_t3_w49_pure",
+  "m9_n9_s3_t3_w50",
+  "m9_n9_s3_t3_w50_pure"
+ ],
+ "source": "lookahead_features_dev.jsonl",
+ "frozen": "2026-09-22 (before TEST featurisation)",
+ "usage": "log_d = beta0 + sum beta_k (f_k - mu_k)/sd_k ; add hard_shift if the case is known to be unsolved at 20k conflicts",
+ "primary": "fl_only",
+ "models": {
+  "fl_only": {
+   "features": [
+    "log2_volume",
+    "fl_free_cells",
+    "fl_log2vol_rows"
+   ],
+   "mu": [
+    134.98781847266622,
+    152.7046716759229,
+    125.31932054201478
+   ],
+   "sd": [
+    43.19203794094785,
+    41.85723867698293,
+    38.81381235484996
+   ],
+   "beta": [
+    8.964846397216434,
+    -2.9304666863106874,
+    2.357473357526405,
+    0.6830490582592021
+   ],
+   "hard_shift": 1.5123827009636066,
+   "estimate_kwargs": {
+    "n_pairs": 0,
+    "n_probes": 0,
+    "clause_measures": false
+   }
+  },
+  "vol_fl_knfl": {
+   "features": [
+    "log2_volume",
+    "fl_free_cells",
+    "knfl_rand_mean_log_conf"
+   ],
+   "mu": [
+    134.98781847266622,
+    152.7046716759229,
+    25.489330290805277
+   ],
+   "sd": [
+    43.19203794094785,
+    41.85723867698293,
+    4.813149443916742
+   ],
+   "beta": [
+    8.964846397216464,
+    -0.3419245047961288,
+    -0.6245372068401873,
+    1.1863298416721904
+   ],
+   "hard_shift": 1.1163716971623323,
+   "estimate_kwargs": {
+    "n_pairs": 0,
+    "clause_measures": false,
+    "knuth_orders": []
+   }
+  },
+  "vol_la1fail_ams": {
+   "features": [
+    "log2_volume",
+    "la1_failed_frac",
+    "ams_score_mean"
+   ],
+   "mu": [
+    134.98781847266622,
+    0.03263924919011185,
+    38.38133910587881
+   ],
+   "sd": [
+    43.19203794094785,
+    0.008965964073946564,
+    31.106525049436023
+   ],
+   "beta": [
+    8.96484639721647,
+    0.3937953316243796,
+    -0.31722637613262866,
+    -0.21464683849482047
+   ],
+   "hard_shift": 1.375580934578768,
+   "estimate_kwargs": {
+    "n_pairs": 0,
+    "n_probes": 0,
+    "clause_measures": false
+   }
+  },
+  "greedy": {
+   "features": [
+    "la1_failed_frac",
+    "knfl_rand_mean_log_conf",
+    "fl_log2vol_cols",
+    "kn_rand_mean_log_conf"
+   ],
+   "mu": [
+    0.03263924919011185,
+    25.489330290805277,
+    120.58577189484403,
+    26.6783430442516
+   ],
+   "sd": [
+    0.008965964073946564,
+    4.813149443916742,
+    34.596300449856685,
+    5.015203150209145
+   ],
+   "beta": [
+    8.964846397216435,
+    -0.12784386877766782,
+    0.8873810889900406,
+    -1.0131864821682879,
+    0.3883302703307213
+   ],
+   "hard_shift": 1.0668798677272728,
+   "estimate_kwargs": {}
+  }
+ }
+}

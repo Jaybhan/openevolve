@@ -1,0 +1,134 @@
+[
+ {
+  "instance": "m10_n11_s3_t3_w64",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m10_n11_s3_t3_w64_pure.json",
+  "exact_written": 1,
+  "open_raised": 0,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "01f8a891a4508bb6",
+  "hash_after": "1b74c918fbfe81f3"
+ },
+ {
+  "instance": "m10_n14_s3_t3_w78",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m10_n14_s3_t3_w78_pure.json",
+  "exact_written": 119,
+  "open_raised": 0,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "7eeb0934751a80bc",
+  "hash_after": "40d43a60bb971b37"
+ },
+ {
+  "instance": "m10_n20_s3_t3_w103",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m10_n20_s3_t3_w103.json",
+  "exact_written": 6,
+  "open_raised": 0,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "640b05960cefc3d2",
+  "hash_after": "f18d522e551b94d7"
+ },
+ {
+  "instance": "m10_n20_s3_t3_w103",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m10_n20_s3_t3_w103_pure.json",
+  "exact_written": 124,
+  "open_raised": 6,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "f810a1bf9d5fb99e",
+  "hash_after": "3cf3ebecd7b0eae0"
+ },
+ {
+  "instance": "m10_n22_s3_t3_w111",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m10_n22_s3_t3_w111.json",
+  "exact_written": 1,
+  "open_raised": 0,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "2242645ac6d6fdef",
+  "hash_after": "44f1555f3de11843"
+ },
+ {
+  "instance": "m11_n21_s3_t3_w117",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m11_n21_s3_t3_w117_pure.json",
+  "exact_written": 30,
+  "open_raised": 7,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "8cd969b4a9dbcbc3",
+  "hash_after": "5e27c233673a0af0"
+ },
+ {
+  "instance": "m12_n13_s3_t3_w87",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m12_n13_s3_t3_w87_pure.json",
+  "exact_written": 1,
+  "open_raised": 0,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "38151744000cacb0",
+  "hash_after": "9f504cc679f9b24a"
+ },
+ {
+  "instance": "m12_n18_s3_t3_w109",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m12_n18_s3_t3_w109.json",
+  "exact_written": 115,
+  "open_raised": 35,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "4e7e6a3fe0474e58",
+  "hash_after": "65670290744f2f61"
+ },
+ {
+  "instance": "m13_n13_s3_t3_w93",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m13_n13_s3_t3_w93_pure.json",
+  "exact_written": 383,
+  "open_raised": 0,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "bd2b27654889f0d3",
+  "hash_after": "9ce39c1407050e9b"
+ },
+ {
+  "instance": "m13_n19_s3_t3_w123",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m13_n19_s3_t3_w123.json",
+  "exact_written": 95,
+  "open_raised": 55,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "ca219e4371302f98",
+  "hash_after": "da7922e87c915de6"
+ },
+ {
+  "instance": "m16_n17_s3_t3_w134",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m16_n17_s3_t3_w134.json",
+  "exact_written": 73,
+  "open_raised": 77,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "8acbb18db8ea1e61",
+  "hash_after": "898cf701daf628c0"
+ },
+ {
+  "instance": "m9_n23_s3_t3_w104",
+  "path": "/Users/jaybhan/Downloads/openevolve/examples/zarankiewicz/upper_bounds/cache/case_table_m9_n23_s3_t3_w104.json",
+  "exact_written": 140,
+  "open_raised": 6,
+  "unchanged": 0,
+  "not_in_table": 0,
+  "refused": [],
+  "hash_before": "2c9435c396d2ed86",
+  "hash_after": "9d2d06e7f0840d43"
+ }
+]

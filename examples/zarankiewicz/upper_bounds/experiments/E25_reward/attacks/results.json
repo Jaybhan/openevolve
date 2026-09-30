@@ -1,0 +1,1304 @@
+{
+ "criteria": {
+  "VR (R1)": {
+   "recipe": 0.3403,
+   "dgh": 0.3182,
+   "recipe_dgh": 0.3634,
+   "C2 dgh/recipe uplift": 0.84,
+   "C5 recipe uplift / V0": 2.36,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "A3 clear every table with W_lb<1e5": 0.3929,
+    "B easy exact d<=5000": 0.3422,
+    "B easy exact d<=20000": 0.4136
+   },
+   "tiny-table clears > f_weak": {
+    "A1 clear GEN (9,9;4,4)": 0.2539,
+    "A2 clear (9,12,64)": 0.2406,
+    "A2 clear (10,10,61)": 0.2382
+   }
+  },
+  "VR, GT labels": {
+   "recipe": 0.2998,
+   "dgh": 0.3928,
+   "recipe_dgh": 0.4303,
+   "C2 dgh/recipe uplift": 1.93,
+   "C5 recipe uplift / V0": 1.68,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "A3 clear every table with W_lb<1e5": 0.3531,
+    "B easy exact d<=5000": 0.3414,
+    "B easy exact d<=20000": 0.41
+   },
+   "tiny-table clears > f_weak": {
+    "A1 clear GEN (9,9;4,4)": 0.2539,
+    "A2 clear (9,12,64)": 0.2403,
+    "A2 clear (10,10,61)": 0.2382
+   }
+  },
+  "VR, lower-bound labels": {
+   "recipe": 0.3,
+   "dgh": 0.3931,
+   "recipe_dgh": 0.4308,
+   "C2 dgh/recipe uplift": 1.93,
+   "C5 recipe uplift / V0": 1.68,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "A3 clear every table with W_lb<1e5": 0.3545,
+    "B easy exact d<=5000": 0.3417,
+    "B easy exact d<=20000": 0.411
+   },
+   "tiny-table clears > f_weak": {
+    "A1 clear GEN (9,9;4,4)": 0.2539,
+    "A2 clear (9,12,64)": 0.2404,
+    "A2 clear (10,10,61)": 0.2382
+   }
+  },
+  "F1 excess>2k": {
+   "recipe": 0.3392,
+   "dgh": 0.3171,
+   "recipe_dgh": 0.3622,
+   "C2 dgh/recipe uplift": 0.84,
+   "C5 recipe uplift / V0": 2.34,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "B easy exact d<=20000": 0.3289
+   },
+   "tiny-table clears > f_weak": {}
+  },
+  "F2 tie tail": {
+   "recipe": 0.3456,
+   "dgh": 0.3181,
+   "recipe_dgh": 0.3686,
+   "C2 dgh/recipe uplift": 0.81,
+   "C5 recipe uplift / V0": 2.45,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "A3 clear every table with W_lb<1e5": 0.3929,
+    "B easy exact d<=5000": 0.3422,
+    "B easy exact d<=20000": 0.4136
+   },
+   "tiny-table clears > f_weak": {
+    "A1 clear GEN (9,9;4,4)": 0.2539,
+    "A2 clear (9,12,64)": 0.2406,
+    "A2 clear (10,10,61)": 0.2382
+   }
+  },
+  "F3 a_I from lower bound, Wmin 1e6": {
+   "recipe": 0.279,
+   "dgh": 0.3863,
+   "recipe_dgh": 0.4285,
+   "C2 dgh/recipe uplift": 2.36,
+   "C5 recipe uplift / V0": 1.33,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "A3 clear every table with W_lb<1e5": 0.2949,
+    "B easy exact d<=2000": 0.282,
+    "B easy exact d<=5000": 0.3077,
+    "B easy exact d<=20000": 0.3671
+   },
+   "tiny-table clears > f_weak": {
+    "A1 clear GEN (9,9;4,4)": 0.2539
+   }
+  },
+  "F4 GEN Wmin 1e5": {
+   "recipe": 0.3449,
+   "dgh": 0.3204,
+   "recipe_dgh": 0.3702,
+   "C2 dgh/recipe uplift": 0.83,
+   "C5 recipe uplift / V0": 2.44,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "A3 clear every table with W_lb<1e5": 0.3423,
+    "B easy exact d<=20000": 0.3734
+   },
+   "tiny-table clears > f_weak": {
+    "A2 clear (9,12,64)": 0.2423,
+    "A2 clear (10,10,61)": 0.2392
+   }
+  },
+  "VR* = F1+F2+F3+F4": {
+   "recipe": 0.2835,
+   "dgh": 0.386,
+   "recipe_dgh": 0.433,
+   "C2 dgh/recipe uplift": 2.23,
+   "C5 recipe uplift / V0": 1.4,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "B easy exact d<=20000": 0.2908
+   },
+   "tiny-table clears > f_weak": {}
+  },
+  "F1b excess>20k": {
+   "recipe": 0.3263,
+   "dgh": 0.3029,
+   "recipe_dgh": 0.3467,
+   "C2 dgh/recipe uplift": 0.81,
+   "C5 recipe uplift / V0": 2.13,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "A3 clear every table with W_lb<1e5": 0.3066
+   },
+   "tiny-table clears > f_weak": {}
+  },
+  "VR** = F1b+F3": {
+   "recipe": 0.2619,
+   "dgh": 0.3836,
+   "recipe_dgh": 0.4139,
+   "C2 dgh/recipe uplift": 2.97,
+   "C5 recipe uplift / V0": 1.04,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {},
+   "tiny-table clears > f_weak": {}
+  },
+  "VR** on GT labels": {
+   "recipe": 0.2484,
+   "dgh": 0.3929,
+   "recipe_dgh": 0.418,
+   "C2 dgh/recipe uplift": 3.99,
+   "C5 recipe uplift / V0": 0.81,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {},
+   "tiny-table clears > f_weak": {}
+  },
+  "VR* on GT labels": {
+   "recipe": 0.2623,
+   "dgh": 0.394,
+   "recipe_dgh": 0.4322,
+   "C2 dgh/recipe uplift": 3.12,
+   "C5 recipe uplift / V0": 1.05,
+   "C3 real exploits >= genuine min": {},
+   "exploit-shape oracles >= genuine min": {
+    "B easy exact d<=20000": 0.2857
+   },
+   "tiny-table clears > f_weak": {}
+  }
+ },
+ "rows": {
+  "ref: schema_recipe_frozen": {
+   "kind": "real",
+   "note": "R1 genuine: 34 Farkas certs",
+   "V0 table": 0.2594192360118436,
+   "V0 gt": 0.259693224105418,
+   "work_lb_train+target": 47939569.0,
+   "work_lb_target": 37661279.0,
+   "work_table_train+target": 255926879.0,
+   "VR (R1)": 0.34025771192000154,
+   "VR, GT labels": 0.29980255116815835,
+   "VR, lower-bound labels": 0.3000044966837008,
+   "F1 excess>2k": 0.3392049909365973,
+   "F2 tie tail": 0.34558665385277054,
+   "F3 a_I from lower bound, Wmin 1e6": 0.27902098196373476,
+   "F4 GEN Wmin 1e5": 0.3448698606349132,
+   "VR* = F1+F2+F3+F4": 0.28348023150157375,
+   "F1b excess>20k": 0.32633549183131666,
+   "VR** = F1b+F3": 0.2618908969609644,
+   "VR** on GT labels": 0.2483867497102583,
+   "VR* on GT labels": 0.26226821735068717,
+   "VR comps (table)": {
+    "G_train": 0.0824,
+    "G_target": 0.1169,
+    "G_gen": 0.0,
+    "Tail": 0.0367,
+    "Depth": 0.4086,
+    "Close": 0.4086
+   }
+  },
+  "ref: dgh_lib": {
+   "kind": "real",
+   "note": "R1 genuine: DGH",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 18952418.0,
+   "work_lb_target": 633030.0,
+   "work_table_train+target": 16098624.0,
+   "VR (R1)": 0.3181839623701092,
+   "VR, GT labels": 0.3928284473617011,
+   "VR, lower-bound labels": 0.39312616855355087,
+   "F1 excess>2k": 0.31709025967549903,
+   "F2 tie tail": 0.3180796966189263,
+   "F3 a_I from lower bound, Wmin 1e6": 0.3862914254023804,
+   "F4 GEN Wmin 1e5": 0.3204264421665297,
+   "VR* = F1+F2+F3+F4": 0.38602609166152674,
+   "F1b excess>20k": 0.30290042417356805,
+   "VR** = F1b+F3": 0.38358435502954064,
+   "VR** on GT labels": 0.39293633272833245,
+   "VR* on GT labels": 0.39399414930263427,
+   "VR comps (table)": {
+    "G_train": 0.0781,
+    "G_target": 0.0028,
+    "G_gen": 0.038,
+    "Tail": 0.027,
+    "Depth": 0.3962,
+    "Close": 0.3962
+   }
+  },
+  "ref: recipe_dgh": {
+   "kind": "real",
+   "note": "R1 genuine: recipe + DGH",
+   "V0 table": 0.2594192360118436,
+   "V0 gt": 0.259693224105418,
+   "work_lb_train+target": 66891987.0,
+   "work_lb_target": 38294309.0,
+   "work_table_train+target": 272025503.0,
+   "VR (R1)": 0.36336435769196723,
+   "VR, GT labels": 0.4303239627627755,
+   "VR, lower-bound labels": 0.4308236294701677,
+   "F1 excess>2k": 0.36215073939747366,
+   "F2 tie tail": 0.36858903387355335,
+   "F3 a_I from lower bound, Wmin 1e6": 0.4284895040533454,
+   "F4 GEN Wmin 1e5": 0.37021898620329946,
+   "VR* = F1+F2+F3+F4": 0.4329998397804404,
+   "F1b excess>20k": 0.3467350672304427,
+   "VR** = F1b+F3": 0.4138589930073331,
+   "VR** on GT labels": 0.41796639878859887,
+   "VR* on GT labels": 0.4322276930585923,
+   "VR comps (table)": {
+    "G_train": 0.1604,
+    "G_target": 0.1197,
+    "G_gen": 0.038,
+    "Tail": 0.0637,
+    "Depth": 0.4086,
+    "Close": 0.4086
+   }
+  },
+  "ref: f_weak": {
+   "kind": "real",
+   "note": "R1 weak general rule",
+   "V0 table": 0.22855330535165017,
+   "V0 gt": 0.22812623150024225,
+   "work_lb_train+target": 20782955.0,
+   "work_lb_target": 19816570.0,
+   "work_table_train+target": 117933878.0,
+   "VR (R1)": 0.22260790013140824,
+   "VR, GT labels": 0.22273841178520082,
+   "VR, lower-bound labels": 0.22204780818303496,
+   "F1 excess>2k": 0.2211994674386751,
+   "F2 tie tail": 0.2249119399734387,
+   "F3 a_I from lower bound, Wmin 1e6": 0.22187887970387185,
+   "F4 GEN Wmin 1e5": 0.22411977208103748,
+   "VR* = F1+F2+F3+F4": 0.22296869493419724,
+   "F1b excess>20k": 0.21802190480973646,
+   "VR** = F1b+F3": 0.21733020126101193,
+   "VR** on GT labels": 0.21809854749062668,
+   "VR* on GT labels": 0.2213632462826805,
+   "VR comps (table)": {
+    "G_train": 0.027,
+    "G_target": 0.0457,
+    "G_gen": 0.0,
+    "Tail": 0.0,
+    "Depth": 0.074,
+    "Close": 0.0
+   }
+  },
+  "ref: cert_target_12_18": {
+   "kind": "real",
+   "note": "all pool certs of (12,18) only",
+   "V0 table": 0.2098570602475175,
+   "V0 gt": 0.21013104834109195,
+   "work_lb_train+target": 7572680.0,
+   "work_lb_target": 7572680.0,
+   "work_table_train+target": 48470733.0,
+   "VR (R1)": 0.21171085674965523,
+   "VR, GT labels": 0.21173621077621346,
+   "VR, lower-bound labels": 0.20830279287903472,
+   "F1 excess>2k": 0.2117063131700314,
+   "F2 tie tail": 0.2125756182039037,
+   "F3 a_I from lower bound, Wmin 1e6": 0.21054669402059234,
+   "F4 GEN Wmin 1e5": 0.21171085674965523,
+   "VR* = F1+F2+F3+F4": 0.21144670112755298,
+   "F1b excess>20k": 0.21166401565852686,
+   "VR** = F1b+F3": 0.2105397188043387,
+   "VR** on GT labels": 0.21054967961783533,
+   "VR* on GT labels": 0.21102548996117804,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0134,
+    "G_gen": 0.0,
+    "Tail": 0.0,
+    "Depth": 0.0788,
+    "Close": 0.0
+   }
+  },
+  "r1: schema_pool": {
+   "kind": "real",
+   "note": "R1 benchmark program",
+   "V0 table": 0.2618488033884074,
+   "V0 gt": 0.26212279148198186,
+   "work_lb_train+target": 60863045.0,
+   "work_lb_target": 37661279.0,
+   "work_table_train+target": 268850355.0,
+   "VR (R1)": 0.3487098233154289,
+   "VR, GT labels": 0.3072339196690614,
+   "VR, lower-bound labels": 0.3074799273805625,
+   "F1 excess>2k": 0.34756532295484,
+   "F2 tie tail": 0.35403876524819783,
+   "F3 a_I from lower bound, Wmin 1e6": 0.28747309335916205,
+   "F4 GEN Wmin 1e5": 0.3532537541363162,
+   "VR* = F1+F2+F3+F4": 0.2918405635198165,
+   "F1b excess>20k": 0.3345505530648017,
+   "VR** = F1b+F3": 0.2701059581944494,
+   "VR** on GT labels": 0.25506687208767026,
+   "VR* on GT labels": 0.2693445120035205,
+   "VR comps (table)": {
+    "G_train": 0.1104,
+    "G_target": 0.1169,
+    "G_gen": 0.0292,
+    "Tail": 0.0415,
+    "Depth": 0.4086,
+    "Close": 0.4086
+   }
+  },
+  "r1: cert_one_train": {
+   "kind": "real",
+   "note": "R1 benchmark program",
+   "V0 table": 0.22215337599921428,
+   "V0 gt": 0.22215337599921428,
+   "work_lb_train+target": 65350.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 65350.0,
+   "VR (R1)": 0.22005678127978862,
+   "VR, GT labels": 0.22005116215973797,
+   "VR, lower-bound labels": 0.22008316281279056,
+   "F1 excess>2k": 0.2165151485163978,
+   "F2 tie tail": 0.22005678127978862,
+   "F3 a_I from lower bound, Wmin 1e6": 0.20496211431814015,
+   "F4 GEN Wmin 1e5": 0.2210111066210125,
+   "VR* = F1+F2+F3+F4": 0.2056959463566919,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.20568804572560595,
+   "VR comps (table)": {
+    "G_train": 0.017,
+    "G_target": 0.0,
+    "G_gen": 0.0,
+    "Tail": 0.0102,
+    "Depth": 0.1258,
+    "Close": 0.0
+   }
+  },
+  "r1: inst_dgh_10_23": {
+   "kind": "real",
+   "note": "R1 benchmark program",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 633030.0,
+   "work_lb_target": 633030.0,
+   "work_table_train+target": 12413006.0,
+   "VR (R1)": 0.20370012069248433,
+   "VR, GT labels": 0.20369960281183747,
+   "VR, lower-bound labels": 0.20294351618680423,
+   "F1 excess>2k": 0.20369901590924813,
+   "F2 tie tail": 0.20359585494130145,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2029846902748894,
+   "F4 GEN Wmin 1e5": 0.20370012069248433,
+   "VR* = F1+F2+F3+F4": 0.20288045634298252,
+   "F1b excess>20k": 0.20369126181498193,
+   "VR** = F1b+F3": 0.20298880774109412,
+   "VR** on GT labels": 0.20300367161633354,
+   "VR* on GT labels": 0.20288768062174603,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0028,
+    "G_gen": 0.0,
+    "Tail": 0.0025,
+    "Depth": 0.0246,
+    "Close": 0.0
+   }
+  },
+  "r1: e1_dgh_s2": {
+   "kind": "real",
+   "note": "R1 benchmark program",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 0.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 0.0,
+   "VR (R1)": 0.20212866647493813,
+   "VR, GT labels": 0.20212866647493813,
+   "VR, lower-bound labels": 0.20212866647493813,
+   "F1 excess>2k": 0.2,
+   "F2 tie tail": 0.20212866647493813,
+   "F3 a_I from lower bound, Wmin 1e6": 0.20212866647493813,
+   "F4 GEN Wmin 1e5": 0.2,
+   "VR* = F1+F2+F3+F4": 0.2,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.2,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0,
+    "G_gen": 0.038,
+    "Tail": 0.0,
+    "Depth": 0.0,
+    "Close": 0.0
+   }
+  },
+  "r1: e2_easy_certs": {
+   "kind": "real",
+   "note": "R1 benchmark program",
+   "V0 table": 0.206848092501565,
+   "V0 gt": 0.206848092501565,
+   "work_lb_train+target": 454101.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 454101.0,
+   "VR (R1)": 0.20759630003273488,
+   "VR, GT labels": 0.20751586262733435,
+   "VR, lower-bound labels": 0.20751586262733435,
+   "F1 excess>2k": 0.20083698780577286,
+   "F2 tie tail": 0.20759630003273488,
+   "F3 a_I from lower bound, Wmin 1e6": 0.20449379935035514,
+   "F4 GEN Wmin 1e5": 0.20655072176914102,
+   "VR* = F1+F2+F3+F4": 0.20083728315919194,
+   "F1b excess>20k": 0.20033094366527854,
+   "VR** = F1b+F3": 0.20033199726814155,
+   "VR** on GT labels": 0.20027483055875622,
+   "VR* on GT labels": 0.20080347273533897,
+   "VR comps (table)": {
+    "G_train": 0.0105,
+    "G_target": 0.0,
+    "G_gen": 0.0292,
+    "Tail": 0.0,
+    "Depth": 0.03,
+    "Close": 0.0
+   }
+  },
+  "r1: e3_relist": {
+   "kind": "real",
+   "note": "R1 benchmark program",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 0.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 0.0,
+   "VR (R1)": 0.2,
+   "VR, GT labels": 0.2,
+   "VR, lower-bound labels": 0.2,
+   "F1 excess>2k": 0.2,
+   "F2 tie tail": 0.2,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2,
+   "F4 GEN Wmin 1e5": 0.2,
+   "VR* = F1+F2+F3+F4": 0.2,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.2,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0,
+    "G_gen": 0.0,
+    "Tail": 0.0,
+    "Depth": 0.0,
+    "Close": 0.0
+   }
+  },
+  "A1 clear GEN (9,9;4,4)": {
+   "kind": "oracle",
+   "note": "25 survivors, every case d<=1,080; 0 verified rules kill >2 of them",
+   "V0 table": 0.28,
+   "V0 gt": 0.28,
+   "work_lb_train+target": 0.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 0.0,
+   "VR (R1)": 0.2538713335250619,
+   "VR, GT labels": 0.2538713335250619,
+   "VR, lower-bound labels": 0.2538713335250619,
+   "F1 excess>2k": 0.2,
+   "F2 tie tail": 0.2538713335250619,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2538713335250619,
+   "F4 GEN Wmin 1e5": 0.2,
+   "VR* = F1+F2+F3+F4": 0.2,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.2,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0,
+    "G_gen": 0.962,
+    "Tail": 0.0,
+    "Depth": 0.0,
+    "Close": 0.0
+   }
+  },
+  "A2 clear (9,12,64)": {
+   "kind": "oracle",
+   "note": "8 survivors, W 9.6e3",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 9609.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 9609.0,
+   "VR (R1)": 0.24058782770743545,
+   "VR, GT labels": 0.24032250752780948,
+   "VR, lower-bound labels": 0.24044601511710847,
+   "F1 excess>2k": 0.20410592074229036,
+   "F2 tie tail": 0.24058782770743545,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2084235019344412,
+   "F4 GEN Wmin 1e5": 0.24232597247689447,
+   "VR* = F1+F2+F3+F4": 0.20105552890487896,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.20101433216173714,
+   "VR comps (table)": {
+    "G_train": 0.031,
+    "G_target": 0.0,
+    "G_gen": 0.0,
+    "Tail": 0.0131,
+    "Depth": 0.134,
+    "Close": 0.134
+   }
+  },
+  "A2 clear (10,10,61)": {
+   "kind": "oracle",
+   "note": "10 survivors, W 9.9e3",
+   "V0 table": 0.2634920634920635,
+   "V0 gt": 0.2634920634920635,
+   "work_lb_train+target": 9865.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 9865.0,
+   "VR (R1)": 0.23817491409292016,
+   "VR, GT labels": 0.238167580149524,
+   "VR, lower-bound labels": 0.23820934664961857,
+   "F1 excess>2k": 0.2063972402592822,
+   "F2 tie tail": 0.23817491409292016,
+   "F3 a_I from lower bound, Wmin 1e6": 0.20561165602555057,
+   "F4 GEN Wmin 1e5": 0.23920428236071498,
+   "VR* = F1+F2+F3+F4": 0.20129875478880876,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.20129714548791852,
+   "VR comps (table)": {
+    "G_train": 0.0184,
+    "G_target": 0.0,
+    "G_gen": 0.0,
+    "Tail": 0.0133,
+    "Depth": 0.1357,
+    "Close": 0.1357
+   }
+  },
+  "A3 clear every table with W_lb<1e5": {
+   "kind": "oracle",
+   "note": "m10_n10_s3_t3_w61_pure; m9_n10_s3_t3_w55_pure; m9_n9_s3_t3_w50_pure; m9_n12_s3_t3_w64_pure; m10_n22_s3_t3_w111; m8_n9_s2_t2_w27_pure; m9_n9_s4_t4_w62_pure",
+   "V0 table": 0.4704761904761905,
+   "V0 gt": 0.4704761904761905,
+   "work_lb_train+target": 112169.0,
+   "work_lb_target": 58333.0,
+   "work_table_train+target": 477950.0,
+   "VR (R1)": 0.3929201651816125,
+   "VR, GT labels": 0.3530757398838758,
+   "VR, lower-bound labels": 0.3544698760513414,
+   "F1 excess>2k": 0.31296967340674514,
+   "F2 tie tail": 0.3929201651816125,
+   "F3 a_I from lower bound, Wmin 1e6": 0.294860531912576,
+   "F4 GEN Wmin 1e5": 0.3422971295788064,
+   "VR* = F1+F2+F3+F4": 0.21516939849592934,
+   "F1b excess>20k": 0.3065654391484928,
+   "VR** = F1b+F3": 0.21050458529496857,
+   "VR** on GT labels": 0.2043277122384499,
+   "VR* on GT labels": 0.21114934177412054,
+   "VR comps (table)": {
+    "G_train": 0.096,
+    "G_target": 0.0462,
+    "G_gen": 1.0,
+    "Tail": 0.0856,
+    "Depth": 0.4086,
+    "Close": 0.4086
+   }
+  },
+  "A5 real: pool certs on small tables only": {
+   "kind": "real",
+   "note": "instance-gated Farkas certs, tables with W<=1e6",
+   "V0 table": 0.24279813219607208,
+   "V0 gt": 0.24279813219607208,
+   "work_lb_train+target": 131691.0,
+   "work_lb_target": 58333.0,
+   "work_table_train+target": 497472.0,
+   "VR (R1)": 0.31874111850093334,
+   "VR, GT labels": 0.2791290254193837,
+   "VR, lower-bound labels": 0.28028400995911507,
+   "F1 excess>2k": 0.314079654010477,
+   "F2 tie tail": 0.31874111850093334,
+   "F3 a_I from lower bound, Wmin 1e6": 0.22068148523189682,
+   "F4 GEN Wmin 1e5": 0.3189302708676951,
+   "VR* = F1+F2+F3+F4": 0.2162793790996612,
+   "F1b excess>20k": 0.3065654391484928,
+   "VR** = F1b+F3": 0.21050458529496857,
+   "VR** on GT labels": 0.2043277122384499,
+   "VR* on GT labels": 0.212296993091805,
+   "VR comps (table)": {
+    "G_train": 0.0326,
+    "G_target": 0.0462,
+    "G_gen": 0.0292,
+    "Tail": 0.0355,
+    "Depth": 0.4086,
+    "Close": 0.4086
+   }
+  },
+  "A4 real: pool certs + DGH on small tables only": {
+   "kind": "real",
+   "note": "instance-gated: every verified piece on tables with W<=1e6, nothing elsewhere",
+   "V0 table": 0.24279813219607208,
+   "V0 gt": 0.24279813219607208,
+   "work_lb_train+target": 15127852.0,
+   "work_lb_target": 58333.0,
+   "work_table_train+target": 859863.0,
+   "VR (R1)": 0.3375186987268971,
+   "VR, GT labels": 0.4057458158422281,
+   "VR, lower-bound labels": 0.4072825957525196,
+   "F1 excess>2k": 0.33192440441713617,
+   "F2 tie tail": 0.3375186987268971,
+   "F3 a_I from lower bound, Wmin 1e6": 0.4026438450882752,
+   "F4 GEN Wmin 1e5": 0.33905389558128196,
+   "VR* = F1+F2+F3+F4": 0.39730890913673506,
+   "F1b excess>20k": 0.32283151804399446,
+   "VR** = F1b+F3": 0.38995544382088493,
+   "VR** on GT labels": 0.39404733930534486,
+   "VR* on GT labels": 0.4018209710078467,
+   "VR comps (table)": {
+    "G_train": 0.0946,
+    "G_target": 0.0462,
+    "G_gen": 0.0672,
+    "Tail": 0.0601,
+    "Depth": 0.4086,
+    "Close": 0.4086
+   }
+  },
+  "B easy exact d<=2000": {
+   "kind": "oracle",
+   "note": "every exactly-labelled survivor with d<=T (program-visible labels)",
+   "V0 table": 0.40996234423478,
+   "V0 gt": 0.4099623182424512,
+   "work_lb_train+target": 309285.0,
+   "work_lb_target": 14113.0,
+   "work_table_train+target": 309285.0,
+   "VR (R1)": 0.2965781431154673,
+   "VR, GT labels": 0.29626976529747134,
+   "VR, lower-bound labels": 0.29630514012538167,
+   "F1 excess>2k": 0.2,
+   "F2 tie tail": 0.2965781431154673,
+   "F3 a_I from lower bound, Wmin 1e6": 0.28198271313201334,
+   "F4 GEN Wmin 1e5": 0.24569604461307054,
+   "VR* = F1+F2+F3+F4": 0.2,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.2,
+   "VR comps (table)": {
+    "G_train": 0.0914,
+    "G_target": 0.0,
+    "G_gen": 1.0,
+    "Tail": 0.0106,
+    "Depth": 0.1577,
+    "Close": 0.0
+   }
+  },
+  "B easy exact d<=5000": {
+   "kind": "oracle",
+   "note": "every exactly-labelled survivor with d<=T (program-visible labels)",
+   "V0 table": 0.510853124210841,
+   "V0 gt": 0.510852542808564,
+   "work_lb_train+target": 1072894.0,
+   "work_lb_target": 68057.0,
+   "work_table_train+target": 1072894.0,
+   "VR (R1)": 0.3421522067638246,
+   "VR, GT labels": 0.3414162569659216,
+   "VR, lower-bound labels": 0.34169853688723495,
+   "F1 excess>2k": 0.22742872125480892,
+   "F2 tie tail": 0.3421522067638246,
+   "F3 a_I from lower bound, Wmin 1e6": 0.30766941644353746,
+   "F4 GEN Wmin 1e5": 0.29449398957373585,
+   "VR* = F1+F2+F3+F4": 0.21610236095816818,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.21580374573822192,
+   "VR comps (table)": {
+    "G_train": 0.149,
+    "G_target": 0.0,
+    "G_gen": 1.0,
+    "Tail": 0.0603,
+    "Depth": 0.2047,
+    "Close": 0.1788
+   }
+  },
+  "B easy exact d<=20000": {
+   "kind": "oracle",
+   "note": "every exactly-labelled survivor with d<=T (program-visible labels)",
+   "V0 table": 0.589258540602223,
+   "V0 gt": 0.5892091911012065,
+   "work_lb_train+target": 7791288.0,
+   "work_lb_target": 1197826.0,
+   "work_table_train+target": 7791288.0,
+   "VR (R1)": 0.41358838797286746,
+   "VR, GT labels": 0.41001984548474835,
+   "VR, lower-bound labels": 0.41102787569206806,
+   "F1 excess>2k": 0.3288515106482075,
+   "F2 tie tail": 0.41358838797286746,
+   "F3 a_I from lower bound, Wmin 1e6": 0.3670518437579333,
+   "F4 GEN Wmin 1e5": 0.37335850133579446,
+   "VR* = F1+F2+F3+F4": 0.29079972634422946,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.28571940170100546,
+   "VR comps (table)": {
+    "G_train": 0.2816,
+    "G_target": 0.0029,
+    "G_gen": 1.0,
+    "Tail": 0.1044,
+    "Depth": 0.343,
+    "Close": 0.343
+   }
+  },
+  "B4 real: pool certs killing only exact d<=20k": {
+   "kind": "real",
+   "note": "e2 widened to 20k",
+   "V0 table": 0.2489095556245967,
+   "V0 gt": 0.2489095556245967,
+   "work_lb_train+target": 282693.0,
+   "work_lb_target": 0.0,
+   "work_table_train+target": 282693.0,
+   "VR (R1)": 0.22723633428920922,
+   "VR, GT labels": 0.22717680756697192,
+   "VR, lower-bound labels": 0.2272123006469997,
+   "F1 excess>2k": 0.2183682608332251,
+   "F2 tie tail": 0.22723633428920922,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2181901288466707,
+   "F4 GEN Wmin 1e5": 0.2279092497345403,
+   "VR* = F1+F2+F3+F4": 0.21118267871818033,
+   "F1b excess>20k": 0.2,
+   "VR** = F1b+F3": 0.2,
+   "VR** on GT labels": 0.2,
+   "VR* on GT labels": 0.2111747780870944,
+   "VR comps (table)": {
+    "G_train": 0.0412,
+    "G_target": 0.0,
+    "G_gen": 0.0292,
+    "Tail": 0.0113,
+    "Depth": 0.1258,
+    "Close": 0.0
+   }
+  },
+  "C1 real: cert_close_10_22": {
+   "kind": "real",
+   "note": "1 cert closes (10,22,111); true W 58,333 vs label W 424,114",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 58333.0,
+   "work_lb_target": 58333.0,
+   "work_table_train+target": 424114.0,
+   "VR (R1)": 0.3086594439266118,
+   "VR, GT labels": 0.2691062643183634,
+   "VR, lower-bound labels": 0.27022924820504207,
+   "F1 excess>2k": 0.3083837076537851,
+   "F2 tie tail": 0.3086594439266118,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2105998106575753,
+   "F4 GEN Wmin 1e5": 0.3086594439266118,
+   "VR* = F1+F2+F3+F4": 0.2105834327429693,
+   "F1b excess>20k": 0.3065654391484928,
+   "VR** = F1b+F3": 0.21050458529496857,
+   "VR** on GT labels": 0.2043277122384499,
+   "VR* on GT labels": 0.20660894736619906,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0462,
+    "G_gen": 0.0,
+    "Tail": 0.0253,
+    "Depth": 0.4086,
+    "Close": 0.4086
+   }
+  },
+  "C2 tail-index sniper (targets)": {
+   "kind": "oracle",
+   "note": "kill H_I on every target = the index-first 10% of 400k-tied censored cases",
+   "V0 table": 0.2609791420518194,
+   "V0 gt": 0.24929091548600238,
+   "work_lb_train+target": 61658815.0,
+   "work_lb_target": 61658815.0,
+   "work_table_train+target": 272400000.0,
+   "VR (R1)": 0.32216836199616,
+   "VR, GT labels": 0.265718305259095,
+   "VR, lower-bound labels": 0.24911075108582065,
+   "F1 excess>2k": 0.3253051900421522,
+   "F2 tie tail": 0.2778959191395034,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2865274009337984,
+   "F4 GEN Wmin 1e5": 0.32216836199616,
+   "VR* = F1+F2+F3+F4": 0.2425928022829098,
+   "F1b excess>20k": 0.33527527693781645,
+   "VR** = F1b+F3": 0.29785268224430766,
+   "VR** on GT labels": 0.26713599357242723,
+   "VR* on GT labels": 0.24775461909513746,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.141,
+    "G_gen": 0.0,
+    "Tail": 0.4664,
+    "Depth": 0.3854,
+    "Close": 0.0
+   }
+  },
+  "C3a deepened censored, EASY half": {
+   "kind": "oracle",
+   "note": "same count as C3b; all labelled 400k",
+   "V0 table": 0.26720795990081114,
+   "V0 gt": 0.22284368325693404,
+   "work_lb_train+target": 96749932.0,
+   "work_lb_target": 96749932.0,
+   "work_table_train+target": 68328589.44121116,
+   "VR (R1)": 0.25715359110766894,
+   "VR, GT labels": 0.2297270357116543,
+   "VR, lower-bound labels": 0.27276265835924024,
+   "F1 excess>2k": 0.2572465594755407,
+   "F2 tie tail": 0.2584558222749822,
+   "F3 a_I from lower bound, Wmin 1e6": 0.25991108423079273,
+   "F4 GEN Wmin 1e5": 0.25715359110766894,
+   "VR* = F1+F2+F3+F4": 0.26131388349947915,
+   "F1b excess>20k": 0.25732760128956306,
+   "VR** = F1b+F3": 0.26032469824325016,
+   "VR** on GT labels": 0.2308204495791683,
+   "VR* on GT labels": 0.22569563015434518,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0624,
+    "G_gen": 0.0,
+    "Tail": 0.0169,
+    "Depth": 0.3731,
+    "Close": 0.0
+   }
+  },
+  "C3b deepened censored, HARD half": {
+   "kind": "oracle",
+   "note": "",
+   "V0 table": 0.27845864554708244,
+   "V0 gt": 0.3454979876194569,
+   "work_lb_train+target": 300676032.0,
+   "work_lb_target": 300676032.0,
+   "work_table_train+target": 68400000.0,
+   "VR (R1)": 0.26041457666999346,
+   "VR, GT labels": 0.3302633638054312,
+   "VR, lower-bound labels": 0.385519909316583,
+   "F1 excess>2k": 0.26046807773651176,
+   "F2 tie tail": 0.2592211387213309,
+   "F3 a_I from lower bound, Wmin 1e6": 0.26318281334353666,
+   "F4 GEN Wmin 1e5": 0.26041457666999346,
+   "VR* = F1+F2+F3+F4": 0.26209190018847783,
+   "F1b excess>20k": 0.26058761845731143,
+   "VR** = F1b+F3": 0.26359700959307053,
+   "VR** on GT labels": 0.33624325616220796,
+   "VR* on GT labels": 0.31728440410072994,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0626,
+    "G_gen": 0.0,
+    "Tail": 0.0442,
+    "Depth": 0.3746,
+    "Close": 0.0
+   }
+  },
+  "D1 random 10% of m16_n17_w134": {
+   "kind": "oracle",
+   "note": "",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 12604079.0,
+   "work_lb_target": 12604079.0,
+   "work_table_train+target": 39600000.0,
+   "VR (R1)": 0.2178311817237101,
+   "VR, GT labels": 0.2172669475152283,
+   "VR, lower-bound labels": 0.214504017633026,
+   "F1 excess>2k": 0.21803071024028906,
+   "F2 tie tail": 0.21772571206322203,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2169175991626202,
+   "F4 GEN Wmin 1e5": 0.2178311817237101,
+   "VR* = F1+F2+F3+F4": 0.21699711300119293,
+   "F1b excess>20k": 0.21831917081223415,
+   "VR** = F1b+F3": 0.2174523524410477,
+   "VR** on GT labels": 0.2165612473242581,
+   "VR* on GT labels": 0.2165388117639963,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0332,
+    "G_gen": 0.0,
+    "Tail": 0.0101,
+    "Depth": 0.0927,
+    "Close": 0.0
+   }
+  },
+  "D1 random 10% of m13_n19_w123": {
+   "kind": "oracle",
+   "note": "",
+   "V0 table": 0.2,
+   "V0 gt": 0.2,
+   "work_lb_train+target": 25850562.0,
+   "work_lb_target": 25850562.0,
+   "work_table_train+target": 103271745.0,
+   "VR (R1)": 0.216196094393695,
+   "VR, GT labels": 0.21760924050189762,
+   "VR, lower-bound labels": 0.22316406922419327,
+   "F1 excess>2k": 0.21625643833052324,
+   "F2 tie tail": 0.2159681753552416,
+   "F3 a_I from lower bound, Wmin 1e6": 0.21451895806095547,
+   "F4 GEN Wmin 1e5": 0.216196094393695,
+   "VR* = F1+F2+F3+F4": 0.2143366915479878,
+   "F1b excess>20k": 0.21646903502884485,
+   "VR** = F1b+F3": 0.21481047061838665,
+   "VR** on GT labels": 0.2159817314585216,
+   "VR* on GT labels": 0.2153379007981398,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.017,
+    "G_gen": 0.0,
+    "Tail": 0.0119,
+    "Depth": 0.1,
+    "Close": 0.0
+   }
+  },
+  "D1 random 10% of m12_n18_w109": {
+   "kind": "oracle",
+   "note": "",
+   "V0 table": 0.21403876216489146,
+   "V0 gt": 0.21425006122563006,
+   "work_lb_train+target": 12281918.0,
+   "work_lb_target": 12281918.0,
+   "work_table_train+target": 59256464.0,
+   "VR (R1)": 0.21549494803084834,
+   "VR, GT labels": 0.215788281813855,
+   "VR, lower-bound labels": 0.21357578720429649,
+   "F1 excess>2k": 0.2155392277256317,
+   "F2 tie tail": 0.21537448702357428,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2140717352470669,
+   "F4 GEN Wmin 1e5": 0.21549494803084834,
+   "VR* = F1+F2+F3+F4": 0.2139952762933419,
+   "F1b excess>20k": 0.2157993205821463,
+   "VR** = F1b+F3": 0.214424147570412,
+   "VR** on GT labels": 0.21435304129081276,
+   "VR* on GT labels": 0.2141569314206769,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0164,
+    "G_gen": 0.0,
+    "Tail": 0.0105,
+    "Depth": 0.0964,
+    "Close": 0.0
+   }
+  },
+  "D1 random 10% of m9_n23_w104": {
+   "kind": "oracle",
+   "note": "",
+   "V0 table": 0.2117533099596899,
+   "V0 gt": 0.21572695452248963,
+   "work_lb_train+target": 6963509.0,
+   "work_lb_target": 6963509.0,
+   "work_table_train+target": 3600000.0,
+   "VR (R1)": 0.21018708786376408,
+   "VR, GT labels": 0.21244390703785018,
+   "VR, lower-bound labels": 0.21283634047813993,
+   "F1 excess>2k": 0.2101840001874851,
+   "F2 tie tail": 0.21075033052211772,
+   "F3 a_I from lower bound, Wmin 1e6": 0.21072869938684863,
+   "F4 GEN Wmin 1e5": 0.21018708786376408,
+   "VR* = F1+F2+F3+F4": 0.2112943661667831,
+   "F1b excess>20k": 0.21015102548833062,
+   "VR** = F1b+F3": 0.21073981940619652,
+   "VR** on GT labels": 0.2125458304602544,
+   "VR* on GT labels": 0.2124524936407689,
+   "VR comps (table)": {
+    "G_train": 0.0,
+    "G_target": 0.0083,
+    "G_gen": 0.0,
+    "Tail": 0.0,
+    "Depth": 0.0733,
+    "Close": 0.0
+   }
+  },
+  "G tail top-decile of tables with <=30 survivors": {
+   "kind": "oracle",
+   "note": "",
+   "V0 table": 0.3148258606566877,
+   "V0 gt": 0.3148258606566877,
+   "work_lb_train+target": 2049753.0,
+   "work_lb_target": 34219.0,
+   "work_table_train+target": 455533.0,
+   "VR (R1)": 0.28964623317672705,
+   "VR, GT labels": 0.2543301549127896,
+   "VR, lower-bound labels": 0.255320328070878,
+   "F1 excess>2k": 0.2657525716813357,
+   "F2 tie tail": 0.2872017265982554,
+   "F3 a_I from lower bound, Wmin 1e6": 0.2524699432928806,
+   "F4 GEN Wmin 1e5": 0.27511361441722343,
+   "VR* = F1+F2+F3+F4": 0.22584520089929494,
+   "F1b excess>20k": 0.26251584770554565,
+   "VR** = F1b+F3": 0.2235512418693621,
+   "VR** on GT labels": 0.2181762494339669,
+   "VR* on GT labels": 0.22304812885855527,
+   "VR comps (table)": {
+    "G_train": 0.0329,
+    "G_target": 0.0436,
+    "G_gen": 0.2924,
+    "Tail": 0.1102,
+    "Depth": 0.3854,
+    "Close": 0.0
+   }
+  }
+ },
+ "no_gt_suite": {
+  "clear (9,12,64)": 0.24852791219943476,
+  "recipe": 0.3549010887115084,
+  "dgh": 0.3362982743856646
+ },
+ "marginal_per_1e6": {
+  "m10_n10_s3_t3_w61_pure": {
+   "VR": 2.0678258595909735,
+   "VR*": 5.554490522390352,
+   "VR**": 0.0,
+   "W_table": 9865.0
+  },
+  "m10_n11_s3_t3_w65_pure": {
+   "VR": 0.2893950776823873,
+   "VR*": 0.5980158345609279,
+   "VR**": 0.0,
+   "W_table": 178192.0
+  },
+  "m11_n11_s3_t3_w70_pure": {
+   "VR": 0.05232997987204192,
+   "VR*": 0.0737719414965817,
+   "VR**": 0.2508095108482647,
+   "W_table": 1440928.0
+  },
+  "m11_n12_s3_t3_w75_pure": {
+   "VR": 0.03113238562361814,
+   "VR*": 0.040273358944820536,
+   "VR**": 0.12938477865357126,
+   "W_table": 2645385.0
+  },
+  "m12_n12_s3_t3_w81_pure": {
+   "VR": 0.019594784439051594,
+   "VR*": 0.0231281417882569,
+   "VR**": 0.0402629247769304,
+   "W_table": 4515472.0
+  },
+  "m9_n10_s3_t3_w55_pure": {
+   "VR": 1.422293861427923,
+   "VR*": 6.049810086401763,
+   "VR**": 0.0,
+   "W_table": 18905.0
+  },
+  "m9_n9_s3_t3_w50_pure": {
+   "VR": 1.6059593643556347,
+   "VR*": 5.305895236072005,
+   "VR**": 0.0,
+   "W_table": 15457.0
+  },
+  "m10_n14_s3_t3_w78_pure": {
+   "VR": 0.03200924325774304,
+   "VR*": 0.04075461582771041,
+   "VR**": 0.0,
+   "W_table": 2991687.0
+  },
+  "m12_n13_s3_t3_w87_pure": {
+   "VR": 0.0,
+   "VR*": 0.0,
+   "VR**": 0.0,
+   "W_table": 5000337.0
+  },
+  "m13_n13_s3_t3_w93_pure": {
+   "VR": 0.0,
+   "VR*": 0.0,
+   "VR**": 0.0,
+   "W_table": 12441779.668113839
+  },
+  "m10_n20_s3_t3_w103_pure": {
+   "VR": 0.026423026447370986,
+   "VR*": 0.02883746444472139,
+   "VR**": 0.04470010061896403,
+   "W_table": 3208360.863509748
+  },
+  "m11_n21_s3_t3_w117_pure": {
+   "VR": 0.16585415917301657,
+   "VR*": 0.181837291445679,
+   "VR**": 0.30595179569649816,
+   "W_table": 360000.0
+  },
+  "m9_n12_s3_t3_w64_pure": {
+   "VR": 2.3972049083498774,
+   "VR*": 6.709044073729727,
+   "VR**": 0.0,
+   "W_table": 9609.0
+  },
+  "m10_n19_s3_t3_w99_pure_gt": {
+   "VR": 0.002340337093240871,
+   "VR*": 0.002476497405863678,
+   "VR**": 0.002632986119464143,
+   "W_table": 49665067.0
+  },
+  "m9_n16_s3_t3_w78_pure_gt": {
+   "VR": 0.0035053278380950447,
+   "VR*": 0.004044155402432402,
+   "VR**": 0.007069324794895467,
+   "W_table": 36682272.0
+  },
+  "m9_n18_s3_t3_w86_pure_gt": {
+   "VR": 0.0053484625239035724,
+   "VR*": 0.0056979280918114834,
+   "VR**": 0.00646539142102348,
+   "W_table": 19752140.0
+  },
+  "m12_n18_s3_t3_w109": {
+   "VR": 0.00024160675989065727,
+   "VR*": 0.0002427752129039007,
+   "VR**": 0.00025367585164260184,
+   "W_table": 590083434.0
+  },
+  "m9_n23_s3_t3_w104": {
+   "VR": 0.00282974662882336,
+   "VR*": 0.002843104463284541,
+   "VR**": 0.0029681361076989983,
+   "W_table": 36755603.441211164
+  },
+  "m10_n22_s3_t3_w111": {
+   "VR": 0.13391044667891278,
+   "VR*": 0.1354868778687179,
+   "VR**": 0.14654720384950431,
+   "W_table": 424114.0
+  },
+  "m10_n23_s3_t3_w113": {
+   "VR": 0.0002759187737035163,
+   "VR*": 0.0002772228160693249,
+   "VR**": 0.0002895163551555588,
+   "W_table": 475213006.0
+  },
+  "m11_n23_s3_t3_w124": {
+   "VR": 0.0008760591734248589,
+   "VR*": 0.0008801557683228352,
+   "VR**": 0.0009187746886080121,
+   "W_table": 134400000.0
+  },
+  "m13_n19_s3_t3_w123": {
+   "VR": 0.00014396520491186013,
+   "VR*": 0.0001447074318383368,
+   "VR**": 0.00015145224907970212,
+   "W_table": 1032250258.0
+  },
+  "m16_n17_s3_t3_w134": {
+   "VR": 0.00042184439215824386,
+   "VR*": 0.0004238482306841018,
+   "VR**": 0.0004428036613387319,
+   "W_table": 397200000.0
+  },
+  "m8_n9_s2_t2_w27_pure": {
+   "VR": 14.19110983291727,
+   "VR*": 0.0,
+   "VR**": 0.0,
+   "W_table": 150.0
+  },
+  "m9_n9_s4_t4_w62_pure": {
+   "VR": 5.144812675490679,
+   "VR*": 0.0,
+   "VR**": 0.0,
+   "W_table": 10471.0
+  }
+ },
+ "tail_index_check": {
+  "m12_n18_s3_t3_w109": {
+   "H_size": 152,
+   "H_index_max": 175,
+   "deepened_in_H": 7,
+   "median_lb_H": 2000001.0,
+   "median_lb_rest": 826632.0,
+   "deepened_rest": 81
+  },
+  "m9_n23_s3_t3_w104": {
+   "H_size": 10,
+   "H_index_max": 9,
+   "deepened_in_H": 10,
+   "median_lb_H": 1638122.0,
+   "median_lb_rest": 465749.0,
+   "deepened_rest": 82
+  },
+  "m10_n22_s3_t3_w111": {
+   "H_size": 1,
+   "H_index_max": 1,
+   "deepened_in_H": 1,
+   "median_lb_H": 34219.0,
+   "median_lb_rest": null,
+   "deepened_rest": 0
+  },
+  "m10_n23_s3_t3_w113": {
+   "H_size": 119,
+   "H_index_max": 118,
+   "deepened_in_H": 0,
+   "median_lb_H": null,
+   "median_lb_rest": null,
+   "deepened_rest": 0
+  },
+  "m11_n23_s3_t3_w124": {
+   "H_size": 34,
+   "H_index_max": 33,
+   "deepened_in_H": 0,
+   "median_lb_H": null,
+   "median_lb_rest": null,
+   "deepened_rest": 0
+  },
+  "m13_n19_s3_t3_w123": {
+   "H_size": 265,
+   "H_index_max": 275,
+   "deepened_in_H": 11,
+   "median_lb_H": 2000000.0,
+   "median_lb_rest": 1809663.0,
+   "deepened_rest": 78
+  },
+  "m16_n17_s3_t3_w134": {
+   "H_size": 100,
+   "H_index_max": 108,
+   "deepened_in_H": 7,
+   "median_lb_H": 2000000.0,
+   "median_lb_rest": 2000000.0,
+   "deepened_rest": 68
+  }
+ },
+ "kill_bias_on_deepened_targets": {
+  "schema_recipe_frozen": {
+   "n_killed": 27,
+   "median_lb_killed": 505187.0,
+   "mean_lb_killed": 933117.7037037037,
+   "n_not": 318,
+   "median_lb_not": 1362127.0,
+   "mean_lb_not": 1182627.8867924528
+  },
+  "dgh_lib": {
+   "n_killed": 0,
+   "median_lb_killed": null,
+   "mean_lb_killed": null,
+   "n_not": 345,
+   "median_lb_not": 1265712.0,
+   "mean_lb_not": 1163101.0028985508
+  },
+  "schema_pool": {
+   "n_killed": 27,
+   "median_lb_killed": 505187.0,
+   "mean_lb_killed": 933117.7037037037,
+   "n_not": 318,
+   "median_lb_not": 1362127.0,
+   "mean_lb_not": 1182627.8867924528
+  }
+ },
+ "fixes": [
+  "VR (R1)",
+  "VR, GT labels",
+  "VR, lower-bound labels",
+  "F1 excess>2k",
+  "F2 tie tail",
+  "F3 a_I from lower bound, Wmin 1e6",
+  "F4 GEN Wmin 1e5",
+  "VR* = F1+F2+F3+F4",
+  "F1b excess>20k",
+  "VR** = F1b+F3",
+  "VR** on GT labels",
+  "VR* on GT labels"
+ ]
+}

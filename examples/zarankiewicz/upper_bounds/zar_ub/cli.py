@@ -4,9 +4,11 @@
                                      [--baseline] [--force] [--kind K]      build a case table / add the Lean baseline mask
   python -m zar_ub show   M N S T W [--pure] [--all]                        summarize a cached table
   python -m zar_ub gate   M N S T W FILE.lean [--pure]                      run the Lean gate on a candidate
-  python -m zar_ub calibrate [--holdout 12,13,87] [--train ...]             fit the censored-label model (design §6.2)
+  python -m zar_ub calibrate [--holdout 12,13,87] [--train ...]             fit the LEGACY fhat censored label (design §6.2)
+  python -m zar_ub calibrate --model [--holdout 12,13,87]                   report the E24 hardness model (E27; no solver)
   python -m zar_ub deepen M N S T W --cap N [--pure] [--jobs J] [--limit K]  continue the SCHEDULE on censored cases, in place
-  python -m zar_ub relabel M N S T W [--pure] | --all                        refresh censored labels with the current calibration
+  python -m zar_ub relabel M N S T W [--pure] [--jobs J] | --all            refresh censored labels (E27: hardness model;
+                                                                            ZAR_UB_DIFFICULTY=legacy for fhat)
   python -m zar_ub baseline [--all|--suite] [--timeout S]                   Lean baseline masks for every cached suite table
   python -m zar_ub bound  M N S T [--pure]                                  smallest w whose table is fully refuted
   python -m zar_ub certify M N S T W [--pure] [--time 600] [--lean FILE]    LRAT-certify every case not killed by the prune
@@ -153,6 +155,8 @@ def main(argv=None):
         p.add_argument("--train", default=None, help="override TRAIN cells 'm,n,w;...' (default: suite TRAIN)")
         p.add_argument("--st", default="3,3")
         p.add_argument("--no-write", action="store_true")
+        p.add_argument("--model", action="store_true",
+                       help="E27: report the E24 hardness model (leave-one-shape-out; no solver) instead of fitting fhat")
         p.add_argument(
             "--out", default=None, help="calibration JSON path (default experiments/E11_calibration/calibrate_33.json)"
         )
@@ -166,10 +170,14 @@ def main(argv=None):
         p.add_argument("--time", type=float, default=None)
         p.add_argument("--limit", type=int, default=None, help="deepen only the K hardest censored cases")
         p.add_argument("--solver", default="cadical195")
-    p = parser("relabel", help="recompute censored labels with the current calibration (no solving); bumps table_hash")
+        p.add_argument("--survivors", action="store_true",
+                       help="only cases the proved library does not kill (the only ones the reward uses)")
+    p = parser("relabel", help="recompute censored labels (E27: hardness model, re-probes 20k where no stats are stored; "
+                               "ZAR_UB_DIFFICULTY=legacy: fhat, no solving); bumps table_hash")
     if p:
         _add_inst(p, optional=True)
         p.add_argument("--all", action="store_true", help="every cached table")
+        p.add_argument("--jobs", type=int, default=1, help="processes for the model relabel (re-probes 20k)")
     p = parser("baseline", help="Lean baseline masks for cached suite tables (one Lean process per batch)")
     if p:
         p.add_argument("--all", action="store_true", help="every cached table under cache/, not only the suite")
@@ -284,6 +292,11 @@ def main(argv=None):
         if res.kill_mask is not None and tab is not None:
             killed_surv = sum(1 for r, k in zip(tab.records, res.kill_mask) if k and not r.baseline_lean_kill)
             print(f"kills {sum(res.kill_mask)} cases, {killed_surv} of {len(tab.scored_indices())} scored survivors")
+    elif args.cmd == "calibrate" and getattr(args, "model", False):
+        from .difficulty import model_report
+
+        ho = [tuple(int(x) for x in c.split(",")[:2]) for c in (args.holdout or "").split(";") if c.strip()]
+        print(json.dumps(model_report(holdout=ho, write=not args.no_write), indent=1))
     elif args.cmd == "calibrate":
         from .difficulty import calibrate
         from suite import train_instances
@@ -317,7 +330,8 @@ def main(argv=None):
             sys.exit("no cached table; run `table` first")
         print(
             json.dumps(
-                deepen(tab, cap=args.cap, time_limit=args.time, jobs=args.jobs, solver=args.solver, limit=args.limit),
+                deepen(tab, cap=args.cap, time_limit=args.time, jobs=args.jobs, solver=args.solver, limit=args.limit,
+                       only_survivors=getattr(args, "survivors", False)),
                 indent=1,
             )
         )
@@ -327,7 +341,7 @@ def main(argv=None):
 
         if args.all:
             for path in sorted(glob.glob(os.path.join(CACHE_DIR, "case_table_*.json"))):
-                print(json.dumps(relabel(table_from_json(json.load(open(path)), path))))
+                print(json.dumps(relabel(table_from_json(json.load(open(path)), path), jobs=args.jobs)))
         else:
             if args.w is None:
                 sys.exit("relabel: give M N S T W or --all")
@@ -335,7 +349,7 @@ def main(argv=None):
             tab = load_table(inst, use_table=_use_table(args))
             if tab is None:
                 sys.exit("no cached table; run `table` first")
-            print(json.dumps(relabel(tab), indent=1))
+            print(json.dumps(relabel(tab, jobs=args.jobs), indent=1))
     elif args.cmd == "baseline":
         from .casetable import CACHE_DIR, table_from_json
         import glob

@@ -1,0 +1,8 @@
+# Development-stage feature dumps (superseded by features_*.jsonl used in EVALUATION.md); regenerable with the *_*.py scripts here
+progress_features_dev.jsonl
+progress_features_test*.jsonl
+lookahead_features_dev*.jsonl
+lookahead_features_test*.jsonl
+sampling_data/
+# superseded by ground_truth.jsonl
+ground_truth_initial.jsonl

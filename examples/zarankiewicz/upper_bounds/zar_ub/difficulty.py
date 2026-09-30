@@ -6,11 +6,26 @@ SCHEDULE, censored-and-calibrated otherwise.  Conflicts, not seconds, so the
 label is reproducible across machines for a fixed solver build.
 
   label_case(inst, rows, cols, mode)      §6.2 estimator (mode = "exact" | "censored")
-  calibrate(...)                          fit (a, b, g) of  log fhat = a + b log c2000 + g log2_volume
+  model_label(...) / censored_label(...)  the censored-label rule (E27, below)
+  calibrate(...)                          LEGACY: fit (a, b, g) of  log fhat = a + b log c2000 + g log2_volume
                                           on TRAIN, validate on a held-out cell (Spearman rho, log-RMSE)
+  model_report(...)                       held-out report for the E24 hardness model (leave-one-shape-out)
   deepen(...)                             lives in casetable.py (needs the table); the per-case
                                           continuation is `continue_label` below
   CRN sampling of large tables (§6.3)     `make_sample`, `work_estimate` in casetable.py
+
+Censored labels (E27, 2026-09-23).  A case still open at the last conflict cap gets
+    method "model"  (default):  d = min(max(r, d_hat), max(r, CENSOR_CLIP * MODEL_CAP))
+                     d_hat = zar_ub.hardness_model mean prediction (Duan-smeared, for sums) from the
+                     fresh 20k-conflict pysat probe's decisions/restarts + BCP lookahead + static
+                     features; r = conflicts reached (a lower bound); CENSOR_CLIP = 100, so the
+                     ceiling is 2,000,000 conflicts = the deepest exact labels we have (E24).
+    method "legacy" (ZAR_UB_DIFFICULTY=legacy, or no model file, or (s,t) != (3,3), or no 20k probe):
+                     d = min(max(cap, fhat), CENSOR_CLIP_LEGACY * cap), CENSOR_CLIP_LEGACY = 20.
+Why: on the E24 ground truth (2,429 hard cases, 18 cells, leave-one-shape-out) the legacy label has
+within-cell Spearman 0.32 (a constant 400k in 8 of 15 cells) and reward-gain error 0.061; the model has
+0.84 and 0.020 (experiments/E24_difficulty/EVALUATION.md).  The label never goes below the conflicts
+reached, so a deepened case can only move up.
 
 The legacy `Probe` / `probe_case` API is kept for callers of the v1 tables.
 """
@@ -36,8 +51,35 @@ _UB = os.path.dirname(_HERE)
 # (conflict cap, wall-clock limit in seconds); a fresh solver at every cap (§6.2)
 SCHEDULE: List[Tuple[int, float]] = [(2_000, 5.0), (20_000, 30.0), (200_000, 120.0), (2_000_000, 600.0)]
 CENSORED_MAX_CAP = 20_000  # mode="censored" stops after this cap (first pass on TARGET tables)
-CENSOR_CLIP = 20  # a censored label is clipped to [cap, CENSOR_CLIP * cap]
+CENSOR_CLIP_LEGACY = 20  # legacy fhat labels are clipped to [cap, 20 * cap]
+CENSOR_CLIP = 100  # model labels: ceiling CENSOR_CLIP * MODEL_CAP = 2M conflicts (never below the lower bound)
+MODEL_CAP = 20_000  # the hardness model's probe cap (hardness_model.CAP): a fresh pysat run at this budget
 SOLVER = "cadical195"
+
+
+def difficulty_method() -> str:
+    """'model' (default) or 'legacy' (env ZAR_UB_DIFFICULTY=legacy)."""
+    v = os.environ.get("ZAR_UB_DIFFICULTY", "model").strip().lower()
+    return "legacy" if v in ("legacy", "fhat", "old") else "model"
+
+
+_MODEL_CACHE: Dict[str, object] = {}
+
+
+def load_hardness_model():
+    """The E24 hardness model, or None (no JSON file / legacy method)."""
+    if difficulty_method() == "legacy":
+        return None
+    if "m" not in _MODEL_CACHE:
+        try:
+            from . import hardness_model as _hm
+
+            _MODEL_CACHE["m"] = _hm.load()
+        except Exception:  # noqa: BLE001  (numpy / module missing: fall back to legacy)
+            _MODEL_CACHE["m"] = None
+    return _MODEL_CACHE["m"]
+
+
 CALIB_PATH = os.path.join(_UB, "experiments", "E11_calibration", "calibrate_33.json")
 
 
@@ -101,7 +143,77 @@ def fhat(coef: Optional[Tuple[float, float, float]], c2000: int, log2_vol: float
 
 
 def censored_d(cap: int, fh: float) -> float:
-    return float(min(max(cap, fh), CENSOR_CLIP * cap))
+    """LEGACY clip of a calibrated fhat: [cap, 20 * cap]."""
+    return float(min(max(cap, fh), CENSOR_CLIP_LEGACY * cap))
+
+
+def model_clip(reached: float, d_hat: float) -> float:
+    """The E27 clip of a model prediction: never below the conflicts reached (a lower bound), never
+    above CENSOR_CLIP * MODEL_CAP = 2M unless the lower bound itself is higher."""
+    lo = float(max(1.0, reached))
+    return float(min(max(lo, d_hat), max(lo, CENSOR_CLIP * MODEL_CAP)))
+
+
+def _ps20k_ok(ps: Optional[dict]) -> bool:
+    return bool(isinstance(ps, dict) and ps.get("decisions") is not None and ps.get("restarts") is not None
+                and int(ps.get("conflicts", 0) or 0) > 0)
+
+
+def model_label(inst: Instance, rows: Sequence[int], cols: Sequence[int], ps20k: Optional[dict] = None,
+                model=None) -> Optional[dict]:
+    """E24 hardness-model prediction for a case open at >= 20k conflicts.
+
+    ps20k: the fresh 20k pysat cadical195 run's {conflicts, decisions, restarts, propagations} (the
+    table pipeline's own 20k run is that measurement, verified identical to hardness_progress.pysat_run).
+    When absent the probe is re-run (about 24k conflicts, 1 s).  Returns None when the model does not
+    apply (legacy method, no model file, (s,t) != (3,3)); else
+    {"d_hat", "ps20k", "exact" (the re-run probe decided the case: d_hat is then the exact count),
+     "status", "cost_conflicts", "cost_propagations", "cost_seconds"}."""
+    import time as _time
+
+    model = model if model is not None else load_hardness_model()
+    if model is None or (inst.s, inst.t) != (3, 3):
+        return None
+    from . import hardness_model as hm
+
+    t0 = _time.time()
+    if _ps20k_ok(ps20k):
+        d_hat = hm.predict_from_probe(inst, rows, cols, int(ps20k["conflicts"]), int(ps20k["decisions"]),
+                                      int(ps20k["restarts"]), int(ps20k.get("propagations", 0) or 0),
+                                      model=model, mean=True, floor=float(MODEL_CAP))
+        if d_hat is None:
+            return None
+        return {"d_hat": float(d_hat), "ps20k": dict(ps20k), "exact": False, "status": "unknown",
+                "cost_conflicts": 0, "cost_propagations": 0, "cost_seconds": _time.time() - t0}
+    o = hm.predict(inst, rows, cols, model=model, mean=True, floor=float(MODEL_CAP))
+    f = o["features"]
+    ps = {k: int(f.get(f"pr:ps20k_{k}", 0) or 0) for k in ("conflicts", "decisions", "restarts", "propagations")}
+    return {"d_hat": float(o["d_hat"]), "ps20k": ps, "exact": bool(o["exact"]),
+            "status": "unsat" if o["exact"] else "unknown",  # a 20k re-probe cannot find SAT here: see predict()
+            "cost_conflicts": int(o["cost_conflicts"]), "cost_propagations": int(o["cost_propagations"]),
+            "cost_seconds": float(o["cost_seconds"])}
+
+
+def censored_label(inst: Instance, rows: Sequence[int], cols: Sequence[int], reached: int, cap: int,
+                   c2000: int, log2_vol: float, ps20k: Optional[dict] = None,
+                   calib: Optional[Tuple[float, float, float]] = None,
+                   allow_reprobe: bool = False) -> Tuple[float, str, Optional[float], Optional[float], Optional[dict]]:
+    """(d, method, d_model, fhat, ps20k) for a case open after `reached` conflicts at cap `cap`.
+    Uses the hardness model when it applies and a 20k probe is available (or allow_reprobe), else the
+    legacy fhat rule.  A case whose lower bound already reaches the 2M ceiling gets d = reached
+    ("lower_bound") without running anything."""
+    if calib is None:
+        calib = load_calibration(inst.s, inst.t)
+    fh = fhat(calib, c2000, log2_vol)
+    if difficulty_method() == "model" and cap >= MODEL_CAP and load_hardness_model() is not None \
+            and (inst.s, inst.t) == (3, 3):
+        if reached >= CENSOR_CLIP * MODEL_CAP:
+            return float(reached), "lower_bound", None, fh, ps20k
+        if _ps20k_ok(ps20k) or allow_reprobe:
+            ml = model_label(inst, rows, cols, ps20k=ps20k)
+            if ml is not None and not ml["exact"]:
+                return model_clip(reached, ml["d_hat"]), "model", ml["d_hat"], fh, ml["ps20k"]
+    return censored_d(cap, fh), "fhat", None, fh, ps20k
 
 
 # ---------------------------------------------------------------------------
@@ -123,6 +235,9 @@ class Label:
     log2_volume: float
     prop_frac: float
     matrix: Optional[List[List[int]]] = None  # sat witness (only when asked for)
+    ps20k: Optional[dict] = None  # fresh 20k run's {conflicts, decisions, restarts, propagations} (E27)
+    d_method: str = ""  # exact | model | fhat | lower_bound
+    d_model: Optional[float] = None  # hardness-model mean prediction (unclipped), censored labels only
 
     def as_probe(self) -> dict:
         """Legacy-compatible probe dict (v1 keys) plus the v2 label fields."""
@@ -140,6 +255,9 @@ class Label:
             "d": self.d,
             "censored": self.censored,
             "witness": self.witness,
+            "ps20k": self.ps20k,
+            "d_method": self.d_method or ("exact" if not self.censored else "fhat"),
+            "d_model": self.d_model,
         }
 
     @property
@@ -171,8 +289,9 @@ def label_case(
     keep_matrix: bool = False,
 ) -> Label:
     """§6.2 estimator.  mode="exact" runs the full SCHEDULE (2k -> 2M conflicts);
-    mode="censored" stops at 20k.  A case still open at the last cap gets the
-    calibrated, clipped label  d = min(max(cap, fhat), 20*cap)  and censored=True."""
+    mode="censored" stops at 20k.  A case still open at the last cap gets censored=True and the
+    censored label of `censored_label` (E27: the hardness model from the 20k run's statistics,
+    clipped to [conflicts reached, 2M]; legacy fhat clipped to [cap, 20*cap] as the fallback)."""
     if mode not in ("exact", "censored"):
         raise ValueError(f"mode must be 'exact' or 'censored', got {mode!r}")
     cnf = encode_case(inst, rows, cols)
@@ -183,11 +302,15 @@ def label_case(
     last_cap = 0
     last_conf = 0
     secs = 0.0
+    ps20k: Optional[dict] = None
     for cap, tl in _schedule_for(mode, max_cap):
         r = solve_cnf(cnf, inst, solver=solver, conf_budget=cap, time_limit=tl)  # fresh solver each cap
         secs += r.seconds
         c2000 = c2000 if c2000 is not None else r.conflicts
         last_cap, last_conf = cap, r.conflicts
+        if cap == MODEL_CAP and solver == SOLVER:
+            ps20k = {"conflicts": r.conflicts, "decisions": r.decisions, "restarts": r.restarts,
+                     "propagations": r.propagations}
         if r.status == "sat":
             wit = bool(
                 r.matrix is not None
@@ -206,12 +329,17 @@ def label_case(
                 None,
                 wit,
                 matrix=r.matrix if keep_matrix else None,
+                ps20k=ps20k,
+                d_method="exact",
                 **feats,
             )
         if r.status == "unsat":
-            return Label("unsat", float(max(1, r.conflicts)), False, cap, r.conflicts, secs, c2000, None, None, **feats)
-    fh = fhat(calib, c2000 or 0, feats["log2_volume"])
-    return Label("unknown", censored_d(last_cap, fh), True, last_cap, last_conf, secs, c2000 or 0, fh, None, **feats)
+            return Label("unsat", float(max(1, r.conflicts)), False, cap, r.conflicts, secs, c2000, None, None,
+                         ps20k=ps20k, d_method="exact", **feats)
+    d, how, dm, fh, ps20k = censored_label(inst, rows, cols, last_conf, last_cap, c2000 or 0, feats["log2_volume"],
+                                          ps20k=ps20k, calib=calib)
+    return Label("unknown", d, True, last_cap, last_conf, secs, c2000 or 0, fh, None, ps20k=ps20k, d_method=how,
+                 d_model=dm, **feats)
 
 
 def continue_label(
@@ -242,24 +370,36 @@ def continue_label(
         caps = [(max_cap, max(5.0, 600.0 * max_cap / 2_000_000))]
     secs = float(probe.get("seconds", 0.0))
     last_cap, last_conf = done_cap, int(probe.get("conflicts", 0))
+    ps20k = probe.get("ps20k")
     for cap, tl in caps:
         r = solve_cnf(cnf, inst, solver=solver, conf_budget=cap, time_limit=time_limit or tl)
         secs += r.seconds
         last_cap, last_conf = cap, r.conflicts
+        if cap == MODEL_CAP and solver == SOLVER:
+            ps20k = {"conflicts": r.conflicts, "decisions": r.decisions, "restarts": r.restarts,
+                     "propagations": r.propagations}
         if r.status == "sat":
             wit = bool(r.matrix is not None and not has_kst(r.matrix, inst.s, inst.t))
-            return Label("sat", None, False, cap, r.conflicts, secs, c2000, None, wit, **feats)
+            return Label("sat", None, False, cap, r.conflicts, secs, c2000, None, wit, ps20k=ps20k,
+                         d_method="exact", **feats)
         if r.status == "unsat":
-            return Label("unsat", float(max(1, r.conflicts)), False, cap, r.conflicts, secs, c2000, None, None, **feats)
-    fh = fhat(calib, c2000, feats["log2_volume"])
-    return Label("unknown", censored_d(last_cap, fh), True, last_cap, last_conf, secs, c2000, fh, None, **feats)
+            return Label("unsat", float(max(1, r.conflicts)), False, cap, r.conflicts, secs, c2000, None, None,
+                         ps20k=ps20k, d_method="exact", **feats)
+    # still open: the model needs the 20k statistics; re-probe (about 24k conflicts) when the table
+    # predates E27 and did not store them
+    d, how, dm, fh, ps20k = censored_label(inst, rows, cols, last_conf, last_cap, c2000, feats["log2_volume"],
+                                          ps20k=ps20k, calib=calib, allow_reprobe=True)
+    return Label("unknown", d, True, last_cap, last_conf, secs, c2000, fh, None, ps20k=ps20k, d_method=how,
+                 d_model=dm, **feats)
 
 
 def label_from_probe(
     inst: Instance, probe: Optional[dict], calib: Optional[Tuple[float, float, float]] = None
 ) -> Tuple[float, bool]:
     """(d, censored) for a legacy v1 probe dict (no 'd' field): exact conflicts when
-    refuted, calibrated-and-clipped at the probe's cap when unknown, 1.0 for sat/unprobed."""
+    refuted, calibrated-and-clipped at the probe's cap when unknown, 1.0 for sat/unprobed.
+    Runs no solver and no lookahead (it is called while loading a table), so it always uses the
+    legacy fhat rule; `casetable.relabel` upgrades such labels to the model."""
     if not probe:
         return 1.0, False
     if "d" in probe and probe["d"] is not None:
@@ -274,6 +414,49 @@ def label_from_probe(
             calib = load_calibration(inst.s, inst.t)
         return censored_d(cap, fhat(calib, c2000, float(probe.get("log2_volume", 0.0)))), True
     return 1.0, False
+
+
+def relabel_probe(inst: Instance, rows: Sequence[int], cols: Sequence[int], probe: dict,
+                  calib: Optional[Tuple[float, float, float]] = None, allow_reprobe: bool = True) -> dict:
+    """New label fields for ONE censored record under the current method, plus its cost:
+    {"d", "d_method", "d_model", "fhat", "c2000", "ps20k", "cost_conflicts", "cost_propagations",
+     "cost_seconds"}.  The lower bound is the probe's conflicts reached.  Model method: uses the stored
+    20k statistics (`probe["ps20k"]`, lookahead only: ~2k unit-propagation conflicts, 0.7 s) or, for a
+    table that predates E27, re-runs the fresh 20k probe (about 24k conflicts, 1.2 s); a case whose
+    lower bound is already at the 2M ceiling costs nothing.  Legacy method: fhat, no solver."""
+    cap = int(probe.get("budget_cap") or 0)
+    reached = int(probe.get("conflicts") or cap or 1)
+    c2000 = int(probe.get("c2000") or min(int(probe.get("conflicts", cap) or 0), FIRST_CAP))
+    lv = float(probe.get("log2_volume", 0.0) or 0.0)
+    if calib is None:
+        calib = load_calibration(inst.s, inst.t)
+    fh = fhat(calib, c2000, lv)
+    out = {"fhat": fh, "c2000": c2000, "ps20k": probe.get("ps20k"), "d_model": None,
+           "cost_conflicts": 0, "cost_propagations": 0, "cost_seconds": 0.0}
+    if difficulty_method() == "model" and cap >= MODEL_CAP and (inst.s, inst.t) == (3, 3) \
+            and load_hardness_model() is not None:
+        if reached >= CENSOR_CLIP * MODEL_CAP:
+            out.update(d=float(reached), d_method="lower_bound")
+            return out
+        ps = probe.get("ps20k")
+        if _ps20k_ok(ps) or allow_reprobe:
+            ml = model_label(inst, rows, cols, ps20k=ps)
+            if ml is not None:
+                out.update(cost_conflicts=ml["cost_conflicts"], cost_propagations=ml["cost_propagations"],
+                           cost_seconds=ml["cost_seconds"], ps20k=ml["ps20k"])
+                if not ml["exact"]:
+                    out.update(d=model_clip(reached, ml["d_hat"]), d_method="model", d_model=ml["d_hat"])
+                    return out
+                out["reprobe_decided"] = ml["d_hat"]  # never expected: the stored probe said 'open'
+    out.update(d=censored_d(cap, fh), d_method="fhat")
+    return out
+
+
+def _relabel_worker(args):
+    inst_d, idx, rows, cols, probe = args
+    o = relabel_probe(Instance(**inst_d), rows, cols, probe)
+    o["idx"] = idx
+    return o
 
 
 # ---------------------------------------------------------------------------
@@ -471,6 +654,105 @@ def calibrate(
             "holdout_metrics": res["holdout_metrics"],
         }
         json.dump({"formula": res["formula"], "fits": fits}, open(out_path, "w"), indent=1)
+        res["written"] = out_path
+    return res
+
+
+# ---------------------------------------------------------------------------
+# E27: calibrate-style report for the E24 hardness model
+# ---------------------------------------------------------------------------
+E24_DIR = os.path.join(_UB, "experiments", "E24_difficulty")
+MODEL_REPORT_PATH = os.path.join(_UB, "experiments", "E27_integration", "model_report.json")
+
+
+def _e24_hard_rows(model) -> List[dict]:
+    """The exact HARD cases (20k < d <= 2M) of E24's evaluation set with the model's features (cached by
+    experiments/E24_difficulty/eval_collect.py: features_{evalset,progress,lookahead}.jsonl)."""
+    def jl(name):
+        with open(os.path.join(E24_DIR, name)) as fh:
+            return [json.loads(x) for x in fh if x.strip()]
+
+    need = set(model.features)
+    feats: Dict[str, dict] = {}
+    for fname, pre in (("features_progress.jsonl", "pr:"), ("features_lookahead.jsonl", "la:")):
+        for o in jl(fname):
+            if "error" in o:
+                continue
+            f = feats.setdefault(o["key"], {})
+            for k, v in o["features"].items():
+                if pre + k in need and isinstance(v, (int, float)):
+                    f[pre + k] = float(v)
+    rows = []
+    for r in jl("features_evalset.jsonl"):
+        if r.get("regime") != "hard" or r.get("status") == "unknown":
+            continue
+        f = feats.get(r["key"], {})
+        if not need <= set(f):
+            continue
+        rows.append({"cell": r["cell"], "shape": (r["m"], r["n"]), "d": float(r["d"]), "c2000": int(r["c2000"] or 2000),
+                     "log2_volume": float(r["log2_volume"]), "f": f})
+    return rows
+
+
+def _metrics(pred: Sequence[float], rows: Sequence[dict], min_cell: int = 8) -> dict:
+    by: Dict[str, List[int]] = {}
+    for i, r in enumerate(rows):
+        by.setdefault(r["cell"], []).append(i)
+    per = {}
+    for c, ix in sorted(by.items()):
+        if len(ix) >= min_cell:
+            per[c] = spearman([pred[i] for i in ix], [rows[i]["d"] for i in ix])
+    finite = [v for v in per.values() if v == v]
+    return {"n": len(rows), "pooled_rho": spearman(list(pred), [r["d"] for r in rows]),
+            "within_rho_mean": (sum(finite) / len(finite)) if finite else float("nan"),
+            "cells_constant": sum(1 for v in per.values() if v != v),
+            "log_rmse": log_rmse(list(pred), [r["d"] for r in rows]), "per_cell_rho": per}
+
+
+def model_report(holdout: Sequence[Tuple[int, int]] = ((12, 13),), write: bool = True,
+                 out_path: str = MODEL_REPORT_PATH) -> dict:
+    """The `calibrate` report for the E24 hardness model (no solver).  With the model's FIXED features and
+    transforms: (1) refit without the holdout shapes, score the holdout (E11's acceptance cell is (12,13));
+    (2) leave-one-shape-out over every shape.  The legacy label (fhat clipped to [20k, 400k]) is scored on the
+    same cases.  The features were chosen on all shapes (EVALUATION.md's nested selection gives the strictly
+    held-out numbers: within rho 0.837), so (2) is mildly optimistic."""
+    from . import hardness_model as hm
+
+    model = hm.load()
+    if model is None:
+        raise FileNotFoundError(hm.MODEL_PATH)
+    rows = _e24_hard_rows(model)
+    coef = load_calibration(3, 3)
+
+    def legacy(r):
+        return censored_d(MODEL_CAP, fhat(coef, r["c2000"], r["log2_volume"]))
+
+    def fit_pred(train, test):
+        m = hm.fit([r["f"] for r in train], [math.log(r["d"]) for r in train], model.features, model.transforms)
+        return [m.predict_features(r["f"], mean=False, floor=float(MODEL_CAP)) for r in test]
+
+    hold = {tuple(h) for h in holdout}
+    tr = [r for r in rows if r["shape"] not in hold]
+    ho = [r for r in rows if r["shape"] in hold]
+    res = {"model": model.features, "n_hard_exact": len(rows), "holdout": sorted(list(h) for h in hold)}
+    if ho:
+        res["holdout_model"] = _metrics(fit_pred(tr, ho), ho)
+        res["holdout_legacy"] = _metrics([legacy(r) for r in ho], ho)
+    shapes = sorted({r["shape"] for r in rows})
+    pred = [0.0] * len(rows)
+    for sh in shapes:
+        te = [i for i, r in enumerate(rows) if r["shape"] == sh]
+        p = fit_pred([r for r in rows if r["shape"] != sh], [rows[i] for i in te])
+        for i, v in zip(te, p):
+            pred[i] = v
+    res["loso_model"] = _metrics(pred, rows)
+    res["loso_legacy"] = _metrics([legacy(r) for r in rows], rows)
+    res["note"] = ("fixed 6-feature model refitted per fold (features selected on all data); strictly nested "
+                   "numbers are in experiments/E24_difficulty/EVALUATION.md (within 0.837 vs legacy 0.324)")
+    if write:
+        os.makedirs(os.path.dirname(out_path), exist_ok=True)
+        with open(out_path, "w") as fh:
+            json.dump(res, fh, indent=1)
         res["written"] = out_path
     return res
 

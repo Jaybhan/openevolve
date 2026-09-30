@@ -1,0 +1,112 @@
+{
+ "m9_n23_s3_t3_w104": {
+  "survivors": 94,
+  "censored": 92,
+  "W": 36755603.441211164,
+  "W_censored_share": 0.9992650372332151,
+  "distinct_censored_labels": 9,
+  "median": 400000.0,
+  "min": 383016.02589774656,
+  "max": 400000.0,
+  "at_2M": 0
+ },
+ "m12_n18_s3_t3_w109": {
+  "survivors": 1518,
+  "censored": 1474,
+  "W": 590083434.0,
+  "W_censored_share": 0.9991807361939938,
+  "distinct_censored_labels": 1,
+  "median": 400000.0,
+  "min": 400000.0,
+  "max": 400000.0,
+  "at_2M": 0
+ },
+ "m10_n23_s3_t3_w113": {
+  "survivors": 1189,
+  "censored": 1188,
+  "W": 475213006.0,
+  "W_censored_share": 0.9999726312204511,
+  "distinct_censored_labels": 1,
+  "median": 400000.0,
+  "min": 400000.0,
+  "max": 400000.0,
+  "at_2M": 0
+ },
+ "m11_n23_s3_t3_w124": {
+  "survivors": 336,
+  "censored": 336,
+  "W": 134400000.0,
+  "W_censored_share": 1.0,
+  "distinct_censored_labels": 1,
+  "median": 400000.0,
+  "min": 400000.0,
+  "max": 400000.0,
+  "at_2M": 0
+ },
+ "m13_n19_s3_t3_w123": {
+  "survivors": 2648,
+  "censored": 2579,
+  "W": 1032250258.0,
+  "W_censored_share": 0.9993700577985227,
+  "distinct_censored_labels": 1,
+  "median": 400000.0,
+  "min": 400000.0,
+  "max": 400000.0,
+  "at_2M": 0
+ },
+ "m16_n17_s3_t3_w134": {
+  "survivors": 993,
+  "censored": 993,
+  "W": 397200000.0,
+  "W_censored_share": 1.0,
+  "distinct_censored_labels": 1,
+  "median": 400000.0,
+  "min": 400000.0,
+  "max": 400000.0,
+  "at_2M": 0
+ },
+ "m10_n22_s3_t3_w111": {
+  "survivors": 3,
+  "censored": 1,
+  "W": 424114.0,
+  "W_censored_share": 0.9431426456094352,
+  "distinct_censored_labels": 1,
+  "median": 400000.0,
+  "min": 400000.0,
+  "max": 400000.0,
+  "at_2M": 0
+ },
+ "m10_n20_s3_t3_w103_pure": {
+  "survivors": 67,
+  "censored": 67,
+  "W": 3208360.863509748,
+  "W_censored_share": 1.0,
+  "distinct_censored_labels": 2,
+  "median": 40000.0,
+  "min": 40000.0,
+  "max": 304180.43175487395,
+  "at_2M": 0
+ },
+ "m11_n21_s3_t3_w117_pure": {
+  "survivors": 9,
+  "censored": 9,
+  "W": 360000.0,
+  "W_censored_share": 1.0,
+  "distinct_censored_labels": 1,
+  "median": 40000.0,
+  "min": 40000.0,
+  "max": 40000.0,
+  "at_2M": 0
+ },
+ "m10_n19_s3_t3_w99_pure_gt": {
+  "survivors": 165,
+  "censored": 5,
+  "W": 49665067.0,
+  "W_censored_share": 0.2013488273357207,
+  "distinct_censored_labels": 3,
+  "median": 2000000.0,
+  "min": 2000000.0,
+  "max": 2000002.0,
+  "at_2M": 5
+ }
+}

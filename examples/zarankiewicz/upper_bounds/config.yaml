@@ -139,12 +139,17 @@ prompt:
     (hk : kill (profileOf A) = true; hv : Valid P A, so hv.1 : ¬ HasKst P A and hv.2 : P.w ≤ weight A.)
 
     REWARD. Only the Lean-evaluated kill of `candidate` (plus the harness-instantiated schemas from SCHEMA_DATA)
-    earns credit: the difficulty-weighted fraction (SAT solver conflicts) of the cases that SURVIVE the already
-    proved library `counting` (Arguments A and D on both sides, deletion with the waterfilled counting bound)
-    that your prunes kill, on training cells, open target cells, a held-out (s,t) cell, and the hardest decile.
+    earns credit, and only on cases that SURVIVE the already proved library `counting` (Arguments A and D on both
+    sides, deletion with the waterfilled counting bound). A killed case is worth its SAT work ABOVE the first
+    20,000 solver conflicts, so easy cases earn nothing. Score = 0.20 + 0.80 x (0.28 training + 0.21 open targets
+    + 0.07 held-out (s,t) + 0.14 hardest decile + 0.15 DEPTH + 0.15 CLOSURE). Training and target gains are
+    averaged inside shape families (square, wide, very wide) and then over the families, so a rule that works
+    only on wide cells counts as much as one that works only on square cells. DEPTH = your best single cell
+    (share of its work you kill x how much SAT work it holds). CLOSURE pays when you kill EVERY surviving case
+    of a cell holding >= 1e6 conflicts of work: that bound is then proved with zero SAT calls.
     A verified library that kills nothing scores exactly 0.20; no unverified program can exceed 0.19 (partial
     credit for how far the Lean file gets: parses < kills type-check < holes remain < holes filled), and killing a
-    realizable case scores 0. Re-proving or re-listing library prunes earns nothing: the baseline is already PROVED.
+    realizable case scores 0. Re-proving or re-listing baseline prunes earns nothing: the baseline is already PROVED.
 
     WHERE THE ROOM IS. Look at the hardest surviving profiles in the artifacts (per_instance: near-regular rows/cols
     of 6s, 7s and 8s) and find a NEW reason such a profile is empty:
@@ -154,7 +159,8 @@ prompt:
         Σ_{c_j<k} (c_j-s+1)·C(c_j,s-1) + (D-α)·Σ_{c_j≥k} C(c_j,s-1) ≤ (D-α)·c·C(m,s-1) + α·Σ_{c_j<k} C(c_j,s-1)
         (row dual with (t,s,n,m) swapped; check complete partitions only). It closes z(13,17) ≤ 116 and z(13,18) ≤ 121
         with zero SAT calls; it is proved in the library as `argDGH P` (DGH.lean) but not in the scoring baseline,
-        so it earns credit only on wide target cells -- on the square training cells it kills nothing, and the
+        so listing it earns credit where it fires: the wide training cells (it closes (11,21) outright and kills
+        part of (9,16) and (9,18)) and the wide target (10,23). On the square cells it kills nothing, and the
         room there is in arguments that go BEYOND it (per-row rounding P10, general v P9 via `subsetLocalBudget`);
       * cross-side arguments coupling `rows` AND `cols` at once (a heavy row meets r columns, whose sums bound the
         pair counts available to the other rows; two-line deletions bounded by the (m-1, n-1) waterfill);
@@ -169,9 +175,10 @@ prompt:
     proof fails, the exact error and goal are in the lean_errors artifact -- fix them rather than deleting the prune.
 
     ALREADY PROVED (re-adding them earns nothing): deficit, mismatch, rowCap/colCap, Argument A (argA/argAT),
-    Argument D (argD/argDT), deletion vs the waterfilled bound (argDelColWF/argDelRowWF/argWF), the DGH inequality
-    (argDGH) and Argument I with ledgered facts. Trivial arithmetic (w <= m*n, row sums add up) is already in
-    the baseline. Credit exists ONLY for cases the artifacts list as still alive.
+    Argument D (argD/argDT), deletion vs the waterfilled bound (argDelColWF/argDelRowWF/argWF) and Argument I
+    with ledgered facts. (argDGH is proved but NOT in the baseline: listing it once earns its wide-cell credit.)
+    Trivial arithmetic (w <= m*n, row sums add up) is already in the baseline. Credit exists ONLY for cases the
+    artifacts list as still alive; the score_breakdown artifact shows every term.
     SEARCH MODE THAT PAYS TODAY: in the Python part of the EVOLVE block write
         from zar_ub.lemmas import search_certificates
         SCHEMA_DATA = {"farkas": search_certificates(max_seconds=40.0), "residue": [], "prefix": []}
@@ -224,7 +231,8 @@ database:
   migration_interval: 20
 
 evaluator:
-  timeout: 400
+  # E27: suite v3 (wide TRAIN cells + the later targets) gates ~9k library survivors: allow the 480 s gate
+  timeout: 700
   # stage 1 (Python + battery) -> stage 2 (Lean gate, no target term) -> stage 3 (targets);
   # 0.005 lets every sound program reach Lean; 0.15 lets only verified (>= 0.20) programs reach the targets.
   cascade_evaluation: true

@@ -1,0 +1,58 @@
+{
+ "cap": 20000,
+ "coef": {
+  "la:knfl_rand_mean_log_nodes": 0.364104898577117,
+  "la:la1_failed_neg": -0.2401919187782722,
+  "pr:ps20k_decs_per_conf": 0.899762684343961,
+  "pr:ps20k_restarts_per_kconf": -0.3807005347484183,
+  "pr:st_argD_row_mean_rel": -0.15397308349552166,
+  "pr:st_distinct_rows": 0.1614682408534562
+ },
+ "features": [
+  "pr:ps20k_decs_per_conf",
+  "pr:ps20k_restarts_per_kconf",
+  "la:knfl_rand_mean_log_nodes",
+  "pr:st_distinct_rows",
+  "la:la1_failed_neg",
+  "pr:st_argD_row_mean_rel"
+ ],
+ "floor": 20000.0,
+ "intercept": 11.301002003462946,
+ "meta": {
+  "heldout_expected": "see EVALUATION.md: nested LOSO of greedy[free(ST+LA+PS)]",
+  "n_dropped": 0,
+  "n_fit": 2238,
+  "recommended_ceiling": 2000000,
+  "rmse_in_sample": 0.4714394314508058,
+  "selection": "greedy forward, inner leave-one-shape-out log-RMSE, all data",
+  "source": "experiments/E24_difficulty/eval_final.py",
+  "tier": "free(ST+LA+PS)",
+  "trained_on": "2238 exact hard cases (20k < d <= 2M), 18 cells",
+  "use": "censored cases (unsolved by a fresh 20k pysat cadical195 probe); mean=True for sums"
+ },
+ "mu": {
+  "la:knfl_rand_mean_log_nodes": 3.401450625683478,
+  "la:la1_failed_neg": 7.538427167113494,
+  "pr:ps20k_decs_per_conf": 2.1943373865293765,
+  "pr:ps20k_restarts_per_kconf": 3.9812094825112827,
+  "pr:st_argD_row_mean_rel": 0.28196079377379507,
+  "pr:st_distinct_rows": 3.7873100983020556
+ },
+ "sd": {
+  "la:knfl_rand_mean_log_nodes": 0.1547620782958463,
+  "la:la1_failed_neg": 2.7844996777873754,
+  "pr:ps20k_decs_per_conf": 0.3515467214723771,
+  "pr:ps20k_restarts_per_kconf": 0.2017161484497204,
+  "pr:st_argD_row_mean_rel": 0.06022779914395231,
+  "pr:st_distinct_rows": 0.7379534796688771
+ },
+ "smear": 1.1208862304932328,
+ "transforms": {
+  "la:knfl_rand_mean_log_nodes": "log1p",
+  "la:la1_failed_neg": "id",
+  "pr:ps20k_decs_per_conf": "id",
+  "pr:ps20k_restarts_per_kconf": "log1p",
+  "pr:st_argD_row_mean_rel": "id",
+  "pr:st_distinct_rows": "id"
+ }
+}
