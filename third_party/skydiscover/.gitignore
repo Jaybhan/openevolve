@@ -1,0 +1,76 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+# Per-user coding-agent wiring written by `skydiscover init` (skydiscover/synthesize/scripts/install.sh):
+# skill symlinks, role briefs, hooks. Only the Codex plugin marketplace manifest is shared.
+.claude/
+.cursor/
+.agents/*
+!.agents/plugins/
+.agents/plugins/*
+!.agents/plugins/marketplace.json
+.codex/
+.pi/
+
+# OS
+.DS_Store
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Secrets
+.env
+secrets.yaml
+
+# Logs & outputs
+*.log
+*.jsonl
+output*/
+outputs*/
+outputs_*/
+
+
+# Benchmark generated data
+benchmarks/image_gen/sky_festival/sky_festival_output/
+benchmarks/image_gen/sky_festival/sky_festival_paradigm_output_*/
+benchmarks/frontier-cs-eval/Frontier-CS
+benchmarks/ADRS/eplb/expert-load.json
+benchmarks/ADRS/cloudcast/profiles/
+benchmarks/ADRS/cloudcast/examples/
+benchmarks/ADRS/llm_sql/datasets/
+
+# Generated test outputs (re-generate with test_all_benchmarks.sh)
+tests/**/test_outputs_*/
+
+# Evaluation run outputs
+eval_runs/
+
+# Local documentation
+tasks/
+
+# SkySynth runs: the agents' working files. Results go to outputs/ (above); the knowledge base
+# lives under ~/.skydiscover/, outside the repo.
+.skydiscover/
+skydiscover/synthesize/examples/tutorial/play.log
+
+.mypy_cache/
